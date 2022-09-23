@@ -35,6 +35,45 @@ Configurar perfil ===
 	
 	
 Modal Denunciar usuario ===
-	usuario (ja pega pelo o link o nome do usuario)
-	Motivo();
+	usuario(ja pega pelo o link o nome do usuario)
+	Motivo(Tags padrões, tipo(assédio, comunicação abusiva, etc, e a opção OUTRO em que o usuario digita o que aconteceu));
+	BotaoDenunciar();
 	
+
+Perfil ===
+	foto
+	nickName
+	Nome(não completo)
+	descrição
+	seguidores
+	botão de seguir
+	Quantidade de seguidores
+	quantidade de pessoas que ele esta seguindo
+	
+
+Feed de posts 
+	Criar novo post
+		Legenda
+		Marcar pessoas
+		Adicionar foto ou vídeo
+	
+	
+	Post vendo de outro usuario ou do criador na tela do feed
+		nickname
+		Foto usuario
+		Foto OBRIGATORIO OU NAO, A SE PENSAR
+		Legenda do post
+		Curtir, Comentar, Compartilhar(A SE PENSAR), favoritar
+		Quantidade de curtidas
+		Abrir comentários
+	
+	Post vendo do criador no modo editar
+		Foto ou video postada
+		Legenda
+		Mudar legenda
+		Marcar pessoas
+		deletar post
+		
+		
+
+Pensar em questão de patrocinio nos perfis (o que vai ter de excluisividade)
