@@ -1,0 +1,33 @@
+
+Criação de conta 1ª tela ====
+	nome - Verifica na tabela palavrões se não é um palavrão
+	email
+	senha 
+	confirmar senha
+	aniversario - Perguntar se tem certeza, não é possivel mudar!
+	
+
+	2ª Tela
+	nickname - Verifica na tabela palavrões se não é um palavrão
+	descrição
+	banco - Data Now() quando apertar em criar conta
+
+	Esportes praticantes (uma tabela para cada esporte, e a chave primaria dela
+	chama cada usuario pelo id como chave estrangeira)
+ 		-Na tela de criação, o usuario consegue selecionar as tags de esportes 
+
+Login 
+	Email
+	senha
+	esqueceuASenha
+
+	BotãoEntrar - Tabela com registro de login e logout com 
+	coluna de horario que entrou e o ip de onde foi acessado
+
+
+
+Configurar perfil ===
+Mudar foto
+Mudar nickname
+Mudar descrição
+Mudar os esportes praticantes
