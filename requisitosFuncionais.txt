@@ -9,6 +9,7 @@ Criação de conta 1ª tela ====
 
 	2ª Tela
 	nickname - Verifica na tabela palavrões se não é um palavrão
+	Colocar foto
 	descrição
 	banco - Data Now() quando apertar em criar conta
 
@@ -27,7 +28,13 @@ Login
 
 
 Configurar perfil ===
-Mudar foto
-Mudar nickname
-Mudar descrição
-Mudar os esportes praticantes
+	Mudar foto
+	Mudar nickname
+	Mudar descrição
+	Mudar os esportes praticantes
+	
+	
+Modal Denunciar usuario ===
+	usuario (ja pega pelo o link o nome do usuario)
+	Motivo();
+	
