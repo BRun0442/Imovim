@@ -33,6 +33,7 @@ Configurar perfil ===
 	Mudar banner
 	Mudar descrição
 	Mudar os esportes praticantes
+	criar grupo
 	
 	
 Modal Denunciar usuario ===
@@ -47,10 +48,13 @@ Perfil(visto de fora) ===
 	nickName
 	Nome(não completo)
 	descrição
+	seguir
 	seguidores
+	enviar mensagens
 	botão de curtir(talvez reações)
 	Quantidade de seguidores
 	quantidade de pessoas que ele esta seguindo
+	
 	
 
 Feed de posts 
@@ -86,6 +90,11 @@ Feed de posts
 	
 	Post ou anúncio vendo do criador no modo editor
 		Mudar ou excluir o post
+		
+		
+	Grupos
+	
+
 		
 		
 
