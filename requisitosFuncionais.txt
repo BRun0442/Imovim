@@ -30,6 +30,7 @@ Login
 Configurar perfil ===
 	Mudar foto
 	Mudar nickname
+	Mudar banner
 	Mudar descrição
 	Mudar os esportes praticantes
 	
@@ -40,13 +41,14 @@ Modal Denunciar usuario ===
 	BotaoDenunciar();
 	
 
-Perfil ===
-	foto
+Perfil(visto de fora) ===
+	foto de perfil
+	post (se publico)
 	nickName
 	Nome(não completo)
 	descrição
 	seguidores
-	botão de seguir
+	botão de curtir(talvez reações)
 	Quantidade de seguidores
 	quantidade de pessoas que ele esta seguindo
 	
@@ -56,23 +58,34 @@ Feed de posts
 		Legenda
 		Marcar pessoas
 		Adicionar foto ou vídeo
+		Marcar localização
+		Tags
+		data now() de quando foi criado
+	
+	
+	Criar anúncio (PAGO)
+		Legenda
+		Marcar pessoas
+		Adicionar foto ou vídeo
+		Marcar localização
+		Tags
+		data now() de quando foi criado
+		clicar no conteúdo e ser direcionado (Não obrigatório)
 	
 	
 	Post vendo de outro usuario ou do criador na tela do feed
 		nickname
 		Foto usuario
-		Foto OBRIGATORIO OU NAO, A SE PENSAR
+		Foto (caso tenha)
 		Legenda do post
-		Curtir, Comentar, Compartilhar(A SE PENSAR), favoritar
-		Quantidade de curtidas
+		Quando foi postado
+		Reações (talvez), Comentar, Compartilhar(A SE PENSAR), favoritar
+		Quantidade de curtidas, comentario e compartilhamentos
 		Abrir comentários
 	
-	Post vendo do criador no modo editar
-		Foto ou video postada
-		Legenda
-		Mudar legenda
-		Marcar pessoas
-		deletar post
+	
+	Post ou anúncio vendo do criador no modo editor
+		Mudar ou excluir o post
 		
 		
 
