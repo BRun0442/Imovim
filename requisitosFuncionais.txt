@@ -1,5 +1,5 @@
 
-Criação de conta 1ª tela ====
+Criação de conta 1ª tela ===
 	nome - Verifica na tabela palavrões se não é um palavrão
 	email
 	senha 
@@ -17,7 +17,7 @@ Criação de conta 1ª tela ====
 	chama cada usuario pelo id como chave estrangeira)
  		-Na tela de criação, o usuario consegue selecionar as tags de esportes 
 
-Login 
+Login ===
 	Email
 	senha
 	esqueceuASenha
@@ -57,7 +57,7 @@ Perfil(visto de fora) ===
 	
 	
 
-Feed de posts 
+Feed de posts ===
 	Criar novo post
 		Legenda
 		Marcar pessoas
