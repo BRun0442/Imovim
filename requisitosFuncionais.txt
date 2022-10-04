@@ -92,10 +92,20 @@ Feed de posts ===
 		Mudar ou excluir o post
 		
 		
-	Grupos
+	Grupos (Visão do criador do grupo)
+		Editar configurações do grupo
+		Manter membros
+		Manter posts (publicações não somente dele)
+		Manter cargos
+		Manter eventos
+		Feed de posts()
+		
+	Grupos (Visão do membro)
+		Feed de posts()
+		Marcar eventos
+		Convidar membros
+		
+
+		
 	
-
-		
-		
-
 Pensar em questão de patrocinio nos perfis (o que vai ter de excluisividade)
