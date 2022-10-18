@@ -7,13 +7,15 @@ export const styles = StyleSheet.create({
       backgroundColor: '#A512BD',
       paddingTop: "0.5em",
       paddingBottom: "2em",
-      paddingHorizontal: "2.2em"
+      paddingHorizontal: "2.2em",
+      overflowX: "hidden",
     },
     title: {
-      fontSize: 30,
+      fontSize: 35,
       fontWeight: 'bold',
       color: '#FF6709',
       textAlign: "center",
+      fontFamily: "oswald",
     },
     gradient: {
         width: '80vw',
@@ -24,15 +26,18 @@ export const styles = StyleSheet.create({
       height: "90%",
       borderRadius: "15px",
       marginTop: "10px",
-      paddingHorizontal: "2em"
+      paddingHorizontal: "2em",
+      display: "flex",
+      gap: "10%"
     },
     containerTitle: {
       fontSize: 30,
       fontWeight: 'bold',
       color: '#FFF',
       textAlign: "center",
-      marginTop: "1em",
-      marginBottom: "1em"
+      marginBottom: "1em",
+      fontFamily: "oswald",
+      marginTop: "1.5em"
     },
     containerInput: {
       width: "100%",
@@ -71,7 +76,6 @@ export const styles = StyleSheet.create({
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      marginTop: "2.5em"
     },
     text1: {
       color: "#FFF",
@@ -89,5 +93,19 @@ export const styles = StyleSheet.create({
       marginLeft: "0.5em",
       color: "#FFF",
       marginTop: "0.2em"
+    },
+    basketImg: {
+      height: "7em",
+      width: "7em",
+      position: "absolute",
+      top: "15%",
+      left: "82%"
+    },
+    footImg: {
+      height: "8em",
+      width: "7em",
+      position: "absolute",
+      top: "67%",
+      right: "85%"
     }
   });
