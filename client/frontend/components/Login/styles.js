@@ -10,6 +10,22 @@ export const styles = StyleSheet.create({
       paddingHorizontal: "2.2em",
       overflowX: "hidden",
     },
+
+    basketImg: {
+      height: "7em",
+      width: "7em",
+      position: "absolute",
+      top: "15%",
+      left: "82%"
+    },
+    footImg: {
+      height: "8em",
+      width: "7em",
+      position: "absolute",
+      top: "67%",
+      right: "85%"
+    },
+
     title: {
       fontSize: 35,
       fontWeight: 'bold',
@@ -94,18 +110,5 @@ export const styles = StyleSheet.create({
       color: "#FFF",
       marginTop: "0.2em"
     },
-    basketImg: {
-      height: "7em",
-      width: "7em",
-      position: "absolute",
-      top: "15%",
-      left: "82%"
-    },
-    footImg: {
-      height: "8em",
-      width: "7em",
-      position: "absolute",
-      top: "67%",
-      right: "85%"
-    }
+
   });

@@ -6,7 +6,8 @@ import Cadastro from './components/Cadastro/Cadastro';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Login />
+      {/* <Login /> */}
+      <Cadastro />
       <StatusBar style="auto" />
     </View>
   );
