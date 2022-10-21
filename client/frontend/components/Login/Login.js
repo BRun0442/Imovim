@@ -1,8 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { styles } from './styles'
+import { auth } from '../../firebase/config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-export default function Login() {
+export default function Login({ navigation }) {
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
+
+  const Logar = () => {
+    console.log(email, senha)
+    signInWithEmailAndPassword(auth, email, senha)  // loga o usuario no firebase e armazena suas info
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -23,18 +40,26 @@ export default function Login() {
           <Text style={styles.containerTitle}>Login</Text>
 
           <View style={styles.containerInput}>
-            <TextInput placeholder='Email' style={styles.input} />
-            <TextInput placeholder='Senha' style={[styles.input, styles.senha]} />
+            <TextInput 
+              onChangeText={(email) => setEmail(email)} 
+              placeholder='Email' 
+              style={styles.input} />
+
+            <TextInput 
+              secureTextEntry={true}
+              onChangeText={(senha) => setSenha(senha)} 
+              placeholder='Senha' 
+              style={[styles.input, styles.senha]} />
           </View>
           <Text style={styles.forgotPass}>Esqueci minha senha</Text>
         </View>
 
         <View style={styles.containerBottom}>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Entrar</Text>
+            <Text onPress={Logar} style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
           <Text style={styles.text1}>Não possui cadastro?</Text>
-          <Text style={styles.text2}>Cadastre-se aqui</Text>
+          <Text onPress={() => navigation.navigate("Cadastro")} style={styles.text2}>Cadastre-se aqui</Text>
         </View>
       </View>
       <StatusBar style="auto" />
