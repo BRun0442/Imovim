@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, View, Text } from 'react-native'
+import { Button, View, Text, StatusBar } from 'react-native'
 
 function Landing({ navigation }) {
   return (
@@ -14,6 +14,7 @@ function Landing({ navigation }) {
             onPress={() => navigation.navigate("Login")}
         />
         <Text>Boas Vindas!</Text>
+        <StatusBar />
     </View>
   )
 }

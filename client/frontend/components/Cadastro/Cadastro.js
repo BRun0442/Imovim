@@ -44,8 +44,8 @@ export default function Cadastro({ navigation }) {
         <Text style={styles.containerTitle}>Cadastro</Text>
 
         <View style={styles.containerInput}>
-          <TextInput placeholder='Nome' style={styles.input} ></TextInput>
-          <TextInput onChangeText={(email) => setEmail(email)} placeholder='Email' style={styles.input} ></TextInput>
+          <TextInput placeholderTextColor="#fff" placeholder='Nome' style={styles.input} ></TextInput>
+          <TextInput placeholderTextColor="#fff" onChangeText={(email) => setEmail(email)} placeholder='Email' style={[styles.input, {marginTop: 20, marginBottom: 20}]} ></TextInput>
         </View>
 
 
@@ -53,22 +53,24 @@ export default function Cadastro({ navigation }) {
 
         <View style={styles.containerDate}>
 
-          <TextInput style={styles.inputDate} placeholder='dd'></TextInput>
-          <TextInput style={styles.inputDate} placeholder='mm'></TextInput>
-          <TextInput style={styles.inputDate} placeholder='aaaa'></TextInput>
+          <TextInput placeholderTextColor="#fff" style={styles.inputDate} placeholder='dd'></TextInput>
+          <TextInput placeholderTextColor="#fff" style={styles.inputDate} placeholder='mm'></TextInput>
+          <TextInput placeholderTextColor="#fff" style={styles.inputDate} placeholder='aaaa'></TextInput>
 
         </View>
 
         <View style={styles.containerInput}>
-          <TextInput 
+          <TextInput
+            placeholderTextColor="#fff" 
             secureTextEntry={true} 
             onChangeText={(senha) => setSenha(senha)} 
-            style={styles.input} 
+            style={[styles.input, {marginTop: 25}]} 
             placeholder='Senha' />
-          <TextInput 
+          <TextInput
+            placeholderTextColor="#fff" 
             secureTextEntry={true} 
             onChangeText={(confirmarSenha) => setConfirmarSenha(confirmarSenha)} 
-            style={styles.input} placeholder='Repetir senha' />
+            style={[styles.input, {marginTop: 25}]} placeholder='Repetir senha' />
         </View>
 
         <View style={styles.containerBottom}>

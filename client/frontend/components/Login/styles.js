@@ -1,114 +1,127 @@
 import { StyleSheet } from "react-native";
+import { Dimensions } from 'react-native'
+let ScreenHeight = Dimensions.get("window").height; // altura da tela
+let ScreenWidth = Dimensions.get("window").width; // largura da tela
+
+const height = ScreenHeight/100 // altura em porcentagem
+const width = ScreenWidth/100 // largura em porcentagem
+
+// "androidNavigationBar": {
+//   "visible": "immersive"
+// },
 
 export const styles = StyleSheet.create({
     container: {
-      height: '100vh',
-      width: '100vw',
+      height: ScreenHeight + 20*height,
+      width: ScreenWidth,
       backgroundColor: '#A512BD',
-      paddingTop: "0.5em",
-      paddingBottom: "2em",
-      paddingHorizontal: "2.2em",
+      paddingTop: 3,
+      paddingBottom: 12,
+      paddingHorizontal: 35,
       overflowX: "hidden",
     },
 
     basketImg: {
-      height: "7em",
-      width: "7em",
+      height: 140,
+      width: 140,
       position: "absolute",
-      top: "15%",
-      left: "82%"
+      top: 20 * height,
+      left: 85 * width
     },
     footImg: {
-      height: "8em",
-      width: "7em",
+      height: 160,
+      width: 160,
       position: "absolute",
-      top: "67%",
-      right: "85%"
+      top: 80 * height, // 80%
+      right: 83 * width // 83%
     },
 
     title: {
+      marginTop: 50,
       fontSize: 35,
       fontWeight: 'bold',
       color: '#FF6709',
       textAlign: "center",
-      fontFamily: "oswald",
     },
     gradient: {
-        width: '80vw',
-        height: '80vh',
+        width: 80,
+        height: 80,
     },
     containerLogin: {  
       backgroundColor: "rgba(0,0,0,0.3)",
-      height: "90%",
-      borderRadius: "15px",
-      marginTop: "10px",
-      paddingHorizontal: "2em",
+      height: 90 * height,
+      borderRadius: 25,
+      marginTop: 10,
+      paddingHorizontal: 25,
       display: "flex",
-      gap: "10%"
+      gap: 100,
     },
     containerTitle: {
       fontSize: 30,
       fontWeight: 'bold',
       color: '#FFF',
       textAlign: "center",
-      marginBottom: "1em",
-      fontFamily: "oswald",
-      marginTop: "1.5em"
+      marginBottom: 50,
+      marginTop: 50
     },
     containerInput: {
-      width: "100%",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      gap: 20
     },
     input: {
-      color: "#fff",
-      borderBottomWidth: "2px",
+      width: '100%',
+      borderBottomWidth: 2,
       borderBottomColor: "#FFF",
-      width: "100%",
       marginLeft: "auto",
       marginRight: "auto",
-      fontSize: "1em",
-      paddingBottom: "0.7em",
-      paddingLeft: "0.5em"
+      fontSize: 20,
+      color: "#fff",
+      paddingBottom: 6,
+      paddingLeft: 3,
     },
     senha: {
-      marginTop: "2em"
+      marginTop: 50
     },
     button: {
       backgroundColor: "#FF6709",
-      width: "6.5em",
-      paddingVertical: "0.6em",
+      display: "flex",
+      justifyContent: "center",
+      width: 150,
+      height: 50,
+      paddingVertical: 3,
       textAlign: "center",
-      borderRadius: "20px",
+      borderRadius: 20,
     },
     buttonText: {
       color: "#FFF",
       fontWeight: "bold",
       textAlign: "center",
-      fontSize: "17px"
+      fontSize: 17
     },
     containerBottom: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      marginTop: '30%'
     },
     text1: {
       color: "#FFF",
       fontWeight: "bold",
-      fontSize: "14px",
-      marginTop: "0.8em",
-      marginBottom: "0.3em"
+      fontSize: 15,
+      marginTop: 12,
+      marginBottom: 5
     },
     text2: {
       color: "#FF6709",
       fontWeight: "bold",
-      fontSize: "16px",
+      fontSize: 17,
     },
     forgotPass: {
-      marginLeft: "0.5em",
+      marginLeft: 3,
       color: "#FFF",
-      marginTop: "0.2em"
+      marginTop: 3
     },
 
   });

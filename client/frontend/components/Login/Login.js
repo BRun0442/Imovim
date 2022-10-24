@@ -43,12 +43,14 @@ export default function Login({ navigation }) {
             <TextInput 
               onChangeText={(email) => setEmail(email)} 
               placeholder='Email' 
+              placeholderTextColor="#fff"
               style={styles.input} />
 
             <TextInput 
               secureTextEntry={true}
               onChangeText={(senha) => setSenha(senha)} 
               placeholder='Senha' 
+              placeholderTextColor="#fff"
               style={[styles.input, styles.senha]} />
           </View>
           <Text style={styles.forgotPass}>Esqueci minha senha</Text>
@@ -62,7 +64,7 @@ export default function Login({ navigation }) {
           <Text onPress={() => navigation.navigate("Cadastro")} style={styles.text2}>Cadastre-se aqui</Text>
         </View>
       </View>
-      <StatusBar style="auto" />
+      <StatusBar />
     </View>
   );
 }

@@ -1,115 +1,127 @@
 import { StyleSheet } from "react-native";
+import { Dimensions } from 'react-native'
+let ScreenHeight = Dimensions.get("window").height; // altura da tela
+let ScreenWidth = Dimensions.get("window").width; // largura da tela
+
+const height = ScreenHeight/100 // altura em porcentagem
+const width = ScreenWidth/100 // largura em porcentagem
 
 export const styles = StyleSheet.create({
   container: {
-    height: '130vh',
-    width: '100vw',
-    backgroundColor: '#A512BD',
-    paddingTop: "0.5em",
-    paddingBottom: "2em",
-    paddingHorizontal: "2.2em",
-    overflowX: "hidden",
+    height: ScreenHeight + 20*height,
+      width: ScreenWidth,
+      backgroundColor: '#A512BD',
+      paddingTop: 3,
+      paddingBottom: 12,
+      paddingHorizontal: 35,
+      overflowX: "hidden",
   },
 
   basketImg: {
-    height: "7em",
-    width: "7em",
+    height: 140,
+    width: 140,
     position: "absolute",
-    top: "15%",
-    left: "82%"
+    top: 20 * height,
+    left: 85 * width
   },
   footImg: {
-    height: "8em",
-    width: "7em",
+    height: 160,
+    width: 160,
     position: "absolute",
-    top: "67%",
-    right: "85%"
+    top: 80 * height, // 80%
+    right: 83 * width // 83%
   },
 
   title: {
-    fontSize: 35,
-    fontWeight: 'bold',
-    color: '#FF6709',
-    textAlign: "center",
-    fontFamily: "oswald",
+    marginTop: 50,
+      fontSize: 35,
+      fontWeight: 'bold',
+      color: '#FF6709',
+      textAlign: "center",
   },
 
   containerCadastro: {
     backgroundColor: "rgba(0,0,0,0.3)",
-    height: "90%",
-    borderRadius: "15px",
-    marginTop: "10px",
-    paddingHorizontal: "2em",
-    display: "flex",
-    gap: "30px"
+      height: 90 * height,
+      borderRadius: 25,
+      marginTop: 10,
+      paddingHorizontal: 25,
+      display: "flex",
+      gap: 100,
   },
   containerTitle: {
     fontSize: 30,
     fontWeight: 'bold',
     color: '#FFF',
     textAlign: "center",
-    fontFamily: "oswald",
-    marginTop: "1.5em"
+    marginTop: 30,
+    marginBottom: 30
   },
   containerInput: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: "2em"
+    gap: 120
   },
   input: {
     color: "#fff",
-    borderBottomWidth: "2px",
+    borderBottomWidth: 2,
     borderBottomColor: "#FFF",
     width: "100%",
     marginLeft: "auto",
     marginRight: "auto",
-    fontSize: "1em",
-    paddingBottom: "0.7em",
-    paddingLeft: "0.5em"
+    fontSize: 20,
+    paddingBottom: 6,
+    paddingLeft: 3
   },
 
   containerDate: {
+    marginTop: 8,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    gap: "15px"
+    gap: 15
   },
 
   inputDate: {
     color: "#fff",
-    borderBottomWidth: "2px",
+    borderBottomWidth: 2,
     borderBottomColor: "#FFF",
     width: "25%",
-    fontSize: "1em",
-    paddingBottom: "0.7em",
-    paddingLeft: "0.5em",
+    fontSize: 18,
+    paddingBottom: 6,
+    paddingLeft: 3,
     textAlign: "center"
   },
 
   titleDate: {
-    fontSize: 20,
+    marginTop: 8,
+    marginBottom: 8,
+    marginLeft: 5,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#FFF',
-    textAlign: "center",
-    fontFamily: "oswald",
   },
 
   button: {
     backgroundColor: "#FF6709",
-    width: "6.5em",
-    paddingVertical: "0.6em",
+    width: 150,
+    height: 50,
+    display: "flex",
+    justifyContent: "center",
+    paddingVertical: 4,
     textAlign: "center",
-    borderRadius: "20px",
+    borderRadius: 20,
   },
   buttonText: {
     color: "#FFF",
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: "17px"
+    fontSize: 17
   },
   containerBottom: {
+    marginTop: "20%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -117,14 +129,14 @@ export const styles = StyleSheet.create({
   text1: {
     color: "#FFF",
     fontWeight: "bold",
-    fontSize: "14px",
-    marginTop: "0.8em",
-    marginBottom: "0.3em"
+    fontSize: 15,
+    marginTop: 6,
+    marginBottom: 3
   },
   text2: {
     color: "#FF6709",
     fontWeight: "bold",
-    fontSize: "16px",
+    fontSize: 17,
   }
 
 });
