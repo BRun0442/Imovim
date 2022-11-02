@@ -12,7 +12,7 @@ const width = ScreenWidth/100 // largura em porcentagem
 
 export const styles = StyleSheet.create({
     container: {
-      height: ScreenHeight + 20*height,
+      height: ScreenHeight + 20 * height,
       width: ScreenWidth,
       backgroundColor: '#A512BD',
       paddingTop: 3,

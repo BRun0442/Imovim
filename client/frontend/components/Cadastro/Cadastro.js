@@ -48,7 +48,6 @@ export default function Cadastro({ navigation }) {
           <TextInput placeholderTextColor="#fff" onChangeText={(email) => setEmail(email)} placeholder='Email' style={[styles.input, {marginTop: 20, marginBottom: 20}]} ></TextInput>
         </View>
 
-
         <Text style={styles.titleDate}>Data de Nascimento</Text>
 
         <View style={styles.containerDate}>
