@@ -6,6 +6,7 @@ import { styles } from './styles'
 function Landing({ navigation }) {
   return (
     <View style={styles.container}>
+      
       <View style={styles.contentTitle}>
         <Text style={styles.title}>Imovim</Text>
       </View>

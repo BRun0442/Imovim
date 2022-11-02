@@ -41,7 +41,9 @@ export const styles = StyleSheet.create({
     },
 
     buttons:{
-        paddingStart: 100,
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: 'center',
     },  
 
     typeButton1: {
@@ -51,7 +53,8 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 20
+        marginTop: 20,
+        zIndex: 1,
     },
 
     typeButton2:{
@@ -62,7 +65,8 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 20,
         borderColor: '#FF6709',
-        borderWidth: 3
+        borderWidth: 3,
+        zIndex: 1,
     },
 
     textButton: {
