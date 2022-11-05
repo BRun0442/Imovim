@@ -35,6 +35,12 @@ function Feed() {
           </View>
         </View>
 
+        <Button
+
+          title='Sair'
+          onPress={() => signOut(auth)}
+        />
+
       </View>
       <FlatList
         ListHeaderComponent={
@@ -115,10 +121,11 @@ function Feed() {
           </View>
         )}
       />
-      <Button
+      {/* <Button
+
         title='Sair'
         onPress={() => signOut(auth)}
-      />
+      /> */}
       <StatusBar />
     </View>
   )

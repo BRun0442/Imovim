@@ -61,8 +61,8 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: '#FFF',
       textAlign: "center",
-      marginBottom: 50,
-      marginTop: 50
+      marginBottom: 60,
+      marginTop: 70
     },
     containerInput: {
       display: "flex",

@@ -5,22 +5,27 @@ import { styles } from './styles'
 import { auth } from '../../firebase/config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
+import { FontAwesome5 } from '@expo/vector-icons';
+
+import { invert } from 'react-native-color-matrix-image-filters'
+
 export default function Cadastro({ navigation }) {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const [confirmarSenha, setConfirmarSenha] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
 
   const cadastrar = () => {
-    if (senha === confirmarSenha & senha.length > 6){
+    if (senha === confirmarSenha & senha.length > 6) {
       createUserWithEmailAndPassword(auth, email, senha)  // cadastra o usuario no firebase
-      .then((result) => {
-        console.log(result)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+        .then((result) => {
+          console.log(result)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
-    else{
+    else {
       console.log(senha, confirmarSenha)  // caso as senhas sejam diferentes ou menor q 6 caracteres
     }
   }
@@ -45,7 +50,7 @@ export default function Cadastro({ navigation }) {
 
         <View style={styles.containerInput}>
           <TextInput placeholderTextColor="#fff" placeholder='Nome' style={styles.input} ></TextInput>
-          <TextInput placeholderTextColor="#fff" onChangeText={(email) => setEmail(email)} placeholder='Email' style={[styles.input, {marginTop: 20, marginBottom: 20}]} ></TextInput>
+          <TextInput placeholderTextColor="#fff" onChangeText={(email) => setEmail(email)} placeholder='Email' style={[styles.input, { marginTop: 20, marginBottom: 20 }]} ></TextInput>
         </View>
 
         <Text style={styles.titleDate}>Data de Nascimento</Text>
@@ -59,17 +64,37 @@ export default function Cadastro({ navigation }) {
         </View>
 
         <View style={styles.containerInput}>
-          <TextInput
-            placeholderTextColor="#fff" 
-            secureTextEntry={true} 
-            onChangeText={(senha) => setSenha(senha)} 
-            style={[styles.input, {marginTop: 25}]} 
-            placeholder='Senha' />
-          <TextInput
-            placeholderTextColor="#fff" 
-            secureTextEntry={true} 
-            onChangeText={(confirmarSenha) => setConfirmarSenha(confirmarSenha)} 
-            style={[styles.input, {marginTop: 25}]} placeholder='Repetir senha' />
+          <View style={[{width: "100%"}]}>
+            <TextInput
+              placeholderTextColor="#fff"
+              secureTextEntry={showPassword}
+              onChangeText={(senha) => setSenha(senha)}
+              style={[styles.input, { marginTop: 25 }]}
+              placeholder='Senha'
+            />
+
+
+            <TouchableOpacity onPress={() => {setShowPassword(!showPassword)}}>
+              <Image
+                source={require("../../assets/sleepy-eyes.png")}
+                style={[{position : 'absolute', right: 0, top: -20}]}
+              >
+              </Image>
+            </TouchableOpacity>
+
+            {/* <FontAwesome5 matrix={invert()} onPress={() => {setShowPassword(!showPassword)}} style={[{position : 'absolute', right: 0, top: 25, }]} name="meh-rolling-eyes" size={24} color="black" /> */}
+          </View>
+
+          <View style={[{width: "100%"}]}>
+            <TextInput
+              placeholderTextColor="#fff"
+              secureTextEntry={showPassword}
+              onChangeText={(confirmarSenha) => setConfirmarSenha(confirmarSenha)}
+              style={[styles.input, { marginTop: 25 }]} placeholder='Repetir senha'
+            />
+
+            <FontAwesome5 onPress={() => {setShowPassword(!showPassword)}} style={[{position : 'absolute', right: 0, top: 25}]} name="meh-rolling-eyes" size={24} color="black" />
+          </View>
         </View>
 
         <View style={styles.containerBottom}>

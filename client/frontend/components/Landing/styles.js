@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
 
     contentSubTitle: {
         paddingTop: 25,
-        paddingBottom: 20,
+        paddingBottom: 50,
         paddingStart: 20,
         paddingEnd: 20
     },
@@ -41,29 +41,29 @@ export const styles = StyleSheet.create({
     },
 
     buttons:{
-        display: "flex",
-        justifyContent: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
         alignItems: 'center',
     },  
 
     typeButton1: {
+        width: '50%',
+        height: '18%',
         backgroundColor: '#FF6709',
-        width: 250,
-        height: 60,
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 20,
         zIndex: 1,
+        marginBottom: 20
     },
 
     typeButton2:{
-        width: 250,
-        height: 60,
+        width: '50%',
+        height: '18%',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 20,
         borderColor: '#FF6709',
         borderWidth: 3,
         zIndex: 1,
@@ -81,5 +81,4 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -45
     }
-
 })
