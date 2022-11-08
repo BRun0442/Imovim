@@ -14,7 +14,7 @@ import { FontAwesome } from '@expo/vector-icons';
 // comment
 // share
 
-function Feed() {
+function Feed({ navigation }) {
   const img = 'https://i0.wp.com/jornal.usp.br/wp-content/uploads/2020/10/20201027_00_corinthians_torcida.jpg?w=1200&ssl=1'
   const posts = [
     { name: 'Luis Felipe', profileImg: img, created_at: 'hh/mm. quinta 28 de out', caption: 'Futebol é realmente uma paixão de outras vidas, Mais uma vitoria pra conta no jogo hoje', comments: 3, likes: 10, postImg: img },
@@ -104,7 +104,7 @@ function Feed() {
                   <View style={styles.InteractionNumber}>
                     <Text style={styles.number}>13</Text>
                   </View>
-                  <TouchableOpacity>
+                  <TouchableOpacity style={{zIndex: 1}} onPress={() => navigation.navigate("Comments")}>
                     <Ionicons name="chatbubble" size={24} color="white" />
                   </TouchableOpacity>
                 </View>

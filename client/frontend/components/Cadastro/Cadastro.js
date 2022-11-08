@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 
-import { invert } from 'react-native-color-matrix-image-filters'
+// import { invert } from 'react-native-color-matrix-image-filters'
 
 export default function Cadastro({ navigation }) {
   const [email, setEmail] = useState("")

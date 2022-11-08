@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import Main from './components/Main/Main';
 import LoginScreen from './components/Login/Login';
 import CadastroScreen from './components/Cadastro/Cadastro';
 import LandingScreen from './components/Landing/Landing';
 import FeedScreen from './components/Feed/Feed';
+import ComentariosScreen from './components/Comentarios/Comentarios';
 // Navegação de Telas
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -66,7 +68,7 @@ export class App extends Component {
     return(
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Feed'>
-          <Stack.Screen name='Feed' component={FeedScreen} options={{headerShown: false}} />
+          <Stack.Screen name='Main' component={Main} options={{headerShown: false}} />
         </Stack.Navigator>
       </NavigationContainer>
     )
