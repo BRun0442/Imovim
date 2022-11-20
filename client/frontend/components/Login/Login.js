@@ -2,23 +2,21 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { styles } from './styles'
-import { auth } from '../../firebase/config';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
 
-  const Logar = () => {
-    console.log(email, senha)
-    signInWithEmailAndPassword(auth, email, senha)  // loga o usuario no firebase e armazena suas info
-    .then((result) => {
-      console.log(result)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-  }
+  // const Logar = () => {
+  //   console.log(email, senha)
+  //   signInWithEmailAndPassword(auth, email, senha)  // loga o usuario no firebase e armazena suas info
+  //   .then((result) => {
+  //     console.log(result)
+  //   })
+  //   .catch((err) => {
+  //       console.log(err)
+  //   })
+  // }
 
   return (
     <View style={styles.container}>

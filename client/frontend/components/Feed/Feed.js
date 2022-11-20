@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Button, StatusBar, TouchableOpacity, FlatList, Image } from 'react-native'
-import { auth } from '../../firebase/config'
-import { signOut } from 'firebase/auth'
+// import { auth } from '../../firebase/config'
+// import { signOut } from 'firebase/auth'
 import { styles } from './styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 

@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { styles } from './styles'
-import { auth } from '../../firebase/config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+// import { auth } from '../../firebase/config';
+// import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 
@@ -15,20 +15,20 @@ export default function Cadastro({ navigation }) {
   const [confirmarSenha, setConfirmarSenha] = useState("")
   const [showPassword, setShowPassword] = useState(false)
 
-  const cadastrar = () => {
-    if (senha === confirmarSenha & senha.length > 6) {
-      createUserWithEmailAndPassword(auth, email, senha)  // cadastra o usuario no firebase
-        .then((result) => {
-          console.log(result)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
-    else {
-      console.log(senha, confirmarSenha)  // caso as senhas sejam diferentes ou menor q 6 caracteres
-    }
-  }
+  // const cadastrar = () => {
+  //   if (senha === confirmarSenha & senha.length > 6) {
+  //     createUserWithEmailAndPassword(auth, email, senha)  // cadastra o usuario no firebase
+  //       .then((result) => {
+  //         console.log(result)
+  //       })
+  //       .catch((err) => {
+  //         console.log(err)
+  //       })
+  //   }
+  //   else {
+  //     console.log(senha, confirmarSenha)  // caso as senhas sejam diferentes ou menor q 6 caracteres
+  //   }
+  // }
 
   return (
     <View style={styles.container}>
