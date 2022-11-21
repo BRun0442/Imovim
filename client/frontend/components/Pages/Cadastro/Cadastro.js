@@ -7,17 +7,24 @@ import Input from '../../Input/Input';
 function Cadastro()
 {
   return(
-    <View style={styles.Container}>
-      <Text style={styles.Title}>IMOVIM</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>IMOVIM</Text>
+      <View style={styles.inputContainer}>
+        <Text style={styles.subTitle}>Cadastro</Text>
+        <Input width="90%" inputText="Nome"/>
+        <Input width="90%" inputText="Email"/>
 
-      <View style={styles.registrationContainer}>
-        <Text style={styles.Registration}>Cadastro</Text>
-        <Input inputText="Nome"/>
-        <Input inputText="Email"/>
-        <Input inputText="Senha"/>
-        <Input inputText="Repetir Senha"/>
+        <View style={styles.textBox}>
+          <Text style={styles.defaultText}>Data de nascimento</Text>
+
+          <Input width="150%" inputText="dd" textAlign="center"/>
+          <Input width="150%" inputText="mm" textAlign="center"/>
+          <Input width="150%" inputText="aaaa" textAlign="center"/>
+        </View>
+
+        <Input width="90%" inputText="Senha"/>
+        <Input width="90%" inputText="Repetir Senha"/>
       </View>
-      
     </View>
   );
 }

@@ -7,14 +7,19 @@ const height = ScreenHeight/100 // altura em porcentagem
 const width = ScreenWidth/100 // largura em porcentagem
 
 export const styles = StyleSheet.create({
-    Input: {
-      color: "white",
-      borderBottomWidth: 2,
-      borderBottomColor: "white",
+    button: {
+      backgroundColor: "#FF6709",
+      width: '60%',
+      height: 70,
+      marginVertical: 10,
+      borderRadius: 20,
+      justifyContent: "center",
+      alignSelf: 'center',
+    },
+
+    buttonText: {
+      textAlign: 'center',
+      color: 'white',
       fontSize: 20,
-      fontWeight: '300',
-      paddingBottom: 6,
-      // paddingLeft: 3,
-      marginTop: 25,
     }
 });

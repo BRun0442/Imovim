@@ -7,21 +7,24 @@ const height = ScreenHeight/100 // altura em porcentagem
 const width = ScreenWidth/100 // largura em porcentagem
 
 export const styles = StyleSheet.create({
-    Container: {
+    container: {
       backgroundColor: '#A512BD',
       height: ScreenHeight + 20*height,
     },
 
-    Title: {
+    title: {
       fontSize: 40,
       textAlign: 'center',
-      fontWeight: 30,
+
+      // Essa linha crasha o sistema!
+      // fontWeight: 30,
+
       marginTop: 70,
       marginBottom: 30,
       color: '#FF6709',
     },
 
-    Registration: {
+    subTitle: {
       fontSize: 40,
       textAlign: 'center',
       marginBottom: 30,
@@ -29,7 +32,7 @@ export const styles = StyleSheet.create({
       color: 'white',
     },
 
-    registrationContainer: {
+    inputContainer: {
       backgroundColor: "rgba(0,0,0,0.3)",
       height: 80 * height,
       width: 90 * width,
@@ -39,7 +42,21 @@ export const styles = StyleSheet.create({
       marginHorizontal: 20,
     },  
 
-    Input: {
-      marginTop: 250,
-    }
+    textBox: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      width: '85%',
+      marginLeft: 40,
+      marginVertical: 20,
+    },
+
+    defaultText: {
+      color: 'white',
+      fontSize: 18,
+      marginTop: 20,
+      width: '100%',
+      // marginLeft: 40,
+    },
 });
