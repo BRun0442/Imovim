@@ -8,7 +8,7 @@ function Input(props)
   return(
     <View>
       <TextInput 
-        style={styles.Input} 
+        style={styles.input} 
         placeholder={props.inputText} 
         placeholderTextColor="#DCDCDC" 
         width={props.width}

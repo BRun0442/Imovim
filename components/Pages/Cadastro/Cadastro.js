@@ -2,28 +2,93 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
+import { defaultStyle } from '../../../assets/style/style';
 import Input from '../../Input/Input';
+import Button from '../../Button/Button';
+import basketBall from '../../../assets/bolaBasquete.png';
+import soccerBall from '../../../assets/bolaFutebol.png';
 
 function Cadastro()
 {
   return(
-    <View style={styles.container}>
-      <Text style={styles.title}>IMOVIN</Text>
-      <View style={styles.inputContainer}>
-        <Text style={styles.subTitle}>Cadastro</Text>
+    <View style={defaultStyle.container}>
+      <Text style={defaultStyle.title}>IMOVIN</Text>
+
+      <Image 
+        style={{
+          position: 'absolute',
+          right: -75,
+          top: 170,
+          resizeMode: 'stretch',
+          width: 150,
+          height: 150,
+        }} 
+        source={basketBall}
+      />
+
+      <Image 
+        style={{
+          position: 'absolute',
+          resizeMode: 'stretch',
+          bottom: 200,
+          left: -80,
+          width: 150,
+          height: 150,
+        }} 
+        source={soccerBall}
+      />
+
+      <View style={defaultStyle.inputContainer}>
+        <Text style={defaultStyle.subTitle}>Cadastro</Text>
         <Input width="90%" inputText="Nome"/>
         <Input width="90%" inputText="Email"/>
 
         <View style={styles.textBox}>
-          <Text style={styles.defaultText}>Data de nascimento</Text>
+          <Text style={defaultStyle.defaultText}>Data de nascimento</Text>
 
-          <Input width="150%" inputText="dd" textAlign="center"/>
-          <Input width="150%" inputText="mm" textAlign="center"/>
-          <Input width="150%" inputText="aaaa" textAlign="center"/>
+          <TextInput 
+            style={styles.input} 
+            placeholder='dd'
+            placeholderTextColor="#DCDCDC" 
+            textAlign="center"
+          >
+          </TextInput>
+
+          <TextInput 
+            style={styles.input} 
+            placeholder='mm'
+            placeholderTextColor="#DCDCDC" 
+            textAlign="center"
+          >
+          </TextInput>
+
+          <TextInput 
+            style={styles.input} 
+            placeholder='aaaa'
+            placeholderTextColor="#DCDCDC" 
+            textAlign="center"
+          >
+          </TextInput>
+
         </View>
 
         <Input width="90%" inputText="Senha"/>
         <Input width="90%" inputText="Repetir Senha"/>
+
+        <View style={styles.buttonContainer}>
+          <Button buttonText="Entrar"/>
+          <Text style={defaultStyle.mediumText}>Já possui um cadastro?</Text>
+          <Text 
+            style={{
+              color: '#FF6709',
+              fontSize: 16,
+              fontWeight: '700',
+              textAlign: 'center',
+              paddingTop: 5,
+            }}>
+              Acesse por aqui
+          </Text>
+        </View>
       </View>
     </View>
   );

@@ -1,35 +1,46 @@
 import { StyleSheet } from "react-native";
-import { Dimensions } from 'react-native'
+import { Dimensions } from "react-native";
 let ScreenHeight = Dimensions.get("window").height; // altura da tela
 let ScreenWidth = Dimensions.get("window").width; // largura da tela
 
-const height = ScreenHeight/100 // altura em porcentagem
-const width = ScreenWidth/100 // largura em porcentagem
+const height = ScreenHeight / 100; // altura em porcentagem
+const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#A512BD',
-      height: ScreenHeight + 20*height,
-    },
+  container: {
+    backgroundColor: "#A512BD",
+    height: ScreenHeight + 20 * height,
+  },
 
-    title: {
-      color: '#FF6709',
-      fontSize: 60,
-      textAlign: 'center',
-      marginVertical: '15%',
-      fontWeight: '700',
-    },
+  title: {
+    color: "#FF6709",
+    fontSize: 60,
+    textAlign: "center",
+    marginVertical: "15%",
+    fontWeight: "700",
+  },
 
-    text: {
-      color: 'white',
-      fontSize: 30,
-      textAlign: 'center',
-      marginBottom: '5%',
-    },
+  text: {
+    color: "white",
+    fontSize: 30,
+    textAlign: "center",
+    marginBottom: "5%",
+  },
 
-    acessContainer: {
-      height: '150%',
-      alignContent: 'space-around',
-      marginTop: '10%',
-    },
+  acessContainer: {
+    height: "150%",
+    alignContent: "space-around",
+    marginTop: "10%",
+  },
+
+  transparentButton: {
+    color: "white",
+    borderBottomWidth: 2,
+    borderBottomColor: "white",
+    fontSize: 20,
+    fontWeight: '400',
+    // paddingLeft: 3,
+    marginTop: 30,
+    alignSelf: 'center',
+  },
 });
