@@ -34,13 +34,16 @@ export const styles = StyleSheet.create({
   },
 
   transparentButton: {
-    color: "white",
+    borderRadius: 20,
     borderBottomWidth: 2,
-    borderBottomColor: "white",
-    fontSize: 20,
-    fontWeight: '400',
-    // paddingLeft: 3,
-    marginTop: 30,
+    borderColor: "#FF6709",
+    borderWidth: 3,
+    marginTop: 15,
+  
+    minWidth: 150,
+    height: 50,
+    
+    justifyContent: "center",
     alignSelf: 'center',
   },
 });

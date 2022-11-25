@@ -16,7 +16,6 @@ function Home()
         <Button buttonText="Login"/>
 
         <TouchableOpacity style={styles.transparentButton}>
-          
           <Text 
             style={{
               textAlign: 'center',
@@ -25,8 +24,8 @@ function Home()
             }}>
               Cadastrar-se
           </Text>
-
         </TouchableOpacity>
+        
       </View>
     </View>
   );

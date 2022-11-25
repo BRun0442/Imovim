@@ -15,26 +15,12 @@ function Cadastro()
       <Text style={defaultStyle.title}>IMOVIN</Text>
 
       <Image 
-        style={{
-          position: 'absolute',
-          right: -75,
-          top: 170,
-          resizeMode: 'stretch',
-          width: 150,
-          height: 150,
-        }} 
+        style={defaultStyle.basketBall} 
         source={basketBall}
       />
 
       <Image 
-        style={{
-          position: 'absolute',
-          resizeMode: 'stretch',
-          bottom: 200,
-          left: -80,
-          width: 150,
-          height: 150,
-        }} 
+        style={defaultStyle.soccerBall} 
         source={soccerBall}
       />
 
