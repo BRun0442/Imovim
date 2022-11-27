@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     postContainer: {
       alignSelf: 'center',
       marginBottom: '10%',
+      width: 350,
     },
 
     postProfile: {
@@ -17,13 +18,13 @@ export const styles = StyleSheet.create({
       flexWrap: 'wrap',
       justifyContent: 'center',
       marginBottom: '3%',
-      // flexDirection: 'row',
     },
 
     postImage: {
-      height: 200,
-      width: 350,
-      resizeMode: 'stretch',
+      height: '100%',
+
+      // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
+      resizeMode: 'contain',
     },
 
     postDescription: {
@@ -32,14 +33,22 @@ export const styles = StyleSheet.create({
     },
     
     postInteraction: {
-      // flexDirection: 'row',
+      width: 250,
+      flexWrap: 'wrap',
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignSelf: 'center',
+      marginTop: 5,
       // maxWidth: 
     },
-
+    
     postInteractionImage: {
       height: 40,
       width: 40,
       backgroundColor: '#A512BD',
+      borderRadius: 20,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
     profileImage: {
@@ -59,5 +68,18 @@ export const styles = StyleSheet.create({
     profileContainer: {
       flexDirection: 'column',
       marginLeft: '2%',
+    },
+
+    interactionQuantity: {
+      position: 'absolute',
+      color: 'black',
+      fontWeight: '400',
+      top: 25,
+      left: -5,
+      backgroundColor: '#DCDCDC',
+      borderRadius: 10,
+      minHeight: 20,
+      minWidth: 20,
+      textAlign: 'center',
     },
 });

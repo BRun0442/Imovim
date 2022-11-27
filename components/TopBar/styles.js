@@ -19,11 +19,14 @@ export const styles = StyleSheet.create({
   containerProfile: {
     backgroundColor: '#A512BD',
     width: '100%',
-    height: '45%',
+    height: '40%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     paddingRight: '5%',
     paddingBottom: '3%',
+
+    // Verificar se faz efeito
+    position: 'relative', 
   },
 
   containerExit: {
@@ -49,17 +52,24 @@ export const styles = StyleSheet.create({
 
   logo: {
     position: 'absolute',
-    left: '50%',
-    // marginLeft: 'auto',
+
+    // Alinha verticalmente
+    justifyContent: 'center',
+
+    //Alinha horizontalmente
+    alignSelf: 'center',
+    
     fontSize: 50,
     color: '#FF6709',
+    zIndex: 1,
   },
 
   photoContainer: {
     flexWrap: 'wrap',
-    height: 60,
+    height: 55,
     width: 200,
     padding: 5,
+    paddingHorizontal: 25,
     borderRadius: 30,
     backgroundColor: '#FF6709',
     justifyContent: 'center',
@@ -70,6 +80,6 @@ export const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#FF6709',
+    padding: 2,
   },
 });
