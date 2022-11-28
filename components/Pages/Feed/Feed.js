@@ -24,9 +24,10 @@ function Cadastro() {
         profileName="Osmar Bruno"
         postDate="hh/dd. quinta 24 de nov"
         postDescription="Esse gol foi realmente muito lindo! Pra cima deles Brasil!!"
-        likeQuantity="35"
-        comentQuantity="12"
-        shareQuantity="1"
+        
+        likeQuantity="47"
+        comentQuantity="10"
+        shareQuantity="2"
       />,
 
       <Post
@@ -42,15 +43,15 @@ function Cadastro() {
       />,
 
       <Post
-        profileImage="https://randomuser.me/api/portraits/thumb/men/56.jpg"
-        postImage="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltd54aebe14a809e43/637fda5a74b88f10ab93e298/brasil_servia_richarlison_2_gol_2.jpg"
-        profileName="Luis"
+        profileImage="https://randomuser.me/api/portraits/thumb/men/58.jpg"
+        postImage="https://s2.glbimg.com/1lNiV0mzv_Wu9kR0FVbtaYK1r_U=/0x0:1920x1280/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/i/q/2205H7QFijgNb68ksNMA/d6faf388aaa34a9b051af1ca4c412613c76fbd3cw.jpg"
+        profileName="Tiago"
         postDate="hh/dd. quinta 24 de nov"
-        postDescription="Gol merecido, muito bonita a foto"
+        postDescription="Eles deveria ter recebido vermelho!"
 
-        likeQuantity="35"
-        comentQuantity="12"
-        shareQuantity="1"
+        likeQuantity="3"
+        comentQuantity="22"
+        shareQuantity="4"
       />,
 
       <Post
@@ -60,9 +61,9 @@ function Cadastro() {
         postDate="hh/dd. quinta 24 de nov"
         postDescription="Esse cara joga demais!!!"
         
-        likeQuantity="35"
-        comentQuantity="12"
-        shareQuantity="1"
+        likeQuantity="21"
+        comentQuantity="15"
+        shareQuantity="0"
       />
   ]
   );
