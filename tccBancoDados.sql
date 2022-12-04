@@ -4,13 +4,19 @@ use tccBancodeDados;
 
 create table post(
 	id_post int primary key auto_increment,
-    	legenda varchar(100),
+    	descricao varchar(500),
     	data_postagem datetime default now() not null,
-    	-- tags_esportes (chave estrangeira)
+    	marcar_pessoas varchar(100),
+	linkImagem varchar(2048),
+	
+	quantidadeLikes int not null,
+    	quantidadeComentarios int not null,
+    	quantidadeCompartilhamento int not null
+	
+	
+	-- tags_esportes (chave estrangeira)
     	-- conteudo do post (imagem, video etc)
     	-- localizacao
-    	marcar_pessoas varchar(100)
-    
 );
 
 create table usuario(
@@ -22,14 +28,10 @@ create table usuario(
     	aniversario date not null,
     	data_criacao datetime default now() not null,
     	descricao varchar(1000),
-    	tipo_usuario enum('admin', 'user'),
+    	tipo_usuario enum('admin', 'user')
 	
     	-- nacionalidade varchar(30) default 'brasileiro'
     	-- relação com a tabela esportes
-	
-    	quantidadeLikes int not null,
-    	quantidadeComentarios int not null,
-    	quantidadeCompartilhamento int not null
 );
 
 
