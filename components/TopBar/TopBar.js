@@ -12,20 +12,24 @@ import { styles } from "./styles";
 import { defaultStyle } from "../../assets/style/style";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Header from '../Header/Header'
 
 function TopBar(props) {
   return (
-    <View style={styles.header}>
-      <View style={styles.containerProfile}>
+    <View style={styles.container}>
+      <Header />
+
+
+      {/* <View style={styles.containerProfile}>
         <Text style={styles.logo}>II</Text>
         <ProfileImage profileImage={props.profileImage} />
-      </View>
+      </View> */}
 
-      <View style={styles.containerExit}>
+      {/* <View style={styles.containerExit}>
         <TouchableOpacity>
           <Text style={styles.smallText}>Sair</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
 
       <View style={styles.photoContainer}>
         <TouchableOpacity styles={styles.button}>

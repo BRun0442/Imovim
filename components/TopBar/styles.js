@@ -7,7 +7,7 @@ const height = ScreenHeight / 100; // altura em porcentagem
 const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
-  header: {
+  container: {
     height: 250,
   },
 
