@@ -158,13 +158,5 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     color: '#A6A6A6'
   },
-
-  line: {
-    width: '100%',
-    height: 1,
-    backgroundColor: '#FF1493',
-    marginBottom: 15
-  }
-
 }
 )

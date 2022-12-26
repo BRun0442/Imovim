@@ -14,23 +14,10 @@ import ProfileImage from "../ProfileImage/ProfileImage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Header from '../Header/Header'
 
-function TopBar(props) {
+function TopBar() {
   return (
     <View style={styles.container}>
       <Header />
-
-
-      {/* <View style={styles.containerProfile}>
-        <Text style={styles.logo}>II</Text>
-        <ProfileImage profileImage={props.profileImage} />
-      </View> */}
-
-      {/* <View style={styles.containerExit}>
-        <TouchableOpacity>
-          <Text style={styles.smallText}>Sair</Text>
-        </TouchableOpacity>
-      </View> */}
-
       <View style={styles.photoContainer}>
         <TouchableOpacity styles={styles.button}>
           <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />

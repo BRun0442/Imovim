@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-
+    
     paddingLeft: '50%',
     paddingRight: '2%',
     backgroundColor: '#A512BD',

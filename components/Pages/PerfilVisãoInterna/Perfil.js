@@ -8,7 +8,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import Header from '../../Header/Header'
 import Post from '../../Post/Post';
-import Button from '../../Button/Button';
+import Line from '../../Line/Line'
 import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
@@ -58,7 +58,7 @@ export default function PerfilVisãoInterna() {
 
             </View>
 
-            <View style={styles.line}></View>
+            <Line />
 
             <View style={styles.posts}>
                 <Text style={styles.alert}>Não há nenhuma publicação aqui</Text>

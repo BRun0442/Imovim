@@ -8,10 +8,10 @@ import Comentarios from './components/Pages/Comentarios/Comentarios.js';
 import PerfilVisãoExterna from './components/Pages/PerfilVisãoExterna/Perfil.js'
 import PerfilVisãoInterna from './components/Pages/PerfilVisãoInterna/Perfil.js';
 import CriarPost from './components/Pages/CriarPost/CriarPost'
+import MarcarEventos from './components/Pages/MarcarEventos/MarcarEventos.js';
 
-function App()
-{
-  return(
+function App() {
+  return (
     <View>
       {/* <Comentarios 
         likeQuantity="44" 
@@ -19,8 +19,18 @@ function App()
         shareQuantity="442"
       /> */}
 
-      <CriarPost/>
-      
+      {/* <CriarPost
+        profileImage="https://randomuser.me/api/portraits/men/25.jpg"
+        coment="O treino de perna ontem foi tenso..."
+        profileName="Jose Wilson"
+      /> */}
+
+      <MarcarEventos
+        profileImage="https://randomuser.me/api/portraits/men/63.jpg"
+        coment="O treino de perna ontem foi tenso..."
+        profileName="Jose Wilson"
+      />
+
     </View>
   )
 }
