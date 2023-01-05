@@ -8,7 +8,7 @@ import Button from '../../Button/Button.js';
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { AuthContext } from '../../../contexts/auth';
-import validateData from '../../../services/loginAPI';
+import validateData from '../../../services/login';
 
 
 function Login()
