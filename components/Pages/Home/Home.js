@@ -4,7 +4,8 @@ import { styles } from './styles';
 import { defaultStyle } from '../../../assets/style/style';
 import Button from '../../Button/Button.js';
 
-function Home()
+// function Home({navigation})
+function Home({navigation})
 {
   return(
     <View style={defaultStyle.container}>
@@ -13,9 +14,9 @@ function Home()
       <Text style={styles.text}>Faça parte da rede que te movimenta</Text>
 
       <View style={styles.acessContainer}>
-        <Button buttonText="Login"/>
+        <Button buttonText="Login" pressFunction={() => {navigation.navigate('Login')}}/>
 
-        <TouchableOpacity style={styles.transparentButton}>
+        <TouchableOpacity style={styles.transparentButton} onPress={() => {navigation.navigate('Cadastro')}}>
           <Text 
             style={{
               textAlign: 'center',

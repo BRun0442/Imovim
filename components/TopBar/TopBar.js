@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
   StyleSheet,
   Text,
@@ -12,8 +12,12 @@ import { styles } from "./styles";
 import { defaultStyle } from "../../assets/style/style";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { logout } from "../../services/loginAPI";
+import { AuthContext } from "../../contexts/auth";
 
 function TopBar(props) {
+  const { setLogin } = useContext(AuthContext);
+
   return (
     <View style={styles.header}>
       <View style={styles.containerProfile}>
@@ -22,7 +26,7 @@ function TopBar(props) {
       </View>
 
       <View style={styles.containerExit}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {logout(setLogin)}}>
           <Text style={styles.smallText}>Sair</Text>
         </TouchableOpacity>
       </View>

@@ -18,17 +18,26 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.etecEmbu.Imovim",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000"
-      },
-      "package": "com.luisfelipe2104.frontend"
+      "package": "com.etecEmbu.Imovim",
+      "versionCode": 1
     },
-    "web": {
-      "favicon": "./assets/bolaBasquete.png"
+    "package": "com.luisfelipe2104.frontend",
+    "extra": {
+      "eas": {
+        "projectId": "3a60ea50-055b-443c-aabf-08cfe0161639"
+      }
+    }
+  },
+  "web": {
+    "favicon": "./assets/bolaBasquete.png"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "3a60ea50-055b-443c-aabf-08cfe0161639"
     }
   }
 }

@@ -13,6 +13,7 @@ function Input(props)
         placeholderTextColor="#DCDCDC" 
         width={props.width}
         textAlign={props.textAlign}
+        onChangeText={props.getInputValue}
       >
       </TextInput>
     </View>
