@@ -7,6 +7,7 @@ import Login from './components/Pages/Login/Login';
 import Cadastro from './components/Pages/Cadastro/Cadastro';
 import Feed from './components/Pages/Feed/Feed';
 import Comentarios from './components/Pages/Comentarios/Comentarios';
+import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
 
 const { Screen, Navigator} = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ function Routes()
         <Screen name="Home" component={Home} />
         <Screen name="Login" component={Login} />
         <Screen name="Cadastro" component={Cadastro}/>
+        <Screen name="CadastroContinuacao" component={CadastroContinuacao}/>
     </Navigator>
   )
 
@@ -37,7 +39,7 @@ function Routes()
 
   //Verifica se o usuário está logado
   function loginRequire() {
-    console.log(login);
+    console.log("Usuário logado: ", login);
 
     if(login == true)
     {
