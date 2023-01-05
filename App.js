@@ -1,21 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { StyleSheet, Text, View } from 'react-native';
-import Cadastro from './components/Pages/Cadastro/Cadastro.js';
-import Login from './components/Pages/Login/Login.js';
-import Home from './components/Pages/Home/Home.js';
-import Feed from './components/Pages/Feed/Feed.js';
-import Comentarios from './components/Pages/Comentarios/Comentarios.js';
+import AuthProvider from './contexts/auth';
+import CreateUserProvider from './contexts/createUser';
+import Routes from './routes';
 
 function App()
 {
   return(
-    <View>
-      <Comentarios 
-        likeQuantity="44" 
-        comentQuantity="2"
-        shareQuantity="442"
-      />
-    </View>
+    <NavigationContainer>
+      <CreateUserProvider>
+        <AuthProvider>
+          <Routes/>
+        </AuthProvider>
+      </CreateUserProvider>
+      
+    </NavigationContainer>
   )
 }
 

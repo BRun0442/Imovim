@@ -31,6 +31,11 @@ export const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    marginTop: '10%',
+    marginTop: '20%',
+  },
+
+  phoneContainer: {
+    flex: 1,
+    flexWrap: 'wrap',
   },
 });
