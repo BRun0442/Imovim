@@ -1,19 +1,31 @@
 import api from './api';
 
-function CreateUser(nickname, email, password, birthday)
+function CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber)
 {
+  console.log({
+    nickname: nickname,
+    email: email,
+    password: password,
+    passwordConfirm: passwordConfirm,
+    birthday: birthday,
+    phoneNumber: phoneNumber
+  })
   api.post('/user/create-user', 
   {
     nickname: nickname,
     email: email,
     password: password,
-    birthday: birthday
+    passwordConfirm: passwordConfirm,
+    birthday: birthday,
+    phoneNumber: phoneNumber
   })
   .then(response => {
-    alert(response.data.msg);
+    console.log(response.data)
+    alert(JSON.stringify(response.data.msg))
   })
   .catch(error => {
-    alert(error.response.data.msg);
+    console.log(error)
+    alert(JSON.stringify(error.response.data.msg))
   })   
 }
 
