@@ -12,7 +12,7 @@ import { styles } from "./styles";
 import { defaultStyle } from "../../assets/style/style";
 import ProfileImage from "../ProfileImage/ProfileImage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { logout } from "../../services/loginAPI";
+import { logout } from "../../services/login";
 import { AuthContext } from "../../contexts/auth";
 
 function TopBar(props) {
