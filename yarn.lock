@@ -4653,6 +4653,14 @@ expo-pwa@0.0.123:
     commander "2.20.0"
     update-check "1.5.3"
 
+expo-sensors@~11.4.0:
+  version "11.4.0"
+  resolved "https://registry.yarnpkg.com/expo-sensors/-/expo-sensors-11.4.0.tgz#9794df759d0b946ec5d5b551b0036c63aada18af"
+  integrity sha512-49en5PJLjphYClHdhanqTu8zj4cpX4Mc/TJQjamonJAqWm2EA1Hg8TVh3XN3J3TFnmZaG8AwWbQG4R8wXmjOmg==
+  dependencies:
+    "@expo/config-plugins" "~5.0.0"
+    invariant "^2.2.4"
+
 expo-status-bar@~1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.4.0.tgz"
