@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {
   StyleSheet,
   Text,
@@ -13,8 +13,21 @@ import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
 import TopBar from "../../TopBar/TopBar";
 import Post from "../../Post/Post.js";
+import PedometerText from "../../Pedometer/Pedometer";
+import { HealthData } from "../../../contexts/healthData";
+
 
 function Cadastro() {
+  // const {stepsQuantity, availability} = useContext(HealthData);
+  const [steps, setSteps] = useState();
+
+  // useEffect(() => {
+  //   <PedometerText/>
+  //   console.log(stepsQuantity);
+  //   console.log(availability);
+  //   // setSteps(PedometerText);
+  //   // console.log(steps)
+  // })
 
   const [posts, setPosts] = useState(
     [
@@ -23,12 +36,14 @@ function Cadastro() {
         postImage="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltd54aebe14a809e43/637fda5a74b88f10ab93e298/brasil_servia_richarlison_2_gol_2.jpg"
         profileName="Osmar Bruno"
         postDate="hh/dd. quinta 24 de nov"
-        postDescription="Esse gol foi realmente muito lindo! Pra cima deles Brasil!!"
+        postDescription="Nada"
         
         likeQuantity="47"
         comentQuantity="10"
         shareQuantity="2"
       />,
+
+      <PedometerText/>,
 
       <Post
         profileImage="https://randomuser.me/api/portraits/thumb/women/55.jpg"
@@ -82,6 +97,8 @@ function Cadastro() {
           profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
           postImage="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltd54aebe14a809e43/637fda5a74b88f10ab93e298/brasil_servia_richarlison_2_gol_2.jpg"
         />
+        
+        <PedometerText/>
 
         {posts}
       </View>
