@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 35,
     padding: 15,
+    
   },
 
   comentProfile: {

@@ -1,5 +1,12 @@
 import { StyleSheet } from "react-native";
 
+import { Dimensions } from "react-native";
+let ScreenHeight = Dimensions.get("window").height; // altura da tela
+let ScreenWidth = Dimensions.get("window").width; // largura da tela
+
+const height = ScreenHeight / 100; // altura em porcentagem
+const width = ScreenWidth / 100; // largura em porcentagem
+
 export const styles = StyleSheet.create({
 
   container: {
@@ -19,16 +26,17 @@ export const styles = StyleSheet.create({
     alignContent: 'center',
     alignSelf: 'center',
     marginTop: '5%',
-    marginBottom: '5%'
+    marginBottom: '5%',
   },
 
   buttons: {
-    marginBottom: '20%'
+    marginBottom: '5%',
+    height: 200
   },
 
   button: {
     width: 400,
-    height: 50,
+    height: 45,
     marginVertical: 10,
     borderRadius: 20,
     justifyContent: 'flex-start',
@@ -50,7 +58,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: '10%',
     width: 350,
-    height: 'fit-content'
+    height: 300
   },
 
   postProfile: {
@@ -61,14 +69,15 @@ export const styles = StyleSheet.create({
   },
 
   postImage: {
-    height: '100%',
-
-    // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
+    height: 200,
+    width: 200,
     resizeMode: 'contain',
+    // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
   },
 
   profileName: {
     fontWeight: '500',
+    marginLeft: 12
   },
 
   postDate: {

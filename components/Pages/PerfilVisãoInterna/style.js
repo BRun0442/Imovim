@@ -1,5 +1,12 @@
 import { StyleSheet } from "react-native";
 
+import { Dimensions } from "react-native";
+let ScreenHeight = Dimensions.get("window").height; // altura da tela
+let ScreenWidth = Dimensions.get("window").width; // largura da tela
+
+const height = ScreenHeight / 100; // altura em porcentagem
+const width = ScreenWidth / 100; // largura em porcentagem
+
 export const styles = StyleSheet.create({
 
   container: {
@@ -55,14 +62,15 @@ export const styles = StyleSheet.create({
     marginTop: 5
   },
 
-  infos:{
+  infos: {
     display: "flex",
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    margin: 10,
-    paddingStart: 20,
-    paddingEnd: 20,
+    marginTop: 5,
+    marginBottom: 10,
+    paddingStart: 25,
+    paddingEnd: 25,
   },
 
   data: {
@@ -101,7 +109,7 @@ export const styles = StyleSheet.create({
 
   border: {
     width: '100%',
-    height: '2%',
+    height: 2,
     borderRadius: 10,
     backgroundColor: '#A512BD',
     marginTop: 10
@@ -120,10 +128,10 @@ export const styles = StyleSheet.create({
     display: 'flex',
     textAlign: 'center',
     backgroundColor: '#A6A6A6',
-    width: 'fit-content',
+    width: 260,
     height: 30,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 14,
     borderRadius: 10,
     padding: 5,
     color: '#fff'

@@ -1,10 +1,12 @@
-import { StyleSheet } from "react-native";
-import { Dimensions } from "react-native";
+import { StyleSheet, StatusBar, Dimensions } from "react-native";
 let ScreenHeight = Dimensions.get("window").height; // altura da tela
 let ScreenWidth = Dimensions.get("window").width; // largura da tela
 
 const height = ScreenHeight / 100; // altura em porcentagem
 const width = ScreenWidth / 100; // largura em porcentagem
+
+const statusBarHeight = StatusBar.currentHeight
+  ? StatusBar.currentHeight + 20 : 60
 
 export const styles = StyleSheet.create({ 
 
@@ -16,12 +18,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 35,
+    paddingTop: statusBarHeight,
   },
 
   likeAndComents: {
     flexDirection: 'row',
     width: '45%',
     justifyContent: 'space-around',
+    flex: 1
   },
 
   button: {
@@ -38,6 +42,6 @@ export const styles = StyleSheet.create({
 
   comentsContainer: {
     backgroundColor: '#ededed',
-    height: '100%',
+    height: 1500,
   },
 });

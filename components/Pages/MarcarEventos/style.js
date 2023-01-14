@@ -1,5 +1,12 @@
 import { StyleSheet } from 'react-native'
 
+import { Dimensions } from "react-native";
+let ScreenHeight = Dimensions.get("window").height; // altura da tela
+let ScreenWidth = Dimensions.get("window").width; // largura da tela
+
+const height = ScreenHeight / 100; // altura em porcentagem
+const width = ScreenWidth / 100; // largura em porcentagem
+
 export const styles = StyleSheet.create({
 
     container: {
@@ -37,49 +44,54 @@ export const styles = StyleSheet.create({
 
     postContainer: {
         alignSelf: 'center',
-        marginBottom: '3%',
-        width: 350,
-        height: 'fit-content'
+        width: '90%',
+        height: 50,
+        marginBottom: '2%',
+        
     },
 
     postProfile: {
-        height: 48,
+        height: 50,
         flexWrap: 'wrap',
         justifyContent: 'center',
-        marginBottom: '3%',
     },
 
     postImage: {
-        height: '100%',
+        height: 1000,
         // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
         resizeMode: 'contain',
     },
 
     profileName: {
         fontWeight: '500',
-    },
-
+        marginLeft: 8 
+    }, 
+    
     postDate: {
         fontWeight: '300',
     },
 
     
     form: {
-        paddingStart: 40,
-        paddingEnd: 50
+        paddingStart: 20,
+        paddingEnd: 20,
+        height: 525
     },
 
     inputType1: {
         width: '100%',
-        height: 30,
+        height: 40,
         borderColor: '#A512BD',
         borderWidth: 2,
-        borderRadius: 5
+        borderRadius: 5,
+        textAlign: 'left',
+        paddingStart: 10,
+        paddingEnd: 10
     },
 
     inputType2: {
         width: '25%',
-        height: 30,
+        height: 40,
         borderColor: '#A512BD',
         borderWidth: 2,
         borderRadius: 5,
@@ -92,7 +104,9 @@ export const styles = StyleSheet.create({
         borderColor: '#A512BD',
         borderWidth: 2,
         borderRadius: 5,
-        textAlign: 'center',
+        textAlign: 'left',
+        paddingStart: 10,
+        paddingEnd: 10
     },
 
     inputTypeFalse: {

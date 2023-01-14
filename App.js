@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import Home from './components/Pages/Home/Home.js';
 import Cadastro from './components/Pages/Cadastro/Cadastro.js';
 import Login from './components/Pages/Login/Login.js';
@@ -21,15 +21,20 @@ function App() {
 
       {/* <CriarPost
         profileImage="https://randomuser.me/api/portraits/men/25.jpg"
+        postImage="https://www.mundoboaforma.com.br/wp-content/uploads/2016/11/agachamento-hack.jpg"
         coment="O treino de perna ontem foi tenso..."
         profileName="Jose Wilson"
       /> */}
 
-      <MarcarEventos
+      {/* <MarcarEventos
         profileImage="https://randomuser.me/api/portraits/men/63.jpg"
-        coment="O treino de perna ontem foi tenso..."
+        coment="O treino de perna ontem foi tenso... Quase eu morro KKKK"
         profileName="Jose Wilson"
-      />
+      /> */}
+
+      {/* <PerfilVisãoExterna name="Tiago" location="Taboão da Serra - SP" /> */}
+
+      <PerfilVisãoInterna name="Tiago" location="Rua dos Bobos" />
 
     </View>
   )

@@ -13,7 +13,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 
-export default function PerfilVisãoInterna() {
+export default function PerfilVisãoInterna(props) {
     return (
         <View style={styles.container}>
             <Header />
@@ -33,8 +33,8 @@ export default function PerfilVisãoInterna() {
 
                 <View style={styles.infos}>
                     <View style={styles.data}>
-                        <Text style={styles.name}>Nome Sobrenome</Text>
-                        <Text style={styles.location}>Adicione sua cidade</Text>
+                        <Text style={styles.name}>{props.name}</Text>
+                        <Text style={styles.location}>{props.location}</Text>
 
                     </View>
 

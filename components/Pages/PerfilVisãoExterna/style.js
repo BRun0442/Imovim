@@ -1,5 +1,12 @@
 import { StyleSheet } from "react-native";
 
+import { Dimensions } from "react-native";
+let ScreenHeight = Dimensions.get("window").height; // altura da tela
+let ScreenWidth = Dimensions.get("window").width; // largura da tela
+
+const height = ScreenHeight / 100; // altura em porcentagem
+const width = ScreenWidth / 100; // largura em porcentagem
+
 export const styles = StyleSheet.create({
 
   container: {
@@ -7,7 +14,7 @@ export const styles = StyleSheet.create({
   },
 
   background: {
-    height: 100,
+    height: 80,
     backgroundColor: "#d9d9d9",
   },
 
@@ -42,8 +49,8 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 150,
-    height: 150,
+    width: 140,
+    height: 140,
     backgroundColor: "#d9d9d9",
     borderRadius: 100,
     borderColor: "#fff",
@@ -55,14 +62,15 @@ export const styles = StyleSheet.create({
     marginTop: 5
   },
 
-  infos:{
+  infos: {
     display: "flex",
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    margin: 10,
-    paddingStart: 20,
-    paddingEnd: 20,
+    marginTop: 5,
+    marginBottom: 10,
+    paddingStart: 25,
+    paddingEnd: 25,
   },
 
   data: {
@@ -101,7 +109,7 @@ export const styles = StyleSheet.create({
 
   border: {
     width: '100%',
-    height: '2%',
+    height: 5,
     borderRadius: 10,
     backgroundColor: '#A512BD',
     marginTop: 10
@@ -111,20 +119,20 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-around',
     flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 40,
+    marginTop: 15,
+    marginBottom: 25,
   },
 
   tags: {
-    display: 'flex',
-    alignItems: 'center',
+    textAlign: 'center',
     backgroundColor: '#5CE1E6',
-    width: 'fit-content',
+    width: 90,
     height: 30,
     fontWeight: 'bold',
     fontSize: 16,
     borderRadius: 10,
-  }
+  },
 
+  
 }
 )
