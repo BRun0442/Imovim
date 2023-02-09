@@ -19,7 +19,7 @@ function TopBar(props) {
   const { setLogin } = useContext(AuthContext);
 
   return (
-    <View style={styles.header}>
+    <View style={styles.container}>
       <View style={styles.containerProfile}>
         <Text style={styles.logo}>II</Text>
         <ProfileImage profileImage={props.profileImage} />

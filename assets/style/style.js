@@ -25,7 +25,7 @@ export const defaultStyle = StyleSheet.create({
   },
 
   title: {
-    fontSize: 70,
+    fontSize: 30,
     textAlign: "center",
 
     // Essa linha crasha o sistema!

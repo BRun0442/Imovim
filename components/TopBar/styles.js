@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   containerProfile: {
     backgroundColor: '#A512BD',
     width: '100%',
-    height: 500,
+    height: '40%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     paddingRight: '5%',
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
   containerExit: {
     backgroundColor: '#1E90FF',
     width: '100%',
-    height: 500,
+    height: '15%',
     justifyContent: 'center',
   },
 

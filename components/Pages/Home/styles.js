@@ -12,16 +12,9 @@ export const styles = StyleSheet.create({
     height: ScreenHeight + 20 * height,
   },
 
-  // containerTitle: {
-  //   height: '25%',
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   backgroundColor: '#000'
-  // },
-
   title: {
     color: "#FF6709",
-    fontSize: 100,
+    fontSize: 60,
     textAlign: "center",
     marginVertical: "15%",
     fontWeight: "700",
@@ -29,20 +22,15 @@ export const styles = StyleSheet.create({
 
   text: {
     color: "white",
-    fontSize: 20,
+    fontSize: 30,
     textAlign: "center",
     marginBottom: "5%",
   },
-  
-  img: {
-    width: '100%'
-
-  },
 
   acessContainer: {
-    height: 1500,
+    height: "150%",
     alignContent: "space-around",
-    marginTop: "8%",
+    marginTop: "10%",
   },
 
   transparentButton: {
@@ -51,10 +39,10 @@ export const styles = StyleSheet.create({
     borderColor: "#FF6709",
     borderWidth: 3,
     marginTop: 15,
-
-    minWidth: 250,
-    height: 45,
-
+  
+    minWidth: 150,
+    height: 50,
+    
     justifyContent: "center",
     alignSelf: 'center',
   },
