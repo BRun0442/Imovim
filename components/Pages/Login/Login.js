@@ -3,15 +3,15 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
-import Input from '../../Input/Input';
+import Input from '../../Input/Input.js';
 import Button from '../../Button/Button.js';
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
-import { AuthContext } from '../../../contexts/auth';
-import validateData from '../../../services/login';
+import { AuthContext } from '../../../contexts/auth.js';
+import ValidateData from '../../../services/login.js';
 
 
-function Login()
+function Login({navigation})
 {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +42,7 @@ function Login()
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button buttonText="Entrar" pressFunction={() => {validateData(email, password, setLogin)}}/>
+          <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin)}}/>
           <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
           <Text 
             style={{
@@ -51,7 +51,9 @@ function Login()
               fontWeight: '700',
               textAlign: 'center',
               paddingTop: 5,
-            }}>
+            }}
+            onPress={() => {navigation.navigate('Cadastro')}}
+          >
               Cadastre-se aqui
           </Text>
         </View>

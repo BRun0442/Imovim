@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import {NavigationContainer} from '@react-navigation/native';
+import React, { useContext } from 'react'
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { AuthContext } from './contexts/auth';
 import Home from './components/Pages/Home/Home';

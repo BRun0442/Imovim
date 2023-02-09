@@ -4,7 +4,6 @@ import { styles } from './styles';
 import { defaultStyle } from '../../../assets/style/style';
 import Button from '../../Button/Button.js';
 
-// function Home({navigation})
 function Home({navigation})
 {
   return(

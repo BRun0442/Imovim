@@ -10,7 +10,7 @@ function CreateUser(nickname, email, password, passwordConfirm, birthday, phoneN
     birthday: birthday,
     phoneNumber: phoneNumber
   })
-  api.post('/user/create-user', 
+  api.post('/auth/create-user', 
   {
     nickname: nickname,
     email: email,

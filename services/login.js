@@ -6,11 +6,10 @@ export function logout(setLogin)
   alert("Você saiu!");
 }
 
-function validateData(email, password, setLogin)
+function ValidateData(email, password, setLogin)
 {
-  api.post("/user/login", {
-      email: email,
-      password: password
+  api.get("/auth/login", {
+    params: { email: email, password: password},
   })
   .then(response => {
     alert(JSON.stringify(response.data.msg))
@@ -22,4 +21,4 @@ function validateData(email, password, setLogin)
   });
 }
 
-export default validateData;
+export default ValidateData;

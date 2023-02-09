@@ -15,7 +15,6 @@ function App()
           <Routes/>
         </AuthProvider>
       </CreateUserProvider>
-      
     </NavigationContainer>
   )
 }
