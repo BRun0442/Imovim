@@ -4,8 +4,9 @@ import { styles } from './styles';
 import { defaultStyle } from '../../../assets/style/style';
 import Button from '../../Button/Button.js';
 
-function Home() {
-  return (
+function Home({navigation})
+{
+  return(
     <View style={defaultStyle.container}>
       {/* <View style={styles.containerTitle}> */}
       <Text style={defaultStyle.title}>IMOVIN</Text>
@@ -15,10 +16,11 @@ function Home() {
       <Text style={styles.text}>Faça parte da rede que te movimenta</Text>
 
       <View style={styles.acessContainer}>
-        <Button buttonText="Login" />
 
-        <TouchableOpacity style={styles.transparentButton}>
-          <Text
+        <Button buttonText="Login" pressFunction={() => {navigation.navigate('Login')}}/>
+
+        <TouchableOpacity style={styles.transparentButton} onPress={() => {navigation.navigate('Cadastro')}}>
+          <Text 
             style={{
               textAlign: 'center',
               color: 'white',

@@ -1,34 +1,38 @@
 {
   "expo": {
     "name": "Imovim",
-    "slug": "frontend",
+    "icon": "./assets/bolaBasquete.png",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "slug": "imovim",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.EtecEmbu.Imovim",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000"
-      },
-      "package": "com.luisfelipe2104.frontend"
+      "package": "com.EtecEmbu.Imovim",
+      "versionCode": 1
     },
-    "web": {
-      "favicon": "./assets/bolaBasquete.png"
+    "extra": {
+      "eas": {
+        "projectId": "634892d0-85ec-462c-9bc7-9e56475d199b"
+      }
     }
+  },
+
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "production": {}
   }
 }
