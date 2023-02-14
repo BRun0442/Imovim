@@ -5,7 +5,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Foundation } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import Header from '../../Header/Header'
+import Header from '../../Header/Header.js'
 import Post from '../../Post/Post';
 import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
@@ -13,7 +13,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function PerfilVisãoExterna(props) {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Header />
 
             <View style={styles.background} />
@@ -81,6 +81,6 @@ export default function PerfilVisãoExterna(props) {
 
             </ScrollView>
 
-        </View>
+        </ScrollView>
     );
 }

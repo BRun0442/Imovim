@@ -10,16 +10,13 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: '5%',
-
+        
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
     flexDirection: 'row',
     
     backgroundColor: '#A512BD',
-
-    marginBottom: 30
   },
 
   container: {

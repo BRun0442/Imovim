@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { styles } from './style'
 import TopBar from '../../TopBar/TopBar';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { Foundation } from '@expo/vector-icons';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -15,7 +16,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function PerfilVisãoInterna(props) {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Header />
 
             <View style={styles.background} />
@@ -23,12 +24,12 @@ export default function PerfilVisãoInterna(props) {
             <View style={styles.perfil}>
 
                 <View style={styles.icons}>
-                    <TouchableOpacity style={styles.iconCam}>
-                        <Entypo name="camera" size={24} color="white" />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconPencil}>
-                        <SimpleLineIcons name="pencil" size={24} color="black" />
-                    </TouchableOpacity>
+                    <View style={styles.iconCam}>
+                        <Entypo name="camera" size={22} color="white" />
+                    </View>
+                    <View style={styles.iconPencil}>
+                        <Foundation name="pencil" size={25} color="black" />
+                    </View>
                 </View>
 
                 <View style={styles.infos}>
@@ -37,7 +38,6 @@ export default function PerfilVisãoInterna(props) {
                         <Text style={styles.location}>{props.location}</Text>
 
                     </View>
-
                     <View style={styles.seeMore}>
                         <TouchableOpacity style={styles.buttonSeeMore}>
                             <Ionicons name="person-add" size={20} color="white" />
@@ -46,7 +46,6 @@ export default function PerfilVisãoInterna(props) {
                     </View>
                 </View>
             </View>
-
             <View style={styles.border}></View>
 
             <View style={styles.tagsView}>
@@ -63,7 +62,7 @@ export default function PerfilVisãoInterna(props) {
             <View style={styles.posts}>
                 <Text style={styles.alert}>Não há nenhuma publicação aqui</Text>
             </View>
-
-        </View>
+            <StatusBar />
+        </ScrollView>
     );
 }
