@@ -5,7 +5,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Foundation } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import Header from '../../Header/Header'
+import Header from '../../Header/Header.js'
 import Post from '../../Post/Post';
 import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
@@ -13,8 +13,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function PerfilVisãoExterna(props) {
     return (
-        <View style={styles.container}>
-            <StatusBar/>
+        <ScrollView style={styles.container}>
             <Header />
 
             <View style={styles.background} />
@@ -54,8 +53,6 @@ export default function PerfilVisãoExterna(props) {
                 <Text style={styles.tags}>#Volei</Text>
             </View>
 
-            <ScrollView>
-
                 <Post
                     profileImage="https://randomuser.me/api/portraits/men/89.jpg"
                     postImage="https://www.odemocrata.com.br/esporte/wp-content/uploads/sites/6/2020/01/Screenshot_20200121-105821_Gallery-606x1024.jpg"
@@ -79,9 +76,6 @@ export default function PerfilVisãoExterna(props) {
                     comentQuantity="10"
                     shareQuantity="2"
                 />
-
             </ScrollView>
-
-        </View>
     );
 }

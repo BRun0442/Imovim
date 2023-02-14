@@ -61,6 +61,7 @@ function Login({navigation})
           </Text>
         </View>
       </View>
+      <StatusBar />
     </View>
   );
 }

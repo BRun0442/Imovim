@@ -2,7 +2,7 @@ import React, {useEffect, useState, useContext} from "react";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar} from "react-native";
 import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
-import TopBar from "../../TopBar/TopBar";
+import Header from "../../Header/Header.js";
 import Post from "../../Post/Post.js";
 import feedManager from "../../../services/feed";
 import likePost from '../../../services/post';
@@ -46,11 +46,7 @@ function Feed() {
 
   return (
     <ScrollView>
-      <StatusBar/>
-      <View>
-        <TopBar
-          profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
-        />
+        <Header/>
         {posts}
       </View>
     </ScrollView>

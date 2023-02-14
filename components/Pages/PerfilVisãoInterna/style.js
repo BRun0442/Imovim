@@ -9,12 +9,8 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
 
-  container: {
-    backgroundColor: "#fff",
-  },
-
   background: {
-    height: 100,
+    height: 80,
     backgroundColor: "#d9d9d9",
   },
 
@@ -49,8 +45,8 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 150,
-    height: 150,
+    width: 140,
+    height: 140,
     backgroundColor: "#d9d9d9",
     borderRadius: 100,
     borderColor: "#fff",
@@ -109,7 +105,7 @@ export const styles = StyleSheet.create({
 
   border: {
     width: '100%',
-    height: 2,
+    height: 5,
     borderRadius: 10,
     backgroundColor: '#A512BD',
     marginTop: 10
@@ -159,7 +155,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection : 'column',
-  },
+
+    // marginBottom: "110%",
+},
 
   alert: {
     fontWeight: 'bold',
