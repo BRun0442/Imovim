@@ -17,9 +17,11 @@ function Login({navigation})
   const [password, setPassword] = useState("");
 
   const { setLogin } = useContext(AuthContext);
+  const { setId } = useContext(AuthContext);
 
   return(
     <View style={defaultStyle.container}>
+      <StatusBar/>
       <Text style={defaultStyle.title}>IMOVIN</Text>
 
       <Image 
@@ -42,7 +44,8 @@ function Login({navigation})
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin)}}/>
+          {/* O problema do setId é aqui */}
+          <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin, setId)}}/>
           <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
           <Text 
             style={{

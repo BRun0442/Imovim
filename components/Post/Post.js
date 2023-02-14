@@ -28,14 +28,16 @@ function Post(props) {
         </View>
       </View>
 
-      <View style={{ maxHeight: 200, maxWidth: 350 }}>
+      <View style={{ maxHeight: 200, maxWidth: 350}}>
         <Image style={styles.postImage} source={{ uri: props.postImage }} />
+
+        {/* <Text>teste</Text> */}
       </View>
 
       <Text style={styles.postDescription}>{props.postDescription}</Text>
 
       <View style={styles.postInteraction}>
-        <TouchableOpacity style={styles.postInteractionImage}>
+        <TouchableOpacity onPress={props.likeFunction} style={styles.postInteractionImage}>
           <AntDesign name="like1" size={24} color="white" />
           <Text style={styles.interactionQuantity}>{props.likeQuantity}</Text>
         </TouchableOpacity>

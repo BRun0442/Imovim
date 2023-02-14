@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { styles } from './style'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Foundation } from '@expo/vector-icons';
@@ -53,8 +53,6 @@ export default function PerfilVisãoExterna(props) {
                 <Text style={styles.tags}>#Volei</Text>
             </View>
 
-            <ScrollView>
-
                 <Post
                     profileImage="https://randomuser.me/api/portraits/men/89.jpg"
                     postImage="https://www.odemocrata.com.br/esporte/wp-content/uploads/sites/6/2020/01/Screenshot_20200121-105821_Gallery-606x1024.jpg"
@@ -78,9 +76,6 @@ export default function PerfilVisãoExterna(props) {
                     comentQuantity="10"
                     shareQuantity="2"
                 />
-
             </ScrollView>
-
-        </ScrollView>
     );
 }

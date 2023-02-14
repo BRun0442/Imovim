@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image , StatusBar} from 'react-native';
 import { styles } from './styles';
 import { defaultStyle } from '../../../assets/style/style';
 import Button from '../../Button/Button.js';

@@ -20,11 +20,9 @@ function CreateUser(nickname, email, password, passwordConfirm, birthday, phoneN
     phoneNumber: phoneNumber
   })
   .then(response => {
-    console.log(response.data)
     alert(JSON.stringify(response.data.msg))
   })
   .catch(error => {
-    console.log(error)
     alert(JSON.stringify(error.response.data.msg))
   })   
 }

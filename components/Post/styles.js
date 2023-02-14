@@ -21,7 +21,8 @@ export const styles = StyleSheet.create({
     },
 
     postImage: {
-      height: '100%',
+      height: 200, 
+      width: 350,
 
       // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
       resizeMode: 'contain',

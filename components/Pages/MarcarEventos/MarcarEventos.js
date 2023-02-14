@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, StatusBar } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './style'
 import Header from '../../Header/Header';
@@ -10,6 +10,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 export default function MarcarEventos(props) {
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Header />
 
             <View style={styles.photoContainer}>
