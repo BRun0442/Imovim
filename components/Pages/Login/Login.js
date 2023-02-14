@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
@@ -58,6 +58,7 @@ function Login({navigation})
           </Text>
         </View>
       </View>
+      <StatusBar />
     </View>
   );
 }

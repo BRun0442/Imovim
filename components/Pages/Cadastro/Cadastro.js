@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
@@ -9,58 +9,57 @@ import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
 
-function Cadastro({navigation})
-{
+function Cadastro({ navigation }) {
   const { setNickname, setBirthday, setPhoneNumber } = useContext(CreateUserContext)
   let phoneNumber = ['', '']
   let birthday = ['', '', '']
 
 
-  return(
+  return (
     <View style={defaultStyle.container}>
       <Text style={defaultStyle.title}>IMOVIN</Text>
 
-      <Image 
-        style={defaultStyle.basketBall} 
+      <Image
+        style={defaultStyle.basketBall}
         source={basketBall}
       />
 
-      <Image 
-        style={defaultStyle.soccerBall} 
+      <Image
+        style={defaultStyle.soccerBall}
         source={soccerBall}
       />
 
       <View style={defaultStyle.inputContainer}>
         <Text style={defaultStyle.subTitle}>Cadastro</Text>
-        <Input width="90%" inputText="Nome" getInputValue={(value) => {setNickname(value)}}/>
+        <Input width="90%" inputText="Nome" getInputValue={(value) => { setNickname(value) }} />
 
         <View style={styles.textBox}>
           <Text style={defaultStyle.defaultText}>Data de nascimento</Text>
 
-          <TextInput 
-            style={styles.input} 
+          <TextInput
+            style={styles.input}
             placeholder='dd'
-            placeholderTextColor="#DCDCDC" 
+            placeholderTextColor="#DCDCDC"
             textAlign="center"
-            onChangeText={(value) => {birthday[0] = value}}
+            onChangeText={(value) => { birthday[0] = value }}
           >
           </TextInput>
 
-          <TextInput 
-            style={styles.input} 
+          <TextInput
+            style={styles.input}
             placeholder='mm'
-            placeholderTextColor="#DCDCDC" 
+            placeholderTextColor="#DCDCDC"
             textAlign="center"
-            onChangeText={(value) => {birthday[1] = value}}
+            onChangeText={(value) => { birthday[1] = value }}
           >
           </TextInput>
 
-          <TextInput 
-            style={styles.input} 
+          <TextInput
+            style={styles.input}
             placeholder='aaaa'
-            placeholderTextColor="#DCDCDC" 
+            placeholderTextColor="#DCDCDC"
             textAlign="center"
-            onChangeText={(value) => {birthday[2] = value}}
+            onChangeText={(value) => { birthday[2] = value }}
           >
           </TextInput>
 
@@ -80,7 +79,7 @@ function Cadastro({navigation})
             placeholder='DDD'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
-            onChangeText={(value) => {phoneNumber[0] = value}}
+            onChangeText={(value) => { phoneNumber[0] = value }}
           >
           </TextInput>
 
@@ -89,21 +88,20 @@ function Cadastro({navigation})
             placeholder='Telefone'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
-            onChangeText={(value) => {phoneNumber[1] = value}}
+            onChangeText={(value) => { phoneNumber[1] = value }}
           >
           </TextInput>
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button buttonText="Avançar" pressFunction =
-          {() => 
-            {
+          <Button buttonText="Avançar" pressFunction=
+            {() => {
               phoneNumber.reverse();
               birthday.reverse()
 
               console.log(phoneNumber.join(''));
               console.log(birthday.join(''));
-              
+
               setPhoneNumber(
                 phoneNumber.join('')
               );
@@ -112,16 +110,16 @@ function Cadastro({navigation})
               );
               navigation.navigate('CadastroContinuacao')
             }
-          }
+            }
           />
 
-          <Text 
-            style={defaultStyle.mediumText} 
-            onPress={() => {navigation.navigate('Login')}}
+          <Text
+            style={defaultStyle.mediumText}
+            onPress={() => { navigation.navigate('Login') }}
           >
             Já possui um cadastro?
 
-            <Text 
+            <Text
               style={{
                 color: '#FF6709',
                 fontSize: 16,
@@ -132,10 +130,11 @@ function Cadastro({navigation})
             >
               Login
             </Text>
-            
+
           </Text>
         </View>
       </View>
+      <StatusBar />
     </View>
   );
 }

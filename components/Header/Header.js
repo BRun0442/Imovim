@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, StatusBar } from "react-native";
 
 import { styles } from "./styles";
 import { Foundation } from '@expo/vector-icons';
@@ -17,6 +17,7 @@ function Header() {
           <Ionicons style={styles.icon} name="chatbubble" size={35} color="#FF7926" />
         </View>
       </View>
+      <StatusBar />
     </View>
   );
 }

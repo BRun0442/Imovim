@@ -11,7 +11,7 @@ import {
 
 import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
-import TopBar from "../../TopBar/TopBar";
+import Header from "../../Header/Header.js";
 import Post from "../../Post/Post.js";
 
 function Cadastro() {
@@ -70,19 +70,8 @@ function Cadastro() {
 
   return (
     <ScrollView>
-      <View
-        style={
-          {
-            // backgroundColor: 'white',
-            // height: '100%',
-          }
-        }
-      >
-        <TopBar
-          profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
-          postImage="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltd54aebe14a809e43/637fda5a74b88f10ab93e298/brasil_servia_richarlison_2_gol_2.jpg"
-        />
-
+      <View>
+        <Header />
         {posts}
       </View>
     </ScrollView>
