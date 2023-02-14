@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { styles } from './style'
 import TopBar from '../../TopBar/TopBar';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -16,6 +16,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 export default function PerfilVisãoInterna(props) {
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Header />
 
             <View style={styles.background} />

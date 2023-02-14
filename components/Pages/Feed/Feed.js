@@ -1,34 +1,27 @@
-import React, {useEffect, useState} from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from "react-native";
-
+import React, {useEffect, useState, useContext} from "react";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar} from "react-native";
 import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
 import TopBar from "../../TopBar/TopBar";
 import Post from "../../Post/Post.js";
 import feedManager from "../../../services/feed";
+import likePost from '../../../services/post';
+import { AuthContext } from '../../../contexts/auth.js';
 
-function Cadastro() {
+function Feed() {
   let postArray = [];
   const [posts, setPosts] = useState();
+  const { id } = useContext(AuthContext);
 
   async function getFeed()
   {
       try {
         const postsList = await feedManager()
-        console.log(postsList)
-
         postsList.forEach(post => {
           postArray.push(
             <Post
               profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
+              likeFunction={() => {likePost(id, post.id)}}
               postImage={post.image}
               profileName={post.nickname}
               postDate={post.created_at}
@@ -53,14 +46,8 @@ function Cadastro() {
 
   return (
     <ScrollView>
-      <View
-        style={
-          {
-            // backgroundColor: 'white',
-            // height: '100%',
-          }
-        }
-      >
+      <StatusBar/>
+      <View>
         <TopBar
           profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
         />
@@ -70,4 +57,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default Feed;

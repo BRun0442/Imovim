@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { styles } from './style'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Foundation } from '@expo/vector-icons';
@@ -14,6 +14,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 export default function PerfilVisãoExterna(props) {
     return (
         <View style={styles.container}>
+            <StatusBar/>
             <Header />
 
             <View style={styles.background} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, StatusBar } from 'react-native';
 import { styles } from './style'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Header from '../../Header/Header'
@@ -15,6 +15,8 @@ import ProfileImage from '../../ProfileImage/ProfileImage';
 export default function CriarPost(props) {
     return (
         <View style={styles.container}>
+            <StatusBar/>
+            
             <Header />
 
             <View style={styles.photoContainer}>

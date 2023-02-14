@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  StatusBar
 } from "react-native";
 
 import { defaultStyle } from "../../../assets/style/style";
@@ -19,6 +20,7 @@ import Comentario from '../../Comentario/Comentario';
 function Comentarios(props) {
   return (
     <ScrollView>
+      <StatusBar/>
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.likeAndComents}>

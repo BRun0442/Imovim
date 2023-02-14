@@ -37,7 +37,7 @@ function Post(props) {
       <Text style={styles.postDescription}>{props.postDescription}</Text>
 
       <View style={styles.postInteraction}>
-        <TouchableOpacity style={styles.postInteractionImage}>
+        <TouchableOpacity onPress={props.likeFunction} style={styles.postInteractionImage}>
           <AntDesign name="like1" size={24} color="white" />
           <Text style={styles.interactionQuantity}>{props.likeQuantity}</Text>
         </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
@@ -17,9 +17,11 @@ function Login({navigation})
   const [password, setPassword] = useState("");
 
   const { setLogin } = useContext(AuthContext);
+  const { setId } = useContext(AuthContext);
 
   return(
     <View style={defaultStyle.container}>
+      <StatusBar/>
       <Text style={defaultStyle.title}>IMOVIN</Text>
 
       <Image 
@@ -42,7 +44,8 @@ function Login({navigation})
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin)}}/>
+          {/* O problema do setId é aqui */}
+          <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin, setId)}}/>
           <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
           <Text 
             style={{
