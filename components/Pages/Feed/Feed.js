@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useContext} from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar} from "react-native";
+import React, { useEffect, useState, useContext } from "react";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar } from "react-native";
 import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
 import Header from "../../Header/Header.js";
@@ -13,31 +13,30 @@ function Feed() {
   const [posts, setPosts] = useState();
   const { id } = useContext(AuthContext);
 
-  async function getFeed()
-  {
-      try {
-        const postsList = await feedManager()
-        postsList.forEach(post => {
-          postArray.push(
-            <Post
-              profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
-              likeFunction={() => {likePost(id, post.id)}}
-              postImage={post.image}
-              profileName={post.nickname}
-              postDate={post.created_at}
-              postDescription={post.caption}
-              
-              likeQuantity={post.likes}
-              comentQuantity={post.comments}
-              shareQuantity={post.updated}
-            />
-          )
-        })
-        
-        setPosts(postArray)
-      } catch (error) {
-        console.log('EEERRRROOO', error)
-      }
+  async function getFeed() {
+    try {
+      const postsList = await feedManager()
+      postsList.forEach(post => {
+        postArray.push(
+          <Post
+            profileImage="https://randomuser.me/api/portraits/thumb/men/57.jpg"
+            likeFunction={() => { likePost(id, post.id) }}
+            postImage={post.image}
+            profileName={post.nickname}
+            postDate={post.created_at}
+            postDescription={post.caption}
+
+            likeQuantity={post.likes}
+            comentQuantity={post.comments}
+            shareQuantity={post.updated}
+          />
+        )
+      })
+
+      setPosts(postArray)
+    } catch (error) {
+      console.log('EEERRRROOO', error)
+    }
   }
 
   useEffect(() => {
@@ -46,9 +45,8 @@ function Feed() {
 
   return (
     <ScrollView>
-        <Header/>
-        {posts}
-      </View>
+      <Header />
+      {posts}
     </ScrollView>
   );
 }
