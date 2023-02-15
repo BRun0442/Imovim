@@ -6,16 +6,22 @@ import AuthProvider from './contexts/auth';
 import CreateUserProvider from './contexts/createUser';
 import Routes from './routes';
 
+// import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais';
+import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
+
 function App()
 {
   return(
-    <NavigationContainer>
-      <CreateUserProvider>
-        <AuthProvider>
-          <Routes/>
-        </AuthProvider>
-      </CreateUserProvider>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <CreateUserProvider>
+    //     <AuthProvider>
+    //       <Routes/>
+    //     </AuthProvider>
+    //   </CreateUserProvider>
+    // </NavigationContainer>
+
+    <EditarPerfil />
+
   )
 }
 
