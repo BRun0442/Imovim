@@ -7,6 +7,7 @@ import Cadastro from './components/Pages/Cadastro/Cadastro';
 import Feed from './components/Pages/Feed/Feed';
 import Comentarios from './components/Pages/Comentarios/Comentarios';
 import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
+import CriarPost from './components/Pages/CriarPost/CriarPost.js';
 
 const { Screen, Navigator} = createNativeStackNavigator();
 
@@ -33,6 +34,7 @@ function Routes()
     }}>
         <Screen name="Feed" component={Feed} />
         <Screen name="Comentarios" component={Comentarios} />
+        <Screen name="CriarPost" component={CriarPost} />
     </Navigator>
   )
 

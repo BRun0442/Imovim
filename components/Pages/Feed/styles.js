@@ -33,4 +33,81 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: '10%',
   },
+
+  title: {
+    color: 'white',
+    fontSize: 5,
+  },
+
+  containerProfile: {
+    backgroundColor: '#A512BD',
+    width: '100%',
+    height: '40%',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    paddingRight: '5%',
+    paddingBottom: '3%',
+
+    // Verificar se faz efeito
+    position: 'relative', 
+  },
+
+  containerExit: {
+    backgroundColor: '#1E90FF',
+    width: '100%',
+    height: '15%',
+    justifyContent: 'center',
+  },
+
+  smallText: {
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
+  },
+
+  profileImage: {
+    width: 48, 
+    height: 48,
+    marginRight: '10%',
+    marginBottom: '3%',
+    borderRadius: 24,
+  },
+
+  logo: {
+    position: 'absolute',
+
+    // Alinha verticalmente
+    justifyContent: 'center',
+
+    //Alinha horizontalmente
+    alignSelf: 'center',
+    
+    fontSize: 50,
+    color: '#FF6709',
+    zIndex: 1,
+  },
+
+  TopBarContainer: {
+    backgroundColor: 'white',
+  },
+
+  photoContainer: {
+    flexWrap: 'wrap',
+    height: 55,
+    width: 200,
+    padding: 5,
+    paddingHorizontal: 25,
+    borderRadius: 30,
+    backgroundColor: '#FF6709',
+    justifyContent: 'center',
+    alignContent: 'space-around',
+    // alignContent: 'center',
+    alignSelf: 'center',
+    marginTop: '5%',
+    marginBottom: '5%',
+  },
+
+  button: {
+    padding: 2,
+  },
 });
