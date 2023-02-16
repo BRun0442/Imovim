@@ -13,12 +13,8 @@ function ValidateData(email, password, setLogin, setId)
   })
   .then(response => {
     alert(JSON.stringify(response.data.msg))
-    console.log(typeof(parseInt(JSON.stringify(response.data.user_id))))
     setId(parseInt(JSON.stringify(response.data.user_id)));
     setLogin(true);
-    // console.log("id: ", JSON.stringify(response.data.user_id))
-    
-    //o setId nao ta pegando, é problema no context nao no parametro
   })
   .catch(error => {
     alert(JSON.stringify(error.response.data.msg))

@@ -34,8 +34,8 @@ export const styles = StyleSheet.create({
     },
 
     postImage: {
-      height: 400, 
-      width: 350,
+      height: 450, 
+      width: '100%',
       alignSelf: 'center',
       // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
       resizeMode: 'contain',
