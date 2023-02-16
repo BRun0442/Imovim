@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import AuthProvider from './contexts/auth';
 import CreateUserProvider from './contexts/createUser';
 import Routes from './routes';
+import CriarPost from './components/Pages/CriarPost/CriarPost';
 
 // import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais';
 import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
@@ -20,7 +21,7 @@ function App()
     //   </CreateUserProvider>
     // </NavigationContainer>
 
-    <EditarPerfil />
+    <CriarPost />
 
   )
 }
