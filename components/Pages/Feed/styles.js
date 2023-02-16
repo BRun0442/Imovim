@@ -34,10 +34,6 @@ export const styles = StyleSheet.create({
     marginTop: '10%',
   },
 
-  container: {
-    height: 250,
-  },
-
   title: {
     color: 'white',
     fontSize: 5,
@@ -91,6 +87,10 @@ export const styles = StyleSheet.create({
     zIndex: 1,
   },
 
+  TopBarContainer: {
+    backgroundColor: 'white',
+  },
+
   photoContainer: {
     flexWrap: 'wrap',
     height: 55,
@@ -104,6 +104,7 @@ export const styles = StyleSheet.create({
     // alignContent: 'center',
     alignSelf: 'center',
     marginTop: '5%',
+    marginBottom: '5%',
   },
 
   button: {

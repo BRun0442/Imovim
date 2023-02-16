@@ -4,11 +4,13 @@ export const AuthContext = createContext({});
 
 function AuthProvider({children})
 {
-  const [login, setLogin] = useState(true);
-  const [id, setId] = useState(2);
+  const [login, setLogin] = useState(false);
+  const [id, setId] = useState();
+  const [nickname, setNickname] = useState();
+  const [profilePicture, setProfilePicture] = useState('https://randomuser.me/api/portraits/thumb/men/57.jpg');
 
   return(
-    <AuthContext.Provider value={{login, setLogin, id, setId}}>
+    <AuthContext.Provider value={{login, setLogin, id, setId, nickname, setNickname, profilePicture, setProfilePicture}}>
       {children}
     </AuthContext.Provider>
   )
