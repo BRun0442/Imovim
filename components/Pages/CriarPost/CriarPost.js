@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Image, StatusBar, Alert } from "react-native";
+import React, { useState, useEffect, useContext } from "react";
+import { View, Text, Image, StatusBar, ScrollView, TouchableOpacity } from "react-native";
 import { styles } from "./style";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TextInput } from 'react-native-gesture-handler';
 import Header from "../../Header/Header";
 import Line from "../../Line/Line";
 import Button from "../../Button/Button";
@@ -9,19 +9,26 @@ import Post from "../../Post/Post";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { AuthContext } from '../../../contexts/auth';
+import Input from '../../Input/Input';
+import { createPost } from '../../../services/post.js';
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 
 import CreatePost from "../../../services/createPost.js";
 
-export default function CriarPost(props) {
+export default function CriarPost({ navigation }) {
+    const { profilePicture } = useContext(AuthContext);
+    const { nickname } = useContext(AuthContext);
+    const { id } = useContext(AuthContext);
+    const [caption, setCaption] = useState('');
+    const [image, setImage] = useState(null);
+    const [galleryPermission, setGalleryPermission] = useState(null);
   // const [type, setType] = useState(CameraType.back);
-  const [cameraPermission, setCameraPermission] = useState(null);
-  const [galleryPermission, setGalleryPermission] = useState(null);
-  const [camera, setCamera] = useState(null);
-  const [image, setImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+//   const [cameraPermission, setCameraPermission] = useState(null);
+//   const [camera, setCamera] = useState(null);
+//   const [imageUrl, setImageUrl] = useState(null);
 
   const GaleryPermisionFunction = async () => {
     const galleryPermissions = await MediaLibrary.requestPermissionsAsync();
@@ -56,60 +63,56 @@ export default function CriarPost(props) {
     console.log(result);
   };
   return (
-    <View style={styles.container}>
-      <StatusBar />
-
-      <Header />
-
-      <View style={styles.photoContainer}>
-        <TouchableOpacity styles={styles.button}>
-          <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
-        </TouchableOpacity>
-      </View>
-      <Line />
-
-      <View style={styles.postContainer}>
-        <View style={styles.postProfile}>
-          <ProfileImage profileImage={props.profileImage} />
-
-          <View style={styles.profileContainer}>
-            <Text style={styles.profileName}>{props.profileName}</Text>
-          </View>
-        </View>
-
-        <View style={{ maxHeight: 200, maxWidth: 350 }}>
-          <Image style={styles.postImage} source={{ uri: image }} />
-          <Text style={styles.coment}>{props.coment}</Text>
-        </View>
-      </View>
-
-      <View style={styles.buttons}>
-        <TouchableOpacity style={styles.button}>
-          <Entypo name="camera" size={26} color={"#fff"} />
-          <Text style={styles.buttonText}>Câmera</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => Alert.alert("sksskk")}
-          style={styles.button}
-        >
-          <MaterialCommunityIcons name="camera-plus" size={26} color={"#fff"} />
-          <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button}>
-          <MaterialIcons name="place" size={26} color={"#fff"} />
-          <Text style={styles.buttonText}>Localização</Text>
-        </TouchableOpacity>
-      </View>
-      {/* Esses botoes roxo n estao funcionando por isso estou usando 
-            uma gambiarra cm esse botao laranja, 
-            mas e so para fazer o upload da imagem */}
-      <Button pressFunction={pickImage} buttonText="Selecionar Imagem" />
-      <Button
-        pressFunction={() => CreatePost(image, 2, "osmar viado")}
-        buttonText="Criar Post"
-      />
-    </View>
+    <ScrollView>
+            <View style={styles.container}>
+                <StatusBar/>
+                <Header />
+                <View style={styles.photoContainer}>
+                    <TouchableOpacity style={{alignSelf: 'center'}}>
+                        <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.postContainer}>
+                    <View style={styles.postProfile}>
+                        <ProfileImage profileImage={profilePicture} />
+                        <View style={styles.profileContainer}>
+                            <Text style={styles.profileName}>{nickname}</Text>
+                        </View>
+                    </View>
+                    <View>
+                        <Image style={styles.postImage} source={{ uri: image}} />
+                        <TextInput 
+                            style={styles.input} 
+                            multiline 
+                            textAlign='center' 
+                            placeholder='Fale sobre uma aventura aqui!' 
+                            placeholderTextColor={"#7B7B7B"}
+                            maxLength={400}
+                            onChangeText={(value) => {setCaption(value)}}
+                        />
+                    </View>
+                </View>
+                <View style={styles.buttons}>
+                    <TouchableOpacity style={styles.button}>
+                        <Entypo name="camera" size={26} color={'#fff'} />
+                        <Text style={styles.buttonText}>Câmera</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => pickImage()} style={styles.button}>
+                        <MaterialCommunityIcons name="camera-plus" size={26} color={'#fff'} />
+                        <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button}>
+                        <MaterialIcons name="place" size={26} color={'#fff'} />
+                        <Text style={styles.buttonText}>Localização</Text>
+                    </TouchableOpacity>
+                </View>
+                <Button buttonText='Criar Post' pressFunction={() => {
+                    // createPost(id, caption, image)
+                    CreatePost(image, id, caption)
+                    navigation.navigate('Feed')
+                    }}
+                />
+            </View>
+        </ScrollView>
   );
 }

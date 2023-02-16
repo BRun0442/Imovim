@@ -5,7 +5,7 @@ import { uploadBytes, getDownloadURL, ref, getStorage } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import axios from "axios";
 initializeApp(firebaseConfig);
-
+import { createPost } from "./post.js";
 export default async function CreatePost(image, user_id, caption) {
   const storageUrl = `posts/${Date.now()}/${Math.random().toString()}`;
   console.log(image);
@@ -16,12 +16,7 @@ export default async function CreatePost(image, user_id, caption) {
     .then(() => {
       getDownloadURL(imageRef)
         .then(async (url) => {
-            const data = {
-              user_id: user_id,
-              image: url,
-              caption: caption
-          }
-          await axios.post('https://odd-pink-cobra-shoe.cyclic.app/post/create-post', data)
+          await createPost(user_id, caption, url)  
           .then(res => console.log(res))
           return url
         })

@@ -10,20 +10,16 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
 
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: "#fff",
   },
 
   photoContainer: {
-    flexWrap: 'wrap',
     height: 55,
     width: 200,
-    padding: 5,
-    paddingHorizontal: 25,
     borderRadius: 30,
     backgroundColor: '#FF6709',
     justifyContent: 'center',
-    alignContent: 'center',
     alignSelf: 'center',
     marginTop: '5%',
     marginBottom: '5%',
@@ -31,7 +27,8 @@ export const styles = StyleSheet.create({
 
   buttons: {
     marginBottom: '5%',
-    height: 200
+    height: 200,
+    alignSelf: 'center',
   },
 
   button: {
@@ -56,9 +53,7 @@ export const styles = StyleSheet.create({
 
   postContainer: {
     alignSelf: 'center',
-    marginBottom: '10%',
-    width: 350,
-    height: 300
+    width: '85%',
   },
 
   postProfile: {
@@ -69,10 +64,12 @@ export const styles = StyleSheet.create({
   },
 
   postImage: {
-    height: 200,
-    width: 200,
-    resizeMode: 'contain',
+    height: 400, 
+    width: 350,
+    alignSelf: 'center',
+
     // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
+    resizeMode: 'contain',
   },
 
   profileName: {
@@ -85,14 +82,24 @@ export const styles = StyleSheet.create({
   },
 
   profileImage: {
-    height: 50,
-    width: 50,
+    // height: 200,
+    // width: 200,
     resizeMode: 'stretch',
   },
 
   coment: {
     textAlign: 'center'
-  }
+  },
 
-}
-)
+  input: {
+    borderBottomWidth: 2,
+    borderBottomColor: "white",
+    fontSize: 18,
+    width: '100%',
+    minHeight: 50,
+    maxHeight: 250,
+    fontWeight: '400',
+    alignSelf: 'center',
+    marginTop: '5%'
+  }
+})
