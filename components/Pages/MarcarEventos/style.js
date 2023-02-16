@@ -14,19 +14,22 @@ export const styles = StyleSheet.create({
     },
 
     photoContainer: {
-        flexWrap: 'wrap',
-        height: 55,
         width: 200,
+        height: 55,
+        
+        flexWrap: 'wrap',
+        alignContent: 'space-around',
+        justifyContent: 'center',
+
         padding: 5,
         paddingHorizontal: 25,
+        marginTop: 18,
+        
         borderRadius: 30,
+        
         backgroundColor: '#FF6709',
-        justifyContent: 'center',
-        alignContent: 'space-around',
-        // alignContent: 'center',
-        alignSelf: 'center',
-        marginTop: '5%',
-        marginBottom: '5%'
+        
+        alignSelf: 'center'
     },
 
     button: {
@@ -73,37 +76,46 @@ export const styles = StyleSheet.create({
 
     
     form: {
-        paddingStart: 20,
-        paddingEnd: 20,
-        height: 525
+        paddingHorizontal: 20
     },
 
     inputType1: {
         width: '100%',
         height: 40,
+
         borderColor: '#A512BD',
         borderWidth: 2,
-        borderRadius: 5,
+        borderRadius: 20,
+
         textAlign: 'left',
+
         paddingStart: 10,
         paddingEnd: 10
     },
 
     inputType2: {
-        width: '25%',
+        width: '28%',
         height: 40,
+
         borderColor: '#A512BD',
         borderWidth: 2,
-        borderRadius: 5,
+        borderRadius: 20,
+        
         textAlign: 'center'
     },
     
     inputType3: {
         width: '100%',
         height: 100,
+
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        flexWrap: "wrap",
+
         borderColor: '#A512BD',
         borderWidth: 2,
-        borderRadius: 5,
+        borderRadius: 20,
         textAlign: 'left',
         paddingStart: 10,
         paddingEnd: 10
