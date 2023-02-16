@@ -7,10 +7,23 @@ const height = ScreenHeight/100 // altura em porcentagem
 const width = ScreenWidth/100 // largura em porcentagem
 
 export const styles = StyleSheet.create({
+    postBackground: {
+      alignSelf: 'center',
+      marginBottom: '2%',
+      width: '100%',
+      backgroundColor: 'white',
+
+      borderBottomWidth: 1,
+      borderTopWidth: 1,
+      borderColor: '#E98AF9',
+    },
+
     postContainer: {
       alignSelf: 'center',
-      marginBottom: '10%',
-      width: 350,
+      paddingTop: 10,
+      paddingBottom: 10,
+      width: '90%',
+      backgroundColor: 'white',
     },
 
     postProfile: {
@@ -21,9 +34,9 @@ export const styles = StyleSheet.create({
     },
 
     postImage: {
-      height: 200, 
+      height: 400, 
       width: 350,
-
+      alignSelf: 'center',
       // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
       resizeMode: 'contain',
     },
@@ -40,7 +53,6 @@ export const styles = StyleSheet.create({
       justifyContent: 'space-evenly',
       alignSelf: 'center',
       marginTop: 5,
-      // maxWidth: 
     },
     
     postInteractionImage: {
@@ -83,4 +95,10 @@ export const styles = StyleSheet.create({
       minWidth: 20,
       textAlign: 'center',
     },
+
+    line: {
+      width: '100%',
+      height: 1,
+      backgroundColor: '#FF1493',
+  },
 });
