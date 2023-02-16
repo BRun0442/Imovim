@@ -6,8 +6,7 @@ import AuthProvider from './contexts/auth';
 import CreateUserProvider from './contexts/createUser';
 import Routes from './routes';
 
-// import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais';
-import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
+import Eventos from './components/Pages/Eventos/Eventos';
 
 function App()
 {
@@ -20,7 +19,7 @@ function App()
     //   </CreateUserProvider>
     // </NavigationContainer>
 
-    <EditarPerfil />
+    <Eventos />
 
   )
 }

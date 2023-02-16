@@ -1,15 +1,14 @@
 import React from 'react';
 import { View, Text, TextInput, StatusBar } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './style'
 import Header from '../../Header/Header';
 import ProfileImage from '../../ProfileImage/ProfileImage';
-import Line from '../../Line/Line'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function MarcarEventos(props) {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <StatusBar/>
             <Header />
 
@@ -18,8 +17,6 @@ export default function MarcarEventos(props) {
                     <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
                 </TouchableOpacity>
             </View>
-
-            <Line />
 
             <View style={styles.postContainer}>
                 <View style={styles.postProfile}>
@@ -33,7 +30,7 @@ export default function MarcarEventos(props) {
 
             <View style={styles.form}>
 
-                <Text>Nome do evento</Text>
+                <Text>Nome</Text>
                 <View style={styles.nameInputs}>
                     <TextInput style={styles.inputType1} />
                 </View>
@@ -64,12 +61,12 @@ export default function MarcarEventos(props) {
                     <TextInput style={styles.inputTypeFalse} />
                 </View>
 
-                <Text>Local do evento</Text>
+                <Text>Local</Text>
                 <View style={styles.nameInputs}>
                     <TextInput style={styles.inputType1} />
                 </View>
 
-                <Text>Descrição do Evento</Text>
+                <Text>Descrição</Text>
                 <View style={styles.nameInputs}>
                     <TextInput style={styles.inputType3} />
                 </View>
@@ -79,6 +76,6 @@ export default function MarcarEventos(props) {
                 </TouchableOpacity>
 
             </View>
-        </View>
+        </ScrollView>
     );
 }
