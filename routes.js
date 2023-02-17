@@ -33,10 +33,10 @@ function Routes()
     <Navigator screenOptions={{
       headerShown: false
     }}>
-        <Screen name="MarcarEventos" component={MarcarEventos} />
         <Screen name="Feed" component={Feed} />
         <Screen name="Comentarios" component={Comentarios} />
         <Screen name="CriarPost" component={CriarPost} />
+        <Screen name="MarcarEventos" component={MarcarEventos} />
     </Navigator>
   )
 
