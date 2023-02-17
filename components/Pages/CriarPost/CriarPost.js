@@ -128,5 +128,3 @@ export default function CriarPost({ navigation }) {
         </ScrollView>
   );
 }
-
-export default CriarPost;
