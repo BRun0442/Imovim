@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
       width: '100%',
       alignSelf: 'center',
       // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
-      resizeMode: 'contain',
+      resizeMode: 'cover',
     },
 
     postDescription: {

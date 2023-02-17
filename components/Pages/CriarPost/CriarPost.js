@@ -17,7 +17,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import CreatePost from "../../../services/createPost.js";
 
-export default function CriarPost({ navigation }) {
+function CriarPost({ navigation }) {
   const { profilePicture } = useContext(AuthContext);
   const { nickname } = useContext(AuthContext);
   const { id } = useContext(AuthContext);
