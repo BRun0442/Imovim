@@ -47,7 +47,6 @@ function Feed({navigation}) {
             key={dictionary.id}
             profileImage={dictionary.profileImage}
             likeFunction={() => { 
-              //Evita que entre em uma lógica inversa
               likePost(id, dictionary.id);
             }}
             postImage={dictionary.postImage}

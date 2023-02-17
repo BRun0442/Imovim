@@ -13,7 +13,7 @@ const { Screen, Navigator} = createNativeStackNavigator();
 
 function Routes()
 {
-  const { login, setLogin } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   //Rotas caso o usuário não esteja logado
   const loginPages = (
