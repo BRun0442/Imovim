@@ -1,36 +1,77 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, Image, StatusBar, ScrollView } from 'react-native';
-import { styles } from './style'
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
-import Header from '../../Header/Header'
-import Line from '../../Line/Line';
-import Button from '../../Button/Button';
-import Post from '../../Post/Post';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
-import ProfileImage from '../../ProfileImage/ProfileImage';
+import React, { useState, useEffect, useContext } from "react";
+import { View, Text, Image, StatusBar, ScrollView, TouchableOpacity } from "react-native";
+import { styles } from "./style";
+
+import { TextInput } from 'react-native-gesture-handler';
+import Header from "../../Header/Header";
+import Button from "../../Button/Button";
+
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+
 import { AuthContext } from '../../../contexts/auth';
-import Input from '../../Input/Input';
-import { createPost } from '../../../services/post.js';
 
-function CriarPost({navigation}) {
-    const { profilePicture } = useContext(AuthContext);
-    const { nickname } = useContext(AuthContext);
-    const { id } = useContext(AuthContext);
-    const [caption, setCaption] = useState('');
-    const [image, setImage] = useState('https://img.ifunny.co/images/5b1f7483b65b3e41fc84cc5354e9a142bb8d9cae8a23de6d098f2d2c59d06c37_3.jpg');
+import ProfileImage from "../../ProfileImage/ProfileImage";
+import * as ImagePicker from "expo-image-picker";
+import * as MediaLibrary from "expo-media-library";
+import CreatePost from "../../../services/createPost.js";
 
-    return (
-        <ScrollView>
+export default function CriarPost({ navigation }) {
+  const { profilePicture } = useContext(AuthContext);
+  const { nickname } = useContext(AuthContext);
+  const { id } = useContext(AuthContext);
+  const [caption, setCaption] = useState('');
+  const [image, setImage] = useState(null);
+  const [galleryPermission, setGalleryPermission] = useState(null);
+  // const [type, setType] = useState(CameraType.back);
+  // const [cameraPermission, setCameraPermission] = useState(null);
+  // const [camera, setCamera] = useState(null);
+  // const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    // CameraPermisionFunction();
+    setGalleryPermission(false);
+  }, []);
+
+  const galeryPermisionFunction = async () => {
+    const galleryPermissions = await MediaLibrary.requestPermissionsAsync();
+
+    console.log('teste1: ', galleryPermissions.granted)
+
+    setGalleryPermission(galleryPermissions.granted);
+
+    (galleryPermission) ? pickImage() : ''
+  };
+
+  
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      //   aspect: [1, 1],
+      //   quality: 1,
+    });
+    
+    if (!result.cancelled) {
+      setImage(result.uri);
+      // UploadImage(result.uri, setImageUrl)  // PRECISAMOS ARRUMAR ESSA GAMBIARRA!!!
+    }
+  };
+
+  return (
+    <ScrollView>
             <View style={styles.container}>
                 <StatusBar/>
                 <Header />
+                
                 <View style={styles.photoContainer}>
                     <TouchableOpacity style={{alignSelf: 'center'}}>
                         <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.postContainer}>
                     <View style={styles.postProfile}>
                         <ProfileImage profileImage={profilePicture} />
@@ -38,8 +79,10 @@ function CriarPost({navigation}) {
                             <Text style={styles.profileName}>{nickname}</Text>
                         </View>
                     </View>
+
                     <View>
-                        <Image style={styles.postImage} source={{ uri: 'https://img.ifunny.co/images/5b1f7483b65b3e41fc84cc5354e9a142bb8d9cae8a23de6d098f2d2c59d06c37_3.jpg'}} />
+                        <Image style={styles.postImage} source={{ uri: image}} />
+
                         <TextInput 
                             style={styles.input} 
                             multiline 
@@ -51,28 +94,39 @@ function CriarPost({navigation}) {
                         />
                     </View>
                 </View>
+
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.button}>
                         <Entypo name="camera" size={26} color={'#fff'} />
                         <Text style={styles.buttonText}>Câmera</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
+
+                    <TouchableOpacity onPress={() => {
+                      if(galleryPermission == true)
+                      {
+                        pickImage();
+                      }else{
+                        galeryPermisionFunction();
+                      }
+                    }} style={styles.button}>
                         <MaterialCommunityIcons name="camera-plus" size={26} color={'#fff'} />
                         <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
                     </TouchableOpacity>
+                    
                     <TouchableOpacity style={styles.button}>
                         <MaterialIcons name="place" size={26} color={'#fff'} />
                         <Text style={styles.buttonText}>Localização</Text>
                     </TouchableOpacity>
                 </View>
+
                 <Button buttonText='Criar Post' pressFunction={() => {
-                    createPost(id, caption, image)
+                    CreatePost(image, id, caption)
                     navigation.navigate('Feed')
                     }}
                 />
             </View>
         </ScrollView>
-    );
+  );
 }
 
 export default CriarPost;
