@@ -44,7 +44,6 @@ function Login({navigation})
         </View>
 
         <View style={styles.buttonContainer}>
-          {/* O problema do setId é aqui */}
           <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin, setId)}}/>
           <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
           <Text 
