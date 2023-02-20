@@ -16,7 +16,6 @@ import ProfileImage from "../ProfileImage/ProfileImage";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import Line from '../Line/Line';
 
 function Post(props){
     return (

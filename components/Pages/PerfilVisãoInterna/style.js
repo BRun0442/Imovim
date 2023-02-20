@@ -150,14 +150,21 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  line: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#FF1493',
+    marginBottom: 15,
+  },
+
   posts: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection : 'column',
+    flexDirection: 'column',
 
     // marginBottom: "110%",
-},
+  },
 
   alert: {
     fontWeight: 'bold',

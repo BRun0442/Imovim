@@ -3,7 +3,6 @@ import { View, Text, Image, StatusBar, ScrollView } from 'react-native';
 import { styles } from './style'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import Header from '../../Header/Header'
-import Line from '../../Line/Line';
 import Button from '../../Button/Button';
 import Post from '../../Post/Post';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
