@@ -7,6 +7,7 @@ import Cadastro from './components/Pages/Cadastro/Cadastro';
 import Feed from './components/Pages/Feed/Feed';
 import Comentarios from './components/Pages/Comentarios/Comentarios';
 import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
+import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
 
 import CriarPost from './components/Pages/CriarPost/CriarPost';
 
@@ -37,6 +38,8 @@ export default function Routes() {
       <Screen name="Feed" component={DrawerRoutes} options={{ headerShown: false, }} />
       <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
       <Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
+      <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
+      
     </Navigator>
   )
 

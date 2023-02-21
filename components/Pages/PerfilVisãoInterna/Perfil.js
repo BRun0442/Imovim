@@ -13,7 +13,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 
-export default function PerfilVisãoInterna(props) {
+export default function PerfilVisãoInterna({navigation}, props ){
     return (
         <ScrollView style={styles.container}>
             <Header />
@@ -26,9 +26,11 @@ export default function PerfilVisãoInterna(props) {
                     <View style={styles.iconCam}>
                         <Entypo name="camera" size={22} color="white" />
                     </View>
-                    <View style={styles.iconPencil}>
+                    <TouchableOpacity style={styles.iconPencil}
+                        onPress={() => { navigation.navigate('Editar Perfil') }}
+                    >
                         <Foundation name="pencil" size={25} color="black" />
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.infos}>
