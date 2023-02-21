@@ -26,31 +26,31 @@ function Post(props){
               <ProfileImage profileImage={props.profileImage} />
 
               <View style={styles.profileContainer}>
-                <Text style={styles.profileName}>{props.profileName}</Text>
-                <Text style={styles.postDate}>{props.postDate}</Text>
+                <Text style={styles.profileName}>{props.nickname}</Text>
+                <Text style={styles.postDate}>{props.created_at}</Text>
               </View>
             </View>
 
             <View>
-              <Image style={styles.postImage} source={{ uri: props.postImage }} />
+              <Image style={styles.postImage} source={{ uri: props.image }} />
             </View>
 
-            <Text style={styles.postDescription}>{props.postDescription}</Text>
+            <Text style={styles.postDescription}>{props.caption}</Text>
 
             <View style={styles.postInteraction}>
-              <TouchableOpacity onPress={props.likeFunction} style={styles.postInteractionImage}>
+              <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
                 <AntDesign name="like1" size={24} color="white" />
-                <Text style={styles.interactionQuantity}>{props.likeQuantity}</Text>
+                <Text style={styles.interactionQuantity}>{props.likes}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.postInteractionImage}>
                 <Ionicons name="chatbubble" size={24} color="white" />
-                <Text style={styles.interactionQuantity}>{props.comentQuantity}</Text>
+                <Text style={styles.interactionQuantity}>{props.comments}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.postInteractionImage}>
                 <FontAwesome name="share" size={24} color="white" />
-                <Text style={styles.interactionQuantity}>{props.shareQuantity}</Text>
+                <Text style={styles.interactionQuantity}>{props.updated}</Text>
               </TouchableOpacity>
             </View>
           </View>

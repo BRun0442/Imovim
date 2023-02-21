@@ -39,7 +39,6 @@ export default function Routes() {
       <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
       <Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
-      
     </Navigator>
   )
 
