@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { View, Text, Image, StatusBar, ScrollView, TouchableOpacity } from "react-native";
-import { styles } from "./style";
-
-import { TextInput } from 'react-native-gesture-handler';
-import Header from "../../Header/Header";
-import Button from "../../Button/Button";
-
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-
+import React, { useContext, useState } from 'react';
+import { View, Text, Image, StatusBar, ScrollView } from 'react-native';
+import { styles } from './style'
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import Header from '../../Header/Header'
+import Button from '../../Button/Button';
+import Post from '../../Post/Post';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import ProfileImage from '../../ProfileImage/ProfileImage';
 import { AuthContext } from '../../../contexts/auth';
 
 import ProfileImage from "../../ProfileImage/ProfileImage";

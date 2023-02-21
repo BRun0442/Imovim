@@ -6,7 +6,7 @@ export const AuthContext = createContext({});
 
 function AuthProvider({children})
 {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const [id, setId] = useState();
   const [nickname, setNickname] = useState();
   const [profilePicture, setProfilePicture] = useState('https://randomuser.me/api/portraits/thumb/men/57.jpg');

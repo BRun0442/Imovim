@@ -9,12 +9,11 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import Header from '../../Header/Header'
 import Post from '../../Post/Post';
-import Line from '../../Line/Line'
 import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 
-export default function PerfilVisãoInterna(props) {
+export default function PerfilVisãoInterna({navigation}, props ){
     return (
         <ScrollView style={styles.container}>
             <Header />
@@ -27,9 +26,11 @@ export default function PerfilVisãoInterna(props) {
                     <View style={styles.iconCam}>
                         <Entypo name="camera" size={22} color="white" />
                     </View>
-                    <View style={styles.iconPencil}>
+                    <TouchableOpacity style={styles.iconPencil}
+                        onPress={() => { navigation.navigate('Editar Perfil') }}
+                    >
                         <Foundation name="pencil" size={25} color="black" />
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.infos}>
@@ -57,7 +58,7 @@ export default function PerfilVisãoInterna(props) {
 
             </View>
 
-            <Line />
+            <View style={styles.line}></View>
 
             <View style={styles.posts}>
                 <Text style={styles.alert}>Não há nenhuma publicação aqui</Text>
