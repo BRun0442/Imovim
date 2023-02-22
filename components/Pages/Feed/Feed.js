@@ -17,13 +17,14 @@ function Feed({navigation}) {
   const { id } = useContext(AuthContext);
   let isLoading;
 
-  //Refresh page quem change the route
+  //Refresh page when change the route
   const isFocused = useIsFocused();
 
   async function getFeed() {
     isLoading = true;
     try {
       setPosts(await feedManager());
+      console.log('FEEEEEEEEEEEEEEEEEEEEEEEEDDDDDDDDDDDDDD');
     } catch (error) {
       console.log('EEERRRROOO', error);
     }
@@ -52,7 +53,7 @@ function Feed({navigation}) {
 
       maxToRenderPerBatch={5}
       initialNumToRender={5}
-      onRefresh={() => {getFeed()}}
+      onRefresh={getFeed}
       refreshing={isLoading}
       
       ListHeaderComponent=

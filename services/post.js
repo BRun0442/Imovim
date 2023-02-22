@@ -12,7 +12,7 @@ export async function createPost(user_id, caption, image)
 
     alert(response.data.msg)
   } catch (error) {
-    console.log(error)
+    alert(error)
   }
 }
 
@@ -23,7 +23,6 @@ async function likePost(user_id, post_id)
       post_id: post_id,
       user_id: user_id
     })
-    alert(response.data.msg)
   } catch (error) {
     console.log(error)
   }

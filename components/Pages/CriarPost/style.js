@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 
   container: {
     // flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
   },
 
   photoContainer: {
@@ -96,8 +96,9 @@ export const styles = StyleSheet.create({
     borderBottomColor: "white",
     fontSize: 18,
     width: '100%',
-    minHeight: 50,
-    maxHeight: 250,
+    height: height * 35,
+    // minHeight: 50,
+    // maxHeight: 250,
     fontWeight: '400',
     alignSelf: 'center',
     marginTop: '5%'

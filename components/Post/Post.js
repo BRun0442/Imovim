@@ -31,9 +31,15 @@ function Post(props){
               </View>
             </View>
 
-            <View>
-              <Image style={styles.postImage} source={{ uri: props.image }} />
-            </View>
+            <Image style={
+              [
+                styles.postImage, 
+                props.image ? {height: 450} : {height: 0}
+              ]} 
+              source={
+                props.image ? { uri: props.image } : ''
+              } 
+            />
 
             <Text style={styles.postDescription}>{props.caption}</Text>
 
