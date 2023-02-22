@@ -41,9 +41,12 @@ export default function Routes() {
       <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
       <Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
+<<<<<<< HEAD
       <Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
       <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
       
+=======
+>>>>>>> 8e9910aa526d91edf37e79b9966715ffd100688e
     </Navigator>
   )
 

@@ -16,7 +16,7 @@ export async function createPost(user_id, caption, image)
   }
 }
 
-async function likePost({navigation},user_id, post_id)
+async function likePost(user_id, post_id)
 {
   try {
     const response = await api.post("/post/like-post", {
