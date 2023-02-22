@@ -24,9 +24,8 @@ function Feed({navigation}) {
     isLoading = true;
     try {
       setPosts(await feedManager());
-      console.log('FEEEEEEEEEEEEEEEEEEEEEEEEDDDDDDDDDDDDDD');
     } catch (error) {
-      console.log('EEERRRROOO', error);
+      console.log(error);
     }
     isLoading = false;
   }
