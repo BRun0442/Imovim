@@ -40,8 +40,8 @@ export const styles = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
   
-    minWidth: 150,
-    height: 50,
+    width: 180,
+    height: 60,
     
     justifyContent: "center",
     alignSelf: 'center',

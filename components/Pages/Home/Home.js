@@ -7,7 +7,7 @@ import Button from '../../Button/Button.js';
 function Home({ navigation }) {
   return (
     <View style={defaultStyle.container}>
-      <Text style={defaultStyle.title}>IMOVIN</Text>
+      <Text style={defaultStyle.title}>Imovim</Text>
       <Text style={styles.text}>Seja bem-vindo a rede social brasileira de esportes!</Text>
       <Text style={styles.text}>Faça parte da rede que te movimenta</Text>
 

@@ -15,6 +15,19 @@ import { AntDesign } from '@expo/vector-icons';
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 
 export default function PerfilVisãoInterna({ navigation }, props) {
+
+    const [visible, setVisible] = useState(false)
+
+    console.log(visible);
+
+    // if (visible === false) {
+    //     return (
+
+    //     )
+    // } else {
+
+    // }
+
     return (
         <ScrollView style={styles.container}>
             <Header />
@@ -56,38 +69,44 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     <Text style={styles.tagsText}>#Adicione seus esportes favoritos</Text>
                 </View>
 
-                <View style={styles.editProfileContainer}>
-
+                <View>
                     <View style={styles.editProfile}>
+                        <View>
+                            <TouchableOpacity
+                                style={styles.editProfileButton}
+                                onPress={() => { navigation.navigate('Tela Tags') }}
+                            >
+                                <Foundation name="pencil" size={24} color="#FFF" />
+                                <Text style={styles.editProfileText}>Editar Tags</Text>
+                            </TouchableOpacity>
+
+                            <View style={styles.whiteLine}></View>
+
+                            <TouchableOpacity
+                                style={styles.editProfileButton}
+                                onPress={() => { navigation.navigate('Tela Ver Mais') }}
+                            >
+                                <AntDesign name="eye" size={24} color="#FFF" />
+                                <Text style={styles.editProfileText}>Ver Mais</Text>
+                            </TouchableOpacity>
+                        </View>
 
                         <TouchableOpacity
-                            style={styles.editProfileButton}
-                            onPress={() => { navigation.navigate('Tela Tags') }}
-                        >
-                            <Foundation name="pencil" size={24} color="#FFF" />
-                            <Text style={styles.editProfileText}>Editar Tags</Text>
+                            onPress={() => setVisible(!visible)}
+                            style={{ marginLeft: 15 }}>
+                            <Ionicons name="ios-close" size={24} color="#FFF" />
                         </TouchableOpacity>
+                    </View>
 
-                        <View style={styles.whiteLine}></View>
-
+                    <View style={styles.openEdit}>
                         <TouchableOpacity
-                            style={styles.editProfileButton}
-                            onPress={() => { navigation.navigate('Tela Ver Mais') }}
+                            onPress={() => setVisible(!visible)}
+                            style={styles.buttonText}
                         >
-
-                            <AntDesign name="eye" size={24} color="#FFF" />
-                            <Text style={styles.editProfileText}>Ver Mais</Text>
+                            <Text style={styles.openEditText}>...</Text>
                         </TouchableOpacity>
-
                     </View>
-
-                    <View style={{ marginLeft: 10 }}>
-                        <Ionicons name="ios-close" size={24} color="#FFF" />
-                    </View>
-
-                    {/* <Text style={styles.buttonText}>...</Text> */}
                 </View>
-
             </View>
 
             <View style={styles.line}></View>
@@ -95,8 +114,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
             <View style={styles.posts}>
                 <Text style={styles.alert}>Não há nenhuma publicação aqui</Text>
             </View>
-
-
 
             <StatusBar />
         </ScrollView>

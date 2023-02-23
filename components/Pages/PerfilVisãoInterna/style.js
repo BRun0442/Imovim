@@ -143,24 +143,20 @@ export const styles = StyleSheet.create({
     fontSize: 14,
   },
 
-  editProfileContainer: {
-    width: 160,
+  editProfile: {
+    width: 180,
     height: 70,
+
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
 
     backgroundColor: "#FD5F00",
 
-    display: "flex",
-    flexDirection: "row", 
-    alignItems: "center",
-    
-    paddingHorizontal: 10,
-    
-    borderRadius: 20
-  },
+    borderRadius: 20,
 
-  editProfile:{
-    display: "flex",
-    flexDirection: "column"
+    paddingHorizontal: 10,
   },
 
   editProfileButton: {
@@ -170,14 +166,14 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
 
-  editProfileText:{
+  editProfileText: {
     color: "#FFF",
     fontSize: 15,
     fontWeight: "bold",
     marginLeft: 10
   },
 
-  whiteLine:{
+  whiteLine: {
     width: "100%",
     height: 1,
 
@@ -198,7 +194,21 @@ export const styles = StyleSheet.create({
     borderRadius: 40,
   },
 
-  buttonText: {
+  openEdit: {
+    width: 50,
+    height: 50,
+
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#FD5F00",
+
+    borderRadius: 40,
+  },
+
+  openEditText: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',

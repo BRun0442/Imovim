@@ -10,8 +10,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import ProfileImage from '../../ProfileImage/ProfileImage';
 import { AuthContext } from '../../../contexts/auth';
-
-import ProfileImage from "../../ProfileImage/ProfileImage";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import CreatePost from "../../../services/createPost.js";
