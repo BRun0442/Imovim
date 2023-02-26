@@ -7,7 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 
-let screenWidth = Dimensions.get("window").width/100; // largura da tela
+let screenWidth = Dimensions.get("window").width/100; // screen width
 
 function Post(props){
   const [width, setWidth] = useState(0);
@@ -16,6 +16,7 @@ function Post(props){
 
   async function getImagesSize()
   {
+    // Use the width and height props to optimize
     await Image.getSize(props.image, (width, height) => 
     {
       setHeight(height); 
@@ -26,7 +27,7 @@ function Post(props){
   }
 
   useEffect(() => {
-    //If image is empty it doesnt call function
+    // if image is empty it doesnt call function
     props.image && getImagesSize();
   })
 

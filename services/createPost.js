@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, Image, Button } from "react-native";
-import { db, auth, firebaseConfig, storage } from "../firebase/config.js";
+import { firebaseConfig, storage } from "../firebase/config.js";
 import { uploadBytes, getDownloadURL, ref, getStorage } from "firebase/storage";
 import { initializeApp } from "firebase/app";
-import axios from "axios";
 import { createPost } from "./post.js";
 
 initializeApp(firebaseConfig);

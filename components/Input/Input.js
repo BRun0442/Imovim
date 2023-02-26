@@ -14,6 +14,7 @@ function Input(props)
         width={props.width}
         textAlign={props.textAlign}
         onChangeText={props.getInputValue}
+        maxLength={props.maxLength}
       >
       </TextInput>
     </View>

@@ -17,7 +17,7 @@ function Cadastro({ navigation }) {
 
   return (
     <View style={defaultStyle.container}>
-      <StatusBar/>
+      <StatusBar backgroundColor="#000000"/>
       <Text style={defaultStyle.title}>IMOVIN</Text>
 
       <Image
@@ -42,6 +42,7 @@ function Cadastro({ navigation }) {
             placeholder='dd'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
+            maxLength={2}
             onChangeText={(value) => { birthday[0] = value }}
           >
           </TextInput>
@@ -51,6 +52,7 @@ function Cadastro({ navigation }) {
             placeholder='mm'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
+            maxLength={2}
             onChangeText={(value) => { birthday[1] = value }}
           >
           </TextInput>
@@ -60,6 +62,7 @@ function Cadastro({ navigation }) {
             placeholder='aaaa'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
+            maxLength={4}
             onChangeText={(value) => { birthday[2] = value }}
           >
           </TextInput>
@@ -80,6 +83,7 @@ function Cadastro({ navigation }) {
             placeholder='DDD'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
+            maxLength={2}
             onChangeText={(value) => { phoneNumber[0] = value }}
           >
           </TextInput>
@@ -89,6 +93,7 @@ function Cadastro({ navigation }) {
             placeholder='Telefone'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
+            maxLength={9}
             onChangeText={(value) => { phoneNumber[1] = value }}
           >
           </TextInput>
@@ -99,10 +104,6 @@ function Cadastro({ navigation }) {
             {() => {
               phoneNumber.reverse();
               birthday.reverse()
-
-              console.log(phoneNumber.join(''));
-              console.log(birthday.join(''));
-
               setPhoneNumber(
                 phoneNumber.join('')
               );
@@ -131,9 +132,9 @@ function Cadastro({ navigation }) {
             >
               Login
             </Text>
-
           </Text>
         </View>
+
       </View>
       <StatusBar />
     </View>
