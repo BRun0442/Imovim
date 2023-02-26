@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -6,7 +6,11 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function CustomDrawer({ navigation }) {
+import { AuthContext } from '../../contexts/auth.js';
+
+export default function CustomDrawer({ navigation }, props) {
+    const { setLogin } = useContext(AuthContext);
+
     return (
         <View style={styles.container}>
             <View style={styles.section01}>
@@ -46,13 +50,14 @@ export default function CustomDrawer({ navigation }) {
                 </View>
             </View>
 
-            <View style={styles.exitContainer}>
-                <View style={styles.exit}>
-                    <Ionicons name="exit-outline" size={24} color="#FFF" />
-                    <Text style={styles.exitText}>SAIR</Text>
+            <TouchableOpacity onPress={() => setLogin(false)}>
+                <View style={styles.exitContainer}>
+                    <View style={styles.exit}>
+                        <Ionicons name="exit-outline" size={24} color="#FFF" />
+                        <Text style={styles.exitText}>SAIR</Text>
+                    </View>
                 </View>
-            </View>
-
+            </TouchableOpacity>
         </View>
     )
 }
