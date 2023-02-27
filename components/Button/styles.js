@@ -9,8 +9,8 @@ const width = ScreenWidth/100 // largura em porcentagem
 export const styles = StyleSheet.create({
     button: {
       backgroundColor: "#FF6709",
-      width: 180,
-      height: 60,
+      width: 175,
+      height: 50,
       
       marginVertical: 10,
       borderRadius: 20,

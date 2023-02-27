@@ -8,8 +8,13 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const defaultStyle = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#A512BD",
-    height: ScreenHeight + 20 * height,
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
 
   inputContainer: {
@@ -21,6 +26,7 @@ export const defaultStyle = StyleSheet.create({
     borderRadius: 25,
     paddingHorizontal: 20,
     marginHorizontal: 20,
+    marginBottom: 25
     // paddingLeft: '10%',
   },
 
@@ -31,8 +37,8 @@ export const defaultStyle = StyleSheet.create({
     // Essa linha crasha o sistema!
     fontWeight: "bold",
 
-    marginTop: 60,
-    marginBottom: 20,
+    marginTop: 30,
+    marginBottom: 15,
     color: "#FF6709",
     fontWeight: "700",
   },

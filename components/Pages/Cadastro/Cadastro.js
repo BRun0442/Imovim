@@ -1,5 +1,6 @@
-import React, {useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar} from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
@@ -16,9 +17,9 @@ function Cadastro({ navigation }) {
 
 
   return (
-    <View style={defaultStyle.container}>
-      <StatusBar/>
-      <Text style={defaultStyle.title}>IMOVIN</Text>
+    <ScrollView style={styles.container}>
+      <StatusBar />
+      <Text style={defaultStyle.title}>Imovim</Text>
 
       <Image
         style={defaultStyle.basketBall}
@@ -136,7 +137,7 @@ function Cadastro({ navigation }) {
         </View>
       </View>
       <StatusBar />
-    </View>
+    </ScrollView>
   );
 }
 

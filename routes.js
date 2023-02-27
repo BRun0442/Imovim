@@ -14,6 +14,7 @@ import CriarPost from './components/Pages/CriarPost/CriarPost';
 
 import DrawerRoutes from './components/Drawer/Drawer';
 import TelaTags from './components/Pages/TelaTags/TelaTags';
+import Chat from './components/Pages/Chat/Chat';
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -43,6 +44,7 @@ export default function Routes() {
       <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
       <Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
       <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
+      <Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
     </Navigator>
   )
 

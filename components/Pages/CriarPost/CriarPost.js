@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { View, Text, Image, StatusBar, ScrollView } from 'react-native';
 import { styles } from './style'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
