@@ -2,30 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 20
-    },
-
-    topBar: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-
-
-        backgroundColor: "#F8670E",
-        marginHorizontal: 15,
-        marginTop: 20,
-
-        height: 50,
-        borderRadius: 30
-    },
-
-    topBarText: {
-        marginLeft: 5,
-
-        color: "#FFF",
-        fontWeight: "bold",
-        fontSize: 25
+        flex: 1,
+        backgroundColor: "#F1F1F1"
     },
 
     searchContainer: {
@@ -34,7 +12,6 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        backgroundColor: "#F1F1F1",
         marginTop: 15,
         paddingHorizontal: 2,
 
@@ -43,8 +20,8 @@ export const styles = StyleSheet.create({
 
     searchInput: {
         backgroundColor: "#FFF",
-        height: 40,
-        width: "80%",
+        height: 45,
+        width: "90%",
         borderRadius: 50,
 
         paddingHorizontal: 15,
@@ -60,7 +37,34 @@ export const styles = StyleSheet.create({
         borderRadius: 30,
     },
 
-    messageContainer:{
-        marginTop: 20
+    tags: {
+        width: "100%",
+
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+
+        paddingHorizontal: 40,
+        marginBottom: 20
+    },
+
+    tag: {
+        backgroundColor: "#FFF",
+        padding: 10,
+
+        borderRadius: 30,
+
+        fontSize: 18
+    },
+
+    results: {
+        backgroundColor: "#FFF",
+        width: "90%",
+
+        padding: 15,
+        marginHorizontal: 15,
+
+        borderRadius: 25
     },
 })

@@ -5,7 +5,8 @@ import { styles } from './style.js'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
+
+import MessageChat from '../../MessageChat/MessageChat.js';
 
 export default function Chat() {
   return (
@@ -28,21 +29,7 @@ export default function Chat() {
         </View>
 
         <View style={styles.messageContainer}>
-          <View style={styles.message}>
-            <View style={styles.camContainer}>
-              <FontAwesome name="camera" size={24} color="#FFF" />
-            </View>
-
-            <View style={styles.messageItems}>
-              <View style={styles.messageTexts}>
-                <Text>Nome Sobrenome</Text>
-                <Text>Mensagem</Text>
-              </View>
-
-              <View style={styles.notification}></View>
-            </View>
-
-          </View>
+        <MessageChat name="Tiago" message="Onde fica essa quadra?" />
         </View>
 
       </View>
