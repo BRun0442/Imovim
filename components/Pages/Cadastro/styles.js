@@ -7,6 +7,11 @@ const height = ScreenHeight / 100; // altura em porcentagem
 const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#A512BD"
+  },
+
   textBox: {
     display: "flex",
     flexWrap: "wrap",
@@ -31,7 +36,7 @@ export const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    marginTop: '20%',
+    marginTop: 15,
   },
 
   phoneContainer: {

@@ -10,10 +10,24 @@ import { Ionicons } from '@expo/vector-icons';
 import Header from '../../Header/Header'
 import Post from '../../Post/Post';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 
-export default function PerfilVisãoInterna({navigation}, props ){
+export default function PerfilVisãoInterna({ navigation }, props) {
+
+    const [visible, setVisible] = useState(false)
+
+    console.log(visible);
+
+    // if (visible === false) {
+    //     return (
+
+    //     )
+    // } else {
+
+    // }
+
     return (
         <ScrollView style={styles.container}>
             <Header />
@@ -24,7 +38,7 @@ export default function PerfilVisãoInterna({navigation}, props ){
 
                 <View style={styles.icons}>
                     <View style={styles.iconCam}>
-                        <Entypo name="camera" size={22} color="white" />
+                        <Entypo name="camera" size={22} color="#FFF" />
                     </View>
                     <TouchableOpacity style={styles.iconPencil}
                         onPress={() => { navigation.navigate('Editar Perfil') }}
@@ -41,21 +55,58 @@ export default function PerfilVisãoInterna({navigation}, props ){
                     </View>
                     <View style={styles.seeMore}>
                         <TouchableOpacity style={styles.buttonSeeMore}>
-                            <Ionicons name="person-add" size={20} color="white" />
+                            <Ionicons name="person-add" size={20} color="#FFF" />
                             <Text style={styles.textButtonSeeMore}>Ver Amigos</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
+
             <View style={styles.border}></View>
 
             <View style={styles.tagsView}>
-                <Text style={styles.tags}>#Adicione seus esportes favoritos</Text>
+                <View style={styles.tags}>
+                    <Text style={styles.tagsText}>#Adicione seus esportes favoritos</Text>
+                </View>
 
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>...</Text>
-                </TouchableOpacity>
+                <View>
+                    <View style={styles.editProfile}>
+                        <View>
+                            <TouchableOpacity
+                                style={styles.editProfileButton}
+                                onPress={() => { navigation.navigate('Tela Tags') }}
+                            >
+                                <Foundation name="pencil" size={24} color="#FFF" />
+                                <Text style={styles.editProfileText}>Editar Tags</Text>
+                            </TouchableOpacity>
 
+                            <View style={styles.whiteLine}></View>
+
+                            <TouchableOpacity
+                                style={styles.editProfileButton}
+                                onPress={() => { navigation.navigate('Tela Ver Mais') }}
+                            >
+                                <AntDesign name="eye" size={24} color="#FFF" />
+                                <Text style={styles.editProfileText}>Ver Mais</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <TouchableOpacity
+                            onPress={() => setVisible(!visible)}
+                            style={{ marginLeft: 15 }}>
+                            <Ionicons name="ios-close" size={24} color="#FFF" />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.openEdit}>
+                        <TouchableOpacity
+                            onPress={() => setVisible(!visible)}
+                            style={styles.buttonText}
+                        >
+                            <Text style={styles.openEditText}>...</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
 
             <View style={styles.line}></View>
@@ -63,6 +114,7 @@ export default function PerfilVisãoInterna({navigation}, props ){
             <View style={styles.posts}>
                 <Text style={styles.alert}>Não há nenhuma publicação aqui</Text>
             </View>
+
             <StatusBar />
         </ScrollView>
     );
