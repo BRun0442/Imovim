@@ -15,8 +15,8 @@ const Drawer = createDrawerNavigator();
 export default function DrawerRoutes() {
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} exitFunction={() => {setLogin(false)}}/>} initialRouteName='Feed'>
-      <Drawer.Screen name="Perfil" component={Perfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Perfil" component={Perfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />

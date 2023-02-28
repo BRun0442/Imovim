@@ -16,7 +16,7 @@ function Cadastro({navigation})
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
 
   return(
-    <View style={defaultStyle.container}>
+    <View style={styles.container}>
       <StatusBar/>
       <Text style={defaultStyle.title}>Imovim</Text>
 

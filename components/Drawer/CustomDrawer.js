@@ -11,6 +11,8 @@ import { AuthContext } from '../../contexts/auth.js';
 
 export default function CustomDrawer({ navigation }, props) {
     const { setLogin } = useContext(AuthContext);
+    const { nickname } = useContext(AuthContext);
+    const { profilePicture } = useContext(AuthContext);
 
     return (
         <View style={styles.container}>
@@ -21,10 +23,10 @@ export default function CustomDrawer({ navigation }, props) {
 
                 <View style={styles.dataContainer}>
                     <Image style={styles.dataContainerImage} source={{
-                        uri: "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+                        uri: profilePicture
                     }}
                     />
-                    <Text style={styles.dataContainerText}>Nome Sobrenome</Text>
+                    <Text style={styles.dataContainerText}>{nickname}</Text>
                 </View>
 
                 <View style={styles.containerItems}>

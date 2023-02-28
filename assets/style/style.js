@@ -13,21 +13,19 @@ export const defaultStyle = StyleSheet.create({
 
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center"
   },
 
   inputContainer: {
     backgroundColor: "rgba(0,0,0,0.3)",
-    height: 85 * height,
+    height: 75 * height,
     width: 85 * width,
     alignSelf: "center",
-    // marginLeft: 2,
     borderRadius: 25,
     paddingHorizontal: 20,
     marginHorizontal: 20,
-    marginBottom: 25
-    // paddingLeft: '10%',
+    marginBottom: 0
   },
 
   title: {
@@ -37,8 +35,6 @@ export const defaultStyle = StyleSheet.create({
     // Essa linha crasha o sistema!
     fontWeight: "bold",
 
-    marginTop: 30,
-    marginBottom: 15,
     color: "#FF6709",
     fontWeight: "700",
   },

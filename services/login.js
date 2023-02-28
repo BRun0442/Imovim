@@ -6,7 +6,7 @@ export function logout(setLogin)
   alert("Você saiu!");
 }
 
-function ValidateData(email, password, setLogin, setId)
+function ValidateData(email, password, setLogin, setId, setNickname, setImage)
 {
   if(email != '' && password != '')
   {
@@ -16,6 +16,8 @@ function ValidateData(email, password, setLogin, setId)
     .then(response => {
       alert(JSON.stringify(response.data.msg))
       setId(parseInt(JSON.stringify(response.data.user_id)));
+      setNickname(response.data.nickname)
+      // setImage(response.data.image)
       setLogin(true);
     })
     .catch(error => {

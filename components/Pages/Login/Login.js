@@ -18,6 +18,8 @@ function Login({navigation})
 
   const { setLogin } = useContext(AuthContext);
   const { setId } = useContext(AuthContext);
+  const { setNickname } = useContext(AuthContext);
+  const { setProfilePicture } = useContext(AuthContext);
 
   return(
     <View style={defaultStyle.container}>
@@ -44,7 +46,8 @@ function Login({navigation})
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button buttonText="Entrar" pressFunction={() => {ValidateData(email, password, setLogin, setId)}}/>
+          <Button buttonText="Entrar" pressFunction={() => {
+            ValidateData(email, password, setLogin, setId, setNickname, setProfilePicture)}}/>
           <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
           <Text 
             style={{

@@ -19,7 +19,7 @@ function Cadastro({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <StatusBar />
-      <Text style={defaultStyle.title}>IMOVIM</Text>
+      <Text style={defaultStyle.title}>Imovim</Text>
 
       <Image
         style={defaultStyle.basketBall}

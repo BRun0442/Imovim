@@ -7,7 +7,7 @@ import Button from '../../Button/Button.js';
 
 function Home({ navigation }) {
   return (
-    <View style={defaultStyle.container}>
+    <View style={styles.container}>
       <View>
         <Text style={defaultStyle.title}>Imovim</Text>
         <View style={{ paddingHorizontal: 20 }}>
