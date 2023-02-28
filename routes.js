@@ -7,9 +7,13 @@ import Cadastro from './components/Pages/Cadastro/Cadastro';
 import Comentarios from './components/Pages/Comentarios/Comentarios';
 import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
 import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
+import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais'
+
 import CriarPost from './components/Pages/CriarPost/CriarPost';
 
 import DrawerRoutes from './components/Drawer/Drawer';
+import TelaTags from './components/Pages/TelaTags/TelaTags';
+import Chat from './components/Pages/Chat/Chat';
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -37,6 +41,9 @@ export default function Routes() {
       <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
       <Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
+      <Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
+      <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
+      <Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
     </Navigator>
   )
 

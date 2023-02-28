@@ -8,9 +8,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import ProfileImage from '../../ProfileImage/ProfileImage';
+
 import { AuthContext } from '../../../contexts/auth';
 import { useIsFocused } from "@react-navigation/native";
-
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import CreatePost from "../../../services/createPost.js";

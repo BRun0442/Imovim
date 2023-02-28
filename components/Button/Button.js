@@ -3,9 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'reac
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 
-
-
-function Button(props)
+export default function Button(props)
 {
   return(
     <TouchableOpacity style={styles.button} onPress={() => {props.pressFunction()}}>
@@ -14,4 +12,3 @@ function Button(props)
   );
 }
 
-export default Button;

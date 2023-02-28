@@ -84,12 +84,15 @@ export const styles = StyleSheet.create({
   },
 
   buttonSeeMore: {
+    width: 150,
+    height: 40,
+
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+
     backgroundColor: '#A512BD',
-    width: 120,
-    height: 30,
+
     borderRadius: 40,
     display: "flex",
     justifyContent: "center",
@@ -97,17 +100,19 @@ export const styles = StyleSheet.create({
   },
 
   textButtonSeeMore: {
-    color: "#ffff",
+    color: "#FFF",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 18,
+
     marginLeft: 2
   },
 
   border: {
-    width: '100%',
+    width: "100%",
     height: 5,
-    borderRadius: 10,
-    backgroundColor: '#A512BD',
+
+    backgroundColor: '#A312BB',
+
     marginTop: 10
   },
 
@@ -116,35 +121,94 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 15,
+
+    marginVertical: 15
   },
 
   tags: {
+    width: 240,
+    height: 40,
+
     display: 'flex',
-    textAlign: 'center',
-    backgroundColor: '#A6A6A6',
-    width: 260,
-    height: 30,
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: '#8B8A8B',
+    borderRadius: 25,
+  },
+
+  tagsText: {
+    color: '#FFF',
     fontWeight: 'bold',
     fontSize: 14,
-    borderRadius: 10,
-    padding: 5,
-    color: '#fff'
+  },
+
+  editProfile: {
+    width: 180,
+    height: 70,
+
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#FD5F00",
+
+    borderRadius: 20,
+
+    paddingHorizontal: 10,
+  },
+
+  editProfileButton: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+
+  editProfileText: {
+    color: "#FFF",
+    fontSize: 15,
+    fontWeight: "bold",
+    marginLeft: 10
+  },
+
+  whiteLine: {
+    width: "100%",
+    height: 1,
+
+    backgroundColor: "#FFF",
+
+    marginVertical: 4
   },
 
   button: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
     backgroundColor: "#FF6709",
     width: 40,
     height: 40,
-    padding: 10,
-    borderRadius: 400,
-    justifyContent: "center",
-    alignSelf: 'center',
+
+    borderRadius: 40,
   },
 
-  buttonText: {
-    textAlign: 'center',
+  openEdit: {
+    width: 50,
+    height: 50,
+
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#FD5F00",
+
+    borderRadius: 40,
+  },
+
+  openEditText: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
@@ -158,12 +222,9 @@ export const styles = StyleSheet.create({
   },
 
   posts: {
-    flex: 1,
+    display: "flex",
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'column',
-
-    // marginBottom: "110%",
   },
 
   alert: {

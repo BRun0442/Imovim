@@ -16,21 +16,19 @@ export const styles = StyleSheet.create({
     color: "#FF6709",
     fontSize: 60,
     textAlign: "center",
-    marginVertical: "15%",
+    marginVertical: 20,
     fontWeight: "700",
   },
 
   text: {
     color: "white",
-    fontSize: 30,
+    fontSize: 24,
     textAlign: "center",
-    marginBottom: "5%",
+    marginBottom: 10,
   },
 
   acessContainer: {
-    height: "150%",
-    alignContent: "space-around",
-    marginTop: "10%",
+    marginTop: 20,
   },
 
   transparentButton: {
@@ -40,7 +38,7 @@ export const styles = StyleSheet.create({
     borderWidth: 3,
     marginTop: 15,
   
-    minWidth: 150,
+    width: 175,
     height: 50,
     
     justifyContent: "center",

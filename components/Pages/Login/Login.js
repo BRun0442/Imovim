@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
@@ -9,7 +10,6 @@ import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
-
 
 function Login({navigation})
 {
@@ -22,7 +22,7 @@ function Login({navigation})
   return(
     <View style={defaultStyle.container}>
       <StatusBar/>
-      <Text style={defaultStyle.title}>IMOVIN</Text>
+      <Text style={defaultStyle.title}>Imovim</Text>
 
       <Image 
         style={defaultStyle.basketBall} 

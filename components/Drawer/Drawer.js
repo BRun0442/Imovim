@@ -5,6 +5,8 @@ import Perfil from '../Pages/PerfilVisãoInterna/Perfil.js'
 import Eventos from '../Pages/Eventos/Eventos';
 import CriarPost from '../Pages/CriarPost/CriarPost';
 import EditarPerfil from '../Pages/EditarPerfil/EditarPerfil';
+import TelaVerMais from '../Pages/TelaVerMais/TelaVerMais';
+import TelaTags from '../Pages/TelaTags/TelaTags';
 
 import CustomDrawer from './CustomDrawer';
 
@@ -18,6 +20,8 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }
