@@ -54,7 +54,9 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                     </View>
                     <View style={styles.seeMore}>
-                        <TouchableOpacity style={styles.buttonSeeMore}>
+                        <TouchableOpacity style={styles.buttonSeeMore}
+                            onPress={() => {navigation.navigate('Ver Amigos')}}
+                        >
                             <Ionicons name="person-add" size={20} color="#FFF" />
                             <Text style={styles.textButtonSeeMore}>Ver Amigos</Text>
                         </TouchableOpacity>
