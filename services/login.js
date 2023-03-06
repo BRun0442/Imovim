@@ -10,9 +10,7 @@ function ValidateData(email, password, setLogin, setId, setNickname, setImage)
 {
   if(email != '' && password != '')
   {
-    api.get("/auth/login", {
-      params: { email: email, password: password},
-    })
+    api.post("/auth/login", { email: email, password: password})
     .then(response => {
       alert(JSON.stringify(response.data.msg))
       setId(parseInt(JSON.stringify(response.data.user_id)));

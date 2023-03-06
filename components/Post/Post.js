@@ -69,7 +69,7 @@ function Post(props){
                 <Text style={styles.interactionQuantity}>{props.likes}</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.postInteractionImage}>
+              <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
                 <Ionicons name="chatbubble" size={24} color="white" />
                 <Text style={styles.interactionQuantity}>{props.comments}</Text>
               </TouchableOpacity>
