@@ -18,14 +18,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 35,
-    paddingTop: statusBarHeight,
   },
 
   likeAndComents: {
-    flexDirection: 'row',
     width: '45%',
-    justifyContent: 'space-around',
-    flex: 1
+
+    flex: 1,
+    flexDirection: 'row',
   },
 
   button: {
@@ -42,6 +41,51 @@ export const styles = StyleSheet.create({
 
   comentsContainer: {
     backgroundColor: '#ededed',
-    height: '100%',
   },
+  
+  writeComentContainer:{
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+    marginTop: 100,
+    marginHorizontal: 10
+  },
+
+  photo: {
+    width: 50,
+    height: 50,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    borderRadius: 50,
+
+    backgroundColor: "#D9D9D9",
+
+    borderColor: "#FF7926",
+    borderWidth: 2,
+
+  },
+
+  input: {
+    width: "80%",
+    height: 50,
+    backgroundColor: "#FFF"
+  },
+
+  buttonSendComment:{
+    width: 40,
+    height: 40,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    borderRadius: 50,
+
+    backgroundColor: "#FF7926",
+  }
+
 });

@@ -17,6 +17,7 @@ import { defaultStyle } from "../../../assets/style/style";
 import { styles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from "@expo/vector-icons";
 import Comentario from '../../Comentario/Comentario';
 import axios from "axios";
@@ -27,54 +28,77 @@ function Comentarios(props) {
 
   useEffect(() => {
     const getData = async () => {
-    await axios.get(`https://imovim-api.cyclic.app/comment/get-comments-of-post/${postId}`)
-    .then((res) => {
-      setComments(res.data)
-    })
+      await axios.get(`https://imovim-api.cyclic.app/comment/get-comments-of-post/${postId}`)
+        .then((res) => {
+          setComments(res.data)
+        })
     }
     getData()
   }, [])
 
-  if(!comments) {
+  if (!comments) {
     return <View>
       <Text>Loading...</Text>
     </View>
   }
   return (
-    <ScrollView>
-      <StatusBar/>
+    <View>
+
       <View style={styles.container}>
+
         <View style={styles.header}>
+
           <View style={styles.likeAndComents}>
+
             <TouchableOpacity style={styles.button}>
-              <AntDesign name="like1" size={24} color="white" />
+              <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
               <Text style={styles.buttonText}>{props.likeQuantity}</Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.button}>
               <Ionicons name="chatbubble" size={24} color="white" />
               <Text style={styles.buttonText}>{props.comentQuantity}</Text>
             </TouchableOpacity>
+
           </View>
+
           <TouchableOpacity style={styles.button}>
             <FontAwesome name="share" size={24} color="white" />
             <Text style={styles.buttonText}>{props.shareQuantity}</Text>
           </TouchableOpacity>
+
         </View>
-        <View style={styles.comentsContainer}>
-          { comments.map((item) => {
+
+        <ScrollView style={styles.comentsContainer}>
+          {comments.map((item) => {
             return (
               <Comentario
-              key={item.id}
-              profileImage={item.profileImage}
-              profileName={item.nickname}
-              daysAgo={item.created_at}
-              coment={item.comment}
-            />
+                key={item.id}
+                profileImage={item.profileImage}
+                profileName={item.nickname}
+                daysAgo={item.created_at}
+                coment={item.comment}
+              />
             )
-          }) }
+          })}
+        </ScrollView>
+
+        <View style={styles.writeComentContainer}>
+
+          <View style={styles.photo}>
+            <Entypo name="camera" size={15} color="#FFF" />
+          </View>
+
+          <TextInput placeholder="Escreva um comentário aqui..." style={styles.input} />
+
+          <TouchableOpacity style={styles.buttonSendComment}>
+            <AntDesign name="arrowright" size={24} color="#FFF" />
+          </TouchableOpacity>
+
         </View>
       </View>
-    </ScrollView>
+      <StatusBar />
+    </View>
   );
 }
 
