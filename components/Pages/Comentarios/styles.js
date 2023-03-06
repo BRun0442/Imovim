@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
 
   header: {
     backgroundColor: '#A512BD',
-    height: 10 * height,
+    height: "10%",
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -52,12 +52,15 @@ export const styles = StyleSheet.create({
   },
   
   writeComentContainer:{
+    width: "100%",
+    height: "10%",
+
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
 
-    marginHorizontal: 10
+    marginHorizontal: 2,
   },
 
   input: {
@@ -80,7 +83,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#FF7926",
 
-    marginLeft: 15,
+    marginLeft: 10,
   }
 
 });
