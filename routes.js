@@ -13,6 +13,7 @@ import CriarPost from './components/Pages/CriarPost/CriarPost';
 import TelaTags from './components/Pages/TelaTags/TelaTags';
 import Chat from './components/Pages/Chat/Chat';
 import VerAmigos from './components/Pages/VerAmigos/VerAmigos';
+import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 
 import DrawerRoutes from './components/Drawer/Drawer';
 
@@ -46,6 +47,7 @@ export default function Routes() {
       <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
       <Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
       <Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
+      <Screen name="Tela Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
     </Navigator>
   )
 

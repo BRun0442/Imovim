@@ -5,20 +5,31 @@ import { styles } from "./styles";
 import { Foundation } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Entypo } from '@expo/vector-icons';
+
+import { DrawerActions } from '@react-navigation/native';
 
 function Header({ navigation }) {
   return (
     <View style={styles.header}>
+
       <View style={styles.container}>
-        <View style={styles.containerLogo}>
+
+        <View style={styles.menu}>
+          <TouchableOpacity onPress={()=> {navigation.dispatch(DrawerActions.openDrawer());}}>
+            <Entypo name="menu" size={40} color="#FF7926" />
+          </TouchableOpacity>
+        </View>
+
+        <View>
           <Text style={styles.logo}>ii</Text>
         </View>
 
         <View style={styles.containerIcons}>
           <TouchableOpacity
-            onPress={() => { navigation.navigate('Chat') }}>
+            onPress={() => { navigation.navigate('Tela Pesquisa') }}>
             <Foundation
-              style={styles.icon} name="magnifying-glass" size={35} color="#FF7926"
+              style={styles.icon} name="magnifying-glass" size={33} color="#FF7926"
 
             />
           </TouchableOpacity>
@@ -26,7 +37,7 @@ function Header({ navigation }) {
           <TouchableOpacity
             onPress={() => { navigation.navigate('Chat') }}>
             <Ionicons
-              style={styles.icon} name="chatbubble" size={35} color="#FF7926"
+              style={styles.icon} name="chatbubble" size={33} color="#FF7926"
             />
           </TouchableOpacity>
 

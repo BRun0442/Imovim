@@ -10,44 +10,31 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   header: {
     width: '100%',
-        
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexDirection: 'row',
-    
     backgroundColor: '#A512BD',
+
+    paddingHorizontal: 10
   },
 
   container: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    width: '50%',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
   },
   
   logo: {
-    display: 'flex',
-    justifyContent: 'center',
-    fontSize: 45,
+    fontSize: 40,
     fontWeight: 'bold',
-    color: '#FF6709'
-  },
-
-  containerLogo: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    color: '#FF6709',
   },
 
   containerIcons: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "row"
   },
 
   icon: {
-    paddingRight: 10
-  },
+    paddingRight: 4
+  }
+
 });
