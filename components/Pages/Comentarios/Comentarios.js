@@ -42,60 +42,53 @@ function Comentarios(props) {
     </View>
   }
   return (
-    <View>
+    <View style={styles.container}>
 
-      <View style={styles.container}>
+      <View style={styles.header}>
 
-        <View style={styles.header}>
-
-          <View style={styles.likeAndComents}>
-
-            <TouchableOpacity style={styles.button}>
-              <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
-              <Text style={styles.buttonText}>{props.likeQuantity}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button}>
-              <Ionicons name="chatbubble" size={24} color="white" />
-              <Text style={styles.buttonText}>{props.comentQuantity}</Text>
-            </TouchableOpacity>
-
-          </View>
+        <View style={styles.likeAndComents}>
 
           <TouchableOpacity style={styles.button}>
-            <FontAwesome name="share" size={24} color="white" />
-            <Text style={styles.buttonText}>{props.shareQuantity}</Text>
+            <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
+            <Text style={styles.buttonText}>{props.likeQuantity}</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button}>
+            <Ionicons name="chatbubble" size={24} color="white" />
+            <Text style={styles.buttonText}>{props.comentQuantity}</Text>
           </TouchableOpacity>
 
         </View>
 
-        <ScrollView style={styles.comentsContainer}>
-          {comments.map((item) => {
-            return (
-              <Comentario
-                key={item.id}
-                profileImage={item.profileImage}
-                profileName={item.nickname}
-                daysAgo={item.created_at}
-                coment={item.comment}
-              />
-            )
-          })}
-        </ScrollView>
+        <TouchableOpacity style={styles.button}>
+          <FontAwesome name="share" size={24} color="white" />
+          <Text style={styles.buttonText}>{props.shareQuantity}</Text>
+        </TouchableOpacity>
 
-        <View style={styles.writeComentContainer}>
+      </View>
 
-          <View style={styles.photo}>
-            <Entypo name="camera" size={15} color="#FFF" />
-          </View>
+      <ScrollView style={styles.comentsContainer}>
+        {comments.map((item) => {
+          return (
+            <Comentario
+              key={item.id}
+              profileImage={item.profileImage}
+              profileName={item.nickname}
+              daysAgo={item.created_at}
+              coment={item.comment}
+            />
+          )
+        })}
+      </ScrollView>
 
-          <TextInput placeholder="Escreva um comentário aqui..." style={styles.input} />
+      <View style={styles.writeComentContainer}>
 
-          <TouchableOpacity style={styles.buttonSendComment}>
-            <AntDesign name="arrowright" size={24} color="#FFF" />
-          </TouchableOpacity>
+        <TextInput placeholder="Escreva um comentário aqui..." style={styles.input} />
 
-        </View>
+        <TouchableOpacity style={styles.buttonSendComment}>
+          <AntDesign name="arrowright" size={24} color="#FFF" />
+        </TouchableOpacity>
+
       </View>
       <StatusBar />
     </View>

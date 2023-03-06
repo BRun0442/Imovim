@@ -9,6 +9,12 @@ const statusBarHeight = StatusBar.currentHeight
   ? StatusBar.currentHeight + 20 : 60
 
 export const styles = StyleSheet.create({ 
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
+  },
+
 
   header: {
     backgroundColor: '#A512BD',
@@ -41,38 +47,25 @@ export const styles = StyleSheet.create({
 
   comentsContainer: {
     backgroundColor: '#ededed',
+
+    height: "80%"
   },
   
   writeComentContainer:{
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
 
-    marginTop: 100,
     marginHorizontal: 10
   },
 
-  photo: {
-    width: 50,
-    height: 50,
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    borderRadius: 50,
-
-    backgroundColor: "#D9D9D9",
-
-    borderColor: "#FF7926",
-    borderWidth: 2,
-
-  },
-
   input: {
-    width: "80%",
+    width: "85%",
     height: 50,
-    backgroundColor: "#FFF"
+    backgroundColor: "#FFF",
+
+    paddingLeft: 15
   },
 
   buttonSendComment:{
@@ -86,6 +79,8 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
 
     backgroundColor: "#FF7926",
+
+    marginLeft: 15,
   }
 
 });
