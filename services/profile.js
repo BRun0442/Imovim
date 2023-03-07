@@ -64,7 +64,7 @@ export const updateBackground = async (user_id, background) => {
   }
 }
 
-export const updateProfile = async (image, user_id, background, localization) => {
+export const updateProfile = async (image, user_id, background, localization, setProfilePicture) => {
     if(image)
   {
     let imageRef;
@@ -77,6 +77,7 @@ export const updateProfile = async (image, user_id, background, localization) =>
     .then(() => {
       getDownloadURL(imageRef)
         .then(async (url) => {
+        setProfilePicture(url)
           await sendProfileDataToApi(user_id, url, background, localization)  
           .then(res => console.log(res))
           console.log('url:', url)

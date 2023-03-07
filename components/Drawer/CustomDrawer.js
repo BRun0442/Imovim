@@ -23,7 +23,7 @@ export default function CustomDrawer({ navigation }, props) {
 
                 <View style={styles.dataContainer}>
                     <Image style={styles.dataContainerImage} source={{
-                        uri: profilePicture
+                        uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
                     }}
                     />
                     <Text style={styles.dataContainerText}>{nickname}</Text>

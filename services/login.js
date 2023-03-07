@@ -15,7 +15,7 @@ function ValidateData(email, password, setLogin, setId, setNickname, setImage)
       alert(JSON.stringify(response.data.msg))
       setId(parseInt(JSON.stringify(response.data.user_id)));
       setNickname(response.data.nickname)
-      // setImage(response.data.image)
+      setImage(response.data.profileImage)
       setLogin(true);
     })
     .catch(error => {

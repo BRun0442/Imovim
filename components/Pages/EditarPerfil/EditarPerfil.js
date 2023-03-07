@@ -11,14 +11,14 @@ import { AuthContext } from "../../../contexts/auth";
 import { updateProfile } from "../../../services/profile";
 
 function EditarPerfil({ navigation }) {
-    const { id } = useContext(AuthContext)
+    const { id, setProfilePicture } = useContext(AuthContext)
     const [image, setImage] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [localization, setLocalization] = useState('');
     const [loaded, setLoaded] = useState(false)
 
     const handleSubmit = async () => {
-        await updateProfile(image, id, backgroundImage, localization)
+        await updateProfile(image, id, backgroundImage, localization, setProfilePicture)
         .then(() => {
             Alert.alert('Perfil atualizado!')
             navigation.navigate('Perfil')
@@ -70,7 +70,7 @@ function EditarPerfil({ navigation }) {
             })
         }
         getProfileData()
-    })
+    }, [])
     if(!loaded) {
         return(
             <View>
