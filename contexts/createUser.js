@@ -11,25 +11,15 @@ function CreateUserProvider({children})
   const [birthday, setBirthday] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
-  const [postId, setPostId] = useState();
-
   return(
     <CreateUserContext.Provider value={
       {
-        nickname, 
-        email, 
-        password, 
-        passwordConfirm, 
-        birthday,
-        phoneNumber,
-        setNickname,
-        setEmail,
-        setPassword,
-        setPasswordConfirm,
-        setBirthday,
-        setPhoneNumber,
-        postId, 
-        setPostId
+        nickname, setNickname,
+        email, setEmail,
+        password, setPassword,
+        passwordConfirm, setPasswordConfirm,
+        birthday, setBirthday,
+        phoneNumber, setPhoneNumber,
         }}
       >
       {children}

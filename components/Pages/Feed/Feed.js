@@ -11,10 +11,10 @@ import { AuthContext } from '../../../contexts/auth.js';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import { FlatList } from "react-native-gesture-handler";
-import { CreateUserContext } from "../../../contexts/createUser";
+import { AccountDataContext } from "../../../contexts/accountData";
 
 function Feed({navigation}) {
-  const { setPostId } = useContext(CreateUserContext)
+  const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
   const { id } = useContext(AuthContext);
   let isLoading;
@@ -43,7 +43,7 @@ function Feed({navigation}) {
       renderItem={({item}) => 
         <Post
           goToCommentScreen={() => {
-            setPostId(item.id)
+            setPostFocusedId(item.id)
             navigation.navigate('Comentarios')
           }}
           likePost={async () => {
