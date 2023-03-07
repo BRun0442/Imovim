@@ -90,7 +90,7 @@ export default function CriarPost({ navigation }) {
       </View>
 
       <View style={styles.buttons}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
               <Entypo name="camera" size={26} color={'#fff'} />
               <Text style={styles.buttonText}>Câmera</Text>
           </TouchableOpacity>

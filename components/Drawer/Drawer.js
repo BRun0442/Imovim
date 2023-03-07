@@ -7,6 +7,7 @@ import CriarPost from '../Pages/CriarPost/CriarPost';
 import EditarPerfil from '../Pages/EditarPerfil/EditarPerfil';
 import TelaVerMais from '../Pages/TelaVerMais/TelaVerMais';
 import TelaTags from '../Pages/TelaTags/TelaTags';
+import Camera from '../Pages/Camera/Camera';
 
 import CustomDrawer from './CustomDrawer';
 
@@ -17,6 +18,7 @@ export default function DrawerRoutes() {
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} exitFunction={() => {setLogin(false)}}/>} initialRouteName='Feed'>
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
       <Drawer.Screen name="Perfil" component={Perfil} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />

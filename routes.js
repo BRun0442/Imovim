@@ -15,7 +15,7 @@ import DrawerRoutes from './components/Drawer/Drawer';
 import TelaTags from './components/Pages/TelaTags/TelaTags';
 import Chat from './components/Pages/Chat/Chat';
 import VerAmigos from './components/Pages/VerAmigos/VerAmigos';
-
+import Camera from './components/Pages/Camera/Camera';
 const { Screen, Navigator } = createNativeStackNavigator();
 
 export default function Routes() {
@@ -39,6 +39,7 @@ export default function Routes() {
       headerShown: false
     }}>
       <Screen name="Drawer" component={DrawerRoutes} options={{ headerShown: false, }} />
+      <Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
       <Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
       <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
