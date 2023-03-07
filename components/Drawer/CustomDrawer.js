@@ -8,11 +8,11 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 import { AuthContext } from '../../contexts/auth.js';
+import { AccountDataContext } from '../../contexts/accountData.js';
 
 export default function CustomDrawer({ navigation }, props) {
     const { setLogin } = useContext(AuthContext);
-    const { nickname } = useContext(AuthContext);
-    const { profilePicture } = useContext(AuthContext);
+    const { accountData } = useContext(AccountDataContext);
 
     return (
         <View style={styles.container}>
@@ -23,10 +23,10 @@ export default function CustomDrawer({ navigation }, props) {
 
                 <View style={styles.dataContainer}>
                     <Image style={styles.dataContainerImage} source={{
-                        uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
+                        uri: (accountData.profileInfo)[0].profileImage
                     }}
                     />
-                    <Text style={styles.dataContainerText}>{nickname}</Text>
+                    <Text style={styles.dataContainerText}>{(accountData.profileInfo)[0].nickname}</Text>
                 </View>
 
                 <View style={styles.containerItems}>
@@ -38,7 +38,11 @@ export default function CustomDrawer({ navigation }, props) {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.items}
-                        onPress={() => { navigation.navigate('Perfil') }}
+                        onPress={() => 
+                            { 
+                                navigation.navigate('Perfil', {accountData: accountData}) 
+                            }
+                        }
                     >
                         <FontAwesome5 name="user-alt" size={22} color="#FFF" />
                         <Text style={styles.itemText}>Meu Perfil</Text>

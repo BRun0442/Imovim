@@ -1,7 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Text, View, Image, StatusBar } from 'react-native';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
 import Input from '../../Input/Input.js';
@@ -10,6 +8,7 @@ import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
+import { AccountDataContext } from '../../../contexts/accountData';
 
 function Login({navigation})
 {
@@ -18,8 +17,7 @@ function Login({navigation})
 
   const { setLogin } = useContext(AuthContext);
   const { setId } = useContext(AuthContext);
-  const { setNickname } = useContext(AuthContext);
-  const { setProfilePicture } = useContext(AuthContext);
+  const { setAccountData } = useContext(AccountDataContext);
 
   return(
     <View style={defaultStyle.container}>
@@ -47,7 +45,9 @@ function Login({navigation})
 
         <View style={styles.buttonContainer}>
           <Button buttonText="Entrar" pressFunction={() => {
-            ValidateData(email, password, setLogin, setId, setNickname, setProfilePicture)}}/>
+              ValidateData(email, password, setLogin, setId, setAccountData)
+            }
+          }/>
           <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
           <Text 
             style={{

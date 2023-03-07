@@ -11,15 +11,16 @@ import PostProfile from '../../PostsProfile/PostsProfile.js';
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 import { AuthContext } from '../../../contexts/auth';
+import { AccountDataContext } from '../../../contexts/accountData';
 
 export default function PerfilVisãoInterna({ navigation }, props) {
+    const { accountData } = useContext(AccountDataContext);
     const { profilePicture } = useContext(AuthContext)
     const [visible, setVisible] = useState(false)
-
-    console.log(visible);
 
     return (
         <ScrollView style={styles.container}>
@@ -31,8 +32,8 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                 <View style={styles.icons}>
                     <View style={styles.iconCam}>
-                        <Image
-                            style=
+                        <Image 
+                            style =
                             {
                                 {
                                     width: '100%',
@@ -40,8 +41,8 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                                     borderRadius: 100
                                 }
                             }
-                            source={{ uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' }}
-                        />
+                            source={{uri: (accountData.profileInfo)[0].profileImage || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}} 
+                        /> 
                     </View>
                     <TouchableOpacity style={styles.iconPencil}
                         onPress={() => { navigation.navigate('Editar Perfil') }}

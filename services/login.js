@@ -1,4 +1,5 @@
 import api from './api'
+import getUserData from './user';
 
 export function logout(setLogin)
 {
@@ -6,20 +7,26 @@ export function logout(setLogin)
   alert("Você saiu!");
 }
 
-function ValidateData(email, password, setLogin, setId, setNickname, setImage)
+
+function ValidateData(email, password, setLogin, setId, setAccountData)
 {
   if(email != '' && password != '')
   {
-    api.post("/auth/login", { email: email, password: password})
-    .then(response => {
-      alert(JSON.stringify(response.data.msg))
-      setId(parseInt(JSON.stringify(response.data.user_id)));
-      setNickname(response.data.nickname)
-      setImage(response.data.profileImage)
+    api.post("/auth/login", {
+      email: email, 
+      password: password
+    })
+    .then(async response => {
+      const id = parseInt(JSON.stringify(response.data.user_id))
+      setId(id);
+      await getUserData(id, setAccountData)
+
       setLogin(true);
+      
+      alert(JSON.stringify(response.data.msg))
     })
     .catch(error => {
-      alert(JSON.stringify(error.response.data.msg))
+      alert(error);
       setLogin(false);
     });
   }else{

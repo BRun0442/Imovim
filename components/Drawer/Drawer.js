@@ -1,4 +1,4 @@
-import react from 'react';
+import react, { useContext } from 'react';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import Feed from '../Pages/Feed/Feed';
 import Perfil from '../Pages/PerfilVisãoInterna/Perfil.js'
@@ -7,6 +7,7 @@ import CriarPost from '../Pages/CriarPost/CriarPost';
 import EditarPerfil from '../Pages/EditarPerfil/EditarPerfil';
 import TelaVerMais from '../Pages/TelaVerMais/TelaVerMais';
 import TelaTags from '../Pages/TelaTags/TelaTags';
+import { AccountDataContext } from '../../contexts/accountData';
 import Camera from '../Pages/Camera/Camera';
 
 import CustomDrawer from './CustomDrawer';
@@ -14,8 +15,17 @@ import CustomDrawer from './CustomDrawer';
 const Drawer = createDrawerNavigator();
 
 export default function DrawerRoutes() {
+  const { accountData } = useContext(AccountDataContext); 
+
   return (
-    <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} exitFunction={() => {setLogin(false)}}/>} initialRouteName='Feed'>
+    <Drawer.Navigator 
+      drawerContent={props => 
+        <CustomDrawer {...props} accountData={accountData}/>
+      } 
+
+      initialRouteName='Feed'
+    >
+
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
       <Drawer.Screen name="Perfil" component={Perfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Camera" component={Camera} options={{ headerShown: false, }} />

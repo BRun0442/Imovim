@@ -30,7 +30,8 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         
         padding: 15,
-        marginHorizontal: 20,        
+        marginHorizontal: 20,     
+        marginBottom: 200,
         borderRadius: 20,
 
         backgroundColor: "#F1F1F1"
@@ -51,7 +52,7 @@ export const styles = StyleSheet.create({
         padding: 15,
         backgroundColor: "#F1F1F1",
 
-        marginBottom: 100
+        marginVertical: 10
     },
 
 })	
