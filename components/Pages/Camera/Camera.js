@@ -1,15 +1,16 @@
 import { Camera, CameraType } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Button, StyleSheet, Text, Image, View, Alert } from 'react-native';
+import { AuthContext } from '../../../contexts/auth';
 
 export default function CameraScreen({ navigation }) {
+    const { image, setImage } = useContext(AuthContext)
   const [type, setType] = useState(CameraType.back);
   const [cameraPermission, setCameraPermission] = useState(null);
   const [galleryPermission, setGalleryPermission] = useState(null);
   const [camera, setCamera] = useState(null);
-  const [image, setImage] = useState(null);
 
   // gets permision for camera
   const CameraPermisionFunction = async () => {
@@ -85,7 +86,9 @@ export default function CameraScreen({ navigation }) {
       <Button title='Flip Camara' style={styles.button} onPress={toggleCameraType} />
       <Button title='Pick Image From Galery' onPress={() => pickImage()} />
       <Button title='Take Picture' onPress={() => takePicture()} />
-      <Button title='Save' onPress={() => navigation.navigate("Save", {image})} />
+      <Button title='Save' onPress={() => {
+        navigation.navigate("CriarPost")
+        }} />
       {image && <Image source={{uri: image}} style={{flex: 1}} />}
     </View>
   );

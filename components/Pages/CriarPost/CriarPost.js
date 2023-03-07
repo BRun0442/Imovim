@@ -20,7 +20,7 @@ export default function CriarPost({ navigation }) {
   const { nickname } = useContext(AuthContext);
   const { id } = useContext(AuthContext);
   const [caption, setCaption] = useState('');
-  const [image, setImage] = useState(null);
+  const { image, setImage } = useContext(AuthContext);
   const [galleryPermission, setGalleryPermission] = useState(null);
   // const [type, setType] = useState(CameraType.back);
   // const [cameraPermission, setCameraPermission] = useState(null);
@@ -32,7 +32,7 @@ export default function CriarPost({ navigation }) {
 
   useEffect(() => {
     // CameraPermisionFunction();
-    setImage(null);
+    // setImage(null);
     setCaption('');
     galeryPermisionFunction();
   }, [isFocused]);
