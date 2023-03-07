@@ -5,7 +5,7 @@ import { createPost } from "./post.js";
 
 initializeApp(firebaseConfig);
 
-export default async function CreatePost(image, user_id, caption) {
+export default async function CreatePost(image, user_id, caption, setImage) {
   console.log('teste'); 
   if(image)
   {
@@ -23,6 +23,7 @@ export default async function CreatePost(image, user_id, caption) {
           .then(res => console.log(res))
           console.log('url:', url)
           url = ''
+          setImage(null)
           return url
         })
         .catch((err) => {
@@ -34,7 +35,8 @@ export default async function CreatePost(image, user_id, caption) {
     });
   }else{
     imageRef = null;
-    createPost(user_id, caption, '')  
+    createPost(user_id, caption, '')
+    setImage(null)  
     return;
   }
 }

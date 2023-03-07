@@ -114,7 +114,7 @@ export default function CriarPost({ navigation }) {
       </View>
 
       <Button buttonText='Criar Post' pressFunction={async () => {
-          await CreatePost(image, id, caption)
+          await CreatePost(image, id, caption, setImage)
           navigation.navigate('Página Inicial')
           }}
       />
