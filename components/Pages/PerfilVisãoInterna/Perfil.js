@@ -16,9 +16,10 @@ import { useNavigation } from '@react-navigation/native';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 import { AuthContext } from '../../../contexts/auth';
+import { AccountDataContext } from '../../../contexts/accountData';
 
 export default function PerfilVisãoInterna({ navigation }, props) {
-    
+    const { accountData } = useContext(AccountDataContext);
     const { profilePicture } = useContext(AuthContext)
     const [visible, setVisible] = useState(false)
     // const { accountData } = navigation.params;
@@ -62,7 +63,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                                     borderRadius: 100
                                 }
                             }
-                            source={{uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}} 
+                            source={{uri: (accountData.profileInfo)[0].profileImage || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}} 
                         /> 
                     </View>
                     <TouchableOpacity style={styles.iconPencil}
