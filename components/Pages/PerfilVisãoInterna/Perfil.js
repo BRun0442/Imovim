@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useContext, useState } from 'react';
+=======
+import React, { useState, useContext, useEffect } from 'react';
+>>>>>>> bf812fae6f40221c319793f2dfc27f035a46cb4f
 import { View, Text, StatusBar, Image } from 'react-native';
 import { styles } from './style'
 import TopBar from '../../TopBar/TopBar';
@@ -15,8 +19,11 @@ import { useNavigation } from '@react-navigation/native';
 
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
+import { AuthContext } from '../../../contexts/auth';
 
 export default function PerfilVisãoInterna({ navigation }, props) {
+    
+    const { profilePicture } = useContext(AuthContext)
     const [visible, setVisible] = useState(false)
     // const { accountData } = navigation.params;
 
@@ -50,9 +57,17 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                 <View style={styles.icons}>
                     <View style={styles.iconCam}>
-                        {
-                            verifyProfileImage()
-                        }
+                        <Image 
+                            style =
+                            {
+                                {
+                                    width: '100%',
+                                    height: '100%',
+                                    borderRadius: 100
+                                }
+                            }
+                            source={{uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}} 
+                        /> 
                     </View>
                     <TouchableOpacity style={styles.iconPencil}
                         onPress={() => { navigation.navigate('Editar Perfil') }}
@@ -68,7 +83,8 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                     </View>
                     <View style={styles.seeMore}>
-                        <TouchableOpacity style={styles.buttonSeeMore}>
+                        <TouchableOpacity style={styles.buttonSeeMore}
+                            onPress={() => { navigation.navigate('Ver Amigos') }}>
                             <Ionicons name="person-add" size={20} color="#FFF" />
                             <Text style={styles.textButtonSeeMore}>Ver Amigos</Text>
                         </TouchableOpacity>

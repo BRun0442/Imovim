@@ -20,7 +20,7 @@ export default function CriarPost({ navigation }) {
   const { nickname } = useContext(AuthContext);
   const { id } = useContext(AuthContext);
   const [caption, setCaption] = useState('');
-  const [image, setImage] = useState(null);
+  const { image, setImage } = useContext(AuthContext);
   const [galleryPermission, setGalleryPermission] = useState(null);
   // const [type, setType] = useState(CameraType.back);
   // const [cameraPermission, setCameraPermission] = useState(null);
@@ -32,7 +32,7 @@ export default function CriarPost({ navigation }) {
 
   useEffect(() => {
     // CameraPermisionFunction();
-    setImage(null);
+    // setImage(null);
     setCaption('');
     galeryPermisionFunction();
   }, [isFocused]);
@@ -90,7 +90,7 @@ export default function CriarPost({ navigation }) {
       </View>
 
       <View style={styles.buttons}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
               <Entypo name="camera" size={26} color={'#fff'} />
               <Text style={styles.buttonText}>Câmera</Text>
           </TouchableOpacity>
@@ -114,7 +114,7 @@ export default function CriarPost({ navigation }) {
       </View>
 
       <Button buttonText='Criar Post' pressFunction={async () => {
-          await CreatePost(image, id, caption)
+          await CreatePost(image, id, caption, setImage)
           navigation.navigate('Página Inicial')
           }}
       />

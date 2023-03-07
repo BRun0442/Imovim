@@ -19,10 +19,8 @@ function ValidateData(email, password, setLogin, setId, setAccountData, accountD
     .then(response => {
       const id = parseInt(JSON.stringify(response.data.user_id))
       alert(JSON.stringify(response.data.msg))
-
       setId(id);
       getUserData(id, setAccountData, accountData)
-
       setLogin(true);
     })
     .catch(error => {
