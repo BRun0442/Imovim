@@ -23,34 +23,16 @@ import Comentario from '../../Comentario/Comentario';
 import axios from "axios";
 import { AuthContext } from "../../../contexts/auth";
 
+import { getComments, sendComment } from "../../../services/comment";
+
 function Comentarios(props) {
   const { id } = useContext(AuthContext)
   const { postId } = useContext(CreateUserContext)
   const [comments, setComments] = useState(null)
   const [commentText, setCommentText] = useState('')
 
-  const getComments = async () => {
-    await axios.get(`https://imovim-api.cyclic.app/comment/get-comments-of-post/${postId}`)
-      .then((res) => {
-        setComments(res.data)
-      })
-  }
-
-  const sendComment = async () => {
-    const data = {
-      "comment": commentText,
-      "user_id": id,
-      "post_id": postId
-    }
-    await axios.post(`https://imovim-api.cyclic.app/comment/create-comment`, data)
-    .then(async (res) => {
-      await getComments()
-      setCommentText('')
-    })
-  }
-
   useEffect(() => {
-    getComments()
+    getComments(postId, setComments)
   }, [])
 
   if (comments === null) {
@@ -107,7 +89,7 @@ function Comentarios(props) {
 
         <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
 
-        <TouchableOpacity onPress={() => sendComment()} style={styles.buttonSendComment}>
+        <TouchableOpacity onPress={() => sendComment(commentText, id, postId, setCommentText, setComments)} style={styles.buttonSendComment}>
           <AntDesign name="arrowright" size={24} color="#FFF" />
         </TouchableOpacity>
 
