@@ -1,7 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Text, View, Image, StatusBar } from 'react-native';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
 import Input from '../../Input/Input.js';

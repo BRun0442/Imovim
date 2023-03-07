@@ -33,7 +33,7 @@ function Feed({navigation}) {
   }
 
   useEffect(() => {
-    // getFeed();
+    getFeed();
   }, [isFocused])
 
   return (

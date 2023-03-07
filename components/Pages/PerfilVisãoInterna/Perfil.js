@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useContext, useState } from 'react';
-=======
 import React, { useState, useContext, useEffect } from 'react';
->>>>>>> bf812fae6f40221c319793f2dfc27f035a46cb4f
 import { View, Text, StatusBar, Image } from 'react-native';
 import { styles } from './style'
 import TopBar from '../../TopBar/TopBar';

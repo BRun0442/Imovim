@@ -8,7 +8,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 import { AuthContext } from '../../contexts/auth.js';
-import { AccountDataContext } from '../../contexts/accountData';
+import { AccountDataContext } from '../../contexts/accountData.js';
 
 export default function CustomDrawer({ navigation }, props) {
     const { setLogin } = useContext(AuthContext);

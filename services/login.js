@@ -8,7 +8,7 @@ export function logout(setLogin)
 }
 
 
-function ValidateData(email, password, setLogin, setId, setAccountData, accountData)
+function ValidateData(email, password, setLogin, setId, setAccountData)
 {
   if(email != '' && password != '')
   {
@@ -16,12 +16,14 @@ function ValidateData(email, password, setLogin, setId, setAccountData, accountD
       email: email, 
       password: password
     })
-    .then(response => {
+    .then(async response => {
       const id = parseInt(JSON.stringify(response.data.user_id))
-      alert(JSON.stringify(response.data.msg))
       setId(id);
-      getUserData(id, setAccountData, accountData)
+      await getUserData(id, setAccountData)
+
       setLogin(true);
+      
+      alert(JSON.stringify(response.data.msg))
     })
     .catch(error => {
       alert(error);
