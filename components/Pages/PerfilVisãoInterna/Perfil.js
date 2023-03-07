@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, Text, StatusBar, Image } from 'react-native';
 import { styles } from './style'
 import TopBar from '../../TopBar/TopBar';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
@@ -11,22 +11,34 @@ import Header from '../../Header/Header'
 import Post from '../../Post/Post';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 
 export default function PerfilVisãoInterna({ navigation }, props) {
-
     const [visible, setVisible] = useState(false)
+    // const { accountData } = navigation.params;
 
-    console.log(visible);
-
-    // if (visible === false) {
-    //     return (
-
-    //     )
-    // } else {
-
-    // }
+    function verifyProfileImage()
+    {
+        // console.log('props:', props.accountData);
+        console.log('account data:', navigation.params);
+        
+        
+        // console.log(accountData.profileInfo.profileBackground)
+        
+        // if(props.accountData.profileInfo.profileBackground)
+        // {
+        //     return (
+        //         <Image 
+        //             source={{uri: props.accountData.profileInfo.profileBackground}}
+        //         />
+        //     )
+        // }else{
+        //     return <Entypo name="camera" size={22} color="#FFF" />
+        // }
+    }
 
     return (
         <ScrollView style={styles.container}>
@@ -38,7 +50,9 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                 <View style={styles.icons}>
                     <View style={styles.iconCam}>
-                        <Entypo name="camera" size={22} color="#FFF" />
+                        {
+                            verifyProfileImage()
+                        }
                     </View>
                     <TouchableOpacity style={styles.iconPencil}
                         onPress={() => { navigation.navigate('Editar Perfil') }}
