@@ -10,6 +10,7 @@ import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
 import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais'
 
 import CriarPost from './components/Pages/CriarPost/CriarPost';
+import MarcarEvento from './components/Pages/MarcarEventos/MarcarEventos'
 
 import DrawerRoutes from './components/Drawer/Drawer';
 import TelaTags from './components/Pages/TelaTags/TelaTags';
@@ -41,7 +42,8 @@ export default function Routes() {
       <Screen name="Drawer" component={DrawerRoutes} options={{ headerShown: false, }} />
       <Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
-      <Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
+      <Screen name="Criar Post" component={CriarPost} options={{ headerShown: false, }} />
+      <Screen name="Criar Evento" component={MarcarEvento} options={{ headerShown: false, }} />
       <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
       <Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
       <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />

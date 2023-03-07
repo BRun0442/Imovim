@@ -68,11 +68,11 @@ function Feed({navigation}) {
           <Header />
           <View style={styles.TopBarContainer}>
             <View style={styles.photoContainer}>
-              <TouchableOpacity styles={styles.button}>
+              <TouchableOpacity onPress={() => {navigation.navigate('Criar Evento')}} styles={styles.button}>
                 <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => {navigation.navigate('CriarPost')}} styles={styles.button}>
+              <TouchableOpacity onPress={() => {navigation.navigate('Criar Post')}} styles={styles.button}>
                 <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
               </TouchableOpacity>
             </View>

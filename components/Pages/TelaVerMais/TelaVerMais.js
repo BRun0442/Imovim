@@ -2,6 +2,10 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import Header from '../../Header/Header';
+
+import TagName from '../../VerMaisTags/VerMaisTags';
+import TagEvent from '../../VerMaisEventos/VerMaisEventos';
+
 import { styles } from './style'
 
 function TelaVerMais() {
@@ -17,13 +21,7 @@ function TelaVerMais() {
         <Text style={styles.titleTags}>Tags</Text>
 
         <View style={styles.tags} >
-          <Text style={styles.tag}>#futebol</Text>
-          <Text style={styles.tag}>#natação</Text>
-          <Text style={styles.tag}>#judô</Text>
-          <Text style={styles.tag}>#musculação</Text>
-
-          {/* props das tags */}
-
+          <TagName nameTag="#futebol" />
         </View>
 
       </View>
@@ -43,11 +41,15 @@ function TelaVerMais() {
 
 
       <View style={styles.containerEvents}>
-        <Text style={styles.titleEvents}>Meus eventos</Text>
-        <Text style={styles.events}>Evento 1</Text>
-        <Text style={styles.events}>Evento 2</Text>
-        <Text style={styles.events}>Evento 3</Text>
-        {/* props das fotos */}
+
+        <View style={styles.containerEventsTitle}>
+          <Text style={styles.titleEvents}>Meus eventos</Text>
+          <Text style={styles.seeMoreEvents}>...</Text>
+        </View>
+
+        <View style={styles.events}>
+          <TagEvent nameEvent="Evento 0" />
+        </View>
       </View>
 
     </ScrollView>

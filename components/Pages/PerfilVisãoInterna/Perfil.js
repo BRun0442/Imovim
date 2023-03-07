@@ -1,16 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { View, Text, StatusBar, Image } from 'react-native';
-import { styles } from './style'
-import TopBar from '../../TopBar/TopBar';
+import { styles } from './style.js'
+
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { Foundation } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import Header from '../../Header/Header'
-import Post from '../../Post/Post';
-import { FontAwesome5 } from '@expo/vector-icons';
+
+import PostProfile from '../../PostsProfile/PostsProfile.js';
+
 import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 {/* <FontAwesome5 name="user-check" size={24} color="black" /> */ }
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 import { AuthContext } from '../../../contexts/auth';
@@ -31,17 +31,17 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                 <View style={styles.icons}>
                     <View style={styles.iconCam}>
-                    <Image 
-                       style =
-                       {
-                         {
-                             width: '100%',
-                             height: '100%',
-                             borderRadius: 100
-                         }
-                       }
-                       source={{uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'}} 
-                       /> 
+                        <Image
+                            style=
+                            {
+                                {
+                                    width: '100%',
+                                    height: '100%',
+                                    borderRadius: 100
+                                }
+                            }
+                            source={{ uri: profilePicture || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' }}
+                        />
                     </View>
                     <TouchableOpacity style={styles.iconPencil}
                         onPress={() => { navigation.navigate('Editar Perfil') }}
@@ -115,9 +115,34 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
             <View style={styles.line}></View>
 
-            <View style={styles.posts}>
-                <Text style={styles.alert}>Não há nenhuma publicação aqui</Text>
-            </View>
+            <ScrollView>
+                <View style={styles.posts}>
+                    {/* <Text style={styles.alert}>Não há nenhuma publicação aqui</Text> */}
+
+                    <PostProfile
+                        profileImage="https://randomuser.me/api/portraits/men/89.jpg"
+                        nickname="Tiaguh"
+                        created_at="22/04/1500"
+                        image="https://www.politize.com.br/wp-content/uploads/2022/04/Desembarque_de_Pedro_Alvares_Cabral_em_Porto_Seguro_em_1500.jpg"
+                        caption="ora ora oq temos aqui? IDKSJA"
+                        likes="1500"
+                        comments="15"
+                        updated="2"
+                    />
+
+                    <PostProfile
+                        profileImage="https://randomuser.me/api/portraits/men/89.jpg"
+                        nickname="Tiaguh"
+                        created_at="22/04/1500"
+                        image="https://www.politize.com.br/wp-content/uploads/2022/04/Desembarque_de_Pedro_Alvares_Cabral_em_Porto_Seguro_em_1500.jpg"
+                        caption="ora ora oq temos aqui? IDKSJA"
+                        likes="1500"
+                        comments="15"
+                        updated="2"
+                    />
+
+                </View>
+            </ScrollView>
 
             <StatusBar />
         </ScrollView>

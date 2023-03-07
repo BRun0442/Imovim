@@ -10,8 +10,6 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
-    height: "100%"
-
   },
 
   titleContainer: {
@@ -32,7 +30,8 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     paddingBottom: 15,
 
-    marginBottom: 15
+    marginHorizontal: 20,
+    marginBottom: 15,
   },
 
   titleTags: {
@@ -42,27 +41,9 @@ export const styles = StyleSheet.create({
 
   tags: {
     display: "flex",
+    justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap"
-  },
-
-  tag: {
-    textAlign: "left",
-    paddingLeft: 2,
-    paddingTop: 1,
-
-    width: 125,
-    height: 35,
-
-    margin: 8,
-
-    backgroundColor: "#565353",
-
-    fontSize: 20,
-    color: "#FFF",
-    fontWeight: "500",
-
-    borderRadius: 15
   },
 
   containerPhotos: {
@@ -79,15 +60,15 @@ export const styles = StyleSheet.create({
     margin: 10
   },
 
-  photos:{
+  photos: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
   },
 
   photo: {
-    width: 80,
-    height: 80,
+    width: 180,
+    height: 180,
 
     borderRadius: 15,
 
@@ -106,25 +87,29 @@ export const styles = StyleSheet.create({
     marginBottom: 15
   },
 
-  titleEvents: {
-    fontSize: 20,
+  containerEventsTitle: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    marginHorizontal: 20,
     margin: 10
   },
 
+  titleEvents: {
+    fontSize: 20,
+  },
+
+  seeMoreEvents: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#F8670E"
+  },
+
   events: {
-    width: "90%",
-    height: 28,
-
-    fontSize: 16,
-
-    margin: 10,
-    marginHorizontal: 15,
-    paddingLeft: 10,
-
-    backgroundColor: "#FFF",
-    borderRadius: 15
-  }
-
-
-
+    display: "flex",
+    justifyContent: "flex-start",
+    flexDirection: "column",
+  },
 })
