@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Header from '../../Header/Header';
 
 import TagName from '../../VerMaisTags/VerMaisTags';
@@ -8,7 +8,7 @@ import TagEvent from '../../VerMaisEventos/VerMaisEventos';
 
 import { styles } from './style'
 
-function TelaVerMais() {
+function TelaVerMais({navigation}) {
   return (
     <ScrollView style={styles.container}>
       <Header />
@@ -44,7 +44,11 @@ function TelaVerMais() {
 
         <View style={styles.containerEventsTitle}>
           <Text style={styles.titleEvents}>Meus eventos</Text>
-          <Text style={styles.seeMoreEvents}>...</Text>
+          <TouchableOpacity
+            onPress={() => { navigation.navigate('Meus Eventos') }}
+          >
+            <Text style={styles.seeMoreEvents}>...</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.events}>

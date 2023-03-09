@@ -11,6 +11,7 @@ import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais'
 
 import CriarPost from './components/Pages/CriarPost/CriarPost';
 import MarcarEvento from './components/Pages/MarcarEventos/MarcarEventos'
+import MeusEventos  from './components/Pages/MeusEventos/MeusEventos'
 
 import DrawerRoutes from './components/Drawer/Drawer';
 import TelaTags from './components/Pages/TelaTags/TelaTags';
@@ -51,6 +52,7 @@ export default function Routes() {
       <Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
       <Screen name="Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
       <Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
+      <Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
     </Navigator>
   )
 
