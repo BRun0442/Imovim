@@ -8,10 +8,12 @@ import EditarPerfil from '../Pages/EditarPerfil/EditarPerfil';
 import TelaVerMais from '../Pages/TelaVerMais/TelaVerMais';
 import TelaTags from '../Pages/TelaTags/TelaTags';
 import MarcarEventos from '../Pages/MarcarEventos/MarcarEventos';
+import MeusEventos from '../Pages/MeusEventos/MeusEventos'
 import { AccountDataContext } from '../../contexts/accountData';
 import Camera from '../Pages/Camera/Camera';
 
 import CustomDrawer from './CustomDrawer';
+import Fotos from '../Pages/Fotos/Fotos';
 
 const Drawer = createDrawerNavigator();
 
@@ -36,6 +38,8 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
       <Drawer.Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
       <Drawer.Screen name="Criar Evento" component={MarcarEventos} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Fotos" component={Fotos} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }

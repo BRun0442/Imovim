@@ -4,11 +4,12 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Header from '../../Header/Header';
 
 import TagName from '../../VerMaisTags/VerMaisTags';
+import Photo from '../../Photo/Photo';
 import TagEvent from '../../VerMaisEventos/VerMaisEventos';
 
 import { styles } from './style'
 
-function TelaVerMais({navigation}) {
+function TelaVerMais({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <Header />
@@ -27,18 +28,25 @@ function TelaVerMais({navigation}) {
       </View>
 
       <View style={styles.containerPhotos}>
-        <Text style={styles.titlePhotos}>Fotos</Text>
 
-        <View style={styles.photos}>
-          <View style={styles.photo}></View>
-          <View style={styles.photo}></View>
-          <View style={styles.photo}></View>
+        <View style={styles.containerPhotoTitle}>
+
+          <Text style={styles.titlePhotos}>Fotos</Text>
+          <TouchableOpacity
+            onPress={() => { navigation.navigate('Fotos') }}
+          >
+            <Text style={styles.seeMorePhotos}>...</Text>
+          </TouchableOpacity>
         </View>
 
-        {/* props das fotos */}
+        <ScrollView style={styles.photos} horizontal={true}>
+          <Photo />
+          <Photo />
+          <Photo />
+          <Photo />
+        </ScrollView>
 
       </View>
-
 
       <View style={styles.containerEvents}>
 

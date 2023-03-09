@@ -55,27 +55,32 @@ export const styles = StyleSheet.create({
     marginBottom: 15
   },
 
+  containerPhotoTitle: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    marginHorizontal: 20,
+    margin: 10
+  },
+
   titlePhotos: {
     fontSize: 20,
     margin: 10
+  },
+
+  seeMorePhotos: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#F8670E"
   },
 
   photos: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-  },
-
-  photo: {
-    width: 180,
-    height: 180,
-
-    borderRadius: 15,
-
-    margin: 5,
-    marginHorizontal: 8,
-
-    backgroundColor: "#D9D9D9"
+    marginHorizontal: 15
   },
 
   containerEvents: {
