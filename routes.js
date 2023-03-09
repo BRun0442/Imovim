@@ -15,6 +15,7 @@ import MarcarEvento from './components/Pages/MarcarEventos/MarcarEventos'
 import DrawerRoutes from './components/Drawer/Drawer';
 import TelaTags from './components/Pages/TelaTags/TelaTags';
 import Chat from './components/Pages/Chat/Chat';
+import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 import VerAmigos from './components/Pages/VerAmigos/VerAmigos';
 import Camera from './components/Pages/Camera/Camera';
 const { Screen, Navigator } = createNativeStackNavigator();
@@ -48,6 +49,7 @@ export default function Routes() {
       <Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
       <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
       <Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
+      <Screen name="Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
       <Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
     </Navigator>
   )

@@ -15,7 +15,9 @@ function Header({ navigation }) {
         </View>
 
         <View style={styles.containerIcons}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => { navigation.navigate('Pesquisa') }}
+          >
             <Foundation
               style={styles.icon} name="magnifying-glass" size={35} color="#FF7926"
 
@@ -23,7 +25,8 @@ function Header({ navigation }) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => { navigation.navigate('Chat') }}>
+            onPress={() => { navigation.navigate('Chat') }}
+          >
             <Ionicons
               style={styles.icon} name="chatbubble" size={35} color="#FF7926"
             />
