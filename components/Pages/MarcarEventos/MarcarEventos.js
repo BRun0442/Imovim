@@ -4,78 +4,131 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { styles } from './style'
 import Header from '../../Header/Header';
 import ProfileImage from '../../ProfileImage/ProfileImage';
+
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Entypo } from '@expo/vector-icons';
 
 export default function MarcarEventos(props) {
     return (
-        <ScrollView style={styles.container}>
-            <StatusBar/>
+        <View style={styles.container}>
+
             <Header />
 
-            <View style={styles.photoContainer}>
-                <TouchableOpacity style={styles.button}>
-                    <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
-                </TouchableOpacity>
-            </View>
+            <ScrollView>
 
-            <View style={styles.postContainer}>
-                <View style={styles.postProfile}>
-                    <ProfileImage profileImage={props.profileImage} />
+                <View style={styles.iconContainer}>
+                    <TouchableOpacity>
+                        <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
+                    </TouchableOpacity>
+                </View>
 
-                    <View style={styles.profileContainer}>
-                        <Text style={styles.profileName}>{props.profileName}</Text>
+                <View style={styles.postContainer}>
+                    <View style={styles.postProfile}>
+                        <ProfileImage profileImage={props.profileImage} />
+
+                        <View style={styles.profileContainer}>
+                            <Text style={styles.profileName}>{props.profileName}</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
 
-            <View style={styles.form}>
+                <View style={styles.form}>
 
-                <Text>Nome</Text>
-                <View style={styles.nameInputs}>
-                    <TextInput style={styles.inputType1} />
+                    <Text style={styles.formText}>Nome</Text>
+                    <View style={styles.nameInputs}>
+                        <TextInput style={styles.inputType1}
+                            keyboardType='default'
+                        />
+                    </View>
+
+                    <Text style={styles.formText}>Data</Text>
+                    <View style={styles.dataInputs}>
+
+                        <TextInput style={styles.inputType2}
+                            placeholder="Dia"
+                            keyboardType='numeric'
+                        />
+
+                        <TextInput style={styles.inputType2}
+                            placeholder="Mês"
+                            keyboardType='numeric'
+                        />
+
+                        <TextInput style={styles.inputType2}
+                            placeholder="Ano"
+                            keyboardType='numeric'
+                        />
+                    </View>
+
+                    <Text style={styles.formText}>Hora</Text>
+
+                    <View style={styles.horaInputs}>
+                        <TextInput style={styles.inputType2}
+                            placeholder="hh"
+                            keyboardType='numeric'
+                        />
+
+                        <TextInput style={styles.inputType2}
+                            placeholder="min"
+                            keyboardType='numeric'
+                        />
+
+                    </View>
+
+                    <Text style={styles.formText}>Local</Text>
+                    <View style={styles.nameInputs}>
+                        <TextInput style={styles.inputType1}
+                            keyboardType='default'
+                        />
+                    </View>
+
+                    <Text style={styles.formText}>Descrição</Text>
+                    <View style={styles.nameInputs}>
+                        <TextInput style={styles.inputType3}
+                            keyboardType='default'
+                        />
+                    </View>
+
+                    <Text style={styles.formText}>Foto</Text>
+
+                    <View style={styles.banner}>
+                        <TouchableOpacity
+
+                            // onPress={() => main(setBackgroundImage)} 
+
+                            style={styles.editProfileIconContainerBanner}>
+
+                            {/* {!backgroundImage && ( */}
+
+                            <View style={styles.editBanner}>
+                                <Entypo name="camera" size={22} color="#FFF" />
+                            </View>
+
+                            {/* )} */}
+
+                            {/* {backgroundImage && (
+                            <Image
+                                style=
+                                {
+                                    {
+                                        width: '95%',
+                                        height: 150,
+                                    }
+                                }
+                                source={{ uri: backgroundImage }}
+                            />
+                        )} */}
+                        </TouchableOpacity>
+                    </View>
+
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.text}>Criar Evento</Text>
+                    </TouchableOpacity>
+
                 </View>
+            </ScrollView>
 
-                <Text>Data</Text>
-
-                <View style={styles.dataInputs}>
-
-                    <TextInput style={styles.inputType2}
-                        placeholder="Dia" />
-
-                    <TextInput style={styles.inputType2}
-                        placeholder="Mês" />
-
-                    <TextInput style={styles.inputType2}
-                        placeholder="Ano" />
-                </View>
-
-                <Text>Hora</Text>
-
-                <View style={styles.horaInputs}>
-                    <TextInput style={styles.inputType2}
-                        placeholder="hh" />
-
-                    <TextInput style={styles.inputType2}
-                        placeholder="min" />
-
-                    <TextInput style={styles.inputTypeFalse} />
-                </View>
-
-                <Text>Local</Text>
-                <View style={styles.nameInputs}>
-                    <TextInput style={styles.inputType1} />
-                </View>
-
-                <Text>Descrição</Text>
-                <View style={styles.nameInputs}>
-                    <TextInput style={styles.inputType3} />
-                </View>
-
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.text}>Criar Evento</Text>
-                </TouchableOpacity>
-
-            </View>
-        </ScrollView>
+            <StatusBar />
+        </View>
     );
 }

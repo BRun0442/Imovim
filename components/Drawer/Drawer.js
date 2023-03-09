@@ -7,6 +7,7 @@ import CriarPost from '../Pages/CriarPost/CriarPost';
 import EditarPerfil from '../Pages/EditarPerfil/EditarPerfil';
 import TelaVerMais from '../Pages/TelaVerMais/TelaVerMais';
 import TelaTags from '../Pages/TelaTags/TelaTags';
+import MarcarEventos from '../Pages/MarcarEventos/MarcarEventos';
 import { AccountDataContext } from '../../contexts/accountData';
 import Camera from '../Pages/Camera/Camera';
 
@@ -30,10 +31,11 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Perfil" component={Perfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
-      <Drawer.Screen name="CriarPost" component={CriarPost} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Criar Post" component={CriarPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
       <Drawer.Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Criar Evento" component={MarcarEventos} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }
