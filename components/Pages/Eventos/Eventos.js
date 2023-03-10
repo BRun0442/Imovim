@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Header from "../../Header/Header";
 import { styles } from "./style"
 import { AntDesign } from '@expo/vector-icons';
 import CardEvents from "../../CardEvent/CardEvent";
+import { getAllEvents } from "../../../services/events";
 
 function Eventos() {
+    const [events, setEvents] = useState(null)
+    const getData = async () => {
+        const data = await getAllEvents()
+        return data
+    }
+
+    useEffect(() => {
+        getData()
+        .then((res) => {
+            setEvents(res)
+            console.log(res)
+        })
+    }, [])
+
+    if (!events) {
+        return (
+            <View>
+                <Text>loading...</Text>
+            </View>
+        )
+    }
+
     return (
         <ScrollView>
             <Header />
@@ -22,7 +45,17 @@ function Eventos() {
 
             <View style={styles.containerEventsPopular}>
                 <ScrollView horizontal={true}>
-                    <CardEvents
+                    {events.map((item, id) => {
+                        return(
+                            <CardEvents
+                            key={id}
+                            eventName={item.event_name}
+                            eventImage={item.photo}
+                            describeEvent={item.description}
+                        />
+                        )
+                    })}
+                    {/* <CardEvents
                         eventName="Corrida no parque"
                         eventImage="https://blog.bodytech.com.br/wp-content/uploads/2022/03/shutterstock_776440840-scaled.jpg"
                         describeEvent="Corrida e Caminhada no parque"
@@ -32,7 +65,7 @@ function Eventos() {
                         eventName="Evento de PowerLifting"
                         eventImage="https://portalcorreio.com.br/portalcorreio/arquivos/2022/09/dc89df116679d18dc8739c7ce18d8f44.jpg"
                         describeEvent="O evento acontecerá no box da rua 22"
-                    />
+                    /> */}
                 </ScrollView>
             </View>
 

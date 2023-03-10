@@ -58,13 +58,11 @@ export async function sendDataToApi(user_id, event_name, event_date, event_hour,
   }
 }
 
-export async function getEvent()
+export async function getAllEvents()
 {
   try {
-    const response = await api.get("/event/create-event")
-    alert(response.data.msg)
-
-    return response.data.msg
+    const response = await api.get("/event/get-all-events")
+    return response.data
   } catch (error) {
     console.log(error.data.msg)
   }

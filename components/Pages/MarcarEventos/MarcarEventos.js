@@ -160,7 +160,7 @@ export default function MarcarEventos(props) {
                     <View style={styles.banner}>
                         <TouchableOpacity
 
-                            onPress={() => main()} 
+                            onPress={() => pickImage()} 
 
                             style={styles.editProfileIconContainerBanner}>
 
