@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     },
 
     image: {
-        height: 115,
+        height: 160,
     },
 
     describeContainer: {
