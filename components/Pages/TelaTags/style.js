@@ -35,39 +35,22 @@ export const styles = StyleSheet.create({
   containerTags: {
     paddingHorizontal: 8,
 
-    marginTop: 18
+    marginTop: 18,
+
+    paddingHorizontal: 15
   },
 
   tags: {
-    height: "85%",
+    height: "100%",
     backgroundColor: "#F1F1F1",
     borderRadius: 15,
 
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     flexWrap: "wrap",
 
-    paddingTop: 15
-
-  },
-
-  tag: {
-    textAlign: "center",
-    paddingTop: 1,
-
-    width: 130,
-    height: 35,
-
-    margin: 8,
-
-    backgroundColor: "#565353",
-
-    fontSize: 20,
-    color: "#FFF",
-    fontWeight: "500",
-
-    borderRadius: 15
+    paddingTop: 15,
   },
 })
 

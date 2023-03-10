@@ -1,10 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
-// import { ScrollView } from "react-native-gesture-handler";
 import Header from "../../Header/Header";
 import { styles } from './style.js'
-
 import { Entypo } from '@expo/vector-icons';
+import VerMaisTags from "../../TelaTagsTag/TelaTagsTag";
 
 
 function TelaTags() {
@@ -21,18 +20,8 @@ function TelaTags() {
 
             <View style={styles.containerTags}>
                 <View style={styles.tags}>
-                    <Text style={styles.tag}>#futebol</Text>
-                    <Text style={styles.tag}>#basquete</Text>
-                    <Text style={styles.tag}>#volei</Text>
-                    <Text style={styles.tag}>#tenis</Text>
-                    <Text style={styles.tag}>#dança</Text>
-                    <Text style={styles.tag}>#natação</Text>
-                    <Text style={styles.tag}>#handebol</Text>
-                    <Text style={styles.tag}>#pingpong</Text>
-                    <Text style={styles.tag}>#corrida</Text>
-                    <Text style={styles.tag}>#judô</Text>
-                    <Text style={styles.tag}>#musculação</Text>
-                    <Text style={styles.tag}>#maratona</Text>
+                    <VerMaisTags nameEsportTag="futebol" />
+                    <VerMaisTags nameEsportTag="futebol" />
                 </View>
             </View>
         </View>
