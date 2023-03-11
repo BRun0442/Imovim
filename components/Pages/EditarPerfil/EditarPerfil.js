@@ -80,7 +80,7 @@ function EditarPerfil({ navigation }) {
     }
     return (
         <ScrollView style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
 
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Editar Perfil</Text>

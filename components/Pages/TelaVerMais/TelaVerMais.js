@@ -12,7 +12,7 @@ import { styles } from './style'
 function TelaVerMais({ navigation }) {
   return (
     <ScrollView style={styles.container}>
-      <Header />
+      <Header navigation={navigation} />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Ver mais</Text>

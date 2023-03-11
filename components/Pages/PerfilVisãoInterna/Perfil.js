@@ -52,7 +52,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         //   refreshing={isLoading}
         ListHeaderComponent={
           <View>
-            <Header />
+            <Header navigation={navigation} />
             <View style={styles.background} />
             <View style={styles.perfil}>
               <View style={styles.icons}>

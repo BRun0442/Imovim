@@ -6,10 +6,10 @@ import { Entypo } from '@expo/vector-icons';
 import VerMaisTags from "../../TelaTagsTag/TelaTagsTag";
 
 
-function TelaTags() {
+function TelaTags({navigation}) {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
 
             <View style={styles.containerTitle}>
                 <View style={styles.title}>

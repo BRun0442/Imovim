@@ -12,7 +12,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { Image } from 'react-native';
 
-export default function MarcarEventos(props) {
+export default function MarcarEventos({navigation}, props) {
     const { id } = useContext(AuthContext);
     const [name, setName] = useState()
     const [localization, setLocalization] = useState()
@@ -70,7 +70,7 @@ export default function MarcarEventos(props) {
     return (
         <View style={styles.container}>
 
-            <Header />
+            <Header navigation={navigation} />
 
             <ScrollView>
 

@@ -65,7 +65,7 @@ function Feed({navigation}) {
       {
         <View>
           <StatusBar/>
-          <Header />
+          <Header navigation={navigation} />
           <View style={styles.TopBarContainer}>
             <View style={styles.photoContainer}>
               <TouchableOpacity onPress={() => {navigation.navigate('Criar Evento')}} styles={styles.button}>

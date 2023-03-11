@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 import CardEvents from "../../CardEvent/CardEvent";
 import { getAllEvents } from "../../../services/events";
 
-function Eventos() {
+function Eventos({ navigation }) {
     const [events, setEvents] = useState(null)
     const getData = async () => {
         const data = await getAllEvents()
@@ -32,7 +32,7 @@ function Eventos() {
 
     return (
         <ScrollView>
-            <Header />
+            <Header navigation={navigation} />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Eventos</Text>
             </View>

@@ -7,10 +7,10 @@ import { Entypo } from '@expo/vector-icons';
 
 import ResultSearch from '../../ResultSearch/ResultSearch.js'
 
-export default function Pesquisa() {
+export default function Pesquisa({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <View style={styles.searchContainer}>
                 <TextInput style={styles.searchInput} placeholder='Pesquise amigos, eventos etc.'>
                     <Entypo style={{ marginRight: 15 }} name="magnifying-glass" size={25} color="#FF7926" />

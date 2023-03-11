@@ -9,11 +9,15 @@ import TelaVerMais from '../Pages/TelaVerMais/TelaVerMais';
 import TelaTags from '../Pages/TelaTags/TelaTags';
 import MarcarEventos from '../Pages/MarcarEventos/MarcarEventos';
 import MeusEventos from '../Pages/MeusEventos/MeusEventos'
-import { AccountDataContext } from '../../contexts/accountData';
 import Camera from '../Pages/Camera/Camera';
+import Fotos from '../Pages/Fotos/Fotos';
+import Chat from '../Pages/Chat/Chat';
+import Pesquisa from '../Pages/Pesquisa/Pesquisa';
+
+import { AccountDataContext } from '../../contexts/accountData';
 
 import CustomDrawer from './CustomDrawer';
-import Fotos from '../Pages/Fotos/Fotos';
+import VerAmigos from '../Pages/VerAmigos/VerAmigos';
 
 const Drawer = createDrawerNavigator();
 
@@ -40,6 +44,9 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Criar Evento" component={MarcarEventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Fotos" component={Fotos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }

@@ -7,10 +7,10 @@ import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 import CardEvents from "../../CardEvent/CardEvent";
 
-export default function MeusEventos() {
+export default function MeusEventos({ navigation }) {
     return (
         <ScrollView>
-            <Header />
+            <Header navigation={navigation} />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Meus Eventos</Text>
             </View>

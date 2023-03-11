@@ -61,7 +61,7 @@ export default function CriarPost({ navigation }) {
   return (
     <ScrollView style={{backgroundColor: '#fff'}}>
       <StatusBar/>
-      <Header />
+      <Header navigation={navigation} />
       
       <View style={styles.photoContainer}>
           <TouchableOpacity style={{alignSelf: 'center'}}>

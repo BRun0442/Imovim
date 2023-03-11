@@ -7,10 +7,10 @@ import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function Chat() {
+export default function Chat({ navigation }) {
   return (
     <View>
-      <Header />
+      <Header navigation={navigation} />
       <View style={styles.container}>
         <View style={styles.topBar}>
           <Ionicons name="chatbubble" size={30} color="#A512BD" />

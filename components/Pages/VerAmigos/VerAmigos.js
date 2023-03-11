@@ -7,10 +7,10 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import ResultSearchFriends from "../../ResultSearchFriends/ResultSearchFriends.js";
 
-export default function VerAmigos() {
+export default function VerAmigos({ navigation }) {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Amigos</Text>
             </View>
