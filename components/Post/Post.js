@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Text, View, TouchableOpacity, Image, Dimensions} from "react-native";
 import { styles } from "./styles";
 import ProfileImage from "../ProfileImage/ProfileImage";
-
+import RenderImage from "../RenderImage/RenderImage";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -26,6 +26,17 @@ function Post(props){
     setAspectRatio(width/height)
   }
 
+  const ImageStyle = {
+    style: [
+      styles.postImage, 
+      props.image ? 
+      aspectRatio >= 1 ? 
+        {height: (90 * screenWidth / aspectRatio)} 
+        : {height: 450}
+      : {height: 0}
+    ]
+  } 
+
   useEffect(() => {
     // if image is empty it doesnt call function
     props.image && getImagesSize();
@@ -44,22 +55,17 @@ function Post(props){
               </View>
             </View>
 
-            <Image 
-            style =
-            {
-              [
-                styles.postImage, 
-                props.image ? 
-                aspectRatio >= 1 ? 
-                  {height: (90 * screenWidth / aspectRatio)} 
-                  : {height: 450}
-                : {height: 0}
-              ]
-            } 
-              source={
-                props.image ? { uri: props.image } : ''
+        
+              <RenderImage 
+              style =
+              {
+                ImageStyle.style
               } 
-            />
+                url={
+                  props.image ? { uri: props.image } : ''
+                } 
+                id={props.id}
+              />
 
             <Text style={styles.postDescription}>{props.caption}</Text>
 

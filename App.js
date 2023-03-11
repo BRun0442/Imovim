@@ -14,7 +14,7 @@ function App()
       <CreateUserProvider>
         <AuthProvider>
           <CreateAccountDataContext>
-            <Routes/>
+            <Routes />
           </CreateAccountDataContext>
         </AuthProvider>
       </CreateUserProvider>
