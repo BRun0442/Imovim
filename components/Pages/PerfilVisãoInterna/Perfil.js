@@ -109,43 +109,53 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 </Text>
               </View>
               <View>
-                <View style={styles.editProfile}>
-                  <View>
+                {visible && (
+                  <View style={styles.editProfile}>
+
+                    <View>
+
+                      <TouchableOpacity
+                        style={styles.editProfileButton}
+                        onPress={() => {
+                          navigation.navigate("Tela Tags");
+                        }}
+                      >
+                        <Foundation name="pencil" size={24} color="#FFF" />
+                        <Text style={styles.editProfileText}>Editar Tags</Text>
+                      </TouchableOpacity>
+
+                      <View style={styles.whiteLine}></View>
+                      <TouchableOpacity
+                        style={styles.editProfileButton}
+                        onPress={() => {
+                          navigation.navigate("Tela Ver Mais");
+                        }}
+                      >
+                        <AntDesign name="eye" size={24} color="#FFF" />
+                        <Text style={styles.editProfileText}>Ver Mais</Text>
+                      </TouchableOpacity>
+                    </View>
+
                     <TouchableOpacity
-                      style={styles.editProfileButton}
-                      onPress={() => {
-                        navigation.navigate("Tela Tags");
-                      }}
+                      onPress={() => setVisible(false)}
+                      style={{ marginLeft: 15 }}
                     >
-                      <Foundation name="pencil" size={24} color="#FFF" />
-                      <Text style={styles.editProfileText}>Editar Tags</Text>
-                    </TouchableOpacity>
-                    <View style={styles.whiteLine}></View>
-                    <TouchableOpacity
-                      style={styles.editProfileButton}
-                      onPress={() => {
-                        navigation.navigate("Tela Ver Mais");
-                      }}
-                    >
-                      <AntDesign name="eye" size={24} color="#FFF" />
-                      <Text style={styles.editProfileText}>Ver Mais</Text>
+                      <Ionicons name="ios-close" size={24} color="#FFF" />
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
-                    onPress={() => setVisible(!visible)}
-                    style={{ marginLeft: 15 }}
-                  >
-                    <Ionicons name="ios-close" size={24} color="#FFF" />
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.openEdit}>
-                  <TouchableOpacity
-                    onPress={() => setVisible(!visible)}
-                    style={styles.buttonText}
-                  >
-                    <Text style={styles.openEditText}>...</Text>
-                  </TouchableOpacity>
-                </View>
+                )}
+
+                {!visible && (
+                  <View style={styles.openEdit}>
+                    <TouchableOpacity
+                      onPress={() => setVisible(true)}
+                      style={styles.buttonText}
+                    >
+                      <Text style={styles.openEditText}>...</Text>
+                    </TouchableOpacity>
+                  </View>
+                )}
+
               </View>
             </View>
             <View style={styles.line}></View>
