@@ -28,19 +28,27 @@ export const styles = StyleSheet.create({
   buttons: {
     marginBottom: '5%',
     height: 200,
-    alignSelf: 'center',
+    
+    display: "flex",
+    // alignItems: "center",
+
+    paddingHorizontal: 25
   },
 
   button: {
     width: 400,
     height: 45,
-    marginVertical: 10,
+    
+    marginBottom: 15,
+
     borderRadius: 20,
+
     justifyContent: 'flex-start',
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: '#750E86',
     flexDirection: 'row',
+
+    backgroundColor: '#750E86',
     paddingStart: '5%'
   },
 

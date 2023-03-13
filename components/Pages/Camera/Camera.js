@@ -2,11 +2,17 @@ import { Camera, CameraType } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library'
 import { useState, useEffect, useContext } from 'react';
-import { Button, StyleSheet, Text, Image, View, Alert } from 'react-native';
+import { Text, Image, View, TouchableOpacity } from 'react-native';
 import { AuthContext } from '../../../contexts/auth';
+import { styles } from './style'
+
+import { Ionicons } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 export default function CameraScreen({ navigation }) {
-    const { image, setImage } = useContext(AuthContext)
+  const { image, setImage } = useContext(AuthContext)
   const [type, setType] = useState(CameraType.back);
   const [cameraPermission, setCameraPermission] = useState(null);
   const [galleryPermission, setGalleryPermission] = useState(null);
@@ -21,11 +27,11 @@ export default function CameraScreen({ navigation }) {
   };
 
   // gets permision for gallery
-  const GaleryPermisionFunction = async () => { 
+  const GaleryPermisionFunction = async () => {
     const galleryPermissions = await MediaLibrary.requestPermissionsAsync();
     setGalleryPermission(galleryPermissions.status === 'granted')
     console.log(galleryPermissions.status)
-    if(galleryStatus !== 'granted'){
+    if (galleryStatus !== 'granted') {
       alert('Sorry, you are not allowed to do it')
     }
   }
@@ -37,13 +43,13 @@ export default function CameraScreen({ navigation }) {
   }, []);
 
   // takes pickture
-  const takePicture = async () => { 
-    if(camera) {
+  const takePicture = async () => {
+    if (camera) {
       const data = await camera.takePictureAsync()
-      .then((data) => {
-        console.log(data.uri)
-        setImage(data.uri)
-      }). catch((error) => console.log(error))
+        .then((data) => {
+          console.log(data.uri)
+          setImage(data.uri)
+        }).catch((error) => console.log(error))
     }
   }
 
@@ -64,7 +70,7 @@ export default function CameraScreen({ navigation }) {
     }
   };
 
-  if(!cameraPermission || !galleryPermission){
+  if (!cameraPermission || !galleryPermission) {
     return <Text>{galleryPermission ? "ok" : "no"}</Text>
   }
 
@@ -75,50 +81,42 @@ export default function CameraScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.CamaraContainer}>
-        <Camera 
-          style={styles.fixedRatio} 
-          type={type} 
-          ratio={'1:1'} 
+
+      <View>
+
+        <Camera
+          style={styles.fixedRatio}
+          type={type}
+          ratio={'1'}
           ref={ref => setCamera(ref)}
-          />
+        />
       </View>
-      <Button title='Flip Camara' style={styles.button} onPress={toggleCameraType} />
-      <Button title='Pick Image From Galery' onPress={() => pickImage()} />
-      <Button title='Take Picture' onPress={() => takePicture()} />
-      <Button title='Save' onPress={() => {
-        navigation.navigate("CriarPost")
-        }} />
-      {image && <Image source={{uri: image}} style={{flex: 1}} />}
+
+      <View style={styles.buttonContainer}>
+
+        <TouchableOpacity onPress={toggleCameraType}>
+          <Ionicons name="camera-reverse" size={50} color="#FFF" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => pickImage()}>
+          <Foundation name="photo" size={50} color="#FFF" />
+        </TouchableOpacity>
+
+
+        <TouchableOpacity onPress={() => takePicture()}>
+          <MaterialIcons name="photo-camera" size={50} color="#FFF" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {
+          navigation.navigate("Criar Post")
+        }}
+        >
+          <Entypo name="save" size={50} color="#FFF" />
+        </TouchableOpacity>
+
+        {/* {image && <Image source={{ uri: image }} style={{ flex: 1 }} />} */}
+
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({ 
-  CamaraContainer: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  fixedRatio: {
-    flex: 1,
-    aspectRatio: 1,
-  },
-  container: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    flexDirection: 'row',
-  },
-  button: {
-    flex: 0.1,
-    alignSelf: 'flex-end',
-    alignItems: 'center'
-  },
-  text: {
-    fontSize: 18,
-    marginBottom: 10,
-    color: 'white',
-  }
- }); 
