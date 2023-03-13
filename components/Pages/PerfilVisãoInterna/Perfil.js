@@ -17,6 +17,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 {
   /* <FontAwesome5 name="user-check" size={24} color="black" /> */
 }
+
 // icone para quando a pessoa clicar em adicionar não sei por sapoha Ainda...
 import { AuthContext } from "../../../contexts/auth";
 import { AccountDataContext } from "../../../contexts/accountData";

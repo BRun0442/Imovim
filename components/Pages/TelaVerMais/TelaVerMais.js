@@ -1,15 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { View, Text } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Header from '../../Header/Header';
+import { styles } from './style'
 
 import TagName from '../../VerMaisTags/VerMaisTags';
 import Photo from '../../Photo/Photo';
 import TagEvent from '../../VerMaisEventos/VerMaisEventos';
 
-import { styles } from './style'
+import { AuthContext } from '../../../contexts/auth.js';
+import { getSportsPracticed as getSportsData } from '../../../services/sports'
 
-function TelaVerMais({ navigation }) {
+export default function TelaVerMais({ navigation }) {
+
+  const { id } = useContext(AuthContext);
+
+  const [sportsPracticed, setSportsPracticed] = useState(null)
+
+  const getSportsPracticed = async () => {
+    const data = await getSportsData(id)
+    setSportsPracticed(data)
+    console.log(data)
+    return data
+  }
+
+  useEffect(() => {
+    getSportsPracticed()
+  }, [])
+
+  if (!sportsPracticed) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
+
   return (
     <ScrollView style={styles.container}>
       <Header navigation={navigation} />
@@ -22,9 +48,13 @@ function TelaVerMais({ navigation }) {
         <Text style={styles.titleTags}>Tags</Text>
 
         <View style={styles.tags} >
-          <TagName nameTag="#futebol" />
+          {sportsPracticed.map((i) => {
+            console.log(i);
+            return (
+              <TagName nameTag={i}/>
+            )
+          })}
         </View>
-
       </View>
 
       <View style={styles.containerPhotos}>
@@ -67,5 +97,3 @@ function TelaVerMais({ navigation }) {
     </ScrollView>
   )
 }
-
-export default TelaVerMais;

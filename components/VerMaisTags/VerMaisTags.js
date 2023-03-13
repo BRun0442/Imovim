@@ -5,7 +5,7 @@ import { styles } from './style.js'
 export default function VerMaisTags(props) {
     return (
         <View style={styles.tag}>
-            <Text style={styles.text}>{props.nameTag}</Text>
+            <Text style={styles.text}>#{props.nameTag}</Text>
         </View>
     )
 }
