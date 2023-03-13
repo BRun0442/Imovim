@@ -37,9 +37,11 @@ function Comentarios(props) {
   }, [])
 
   if (comments === null) {
-    return <View>
-      <Text>Loading...</Text>
-    </View>
+    return (
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
+    )
   }
   if (comments === []) {
     return <View>

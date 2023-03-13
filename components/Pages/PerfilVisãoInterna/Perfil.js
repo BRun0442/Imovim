@@ -105,10 +105,18 @@ export default function PerfilVisãoInterna({ navigation }, props) {
             <View style={styles.border}></View>
             <View style={styles.tagsView}>
               <View style={styles.tags}>
-                <Text style={styles.tagsText}>
-                  #Adicione seus esportes favoritos
-                </Text>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate("Tela Tags");
+                  }}
+                >
+                  <Text style={styles.tagsText}>
+                    #Adicione seus esportes favoritos
+                  </Text>
+                </TouchableOpacity>
               </View>
+              
               <View>
                 {visible && (
                   <View style={styles.editProfile}>
@@ -150,7 +158,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                   <View style={styles.openEdit}>
                     <TouchableOpacity
                       onPress={() => setVisible(true)}
-                      style={styles.buttonText}
                     >
                       <Text style={styles.openEditText}>...</Text>
                     </TouchableOpacity>
@@ -163,7 +170,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
           </View>
         }
       />
-      <StatusBar />
-    </View>
+      < StatusBar />
+    </View >
   );
 }

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Touchable, TouchableOpacity, Alert } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from './style.js'
 import { Entypo } from '@expo/vector-icons';
 import VerMaisTags from "../../TelaTagsTag/TelaTagsTag";
 import { getSports as getSportsData } from "../../../services/sports";
 
-function TelaTags({navigation}) {
+function TelaTags({ navigation }) {
     const [sports, setSports] = useState([])
 
     const getSports = async () => {
@@ -20,7 +20,7 @@ function TelaTags({navigation}) {
         getSports()
     }, [])
 
-    if(!sports) {
+    if (!sports) {
         return (
             <View>
                 <Text>Loading...</Text>
@@ -36,7 +36,14 @@ function TelaTags({navigation}) {
                 <View style={styles.title}>
                     <Text style={styles.text}>Selecione seus esportes favoritos</Text>
                 </View>
-                <Entypo name="save" size={35} color="#F8670E" />
+                <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate("Meu Perfil");
+                        Alert.alert("Tags salvas!")
+                    }}
+                >
+                    <Entypo name="save" size={35} color="#F8670E" />
+                </TouchableOpacity>
             </View>
 
             <View style={styles.containerTags}>

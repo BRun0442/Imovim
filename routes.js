@@ -6,6 +6,7 @@ import Login from './components/Pages/Login/Login';
 import Cadastro from './components/Pages/Cadastro/Cadastro';
 import Comentarios from './components/Pages/Comentarios/Comentarios';
 import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
+import PerfilVisãoInterna from './components/Pages/PerfilVisãoInterna/Perfil';
 import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
 import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais'
 
@@ -55,6 +56,7 @@ export default function Routes() {
       <Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
       <Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
       <Screen name="Fotos" component={Fotos} options={{ headerShown: false, }} />
+      <Screen name="Meu Perfil" component={PerfilVisãoInterna} options={{ headerShown: false, }} />
     </Navigator>
   )
 

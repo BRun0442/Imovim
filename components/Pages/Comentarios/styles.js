@@ -8,7 +8,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 const statusBarHeight = StatusBar.currentHeight
   ? StatusBar.currentHeight + 20 : 60
 
-export const styles = StyleSheet.create({ 
+export const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
@@ -50,8 +50,8 @@ export const styles = StyleSheet.create({
 
     height: "80%"
   },
-  
-  writeComentContainer:{
+
+  writeComentContainer: {
     width: "100%",
     height: "10%",
 
@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 15
   },
 
-  buttonSendComment:{
+  buttonSendComment: {
     width: 40,
     height: 40,
 
@@ -84,6 +84,12 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FF7926",
 
     marginLeft: 10,
-  }
+  },
 
+  loadingContainer: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
