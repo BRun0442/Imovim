@@ -49,6 +49,9 @@ export default function CameraScreen({ navigation }) {
         .then((data) => {
           console.log(data.uri)
           setImage(data.uri)
+
+          navigation.navigate("Criar Post")
+
         }).catch((error) => console.log(error))
     }
   }
@@ -105,13 +108,6 @@ export default function CameraScreen({ navigation }) {
 
         <TouchableOpacity onPress={() => takePicture()}>
           <MaterialIcons name="photo-camera" size={50} color="#FFF" />
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => {
-          navigation.navigate("Criar Post")
-        }}
-        >
-          <Entypo name="save" size={50} color="#FFF" />
         </TouchableOpacity>
 
         {/* {image && <Image source={{ uri: image }} style={{ flex: 1 }} />} */}
