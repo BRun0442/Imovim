@@ -155,9 +155,10 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 )}
 
                 {!visible && (
-                  <View style={styles.openEdit}>
+                  <View>
                     <TouchableOpacity
                       onPress={() => setVisible(true)}
+                      style={styles.openEdit}
                     >
                       <Text style={styles.openEditText}>...</Text>
                     </TouchableOpacity>
