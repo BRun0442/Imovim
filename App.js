@@ -23,3 +23,15 @@ function App()
 }
 
 export default App;
+
+// se for testar o modal usa isso: 
+
+// import EditPhoto from './components/EditPhoto/EditPhoto';
+
+// <EditPhoto 
+    // profileImage="https://pbs.twimg.com/profile_images/1405169035621191683/qFoSj-U1_400x400.jpg" 
+    // nickname="Tiaguh_"
+    // created_at="Agora"
+    // image="https://i.pinimg.com/736x/d0/99/04/d0990466ad4259d78d15e990c64fc328.jpg"
+    // caption="KKK"
+    // />

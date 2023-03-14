@@ -173,6 +173,15 @@ export const styles = StyleSheet.create({
     marginLeft: 10
   },
 
+  closedButton: {
+    width: 40, 
+    height: 70,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   whiteLine: {
     width: "100%",
     height: 1,

@@ -147,7 +147,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                     <TouchableOpacity
                       onPress={() => setVisible(false)}
-                      style={{ marginLeft: 15 }}
+                      style={styles.closedButton}
                     >
                       <Ionicons name="ios-close" size={24} color="#FFF" />
                     </TouchableOpacity>

@@ -18,11 +18,6 @@ export default function Fotos() {
                 <ScrollView style={styles.photoContainer}>
                     <View style={styles.photos}>
                         <Photo />
-                        <Photo />
-                        <Photo />
-                        <Photo />
-                        <Photo />
-                        <Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo /><Photo />
                     </View>
                 </ScrollView>
             </View>
