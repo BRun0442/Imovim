@@ -21,7 +21,7 @@ import Chat from './components/Pages/Chat/Chat';
 import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 import VerAmigos from './components/Pages/VerAmigos/VerAmigos';
 import Camera from './components/Pages/Camera/Camera';
-import EditPhoto from './components/EditPhoto/EditPhoto';
+import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
 const { Screen, Navigator } = createNativeStackNavigator();
 
 export default function Routes() {

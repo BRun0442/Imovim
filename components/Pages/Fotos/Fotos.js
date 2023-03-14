@@ -4,7 +4,7 @@ import Header from '../../Header/Header'
 import Photo from "../../Photo/Photo";
 import { styles } from './style'
 
-export default function Fotos() {
+export default function Fotos({ navigation }) {
     return (
         <View style={styles.container}>
 
@@ -17,7 +17,7 @@ export default function Fotos() {
             <View style={{paddingHorizontal: 20}}>
                 <ScrollView style={styles.photoContainer}>
                     <View style={styles.photos}>
-                        <Photo />
+                        <Photo navigation={navigation} />
                     </View>
                 </ScrollView>
             </View>
