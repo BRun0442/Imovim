@@ -18,6 +18,7 @@ import { AccountDataContext } from '../../contexts/accountData';
 
 import CustomDrawer from './CustomDrawer';
 import VerAmigos from '../Pages/VerAmigos/VerAmigos';
+import EditPhoto from '../Pages/EditPhoto/EditPhoto';
 
 const Drawer = createDrawerNavigator();
 
@@ -47,6 +48,7 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
       <Drawer.Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
       <Drawer.Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Editar Foto" component={EditPhoto} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }

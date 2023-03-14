@@ -53,14 +53,15 @@ const styles = StyleSheet.create({
         width: 200,
         height: 100,
 
-        borderRadius: 30,
+        borderRadius: 20,
     },
 
     button: {
         display: "flex",
         flexDirection: "row",
 
-        paddingHorizontal: 12
+        paddingHorizontal: 12,
+        marginVertical: 2
     },
 
     textButton:{

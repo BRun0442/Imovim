@@ -12,7 +12,7 @@ import EditPhotoModal from "../../Modals/EditPhotoModal";
 
 let screenWidth = Dimensions.get("window").width / 100; // screen width
 
-export default function EditPhoto(props) {
+export default function EditPhoto( {navigation} ,props) {
 
     const [visibleModal, setVisibleModal] = useState(false)
 
@@ -48,7 +48,7 @@ export default function EditPhoto(props) {
 
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
 
             <View style={styles.postBackground}>
                 <View style={styles.postContainer}>
