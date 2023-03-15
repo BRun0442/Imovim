@@ -40,7 +40,7 @@ export default function CustomDrawer({ navigation }, props) {
                     <TouchableOpacity style={styles.items}
                         onPress={() => 
                             { 
-                                navigation.navigate('Perfil', {accountData: accountData}) 
+                                navigation.navigate('Meu Perfil', {accountData: accountData}) 
                             }
                         }
                     >

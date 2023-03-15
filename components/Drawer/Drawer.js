@@ -1,7 +1,7 @@
 import react, { useContext } from 'react';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import Feed from '../Pages/Feed/Feed';
-import Perfil from '../Pages/PerfilVisãoInterna/Perfil.js'
+import Perfil from '../Pages/PerfilVisãoInterna/Perfil'
 import Eventos from '../Pages/Eventos/Eventos';
 import CriarPost from '../Pages/CriarPost/CriarPost';
 import EditarPerfil from '../Pages/EditarPerfil/EditarPerfil';
@@ -35,7 +35,7 @@ export default function DrawerRoutes() {
     >
 
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
-      <Drawer.Screen name="Perfil" component={Perfil} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Meu Perfil" component={Perfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Criar Post" component={CriarPost} options={{ headerShown: false, }} />

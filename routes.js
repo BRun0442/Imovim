@@ -57,8 +57,8 @@ export default function Routes() {
       <Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
       <Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
       <Screen name="Fotos" component={Fotos} options={{ headerShown: false, }} />
-      <Screen name="Meu Perfil" component={PerfilVisãoInterna} options={{ headerShown: false, }} />
       <Screen name="Editar Foto" component={EditPhoto} options={{ headerShown: false, }} />
+      <Screen name="Meu Perfil" component={PerfilVisãoInterna} options={{ headerShown: false, }} />
     </Navigator>
   )
 

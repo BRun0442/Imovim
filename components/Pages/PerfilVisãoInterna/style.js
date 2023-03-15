@@ -118,11 +118,12 @@ export const styles = StyleSheet.create({
 
   tagsView: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
 
-    marginVertical: 15
+    height: 120,
+    paddingHorizontal: 15
   },
 
   tags: {
@@ -156,7 +157,7 @@ export const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
 
   editProfileButton: {
