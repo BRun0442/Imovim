@@ -32,11 +32,12 @@ export const styles = StyleSheet.create({
     marginTop: -60,
   },
 
-  icons: {
+  iconsContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+
     paddingStart: 20,
     paddingEnd: 20,
   },
@@ -53,9 +54,9 @@ export const styles = StyleSheet.create({
     borderWidth: 5
   },
 
-  iconPencil: {
-    marginRight: 10,
-    marginTop: 5
+  addFriendContainer: {
+    display: "flex",
+    flexDirection: "column",
   },
 
   infos: {
@@ -83,24 +84,35 @@ export const styles = StyleSheet.create({
     fontSize: 12
   },
 
-  buttonSeeMore: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: '#A512BD',
-    width: 120,
-    height: 30,
-    borderRadius: 40,
+  addFriendButton: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: "space-evenly",
     alignItems: "center",
+
+    backgroundColor: '#A512BD',
+
+    width: 150,
+    height: 40,
+
+    borderRadius: 40,
+
+    marginRight: 10,
+    marginTop: 80
   },
 
-  textButtonSeeMore: {
+  addFriendText: {
     color: "#ffff",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 20,
     marginLeft: 2
+  },
+
+  iconsActions: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   border: {
@@ -129,6 +141,6 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  
+
 }
 )
