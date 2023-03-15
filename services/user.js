@@ -10,4 +10,13 @@ async function getUserData(id, setAccountData)
   }
 }
 
+export async function getAllUsers() {
+  try{
+    const users = await api.get('/user/search-user')
+    return users.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export default getUserData;
