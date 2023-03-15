@@ -30,7 +30,7 @@ function Header({ navigation }) {
           style={{position: "absolute", right: 0, display: "flex", flexDirection: "row"}}
         >
           <TouchableOpacity
-            onPress={() => { navigation.navigate('Tela Pesquisa') }}>
+            onPress={() => { navigation.navigate('Pesquisa') }}>
             <Foundation
               style={styles.icon} name="magnifying-glass" size={33} color="#FF7926"
 
