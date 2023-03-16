@@ -13,16 +13,25 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         marginTop: 15,
-        paddingHorizontal: 2,
+        paddingHorizontal: 20,
 
         height: 80,
+    },
+
+    icon: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+        backgroundColor: "#FFF",
+        width: "10%",
+        height: 45,
     },
 
     searchInput: {
         backgroundColor: "#FFF",
         height: 45,
         width: "90%",
-        borderRadius: 50,
 
         paddingHorizontal: 15,
         marginRight: 10

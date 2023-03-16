@@ -10,7 +10,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 import Header from '../../Header/Header.js'
 
-export default function PerfilVisãoExterna(props) {
+export default function PerfilVisãoExterna({ navigation }, props) {
 
     // const [changeIcon, setChangeIcon] = useState(false)
 

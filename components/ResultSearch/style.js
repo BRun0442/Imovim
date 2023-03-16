@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
     },
 
     resultText:{
+        color: "#000",
         fontWeight: "bold",
         fontSize: 18
     }

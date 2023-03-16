@@ -6,7 +6,7 @@ import Header from '../../Header/Header'
 import { Entypo } from '@expo/vector-icons';
 import { getAllUsers } from '../../../services/user.js'
 
-import ResultSearch from '../../ResultSearch/ResultSearch.js'
+import ResultSearch from '../../ResultSearch/ResultSearch'
 
 export default function Pesquisa({ navigation }) {
     const [users, setUsers] = useState(null)
@@ -36,7 +36,7 @@ export default function Pesquisa({ navigation }) {
         getUsers()
     }, [])
 
-    if(!users) {
+    if (!users) {
         return (
             <View>
                 <Text>Loading...</Text>
@@ -48,11 +48,13 @@ export default function Pesquisa({ navigation }) {
         <View style={styles.container}>
             <Header navigation={navigation} />
             <View style={styles.searchContainer}>
-                <TextInput onChangeText={async(text) => {
+                <View style={styles.icon}>
+                    <Entypo style={{ marginRight: 15 }} name="magnifying-glass" size={25} color="#FF7926" />
+                </View>
+                <TextInput onChangeText={async (text) => {
                     setInputText(text)
                     await searchUser(text)
-                    }} style={styles.searchInput} placeholder='Pesquise amigos, eventos etc.'>
-                    <Entypo style={{ marginRight: 15 }} name="magnifying-glass" size={25} color="#FF7926" />
+                }} style={styles.searchInput} placeholder='Pesquise amigos, eventos etc.'>
                 </TextInput>
             </View>
 
@@ -65,8 +67,8 @@ export default function Pesquisa({ navigation }) {
             <ScrollView>
                 <View style={styles.results}>
                     {searchedUsers.map((user, index) => {
-                        return(
-                            <ResultSearch key={index} name={user.nickname} />
+                        return (
+                            <ResultSearch navigation={navigation} key={index} nickname={user.nickname} />
                         )
                     })}
                 </View>

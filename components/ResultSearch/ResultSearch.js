@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import {styles} from './style.js'
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function ResultSearch({ navigation }, props) {
+export default function ResultSearch({ navigation, nickname }) {
     return (
         <TouchableOpacity
             style={styles.result}
@@ -12,7 +12,7 @@ export default function ResultSearch({ navigation }, props) {
             <View style={styles.photoUser}>
                 <FontAwesome name="camera" size={20} color="#FFF" />
             </View>
-            <Text style={styles.resultText}>{props.name}</Text>
+            <Text style={styles.resultText}>{nickname}</Text>
         </TouchableOpacity>
     )
 }
