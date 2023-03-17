@@ -68,7 +68,7 @@ export default function Pesquisa({ navigation }) {
                 <View style={styles.results}>
                     {searchedUsers.map((user, index) => {
                         return (
-                            <ResultSearch profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname}  />
+                            <ResultSearch user_id={user.user_id} profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname}  />
                         )
                     })}
                 </View>

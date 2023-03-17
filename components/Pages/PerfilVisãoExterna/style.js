@@ -54,6 +54,15 @@ export const styles = StyleSheet.create({
     borderWidth: 5
   },
 
+  profileImage: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 140,
+    height: 140,
+    borderRadius: 100
+  },
+
   addFriendContainer: {
     display: "flex",
     flexDirection: "column",

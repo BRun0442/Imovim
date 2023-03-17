@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StatusBar, Alert, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState, useContext } from 'react';
+import { View, Text, Image, StatusBar, Alert, TouchableOpacity } from 'react-native';
 import { styles } from './style'
 
 import { ScrollView } from 'react-native-gesture-handler';
@@ -7,12 +7,32 @@ import { Foundation } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-
+import { getAnotherUserData } from '../../../services/user';
 import Header from '../../Header/Header.js'
+import { AuthContext } from '../../../contexts/auth';
 
 export default function PerfilVisãoExterna({ navigation }, props) {
 
     const [changeIcon, setChangeIcon] = useState(false)
+
+    const { anotherUser_id } = useContext(AuthContext)
+    const [profileImage, setProfileImage] = useState()
+    const [name, setName] = useState('')
+    const [location, setLocation] = useState('s')
+    
+    const getUserData = async () => {
+        const data = await getAnotherUserData(anotherUser_id)
+        console.log(data)
+        console.log(data.profileInfo[0].profileImage)
+        setProfileImage(data.profileInfo[0].profileImage)
+        setLocation(data.profileInfo[0].localization)
+        setName(data.profileInfo[0].nickname)
+        return data
+    } 
+
+    useEffect(() => {
+        getUserData()
+    }, [anotherUser_id])
 
     return (
         <ScrollView style={styles.container}>
@@ -23,9 +43,11 @@ export default function PerfilVisãoExterna({ navigation }, props) {
             <View style={styles.perfil}>
 
                 <View style={styles.iconsContainer}>
-                    <View style={styles.iconCam}>
+                    {!profileImage && <View style={styles.iconCam}>
                         <Entypo name="camera" size={22} color="white" />
-                    </View>
+                    </View>}
+
+                    {profileImage && <Image style={styles.profileImage} source={{uri: profileImage}} />}
 
                     <View style={styles.addFriendContainer}>
                         <View>
@@ -60,8 +82,8 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                 <View style={styles.infos}>
 
                     <View style={styles.data}>
-                        <Text style={styles.name}>{props.name}</Text>
-                        <Text style={styles.location}>{props.location}</Text>
+                        <Text style={styles.name}>{name}</Text>
+                        <Text style={styles.location}>{location}</Text>
                     </View>
 
                 </View>

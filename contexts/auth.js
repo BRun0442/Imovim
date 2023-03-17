@@ -11,9 +11,10 @@ function AuthProvider({children})
   const [nickname, setNickname] = useState();
   const [profilePicture, setProfilePicture] = useState('');
   const [image, setImage] = useState(null);
+  const [anotherUser_id, setAnotherUser_id] = useState(null)
 
   return(
-    <AuthContext.Provider value={{login, setLogin, id, setId, nickname, setNickname, profilePicture, setProfilePicture, image, setImage}}>
+    <AuthContext.Provider value={{anotherUser_id, setAnotherUser_id, login, setLogin, id, setId, nickname, setNickname, profilePicture, setProfilePicture, image, setImage}}>
       {children}
     </AuthContext.Provider>
   )
