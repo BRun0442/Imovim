@@ -30,7 +30,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
     return (
         <ScrollView style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
 
             <View style={styles.background} />
 
