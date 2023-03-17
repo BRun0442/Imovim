@@ -14,6 +14,10 @@ import CreateUser from '../../../services/createUser';
 function Cadastro({navigation})
 {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
+  
+  const goToLoginScreen = () => {
+    navigation.navigate('Login');
+  }
 
   return(
     <View style={styles.container}>
@@ -33,13 +37,13 @@ function Cadastro({navigation})
       <View style={defaultStyle.inputContainer}>
         <Text style={defaultStyle.subTitle}>Cadastro</Text>
 
-        <Input width="90%" maxLength={100} inputText="Email" getInputValue={(value) => {setEmail(value)}}/>
-        <Input width="90%" maxLength={25} inputText="Senha" getInputValue={(value) => {setPassword(value)}}/>
-        <Input width="90%" maxLength={25} inputText="Repetir senha" getInputValue={(value) => {setPasswordConfirm(value)}}/>
+        <Input value={email} width="90%" maxLength={100} inputText="Email" getInputValue={(value) => {setEmail(value)}}/>
+        <Input value={password} width="90%" maxLength={25} inputText="Senha" getInputValue={(value) => {setPassword(value)}}/>
+        <Input value={passwordConfirm} width="90%" maxLength={25} inputText="Repetir senha" getInputValue={(value) => {setPasswordConfirm(value)}}/>
 
         <View style={styles.buttonContainer}>
           <Button buttonText="Cadastrar" pressFunction={() => {
-            CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber) 
+            CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen) 
           }}
           />
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -14,7 +14,11 @@ function Cadastro({ navigation }) {
   const { setNickname, setBirthday, setPhoneNumber } = useContext(CreateUserContext)
   let phoneNumber = ['', '']
   let birthday = ['', '', '']
-
+  const [day, setDay] = useState('')
+  const [month, setMonth] = useState('')
+  const [year, setYear] = useState('')
+  const [phoneNumberInput, setPhoneNumberInput] = useState('')
+  const [ddd, setDDD] = useState('')
 
   return (
     <ScrollView style={styles.container}>
@@ -40,31 +44,34 @@ function Cadastro({ navigation }) {
 
           <TextInput
             style={styles.input}
+            keyboardType = 'numeric'
             placeholder='dd'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
             maxLength={2}
-            onChangeText={(value) => { birthday[0] = value }}
+            onChangeText={(value) => { setDay(value) }}
           >
           </TextInput>
 
           <TextInput
             style={styles.input}
+            keyboardType = 'numeric'
             placeholder='mm'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
             maxLength={2}
-            onChangeText={(value) => { birthday[1] = value }}
+            onChangeText={(value) => { setMonth(value) }}
           >
           </TextInput>
 
           <TextInput
             style={styles.input}
+            keyboardType = 'numeric'
             placeholder='aaaa'
             placeholderTextColor="#DCDCDC"
             textAlign="center"
             maxLength={4}
-            onChangeText={(value) => { birthday[2] = value }}
+            onChangeText={(value) => { setYear(value) }}
           >
           </TextInput>
 
@@ -85,7 +92,7 @@ function Cadastro({ navigation }) {
             placeholderTextColor="#DCDCDC"
             textAlign="center"
             maxLength={2}
-            onChangeText={(value) => { phoneNumber[0] = value }}
+            onChangeText={(value) => { setDDD(value) }}
           >
           </TextInput>
 
@@ -95,7 +102,7 @@ function Cadastro({ navigation }) {
             placeholderTextColor="#DCDCDC"
             textAlign="center"
             maxLength={9}
-            onChangeText={(value) => { phoneNumber[1] = value }}
+            onChangeText={(value) => { setPhoneNumberInput(value) }}
           >
           </TextInput>
         </View>
@@ -103,14 +110,10 @@ function Cadastro({ navigation }) {
         <View style={styles.buttonContainer}>
           <Button buttonText="Avançar" pressFunction=
             {() => {
-              phoneNumber.reverse();
-              birthday.reverse()
-              setPhoneNumber(
-                phoneNumber.join('')
-              );
-              setBirthday(
-                birthday.join('')
-              );
+              // phoneNumber.reverse();
+              // birthday.reverse()
+              setPhoneNumber(`${ddd} ${phoneNumberInput}`);
+              setBirthday(`${year}/${month}/${day}`);
               navigation.navigate('CadastroContinuacao')
             }
             }

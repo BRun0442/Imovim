@@ -9,6 +9,7 @@ function Input(props)
     <View>
       <TextInput 
         style={styles.input} 
+        value={props.value}
         placeholder={props.inputText} 
         placeholderTextColor="#DCDCDC" 
         width={props.width}

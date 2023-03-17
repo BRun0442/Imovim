@@ -1,18 +1,14 @@
 import api from './api';
 
-function CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber)
+function CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen)
 {
-  if(
-    nickname != '' && 
-    birthday != '' && 
-    phoneNumber != '' && 
-    email != '' && 
-    password != '' && 
-    passwordConfirm != ''
-  )
-  {
     if(password.length >= 7)
     {
+      // const birthdayYear = new Date(birthday).getFullYear()
+      // const currentYear = new Date().getFullYear()
+      // if (birthdayYear > currentYear) {
+      //   alert('Ano inválido!')
+      // }
       if(passwordConfirm == password)
       {
         api.post('/auth/create-user', 
@@ -25,21 +21,21 @@ function CreateUser(nickname, email, password, passwordConfirm, birthday, phoneN
           phoneNumber: phoneNumber
         })
         .then(response => {
-          alert(JSON.stringify(response.data.msg))
+          console.log(response.data.msg)
+          alert(response.data.msg)
+          goToLoginScreen()
         })
         .catch(error => {
-          alert(JSON.stringify(error.response.data.msg))
+          console.log(error.response.data.msg)
+          console.log(nickname, email, password, passwordConfirm, birthday, phoneNumber)
+          alert(error.response.data.msg)
         })  
       }else{
         alert('As senhas não coincidem!')
       }
     }else{
       alert('A senha deve conter 8 ou mais digitos!')
-    }
-  }else
-  {
-    alert('Preencha todos os dados!')
-  }  
+    } 
 }
 
 export default CreateUser;
