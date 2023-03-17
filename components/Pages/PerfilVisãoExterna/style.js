@@ -84,28 +84,32 @@ export const styles = StyleSheet.create({
     fontSize: 12
   },
 
-  addFriendButton: {
+  followButton: {
     display: "flex",
     flexDirection: 'row',
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
     alignItems: "center",
 
     backgroundColor: '#A512BD',
 
-    width: 150,
+    width: 170,
     height: 40,
 
     borderRadius: 40,
 
-    marginRight: 10,
     marginTop: 80
+  },
+
+  addFriendsIcons:{
+    display: "flex",
+    flexDirection: "row",
   },
 
   addFriendText: {
     color: "#ffff",
     fontWeight: "bold",
     fontSize: 20,
-    marginLeft: 2
+    marginLeft: 10
   },
 
   iconsActions: {

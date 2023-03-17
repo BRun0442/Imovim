@@ -12,21 +12,7 @@ import Header from '../../Header/Header.js'
 
 export default function PerfilVisãoExterna({ navigation }, props) {
 
-    // const [changeIcon, setChangeIcon] = useState(false)
-
-    // console.log(changeIcon);
-
-    // if (changeIcon === true) {
-    //     <View>
-    //         <FontAwesome5 name="user-check" size={24} color="black" />
-    //         <Text style={styles.addFriendText}>Adicionado</Text>
-    //     </View>
-    // } else {
-    //     <View>
-    //         <Ionicons name="person-add" size={24} color="#FFF" />
-    //         <Text style={styles.addFriendText}>Adicionar</Text>
-    //     </View>
-    // }
+    const [changeIcon, setChangeIcon] = useState(false)
 
     return (
         <ScrollView style={styles.container}>
@@ -44,11 +30,22 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                     <View style={styles.addFriendContainer}>
                         <View>
                             <TouchableOpacity
-                                style={styles.addFriendButton}
+                                style={styles.followButton}
                                 onPress={() => setChangeIcon(!changeIcon)}
                             >
-                                <Ionicons name="person-add" size={24} color="#FFF" />
-                                <Text style={styles.addFriendText}>Adicionar</Text>
+                                {
+                                    changeIcon ?
+                                        <View style={styles.addFriendsIcons}>
+                                            <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                            <Text style={styles.addFriendText}>Seguindo</Text>
+                                        </View>
+                                        :
+                                        <View style={styles.addFriendsIcons} >
+                                            <Ionicons name="person-add" size={24} color="#FFF" />
+                                            <Text style={styles.addFriendText}>Seguir</Text>
+                                        </View>
+
+                                }
                             </TouchableOpacity>
                         </View>
 
