@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { View, Text, TextInput } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { styles } from './style.js'
 import Header from '../../Header/Header'
 import { Entypo } from '@expo/vector-icons';
 import { getAllUsers } from '../../../services/user.js'
-
 import ResultSearch from '../../ResultSearch/ResultSearch'
+import { AuthContext } from '../../../contexts/auth.js'
 
 export default function Pesquisa({ navigation }) {
+    const { id } = useContext(AuthContext)
     const [users, setUsers] = useState(null)
     const [inputText, setInputText] = useState('')
     const [searchedUsers, setSearchUsers] = useState([])
@@ -24,7 +25,7 @@ export default function Pesquisa({ navigation }) {
         const data = users.filter((user) => {
             const slicedName = user.nickname.slice(0, input.length)
             console.log(slicedName, input)
-            return slicedName.toLowerCase() == input.toLowerCase()
+            return slicedName.toLowerCase() == input.toLowerCase() && user.user_id !== id
         })
         console.log(data.length)
         console.log(data)
@@ -51,11 +52,10 @@ export default function Pesquisa({ navigation }) {
                 <View style={styles.icon}>
                     <Entypo style={{ marginRight: 15 }} name="magnifying-glass" size={25} color="#FF7926" />
                 </View>
-                <TextInput onChangeText={async (text) => {
+                <TextInput value={inputText} onChangeText={async (text) => {
                     setInputText(text)
                     await searchUser(text)
-                }} style={styles.searchInput} placeholder='Pesquise amigos, eventos etc.'>
-                </TextInput>
+                }} style={styles.searchInput} placeholder='Pesquise amigos, eventos etc.' />
             </View>
 
             <View style={styles.tags}>
