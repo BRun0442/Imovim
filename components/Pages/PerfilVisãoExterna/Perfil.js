@@ -19,6 +19,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [profileImage, setProfileImage] = useState()
     const [name, setName] = useState('')
     const [location, setLocation] = useState('s')
+    const [currentUser, setCurrentUser] = useState()
     
     const getUserData = async () => {
         const data = await getAnotherUserData(anotherUser_id)
@@ -27,6 +28,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         setProfileImage(data.profileInfo[0].profileImage)
         setLocation(data.profileInfo[0].localization)
         setName(data.profileInfo[0].nickname)
+        setCurrentUser(data.profileInfo[0].user_id)
         return data
     } 
 
@@ -34,6 +36,13 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         getUserData()
     }, [anotherUser_id])
 
+    if (anotherUser_id !== currentUser) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
     return (
         <ScrollView style={styles.container}>
             <Header navigation={navigation} />
