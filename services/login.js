@@ -17,16 +17,17 @@ function ValidateData(email, password, setLogin, setId, setAccountData)
       password: password
     })
     .then(async response => {
+      console.log(response)
       const id = parseInt(JSON.stringify(response.data.user_id))
       setId(id);
       await getUserData(id, setAccountData)
 
       setLogin(true);
       
-      alert(JSON.stringify(response.data.msg))
+      alert(response.data.msg)
     })
     .catch(error => {
-      alert(error);
+      alert(error.response.data.msg)
       setLogin(false);
     });
   }else{
