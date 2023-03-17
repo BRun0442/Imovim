@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { styles } from './style.js'
 import { FontAwesome } from '@expo/vector-icons';
+import { AuthContext } from '../../contexts/auth.js';
 
-export default function ResultSearch({ navigation, nickname, profileImage }, props) {
+export default function ResultSearch({ navigation, nickname, profileImage, user_id }, props) {
+    const { anotherUser_id, setAnotherUser_id } = useContext(AuthContext)
     return (
         <TouchableOpacity
             style={styles.result}
-            onPress={() => { navigation.navigate('Outros Perfis') }}
+            onPress={() => { 
+                setAnotherUser_id(user_id)
+                navigation.navigate('Outros Perfis') 
+            }}
         >
             <View>
                 {

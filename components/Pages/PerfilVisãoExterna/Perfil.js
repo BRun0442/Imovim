@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StatusBar, Alert, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState, useContext } from 'react';
+import { View, Text, Image, StatusBar, Alert, TouchableOpacity } from 'react-native';
 import { styles } from './style'
 
 import { ScrollView } from 'react-native-gesture-handler';
@@ -7,11 +7,13 @@ import { Foundation } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-
+import { getAnotherUserData } from '../../../services/user';
 import Header from '../../Header/Header.js'
+import { AuthContext } from '../../../contexts/auth';
 
 export default function PerfilVisãoExterna({ navigation }, props) {
-
+    const { anotherUser_id } = useContext(AuthContext)
+    const [profileImage, setProfileImage] = useState()
     // const [changeIcon, setChangeIcon] = useState(false)
 
     // console.log(changeIcon);
@@ -28,6 +30,18 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     //     </View>
     // }
 
+    const getUserData = async () => {
+        const data = await getAnotherUserData(anotherUser_id)
+        console.log(data)
+        console.log(data.profileInfo[0].profileImage)
+        setProfileImage(data.profileInfo[0].profileImage)
+        return data
+    } 
+
+    useEffect(() => {
+        getUserData()
+    }, [anotherUser_id])
+
     return (
         <ScrollView style={styles.container}>
             <Header navigation={navigation} />
@@ -37,9 +51,11 @@ export default function PerfilVisãoExterna({ navigation }, props) {
             <View style={styles.perfil}>
 
                 <View style={styles.iconsContainer}>
-                    <View style={styles.iconCam}>
+                    {!profileImage && <View style={styles.iconCam}>
                         <Entypo name="camera" size={22} color="white" />
-                    </View>
+                    </View>}
+
+                    {profileImage && <Image style={styles.profileImage} source={{uri: profileImage}} />}
 
                     <View style={styles.addFriendContainer}>
                         <View>
