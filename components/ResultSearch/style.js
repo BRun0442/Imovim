@@ -24,7 +24,20 @@ export const styles = StyleSheet.create({
         marginRight: 15
     },
 
-    resultText:{
+    profileImage: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+
+        width: 100,
+        height: 100,
+
+        borderRadius: 50,
+
+        marginRight: 15
+    },
+
+    resultText: {
         color: "#000",
         fontWeight: "bold",
         fontSize: 18
