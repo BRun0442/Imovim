@@ -14,14 +14,23 @@ async function getCities(){
 
 // getCities()
 
-async function readData() {
+export async function validateCity(cidade) {
+  let valid = false
   let cities = await getCities()
-  cities.forEach((city) => {
+  cities.forEach(async (city) => {
     let result = city.cidades
     result.forEach((i) => {
-      console.log(i)
+        if(i == cidade)  {
+          console.log(i, cidade)
+          valid = true
+        }
     })
   })
+  return valid
 }
 
-readData()
+// const teste = async () => {
+//   console.log(await readData('Embu'))
+// }
+
+// teste()

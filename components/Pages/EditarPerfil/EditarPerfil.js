@@ -11,6 +11,7 @@ import { AuthContext } from "../../../contexts/auth";
 import { updateProfile } from "../../../services/profile";
 import { AccountDataContext } from "../../../contexts/accountData";
 import getUserData from "../../../services/user";
+import { validateCity } from "../../../services/getCities";
 
 function EditarPerfil({ navigation }) {
     const { id, setProfilePicture } = useContext(AuthContext)
@@ -21,12 +22,17 @@ function EditarPerfil({ navigation }) {
     const [loaded, setLoaded] = useState(false)
 
     const handleSubmit = async () => {
-        await updateProfile(image, id, backgroundImage, localization, setProfilePicture)
-            .then(async () => {
-                await getUserData(id, setAccountData)
-                Alert.alert('Perfil atualizado!')
-                navigation.navigate('Perfil')
-            })
+        if(await validateCity(localization)) {
+            await updateProfile(image, id, backgroundImage, localization, setProfilePicture)
+                .then(async () => {
+                    await getUserData(id, setAccountData)
+                    Alert.alert('Perfil atualizado!')
+                    navigation.navigate('Meu Perfil')
+                })
+        }
+        else {
+            Alert.alert('Cidade invalida!')
+        }
     }
 
     const [galleryPermission, setGalleryPermission] = useState(null);
