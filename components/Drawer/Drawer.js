@@ -11,7 +11,8 @@ import MarcarEventos from '../Pages/MarcarEventos/MarcarEventos';
 import MeusEventos from '../Pages/MeusEventos/MeusEventos'
 import Camera from '../Pages/Camera/Camera';
 import Fotos from '../Pages/Fotos/Fotos';
-import Chat from '../Pages/Chat/Chat';
+import Messages from '../Pages/Messages/Messages'
+import Chat from '../Pages/Messages/Messages';
 import Pesquisa from '../Pages/Pesquisa/Pesquisa';
 import PerfilVisãoExterna from '../Pages/PerfilVisãoExterna/Perfil';
 import { AccountDataContext } from '../../contexts/accountData';
@@ -45,6 +46,7 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Fotos" component={Fotos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Mensagens" component={Messages} options={{ headerShown: false, }} />
       <Drawer.Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
       <Drawer.Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Foto" component={EditPhoto} options={{ headerShown: false, }} />

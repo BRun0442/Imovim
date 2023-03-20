@@ -38,7 +38,7 @@ function Header({ navigation }) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => { navigation.navigate('Chat') }}>
+            onPress={() => { navigation.navigate('Mensagens') }}>
             <Ionicons
               style={styles.icon} name="chatbubble" size={33} color="#FF7926"
             />
