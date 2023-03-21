@@ -1,20 +1,20 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    myMessage:{
+    friendMessage:{
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-start",
 
-        backgroundColor: "#983A00",
+        backgroundColor: "#530260",
         padding: 15,
 
         marginBottom: 5,
 
-        borderRadius: 20,
+        borderRadius: 20
     },
 
-    myMessageText:{
+    friendMessageText:{
         color: "#FFF",
     }
 })

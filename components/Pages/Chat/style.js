@@ -53,12 +53,28 @@ export const styles = StyleSheet.create({
         fontSize: 15
     },
 
-    line:{
+    line: {
         width: "100%",
         height: 1,
 
         backgroundColor: "#E98AF9",
 
         marginVertical: 15
+    },
+
+    chat: {
+        width: "100%",
+        height: "100%",
+
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        backgroundColor: "#FFF"
+    },
+
+    messages:{
+        display: "flex",
+        flexDirection: "column",
+        
+        flexWrap: "wrap",
     },
 })
