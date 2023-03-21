@@ -2,13 +2,21 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
+        paddingTop: 15,
+        borderRadius: 15
+    },
+
+    chat: {
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "column",
+
         width: "100%",
         height: "100%",
 
-        paddingTop: 15,
-
-        backgroundColor: "#F1F1F1",
-        borderRadius: 15
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        backgroundColor: "#F1F1F1"
     },
 
     data: {
@@ -16,6 +24,9 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+
+        width: "100%",
+        height: "10%"
     },
 
     camContainer: {
@@ -62,19 +73,34 @@ export const styles = StyleSheet.create({
         marginVertical: 15
     },
 
-    chat: {
-        width: "100%",
-        height: "100%",
-
-        paddingHorizontal: 10,
-        paddingVertical: 10,
-        backgroundColor: "#FFF"
+    chatContainer:{
+        height: "80%"
     },
 
-    messages:{
+    messages: {
         display: "flex",
         flexDirection: "column",
-        
         flexWrap: "wrap",
     },
+
+    inputContainer: {
+        height: "5%"
+    },
+
+    input: {
+        width: "85%",
+        height: 50,
+        backgroundColor: "#FFF",
+
+        paddingLeft: 15
+    },
+
+    chatInput: {
+        width: "100%",
+
+        borderWidth: 1,
+        borderColor: "#000",
+
+        marginTop: 10
+    }
 })

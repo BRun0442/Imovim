@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 
         marginBottom: 5,
 
-        borderRadius: 20
+        borderRadius: 20,
     },
 
     friendMessageText:{
