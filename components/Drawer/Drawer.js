@@ -12,7 +12,7 @@ import MeusEventos from '../Pages/MeusEventos/MeusEventos'
 import Camera from '../Pages/Camera/Camera';
 import Fotos from '../Pages/Fotos/Fotos';
 import Messages from '../Pages/Messages/Messages'
-import Chat from '../Pages/Messages/Messages';
+import Chat from '../Pages/Chat/Chat';
 import Pesquisa from '../Pages/Pesquisa/Pesquisa';
 import PerfilVisãoExterna from '../Pages/PerfilVisãoExterna/Perfil';
 import { AccountDataContext } from '../../contexts/accountData';

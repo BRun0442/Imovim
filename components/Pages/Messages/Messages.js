@@ -32,8 +32,8 @@ export default function Chat({ navigation }) {
           </View>
         </View>
 
-        <Contact name="Tiago" message="kd vccc??????" />
-        <Contact name="Luis" message="eaeeeeeee" />
+        <Contact navigation={navigation} name="Tiago" message="kd vccc??????" />
+        <Contact navigation={navigation} name="Luis" message="eaeeeeeee" />
 
       </View>
     </View>

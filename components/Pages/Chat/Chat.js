@@ -4,7 +4,7 @@ import Header from '../../Header/Header'
 import { styles } from './style'
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function Chat() {
+export default function Chat({ navigation }) {
     return (
         <View>
             <Header />
