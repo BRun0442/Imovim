@@ -10,7 +10,8 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
 
   background: {
-    height: 80,
+    resizeMode: 'contain',
+    height: 200,
     backgroundColor: "#d9d9d9",
   },
 
