@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, TouchableOpacity, StatusBar } from "react-native";
+import { View, Text, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
@@ -17,6 +17,7 @@ function Feed({navigation}) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
   const { id } = useContext(AuthContext);
+  const [postAmmount, setPostAmmount] = useState(5);
   let isLoading;
 
   //Refresh page when change the route
@@ -25,13 +26,26 @@ function Feed({navigation}) {
   async function getFeed() {
     isLoading = true;
     try {
-      setPosts(await feedManager());
+      const feedData = await feedManager(postAmmount)
+      setPosts(await feedData);
+      return feedData
     } catch (error) {
       console.log(error);
     }
     isLoading = false;
   }
 
+  const handlePostsLoading = async () => {
+    setPostAmmount(postAmmount + 5)
+    try {
+      const feedData = await feedManager(postAmmount)
+      setPosts(await feedData);
+      return feedData
+    } catch (error) {
+      console.log(error);
+    }
+  }
+ 
   useEffect(() => {
     getFeed();
   }, [isFocused])
@@ -54,13 +68,17 @@ function Feed({navigation}) {
           {...item}
         />}
 
-      keyExtractor={item => item.id}
-
+      onEndReached={() => handlePostsLoading()}
       maxToRenderPerBatch={5}
       initialNumToRender={5}
       onRefresh={getFeed}
       refreshing={isLoading}
-      
+      keyExtractor={item => item.id}
+      ListFooterComponent={
+        <View style={{height: 80, display: 'flex', width: '100%', alignItems: "center", justifyContent: "center"}}>
+          <Text>Loading...</Text>
+        </View>
+      }
       ListHeaderComponent=
       {
         <View>
