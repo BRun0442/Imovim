@@ -3,15 +3,15 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         paddingTop: 15,
-        borderRadius: 15
+        borderRadius: 15,
+
+        backgroundColor: "#FFF",
     },
 
     chat: {
         display: "flex",
-        justifyContent: "space-between",
         flexDirection: "column",
 
-        width: "100%",
         height: "100%",
 
         paddingHorizontal: 10,
@@ -73,10 +73,6 @@ export const styles = StyleSheet.create({
         marginVertical: 15
     },
 
-    chatContainer:{
-        height: "80%"
-    },
-
     messages: {
         display: "flex",
         flexDirection: "column",
@@ -84,7 +80,15 @@ export const styles = StyleSheet.create({
     },
 
     inputContainer: {
-        height: "5%"
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "flex-start",
+
+        // Osmar arruma aquiiiiiiiiiiiii!!!!!!
+
+        width: "100%",
+        height: "20%"
     },
 
     input: {
@@ -92,7 +96,7 @@ export const styles = StyleSheet.create({
         height: 50,
         backgroundColor: "#FFF",
 
-        paddingLeft: 15
+        paddingLeft: 15,
     },
 
     chatInput: {
@@ -100,7 +104,20 @@ export const styles = StyleSheet.create({
 
         borderWidth: 1,
         borderColor: "#000",
+    },
 
-        marginTop: 10
-    }
+    sendMessage: {
+        width: 40,
+        height: 40,
+    
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    
+        borderRadius: 50,
+    
+        backgroundColor: "#FF7926",
+    
+        marginLeft: 10,
+      },
 })
