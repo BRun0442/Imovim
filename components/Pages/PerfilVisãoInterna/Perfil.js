@@ -54,7 +54,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         ListHeaderComponent={
           <View>
             <Header navigation={navigation} />
-            <View style={styles.background} />
+            <Image style={styles.background} source={{uri: accountData.profileInfo[0].profileBackground}}/>
             <View style={styles.perfil}>
               <View style={styles.icons}>
                 <View style={styles.iconCam}>
