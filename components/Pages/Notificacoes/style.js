@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container:{
+    container: {
         width: "100%",
         height: "100%",
 
@@ -25,10 +25,12 @@ export const styles = StyleSheet.create({
         fontWeight: "600"
     },
 
-    tags:{
+    tags: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+
+        marginBottom: 25
     },
 
     tag: {
@@ -52,4 +54,9 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "400"
     },
+
+    notifications:{
+        marginBottom: 20
+    }
+
 })
