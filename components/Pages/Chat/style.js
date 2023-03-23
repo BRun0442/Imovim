@@ -88,7 +88,7 @@ export const styles = StyleSheet.create({
         // Osmar arruma aquiiiiiiiiiiiii!!!!!!
 
         width: "100%",
-        height: "20%"
+        height: "25%"
     },
 
     input: {

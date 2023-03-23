@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-  StatusBar
-} from "react-native";
+import { Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar, KeyboardAvoidingView } from "react-native";
 
 import { CreateUserContext } from "../../../contexts/createUser";
 import { useContext } from "react";
@@ -50,54 +41,56 @@ function Comentarios(props) {
   }
   return (
     <View style={styles.container}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
 
-      <View style={styles.header}>
+        <View style={styles.header}>
 
-        <View style={styles.likeAndComents}>
+          <View style={styles.likeAndComents}>
+
+            <TouchableOpacity style={styles.button}>
+              <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
+              <Text style={styles.buttonText}>{props.likeQuantity}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button}>
+              <Ionicons name="chatbubble" size={24} color="white" />
+              <Text style={styles.buttonText}>{props.comentQuantity}</Text>
+            </TouchableOpacity>
+
+          </View>
 
           <TouchableOpacity style={styles.button}>
-            <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
-            <Text style={styles.buttonText}>{props.likeQuantity}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button}>
-            <Ionicons name="chatbubble" size={24} color="white" />
-            <Text style={styles.buttonText}>{props.comentQuantity}</Text>
+            <FontAwesome name="share" size={24} color="white" />
+            <Text style={styles.buttonText}>{props.shareQuantity}</Text>
           </TouchableOpacity>
 
         </View>
 
-        <TouchableOpacity style={styles.button}>
-          <FontAwesome name="share" size={24} color="white" />
-          <Text style={styles.buttonText}>{props.shareQuantity}</Text>
-        </TouchableOpacity>
+        <ScrollView style={styles.comentsContainer}>
+          {comments.map((item) => {
+            return (
+              <Comentario
+                key={item.id}
+                profileImage={item.profileImage}
+                profileName={item.nickname}
+                daysAgo={item.created_at}
+                coment={item.comment}
+              />
+            )
+          })}
+        </ScrollView>
 
-      </View>
+        <View style={styles.writeComentContainer}>
 
-      <ScrollView style={styles.comentsContainer}>
-        {comments.map((item) => {
-          return (
-            <Comentario
-              key={item.id}
-              profileImage={item.profileImage}
-              profileName={item.nickname}
-              daysAgo={item.created_at}
-              coment={item.comment}
-            />
-          )
-        })}
-      </ScrollView>
+          <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
 
-      <View style={styles.writeComentContainer}>
+          <TouchableOpacity onPress={() => sendComment(commentText, id, postFocusedId, setCommentText, setComments)} style={styles.buttonSendComment}>
+            <AntDesign name="arrowright" size={24} color="#FFF" />
+          </TouchableOpacity>
 
-        <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
-
-        <TouchableOpacity onPress={() => sendComment(commentText, id, postFocusedId, setCommentText, setComments)} style={styles.buttonSendComment}>
-          <AntDesign name="arrowright" size={24} color="#FFF" />
-        </TouchableOpacity>
-
-      </View>
-      <StatusBar />
+        </View>
+        <StatusBar />
+      </KeyboardAvoidingView>
     </View>
   );
 }

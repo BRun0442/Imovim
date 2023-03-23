@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from '../Cadastro/styles'
@@ -22,6 +22,8 @@ function Cadastro({navigation})
   return(
     <View style={styles.container}>
       <StatusBar/>
+
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
       <Text style={defaultStyle.title}>Imovim</Text>
 
       <Image 
@@ -70,6 +72,7 @@ function Cadastro({navigation})
           </Text>
         </View>
       </View>
+      </KeyboardAvoidingView>
     </View>
   );
 }
