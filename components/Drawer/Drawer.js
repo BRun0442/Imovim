@@ -20,6 +20,7 @@ import { AccountDataContext } from '../../contexts/accountData';
 import CustomDrawer from './CustomDrawer';
 import VerAmigos from '../Pages/VerAmigos/VerAmigos';
 import EditPhoto from '../Pages/EditPhoto/EditPhoto';
+import Notificacoes from '../Pages/Notificacoes/Notificações';
 
 const Drawer = createDrawerNavigator();
 
@@ -36,8 +37,9 @@ export default function DrawerRoutes() {
     >
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
       <Drawer.Screen name="Meu Perfil" component={Perfil} options={{ headerShown: false, }} />
-      <Drawer.Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Notificações" component={Notificacoes} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
       <Drawer.Screen name="Criar Post" component={CriarPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />

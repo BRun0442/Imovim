@@ -1,33 +1,36 @@
 import React, { useContext } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthContext } from './contexts/auth';
+
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
 import Cadastro from './components/Pages/Cadastro/Cadastro';
-import Comentarios from './components/Pages/Comentarios/Comentarios';
 import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
+
+import Comentarios from './components/Pages/Comentarios/Comentarios';
+import CriarPost from './components/Pages/CriarPost/CriarPost';
+import Camera from './components/Pages/Camera/Camera';
 
 import PerfilVisãoInterna from './components/Pages/PerfilVisãoInterna/Perfil';
 import PerfilVisãoExterna from './components/Pages/PerfilVisãoExterna/Perfil'
 
 import EditarPerfil from './components/Pages/EditarPerfil/EditarPerfil'
 import TelaVerMais from './components/Pages/TelaVerMais/TelaVerMais'
+import Fotos from './components/Pages/Fotos/Fotos';
+import TelaTags from './components/Pages/TelaTags/TelaTags';
+import VerAmigos from './components/Pages/VerAmigos/VerAmigos';
 
-import CriarPost from './components/Pages/CriarPost/CriarPost';
 import MarcarEvento from './components/Pages/MarcarEventos/MarcarEventos'
 import MeusEventos  from './components/Pages/MeusEventos/MeusEventos'
-import Fotos from './components/Pages/Fotos/Fotos';
 
 import DrawerRoutes from './components/Drawer/Drawer';
-import TelaTags from './components/Pages/TelaTags/TelaTags';
 
 import Messages from './components/Pages/Messages/Messages'
 import Chat from './components/Pages/Chat/Chat';
 
 import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
-import VerAmigos from './components/Pages/VerAmigos/VerAmigos';
-import Camera from './components/Pages/Camera/Camera';
 import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
+import Notificacoes from './components/Pages/Notificacoes/Notificações';
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -68,6 +71,7 @@ export default function Routes() {
       <Screen name="Editar Foto" component={EditPhoto} options={{ headerShown: false, }} />
       <Screen name="Meu Perfil" component={PerfilVisãoInterna} options={{ headerShown: false, }} />
       <Screen name="Outros Perfis" component={PerfilVisãoExterna} options={{ headerShown: false, }} />
+      <Screen name="Notificações" component={Notificacoes} options={{ headerShown: false, }} />
     </Navigator>
   )
 
