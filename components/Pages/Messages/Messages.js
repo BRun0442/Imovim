@@ -10,8 +10,7 @@ import { AuthContext } from '../../../contexts/auth.js';
 import axios from 'axios';
 
 export default function Chat({ navigation }) {
-  const [chats, setChats] = useState(null)
-  const { id } = useContext(AuthContext)
+  const { id, chats, setChats, reloadChats } = useContext(AuthContext)
   
   const getChats = async () => {
     const result = await axios.get(`https://imovim-api.cyclic.app/chat/get-users-room/${id}`)
@@ -21,7 +20,7 @@ export default function Chat({ navigation }) {
 
   useEffect(() => {
     getChats()
-  }, [])
+  }, [reloadChats])
 
   if (!chats) {
     return (

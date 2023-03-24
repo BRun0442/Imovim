@@ -16,6 +16,7 @@ import likePost from "../../../services/post";
 import { AccountDataContext } from '../../../contexts/accountData';
 
 export default function PerfilVisãoExterna({ navigation }, props) {
+    const { reloadChats, setReloadChats } = useContext(AuthContext)
     const { id } = useContext(AuthContext);
     const { setPostFocusedId } = useContext(AccountDataContext);
     const [changeIcon, setChangeIcon] = useState(false)
@@ -34,6 +35,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         }
         axios.post(`https://imovim-api.cyclic.app/chat/create-room`, data)
         .then(() => {
+            setReloadChats(reloadChats + 1)
             navigation.navigate('Mensagens')
         })
     }

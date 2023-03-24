@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View, StatusBar } from "react-native";
-
+import { AuthContext } from "../../contexts/auth";
 import { styles } from "./styles";
 import { Foundation } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,13 +10,16 @@ import { Entypo } from '@expo/vector-icons';
 import { DrawerActions } from '@react-navigation/native';
 
 function Header({ navigation }) {
+  const { reloadChats, setReloadChats } = useContext(AuthContext)
+ 
   return (
     <View style={styles.header}>
 
       <View style={styles.container}>
 
         <View style={{ position: "absolute", left: 0 }}>
-          <TouchableOpacity onPress={() => { navigation.dispatch(DrawerActions.openDrawer()); }}>
+          <TouchableOpacity onPress={async() => {
+            navigation.dispatch(DrawerActions.openDrawer()); }}>
             <Entypo name="menu" size={40} color="#FF7926" />
           </TouchableOpacity>
         </View>
@@ -38,7 +41,9 @@ function Header({ navigation }) {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => { navigation.navigate('Mensagens') }}>
+            onPress={async () => { 
+              setReloadChats(reloadChats + 1)
+              navigation.navigate('Mensagens') }}>
             <Ionicons
               style={styles.icon} name="chatbubble" size={33} color="#FF7926"
             />
