@@ -36,7 +36,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         axios.post(`https://imovim-api.cyclic.app/chat/create-room`, data)
         .then(() => {
             setReloadChats(reloadChats + 1)
-            navigation.navigate('Mensagens')
+            // navigation.navigate('Mensagens')
         })
     }
     
@@ -63,6 +63,12 @@ export default function PerfilVisãoExterna({ navigation }, props) {
             </View>
         )
     }
+
+    function handleClick(){
+        handleChatButton();
+        navigation.navigate("Chat");
+    }
+
     return (
         <FlatList style={styles.container}
         data={posts}
@@ -123,7 +129,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                 <TouchableOpacity>
                                     <Entypo name="block" size={24} color="#F8670E" style={{ marginLeft: 8, marginRight: 8 }} />
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => handleChatButton()}>
+                                <TouchableOpacity onPress={() => handleClick() }>
                                     <Ionicons name="chatbubble" size={25} color="#F8670E" />
                                 </TouchableOpacity>
                             </View>
