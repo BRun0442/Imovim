@@ -69,7 +69,7 @@ export default function Chat({ navigation }) {
       });
     };
     getMessage();
-  }, [socket, chatFocusedId]); // it wll be called whenever there is a change in the socket server
+  }, [socket]); // it wll be called whenever there is a change in the socket server
 
   if (!chatAvailable) {
     return (
