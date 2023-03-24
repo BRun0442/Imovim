@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { styles } from './style'
+import { AuthContext } from "../../contexts/auth";
 
 export default function Contact({navigation, name, room_id, friend_photo, room_photo, room_type, room_name}) {
+    const { setChatFocusedId, setChatProfileImage, setChatNickname } = useContext(AuthContext)
+    
     return (
         <TouchableOpacity
-            onPress={() => { navigation.navigate('Chat') }}
+            onPress={() => { 
+                setChatFocusedId(room_id)
+                setChatNickname(name)
+                setChatProfileImage(friend_photo)
+                navigation.navigate('Chat') 
+            }}
             style={styles.messageContainer}
         >
             <View style={styles.NewMessageContainer}>

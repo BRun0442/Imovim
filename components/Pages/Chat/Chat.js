@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import {
+  Image,
   View,
   Text,
   ScrollView,
@@ -21,7 +22,7 @@ import { AuthContext } from "../../../contexts/auth";
 import { io } from "socket.io-client";
 
 export default function Chat({ navigation }) {
-  const { id } = useContext(AuthContext)
+  const { id, chatFocusedId, chatNickname, chatProfileImage } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
@@ -30,7 +31,7 @@ export default function Chat({ navigation }) {
 
   const joinRoom = () => {
     // if (username !== "" && room !== ""){
-    socket.emit("join_room", "imovim"); // connects to the socket and sends the room code
+    socket.emit("join_room", chatFocusedId); // connects to the socket and sends the room code
     setChatAvailable(true);
     // }
   };
@@ -38,7 +39,7 @@ export default function Chat({ navigation }) {
   const sendMessage = async () => {
     if (message !== "") {
       const messageData = {
-        room: "imovim",
+        room: chatFocusedId,
         author_id: id,
         message: message,
         time:
@@ -57,7 +58,7 @@ export default function Chat({ navigation }) {
 
   useEffect(() => {
     joinRoom();
-  }, []);
+  }, [chatFocusedId]);
 
   useEffect(() => {
     // retrieveMessages()
@@ -68,7 +69,7 @@ export default function Chat({ navigation }) {
       });
     };
     getMessage();
-  }, [socket]); // it wll be called whenever there is a change in the socket server
+  }, [socket, chatFocusedId]); // it wll be called whenever there is a change in the socket server
 
   if (!chatAvailable) {
     return (
@@ -88,13 +89,13 @@ export default function Chat({ navigation }) {
         <View style={styles.container}>
           <View style={styles.chat}>
             <View style={styles.data}>
-              <View style={styles.camContainer}>
-                <FontAwesome name="camera" size={15} color="#FFF" />
-              </View>
-
+              <Image style={styles.camContainer} source={{ uri: chatProfileImage || 
+                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              }} />
+             
               <View style={styles.dataItems}>
                 <View style={{ marginLeft: 15 }}>
-                  <Text style={styles.name}>nickname</Text>
+                  <Text style={styles.name}>{chatNickname}</Text>
                   <Text style={styles.message}>message</Text>
                 </View>
               </View>
@@ -123,25 +124,7 @@ export default function Chat({ navigation }) {
                   </View>
                 );
               })}
-              {/* <View style={[styles.messages, { alignItems: 'flex-start' }]}>
-                                <FriendMessage friendMessage="oi" />
-                                <FriendMessage friendMessage="tudo bemmmmmm?" />
-                            </View>
-
-                            <View style={[styles.messages, { alignItems: 'flex-end' }]}>
-                                <View style={{ width: "100%" }} />
-                                <MyMessage myMessage="oiiiiii" />
-                                <MyMessage myMessage="oiiiiii" />
-                                <MyMessage myMessage="oiiiiii" />
-                                <MyMessage myMessage="oiiiiii" />
-                                <MyMessage myMessage="oiiiiii" />
-                                <MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="oiiiiii" /><MyMessage myMessage="teste" />
-                            </View>
-
-                            <View style={[styles.messages, { alignItems: 'flex-start' }]}>
-                                <FriendMessage friendMessage="oi" />
-                                <FriendMessage friendMessage="tudo bemmmmmm?" />
-                            </View> */}
+              
             </ScrollView>
 
             <View style={styles.inputContainer}>
