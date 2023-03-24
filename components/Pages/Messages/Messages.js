@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Text, View, TextInput } from 'react-native';
 import Header from '../../Header/Header.js';
 import { styles } from './style.js'
@@ -6,9 +6,31 @@ import Contact from '../../Contact/Contact.js';
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import { AuthContext } from '../../../contexts/auth.js';
+import axios from 'axios';
 
 export default function Chat({ navigation }) {
+  const [chats, setChats] = useState(null)
+  const { id } = useContext(AuthContext)
+  
+  const getChats = async () => {
+    const result = await axios.get(`https://imovim-api.cyclic.app/chat/get-users-room/${id}`)
+    console.log(result.data)
+    setChats(result.data)
+  }
+
+  useEffect(() => {
+    getChats()
+  }, [])
+
+  if (!chats) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.container}>
       <Header navigation={navigation} />
@@ -32,8 +54,18 @@ export default function Chat({ navigation }) {
           </View>
         </View>
 
-        <Contact name="Tiago" message="kd vccc??????" navigation={navigation} />
-        <Contact name="Luis" message="eaeeeeeee" navigation={navigation} />
+        {chats.map((chat, index) => {
+          return(
+            <Contact key={index} 
+              name={chat.friend} 
+              room_id={chat.room_id}
+              friend_photo={chat.friendPhoto} 
+              room_photo={chat.roomPhoto}
+              room_type={chat.room_type}
+              room_name={chat.room_name}
+              navigation={navigation} />
+          )
+        })}
 
       </View>
     </View>

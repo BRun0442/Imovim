@@ -3,7 +3,7 @@ import { View, Text, Image, StatusBar, Alert, TouchableOpacity } from 'react-nat
 import { styles } from './style'
 import { FlatList } from "react-native-gesture-handler";
 import Post from '../../Post/Post';
-
+import axios from 'axios';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Foundation } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -26,6 +26,17 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [location, setLocation] = useState('s')
     const [currentUser, setCurrentUser] = useState()
     const [posts, setPosts] = useState()
+
+    const handleChatButton = () => {
+        const data = {
+            user_id: id,
+            friend_id: anotherUser_id
+        }
+        axios.post(`https://imovim-api.cyclic.app/chat/create-room`, data)
+        .then(() => {
+            navigation.navigate('Mensagens')
+        })
+    }
     
     const getUserData = async () => {
         const data = await getAnotherUserData(anotherUser_id)
@@ -104,9 +115,15 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                             </View>
         
                             <View style={styles.iconsActions}>
-                                <Ionicons name="alert-circle" size={28} color="#F8670E" />
-                                <Entypo name="block" size={24} color="#F8670E" style={{ marginLeft: 8, marginRight: 8 }} />
-                                <Ionicons name="chatbubble" size={25} color="#F8670E" />
+                                <TouchableOpacity>
+                                    <Ionicons name="alert-circle" size={28} color="#F8670E" />
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <Entypo name="block" size={24} color="#F8670E" style={{ marginLeft: 8, marginRight: 8 }} />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => handleChatButton()}>
+                                    <Ionicons name="chatbubble" size={25} color="#F8670E" />
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
