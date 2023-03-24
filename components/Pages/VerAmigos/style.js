@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     },  
 
     results: {
-        padding: 15,
+        paddingHorizontal: 15,
         backgroundColor: "#F1F1F1",
 
         marginVertical: 10

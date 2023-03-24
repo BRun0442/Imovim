@@ -18,41 +18,12 @@ export const styles = StyleSheet.create({
         paddingEnd: 10,
 
         marginTop: 20,
+        marginBottom: 30
     },
 
     title: {
         fontSize: 18,
         fontWeight: "600"
-    },
-
-    tags: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-
-        marginBottom: 25
-    },
-
-    tag: {
-        width: 150,
-        height: 40,
-
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-
-        backgroundColor: "#F1F1F1",
-
-        borderRadius: 25,
-
-        marginHorizontal: 15,
-        marginTop: 20
-    },
-
-    tagText: {
-        fontSize: 16,
-        fontWeight: "400"
     },
 
     notifications:{

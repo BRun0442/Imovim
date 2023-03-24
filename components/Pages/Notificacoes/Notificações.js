@@ -15,16 +15,6 @@ export default function Notificacoes({ navigation }) {
                 <Text style={styles.title}>Notificações</Text>
             </View>
 
-            <View style={styles.tags}>
-                <TouchableOpacity style={styles.tag}>
-                    <Text style={styles.tagText}>Solicitações</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.tag}>
-                    <Text style={styles.tagText}>Publicações</Text>
-                </TouchableOpacity>
-            </View>
-
             <ScrollView style={styles.notifications}>
                 <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
                 <NotificationLike name="Tiago" /> 

@@ -11,9 +11,11 @@ import { AuthContext } from '../../../contexts/auth.js';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import { FlatList } from "react-native-gesture-handler";
+import { Feather } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
 
-function Feed({navigation}) {
+function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
   const { id } = useContext(AuthContext);
@@ -45,7 +47,7 @@ function Feed({navigation}) {
       console.log(error);
     }
   }
- 
+
   useEffect(() => {
     getFeed();
   }, [isFocused])
@@ -54,7 +56,7 @@ function Feed({navigation}) {
     <FlatList
       data={posts}
 
-      renderItem={({item}) => 
+      renderItem={({ item }) =>
         <Post
           goToCommentScreen={() => {
             setPostFocusedId(item.id)
@@ -64,7 +66,7 @@ function Feed({navigation}) {
             await likePost(id, item.id);
             getFeed()
           }}
-          
+
           {...item}
         />}
 
@@ -75,23 +77,27 @@ function Feed({navigation}) {
       refreshing={isLoading}
       keyExtractor={item => item.id}
       ListFooterComponent={
-        <View style={{height: 80, display: 'flex', width: '100%', alignItems: "center", justifyContent: "center"}}>
+        <View style={{ height: 80, display: 'flex', width: '100%', alignItems: "center", justifyContent: "center" }}>
           <Text>Loading...</Text>
         </View>
       }
       ListHeaderComponent=
       {
         <View>
-          <StatusBar/>
+          <StatusBar />
           <Header navigation={navigation} />
           <View style={styles.TopBarContainer}>
             <View style={styles.photoContainer}>
-              <TouchableOpacity onPress={() => {navigation.navigate('Criar Evento')}} styles={styles.button}>
-                <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
+              <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
+                <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => {navigation.navigate('Criar Post')}} styles={styles.button}>
-                <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
+              <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
+                <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
+                <FontAwesome5 name="edit" size={24} color="#FFF" />
               </TouchableOpacity>
             </View>
           </View>

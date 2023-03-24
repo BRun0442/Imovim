@@ -8,8 +8,8 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
   profileImage: {
-    height: 48, 
-    width: 48, 
+    height: 50, 
+    width: 50, 
     resizeMode: "stretch",
     borderRadius: 24,
     borderWidth: 1,

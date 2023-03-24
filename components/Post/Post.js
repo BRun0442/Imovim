@@ -50,11 +50,18 @@ function Post(props){
               <ProfileImage profileImage={props.profileImage} />
 
               <View style={styles.profileContainer}>
-                <Text style={styles.profileName}>{props.nickname}</Text>
-                <Text style={styles.postDate}>{props.created_at}</Text>
+                <View style={{marginLeft: 10}}>
+                  <Text style={styles.profileName}>{props.nickname}</Text>
+                  <Text style={styles.postDate}>{props.created_at}</Text>
+                </View>
+
+                <View>
+                  <TouchableOpacity>
+                    <Text style={styles.complaint}>!</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-
         
               <RenderImage 
               style =
@@ -71,17 +78,17 @@ function Post(props){
 
             <View style={styles.postInteraction}>
               <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
-                <AntDesign name="like1" size={24} color="white" />
+                <AntDesign name="like1" size={24} color="#FFF" />
                 <Text style={styles.interactionQuantity}>{props.likes}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
-                <Ionicons name="chatbubble" size={24} color="white" />
+                <Ionicons name="chatbubble" size={24} color="#FFF" />
                 <Text style={styles.interactionQuantity}>{props.comments}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.postInteractionImage}>
-                <FontAwesome name="share" size={24} color="white" />
+                <FontAwesome name="share" size={24} color="#FFF" />
                 <Text style={styles.interactionQuantity}>{props.updated}</Text>
               </TouchableOpacity>
             </View>

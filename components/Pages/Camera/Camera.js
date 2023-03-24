@@ -101,13 +101,12 @@ export default function CameraScreen({ navigation }) {
           <Ionicons name="camera-reverse" size={50} color="#FFF" />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => pickImage()}>
-          <Foundation name="photo" size={50} color="#FFF" />
-        </TouchableOpacity>
-
-
         <TouchableOpacity onPress={() => takePicture()}>
           <MaterialIcons name="photo-camera" size={50} color="#FFF" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => pickImage()}>
+          <Foundation name="photo" size={50} color="#FFF" />
         </TouchableOpacity>
 
         {/* {image && <Image source={{ uri: image }} style={{ flex: 1 }} />} */}

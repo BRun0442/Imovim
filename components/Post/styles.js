@@ -1,97 +1,111 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    postBackground: {
-      alignSelf: 'center',
-      marginBottom: '2%',
-      width: '100%',
-      backgroundColor: 'white',
+  postBackground: {
+    alignSelf: 'center',
+    marginBottom: '2%',
+    width: '100%',
+    backgroundColor: 'white',
 
-      borderBottomWidth: 1,
-      borderTopWidth: 1,
-      borderColor: '#E98AF9',
-    },
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderColor: '#E98AF9',
+  },
 
-    postContainer: {
-      alignSelf: 'center',
-      paddingTop: 10,
-      paddingBottom: 10,
-      width: '90%',
-      backgroundColor: 'white',
-    },
+  postContainer: {
+    alignSelf: 'center',
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: '90%',
+    backgroundColor: 'white',
+  },
 
-    postProfile: {
-      height: 48,
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      marginBottom: '3%',
-    },
+  postProfile: {
+    width: "100%",
+    height: 50,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginBottom: 15,
 
-    postImage: {
-      width: '100%',
-      alignSelf: 'center',
-      // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
-      resizeMode: 'contain',
-    },
+    paddingHorizontal: 10
+  },
 
-    postDescription: {
-      marginTop: '2%',
-      fontWeight: '500',
-    },
-    
-    postInteraction: {
-      width: 250,
-      flexWrap: 'wrap',
-      flexDirection: 'row',
-      justifyContent: 'space-evenly',
-      alignSelf: 'center',
-      marginTop: 5,
-    },
-    
-    postInteractionImage: {
-      height: 40,
-      width: 40,
-      backgroundColor: '#A512BD',
-      borderRadius: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  postImage: {
+    width: '100%',
+    alignSelf: 'center',
+    // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
+    resizeMode: 'contain',
+  },
 
-    profileImage: {
-      height: 50,
-      width: 50,
-      resizeMode: 'stretch',
-    },
+  postDescription: {
+    marginTop: '2%',
+    fontWeight: '500',
+    fontSize: 16
+  },
 
-    profileName: {
-      fontWeight: '500',
-    },
+  postInteraction: {
+    width: 250,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignSelf: 'center',
+    marginTop: 5,
+  },
 
-    postDate: {
-      fontWeight: '300',
-    },
+  postInteractionImage: {
+    height: 40,
+    width: 40,
+    backgroundColor: '#A512BD',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    profileContainer: {
-      flexDirection: 'column',
-      marginLeft: '2%',
-    },
+  profileImage: {
+    height: 50,
+    width: 50,
+    resizeMode: 'stretch',
+  },
 
-    interactionQuantity: {
-      position: 'absolute',
-      color: 'black',
-      fontWeight: '400',
-      top: 25,
-      left: -5,
-      backgroundColor: '#DCDCDC',
-      borderRadius: 10,
-      minHeight: 20,
-      minWidth: 20,
-      textAlign: 'center',
-    },
+  profileName: {
+    fontWeight: '500',
+    fontSize: 16
+  },
 
-    line: {
-      width: '100%',
-      height: 1,
-      backgroundColor: '#FF1493',
+  postDate: {
+    fontWeight: '300',
+    fontSize: 15
+  },
+
+  complaint:{
+    fontWeight: "600",
+    fontSize: 18
+  },
+
+  profileContainer: {
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: 'row',
+
+    width: "90%"
+  },
+
+  interactionQuantity: {
+    position: 'absolute',
+    color: 'black',
+    fontWeight: '400',
+    top: 25,
+    left: -5,
+    backgroundColor: '#DCDCDC',
+    borderRadius: 10,
+    minHeight: 20,
+    minWidth: 20,
+    textAlign: 'center',
+  },
+
+  line: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#FF1493',
   },
 });
