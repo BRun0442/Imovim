@@ -12,9 +12,12 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { getAnotherUserData } from '../../../services/user';
 import Header from '../../Header/Header.js'
 import { AuthContext } from '../../../contexts/auth';
+import likePost from "../../../services/post";
+import { AccountDataContext } from '../../../contexts/accountData';
 
 export default function PerfilVisãoExterna({ navigation }, props) {
-
+    const { id } = useContext(AuthContext);
+    const { setPostFocusedId } = useContext(AccountDataContext);
     const [changeIcon, setChangeIcon] = useState(false)
 
     const { anotherUser_id } = useContext(AuthContext)
@@ -57,8 +60,8 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                 navigation.navigate("Comentarios");
               }}
               likePost={async () => {
-                await likePost(accountData.profileInfo[0].id, item.id);
-                getUserData(accountData.profileInfo[0].id, setAccountData);
+                await likePost(id, item.id);
+                await getUserData()
               }}
               {...item}
             />
