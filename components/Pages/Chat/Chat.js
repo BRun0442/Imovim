@@ -60,6 +60,7 @@ export default function Chat({ navigation }) {
       // in the send_message it will emit the message that you sent to the receivers
       await socket.emit("send_message", messageData); // connects to the socket and sends data to it
       setMessage("");
+      joinRoom();
     }
   };
 
@@ -68,11 +69,11 @@ export default function Chat({ navigation }) {
   }, [chatFocusedId]);
 
   useEffect(() => {
-    // retrieveMessages()
     const getMessage = async () => {
       await socket.on("receive_message", (data) => {
         console.log(data);
         setMessageList((list) => [...list, data]);
+        retrieveMessages()
       });
     };
     getMessage();
