@@ -5,7 +5,7 @@ import { styles } from './style'
 import { AuthContext } from "../../contexts/auth";
 
 export default function Contact({navigation, name, room_id, friend_photo, room_photo, room_type, room_name}) {
-    const { setChatFocusedId, setChatProfileImage, setChatNickname } = useContext(AuthContext)
+    const { setChatFocusedId, setChatProfileImage, setChatNickname, setMessageList } = useContext(AuthContext)
     
     return (
         <TouchableOpacity
@@ -13,6 +13,7 @@ export default function Contact({navigation, name, room_id, friend_photo, room_p
                 setChatFocusedId(room_id)
                 setChatNickname(name)
                 setChatProfileImage(friend_photo)
+                setMessageList([])
                 navigation.navigate('Chat') 
             }}
             style={styles.messageContainer}

@@ -36,7 +36,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         axios.post(`https://imovim-api.cyclic.app/chat/create-room`, data)
         .then(() => {
             setReloadChats(reloadChats + 1)
-            // navigation.navigate('Mensagens')
+            navigation.navigate('Mensagens')
         })
     }
     
@@ -66,7 +66,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
     function handleClick(){
         handleChatButton();
-        navigation.navigate("Chat");
+        // navigation.navigate("Chat");
     }
 
     return (

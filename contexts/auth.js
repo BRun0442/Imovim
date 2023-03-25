@@ -14,10 +14,13 @@ function AuthProvider({ children }) {
   const [chatFocusedId, setChatFocusedId] = useState(null);
   const [chatProfileImage, setChatProfileImage] = useState(null);
   const [chatNickname, setChatNickname] = useState(null);
+  const [messageList, setMessageList] = useState([]);
 
   return (
     <AuthContext.Provider
       value={{
+        messageList,
+        setMessageList,
         chatProfileImage,
         setChatProfileImage,
         chatNickname,

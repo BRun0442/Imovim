@@ -20,21 +20,29 @@ import MyMessage from "../../MyMessage/MyMessage";
 import { AntDesign } from "@expo/vector-icons";
 import { AuthContext } from "../../../contexts/auth";
 import { io } from "socket.io-client";
+import axios from "axios";
 
 export default function Chat({ navigation }) {
-  const { id, chatFocusedId, chatNickname, chatProfileImage } = useContext(AuthContext)
+  const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
-  const [messageList, setMessageList] = useState([]);
 
   const socket = io.connect("https://imovim-chat.onrender.com");
 
+  const retrieveMessages = async () => {
+    await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
+    .then(res => setMessageList(res.data))
+  }
+
   const joinRoom = () => {
-    // if (username !== "" && room !== ""){
     socket.emit("join_room", chatFocusedId); // connects to the socket and sends the room code
+    retrieveMessages()
     setChatAvailable(true);
-    // }
   };
+
+  const saveMessage = async (messageData) => {
+    await axios.post("https://imovim-api.cyclic.app/chat/create-message", messageData)
+ }
 
   const sendMessage = async () => {
     if (message !== "") {
@@ -47,11 +55,10 @@ export default function Chat({ navigation }) {
           ":" +
           new Date(Date.now()).getMinutes(),
       };
-      //   saveMessage(messageData)
+        saveMessage(messageData)
 
       // in the send_message it will emit the message that you sent to the receivers
       await socket.emit("send_message", messageData); // connects to the socket and sends data to it
-      //   setMessageList((list) => [...list, messageData])
       setMessage("");
     }
   };
@@ -106,7 +113,7 @@ export default function Chat({ navigation }) {
               {messageList.map((messageContent, index) => {
                 return (
                   <View key={index}>
-                    {messageContent.author_id === id ? (
+                    {messageContent.author_id == id ? (
                       <View
                         style={[styles.messages, { alignItems: "flex-end" }]}
                       >
