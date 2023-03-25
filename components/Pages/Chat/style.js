@@ -2,8 +2,12 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        paddingTop: 15,
         borderRadius: 15,
+
+        height: "95%",
+
+        paddingHorizontal: 10,
+        paddingVertical: 10,
 
         backgroundColor: "#FFF",
     },
@@ -12,7 +16,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
 
-        height: "100%",
+        height: "98%",
 
         paddingHorizontal: 10,
         paddingVertical: 10,
@@ -83,12 +87,12 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "flex-start",
+        alignItems: "center",
 
         // Osmar arruma aquiiiiiiiiiiiii!!!!!!
 
         width: "100%",
-        height: "25%"
+        height: "10%"
     },
 
     input: {

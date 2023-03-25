@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, TouchableOpacity, StatusBar, Alert } from "react-native";
+import { View, Text, TouchableOpacity, StatusBar, Alert, SafeAreaView } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import { styles } from "./styles";
 import { defaultStyle } from "../../../assets/style/style";
@@ -83,7 +83,7 @@ function Feed({ navigation }) {
       }
       ListHeaderComponent=
       {
-        <View>
+        <SafeAreaView>
           <StatusBar />
           <Header navigation={navigation} />
           <View style={styles.TopBarContainer}>
@@ -101,7 +101,7 @@ function Feed({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </SafeAreaView>
       }
     />
   );

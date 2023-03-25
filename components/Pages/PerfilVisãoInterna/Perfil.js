@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, StatusBar, Image } from "react-native";
+import { View, Text, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
 import { styles } from "./style.js";
 import { FlatList } from "react-native-gesture-handler";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import { Foundation } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Header from "../../Header/Header";
@@ -25,7 +24,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   const [visible, setVisible] = useState(false);
 
   return (
-    <View>
+    <SafeAreaView>
       <FlatList
         data={accountData.userPosts}
         renderItem={({ item }) => (
@@ -167,6 +166,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         }
       />
       < StatusBar />
-    </View >
+    </SafeAreaView >
   );
 }

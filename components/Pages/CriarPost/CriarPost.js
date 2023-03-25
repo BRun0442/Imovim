@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { View, Text, Image, StatusBar, ScrollView } from 'react-native';
+import { View, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
 import { styles } from './style'
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import Header from '../../Header/Header'
 import Button from '../../Button/Button';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -61,65 +60,67 @@ export default function CriarPost({ navigation }) {
   };
 
   return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
-      <StatusBar />
-      <Header navigation={navigation} />
+    <SafeAreaView>
+      <ScrollView style={{ backgroundColor: '#fff' }}>
+        <StatusBar />
+        <Header navigation={navigation} />
 
-      <View style={styles.photoContainer}>
-        <TouchableOpacity style={{ alignSelf: 'center' }}>
-          <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.postContainer}>
-        <View style={styles.postProfile}>
-          <ProfileImage profileImage={profilePicture} />
-          <View style={styles.profileContainer}>
-            <Text style={styles.profileName}>{nickname}</Text>
-          </View>
+        <View style={styles.photoContainer}>
+          <TouchableOpacity style={{ alignSelf: 'center' }}>
+            <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
+          </TouchableOpacity>
         </View>
 
-        <TextInput
-          style={styles.input}
-          value={caption}
-          multiline
-          textAlign='center'
-          placeholder='Fale sobre uma aventura aqui!'
-          placeholderTextColor={"#7B7B7B"}
-          maxLength={400}
-          onChangeText={value => setCaption(value)}
+        <View style={styles.postContainer}>
+          <View style={styles.postProfile}>
+            <ProfileImage profileImage={profilePicture} />
+            <View style={styles.profileContainer}>
+              <Text style={styles.profileName}>{nickname}</Text>
+            </View>
+          </View>
+
+          <TextInput
+            style={styles.input}
+            value={caption}
+            multiline
+            textAlign='center'
+            placeholder='Fale sobre uma aventura aqui!'
+            placeholderTextColor={"#7B7B7B"}
+            maxLength={400}
+            onChangeText={value => setCaption(value)}
+          />
+        </View>
+
+        <View style={styles.buttons}>
+          <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
+            <Entypo name="camera" size={26} color={'#fff'} />
+            <Text style={styles.buttonText}>Câmera</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+            if (galleryPermission == true) {
+              pickImage();
+            } else {
+              galeryPermisionFunction();
+            }
+          }} style={styles.button}>
+            <MaterialCommunityIcons name="camera-plus" size={26} color={'#fff'} />
+            <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button}>
+            <MaterialIcons name="place" size={26} color={'#fff'} />
+            <Text style={styles.buttonText}>Localização</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Button buttonText='Criar Post' pressFunction={async () => {
+          await CreatePost(image, id, caption, setImage)
+          await getUserData(id, setAccountData)
+          navigation.navigate('Página Inicial')
+        }}
         />
-      </View>
-
-      <View style={styles.buttons}>
-        <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
-          <Entypo name="camera" size={26} color={'#fff'} />
-          <Text style={styles.buttonText}>Câmera</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => {
-          if (galleryPermission == true) {
-            pickImage();
-          } else {
-            galeryPermisionFunction();
-          }
-        }} style={styles.button}>
-          <MaterialCommunityIcons name="camera-plus" size={26} color={'#fff'} />
-          <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button}>
-          <MaterialIcons name="place" size={26} color={'#fff'} />
-          <Text style={styles.buttonText}>Localização</Text>
-        </TouchableOpacity>
-      </View>
-
-      <Button buttonText='Criar Post' pressFunction={async () => {
-        await CreatePost(image, id, caption, setImage)
-        await getUserData(id, setAccountData)
-        navigation.navigate('Página Inicial')
-      }}
-      />
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

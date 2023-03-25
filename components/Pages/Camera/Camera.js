@@ -2,7 +2,7 @@ import { Camera, CameraType } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library'
 import { useState, useEffect, useContext } from 'react';
-import { Text, Image, View, TouchableOpacity } from 'react-native';
+import { Text, Image, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import { AuthContext } from '../../../contexts/auth';
 import { styles } from './style'
 
@@ -83,7 +83,7 @@ export default function CameraScreen({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
       <View>
 
@@ -112,6 +112,6 @@ export default function CameraScreen({ navigation }) {
         {/* {image && <Image source={{ uri: image }} style={{ flex: 1 }} />} */}
 
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text } from 'react-native'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import Header from '../../Header/Header';
 import { styles } from './style'
 
@@ -37,63 +36,65 @@ export default function TelaVerMais({ navigation }) {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Header navigation={navigation} />
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+        <Header navigation={navigation} />
 
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Ver mais</Text>
-      </View>
-
-      <View style={styles.containerTags}>
-        <Text style={styles.titleTags}>Tags</Text>
-
-        <View style={styles.tags} >
-          {sportsPracticed.map((i) => {
-            console.log(i);
-            return (
-              <TagName nameTag={i}/>
-            )
-          })}
-        </View>
-      </View>
-
-      <View style={styles.containerPhotos}>
-
-        <View style={styles.containerPhotoTitle}>
-
-          <Text style={styles.titlePhotos}>Fotos</Text>
-          <TouchableOpacity
-            onPress={() => { navigation.navigate('Fotos') }}
-          >
-            <Text style={styles.seeMorePhotos}>...</Text>
-          </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Ver mais</Text>
         </View>
 
-        <ScrollView style={styles.photos} horizontal={true}>
-          <Photo />
-          <Photo />
-          <Photo />
-          <Photo />
-        </ScrollView>
+        <View style={styles.containerTags}>
+          <Text style={styles.titleTags}>Tags</Text>
 
-      </View>
-
-      <View style={styles.containerEvents}>
-
-        <View style={styles.containerEventsTitle}>
-          <Text style={styles.titleEvents}>Meus eventos</Text>
-          <TouchableOpacity
-            onPress={() => { navigation.navigate('Meus Eventos') }}
-          >
-            <Text style={styles.seeMoreEvents}>...</Text>
-          </TouchableOpacity>
+          <View style={styles.tags} >
+            {sportsPracticed.map((i) => {
+              console.log(i);
+              return (
+                <TagName nameTag={i} />
+              )
+            })}
+          </View>
         </View>
 
-        <View style={styles.events}>
-          <TagEvent nameEvent="Evento 0" />
-        </View>
-      </View>
+        <View style={styles.containerPhotos}>
 
-    </ScrollView>
+          <View style={styles.containerPhotoTitle}>
+
+            <Text style={styles.titlePhotos}>Fotos</Text>
+            <TouchableOpacity
+              onPress={() => { navigation.navigate('Fotos') }}
+            >
+              <Text style={styles.seeMorePhotos}>...</Text>
+            </TouchableOpacity>
+          </View>
+
+          <ScrollView style={styles.photos} horizontal={true}>
+            <Photo />
+            <Photo />
+            <Photo />
+            <Photo />
+          </ScrollView>
+
+        </View>
+
+        <View style={styles.containerEvents}>
+
+          <View style={styles.containerEventsTitle}>
+            <Text style={styles.titleEvents}>Meus eventos</Text>
+            <TouchableOpacity
+              onPress={() => { navigation.navigate('Meus Eventos') }}
+            >
+              <Text style={styles.seeMoreEvents}>...</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.events}>
+            <TagEvent nameEvent="Evento 0" />
+          </View>
+        </View>
+
+      </ScrollView>
+    </SafeAreaView>
   )
 }

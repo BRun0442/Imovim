@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { View, Text, TextInput } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { View, Text, TextInput, ScrollView, SafeAreaView } from 'react-native'
 import { styles } from './style.js'
 import Header from '../../Header/Header'
 import { Entypo } from '@expo/vector-icons';
@@ -46,7 +45,7 @@ export default function Pesquisa({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Header navigation={navigation} />
             <View style={styles.searchContainer}>
                 <View style={styles.icon}>
@@ -64,7 +63,7 @@ export default function Pesquisa({ navigation }) {
                 <Text style={styles.tag}>Publicações</Text>
             </View>
 
-            <ScrollView>
+            <ScrollView style={{marginBottom: 30}}>
                 <View style={styles.results}>
                     {searchedUsers.map((user, index) => {
                         return (
@@ -74,6 +73,6 @@ export default function Pesquisa({ navigation }) {
                 </View>
             </ScrollView>
 
-        </View>
+        </SafeAreaView>
     )
 }

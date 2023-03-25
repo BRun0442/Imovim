@@ -1,15 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import {
-  Image,
-  View,
-  Text,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  SafeAreaView,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Header from "../../Header/Header";
 import { styles } from "./style";
@@ -31,7 +21,7 @@ export default function Chat({ navigation }) {
 
   const retrieveMessages = async () => {
     await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
-    .then(res => setMessageList(res.data))
+      .then(res => setMessageList(res.data))
   }
 
   const joinRoom = () => {
@@ -42,7 +32,7 @@ export default function Chat({ navigation }) {
 
   const saveMessage = async (messageData) => {
     await axios.post("https://imovim-api.cyclic.app/chat/create-message", messageData)
- }
+  }
 
   const sendMessage = async () => {
     if (message !== "") {
@@ -55,7 +45,7 @@ export default function Chat({ navigation }) {
           ":" +
           new Date(Date.now()).getMinutes(),
       };
-        saveMessage(messageData)
+      saveMessage(messageData)
 
       // in the send_message it will emit the message that you sent to the receivers
       await socket.emit("send_message", messageData); // connects to the socket and sends data to it
@@ -97,20 +87,22 @@ export default function Chat({ navigation }) {
         <View style={styles.container}>
           <View style={styles.chat}>
             <View style={styles.data}>
-              <Image style={styles.camContainer} source={{ uri: chatProfileImage || 
-                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              <Image style={styles.camContainer} source={{
+                uri: chatProfileImage ||
+                  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
               }} />
-             
+
               <View style={styles.dataItems}>
                 <View style={{ marginLeft: 15 }}>
                   <Text style={styles.name}>{chatNickname}</Text>
                   <Text style={styles.message}>message</Text>
                 </View>
               </View>
+
             </View>
             <View style={styles.line} />
 
-            <ScrollView style={{ marginBottom: 20 }}>
+            <ScrollView style={{ height: "60%" }}>
               {messageList.map((messageContent, index) => {
                 return (
                   <View key={index}>
@@ -132,7 +124,7 @@ export default function Chat({ navigation }) {
                   </View>
                 );
               })}
-              
+
             </ScrollView>
 
             <View style={styles.inputContainer}>
