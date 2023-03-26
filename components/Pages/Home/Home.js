@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, Dimensions } from 'react-native';
+import { Text, View, TouchableOpacity, Image, StatusBar, SafeAreaView } from 'react-native';
 import { styles } from './styles';
-import { ScrollView } from 'react-native-gesture-handler';
 import { defaultStyle } from '../../../assets/style/style';
 import Button from '../../Button/Button.js';
 
-function Home({ navigation }) {
+export default function Home({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text style={defaultStyle.title}>Imovim</Text>
         <View style={{ paddingHorizontal: 20 }}>
@@ -31,12 +30,12 @@ function Home({ navigation }) {
         </View>
         <StatusBar />
       </View>
+
       <Image
         source={require('../../../assets/waves.png')}
         style={styles.img}
       />
-    </View>
+      
+    </SafeAreaView>
   );
 }
-
-export default Home;

@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, Text, TextInput, StatusBar } from 'react-native';
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import { styles } from './style'
 import Header from '../../Header/Header';
 import ProfileImage from '../../ProfileImage/ProfileImage';
@@ -68,7 +67,7 @@ export default function MarcarEventos({navigation}, props) {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -195,6 +194,6 @@ export default function MarcarEventos({navigation}, props) {
             </ScrollView>
 
             <StatusBar />
-        </View>
+        </SafeAreaView>
     );
 }

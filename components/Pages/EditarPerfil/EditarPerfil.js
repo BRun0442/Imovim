@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text, StatusBar, TouchableOpacity, Image, Alert } from "react-native";
-import { ScrollView, TextInput } from "react-native-gesture-handler";
+import { View, Text, StatusBar, TouchableOpacity, Image, Alert, TextInput, ScrollView, SafeAreaView } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from './style.js'
 import { Entypo } from '@expo/vector-icons';
@@ -22,7 +21,7 @@ function EditarPerfil({ navigation }) {
     const [loaded, setLoaded] = useState(false)
 
     const handleSubmit = async () => {
-        if(await validateCity(localization)) {
+        if (await validateCity(localization)) {
             await updateProfile(image, id, backgroundImage, localization, setProfilePicture)
                 .then(async () => {
                     await getUserData(id, setAccountData)
@@ -88,88 +87,90 @@ function EditarPerfil({ navigation }) {
         )
     }
     return (
-        <ScrollView style={styles.container}>
-            <Header navigation={navigation} />
+        <SafeAreaView>
+            <ScrollView style={styles.container}>
+                <Header navigation={navigation} />
 
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>Editar Perfil</Text>
-                <TouchableOpacity onPress={() => handleSubmit()}>
-                    <Entypo name="save" size={35} color="#F8670E" />
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.editProfileContainer}>
-
-                <View style={styles.editProfileTitleContainer}>
-                    <Text style={styles.editProfileTitle}>Foto do Perfil</Text>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Editar Perfil</Text>
+                    <TouchableOpacity onPress={() => handleSubmit()}>
+                        <Entypo name="save" size={35} color="#F8670E" />
+                    </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity onPress={() => main(setImage)} style={styles.editProfileIconContainerPhoto}>
-                    {!image && (
-                        <View style={styles.editPhoto}>
-                            <Entypo name="camera" size={22} color="#ADADAD" />
-                        </View>
-                    )}
-                    {image && (
-                        <Image
-                            style=
-                            {
+                <View style={styles.editProfileContainer}>
+
+                    <View style={styles.editProfileTitleContainer}>
+                        <Text style={styles.editProfileTitle}>Foto do Perfil</Text>
+                    </View>
+
+                    <TouchableOpacity onPress={() => main(setImage)} style={styles.editProfileIconContainerPhoto}>
+                        {!image && (
+                            <View style={styles.editPhoto}>
+                                <Entypo name="camera" size={22} color="#ADADAD" />
+                            </View>
+                        )}
+                        {image && (
+                            <Image
+                                style=
                                 {
-                                    width: 160,
-                                    height: 160,
-                                    borderRadius: 100
+                                    {
+                                        width: 160,
+                                        height: 160,
+                                        borderRadius: 100
+                                    }
                                 }
-                            }
-                            source={{ uri: image }}
-                        />
-                    )}
+                                source={{ uri: image }}
+                            />
+                        )}
 
 
-                </TouchableOpacity>
+                    </TouchableOpacity>
 
-                <View style={styles.lineContainer}>
-                    <View style={styles.line}></View>
-                </View>
+                    <View style={styles.lineContainer}>
+                        <View style={styles.line}></View>
+                    </View>
 
-                <View style={styles.editProfileTitleContainer}>
-                    <Text style={styles.editProfileTitle}>Foto de Capa</Text>
-                </View>
+                    <View style={styles.editProfileTitleContainer}>
+                        <Text style={styles.editProfileTitle}>Foto de Capa</Text>
+                    </View>
 
-                <TouchableOpacity onPress={() => main(setBackgroundImage)} style={styles.editProfileIconContainerBanner}>
-                    {!backgroundImage && (
-                        <View style={styles.editBanner}>
-                            <Entypo name="camera" size={22} color="#ADADAD" />
-                        </View>
-                    )}
-                    {backgroundImage && (
-                        <Image
-                            style=
-                            {
+                    <TouchableOpacity onPress={() => main(setBackgroundImage)} style={styles.editProfileIconContainerBanner}>
+                        {!backgroundImage && (
+                            <View style={styles.editBanner}>
+                                <Entypo name="camera" size={22} color="#ADADAD" />
+                            </View>
+                        )}
+                        {backgroundImage && (
+                            <Image
+                                style=
                                 {
-                                    width: '95%',
-                                    height: 150,
+                                    {
+                                        width: '95%',
+                                        height: 150,
+                                    }
                                 }
-                            }
-                            source={{ uri: backgroundImage }}
-                        />
-                    )}
-                </TouchableOpacity>
+                                source={{ uri: backgroundImage }}
+                            />
+                        )}
+                    </TouchableOpacity>
 
-                <View style={styles.lineContainer}>
-                    <View style={styles.line}></View>
+                    <View style={styles.lineContainer}>
+                        <View style={styles.line}></View>
+                    </View>
+
+                    <View style={styles.editProfileTitleContainer}>
+                        <Text style={styles.editProfileTitle}>Cidade</Text>
+                    </View>
+
+                    <View style={styles.editProfileIconContainerInput}>
+                        <TextInput value={localization} onChangeText={(text) => { setLocalization(text) }} style={styles.input} />
+                    </View>
+
                 </View>
-
-                <View style={styles.editProfileTitleContainer}>
-                    <Text style={styles.editProfileTitle}>Cidade</Text>
-                </View>
-
-                <View style={styles.editProfileIconContainerInput}>
-                    <TextInput value={localization} onChangeText={(text) => { setLocalization(text) }} style={styles.input} />
-                </View>
-
-            </View>
-            <StatusBar />
-        </ScrollView>
+                <StatusBar />
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, SafeAreaView} from 'react-native'
 import { styles } from './style.js'
 import Header from "../../Header/Header.js";
 import { MaterialIcons } from '@expo/vector-icons';
@@ -9,7 +9,7 @@ import ResultSearchFriends from "../../ResultSearchFriends/ResultSearchFriends.j
 
 export default function VerAmigos({ navigation }) {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Header navigation={navigation} />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Amigos</Text>
@@ -28,6 +28,6 @@ export default function VerAmigos({ navigation }) {
                 </ScrollView>
             </View>
 
-        </View>
+        </SafeAreaView>
     )
 }

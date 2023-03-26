@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Touchable, TouchableOpacity, Alert } from "react-native";
+import { View, Text, Touchable, TouchableOpacity, Alert, SafeAreaView } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from './style.js'
 import { Entypo } from '@expo/vector-icons';
@@ -29,7 +29,7 @@ function TelaTags({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Header navigation={navigation} />
 
             <View style={styles.containerTitle}>
@@ -55,7 +55,7 @@ function TelaTags({ navigation }) {
                     })}
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

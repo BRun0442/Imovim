@@ -32,11 +32,12 @@ export const defaultStyle = StyleSheet.create({
     fontSize: 80,
     textAlign: "center",
 
-    // Essa linha crasha o sistema!
     fontWeight: "bold",
 
     color: "#FF6709",
     fontWeight: "700",
+
+    marginBottom: 25
   },
 
   subTitle: {

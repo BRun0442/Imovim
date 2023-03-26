@@ -8,8 +8,13 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#A512BD"
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#A512BD",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
   },
 
   textBox: {
@@ -23,7 +28,7 @@ export const styles = StyleSheet.create({
   },
 
   input: {
-    color: "white",
+    color: "#FFF",
     borderBottomWidth: 2,
     borderBottomColor: "white",
     fontSize: 20,

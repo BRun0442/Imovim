@@ -10,6 +10,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   header: {
     width: '100%',
+    
     backgroundColor: '#A512BD',
 
     paddingHorizontal: 10

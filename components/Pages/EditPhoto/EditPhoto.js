@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, Image, Dimensions, Modal } from "react-native";
+import { Text, View, TouchableOpacity, Image, Dimensions, Modal, SafeAreaView } from "react-native";
 import { styles } from "./style";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import RenderImage from "../../RenderImage/RenderImage";
@@ -47,7 +47,7 @@ export default function EditPhoto( {navigation} ,props) {
     })
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView>
             <Header navigation={navigation} />
 
             <View style={styles.postBackground}>
@@ -112,6 +112,6 @@ export default function EditPhoto( {navigation} ,props) {
                     </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }

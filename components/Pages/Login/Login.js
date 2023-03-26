@@ -10,7 +10,7 @@ import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
 import { AccountDataContext } from '../../../contexts/accountData';
 
-function Login({ navigation }) {
+export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -68,5 +68,3 @@ function Login({ navigation }) {
     </View>
   );
 }
-
-export default Login;
