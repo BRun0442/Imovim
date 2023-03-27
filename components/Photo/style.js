@@ -10,7 +10,10 @@ export const styles = StyleSheet.create({
         margin: 5,
         marginHorizontal: 5,
     
-        backgroundColor: "#D9D9D9"
+        backgroundColor: "#D9D9D9",
+
+        flex: 1,
+        aspectRatio: 1/1
       },
 })
 

@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     },
 
     photoContainer: {
-        width: "100%",
+        // width: "100%",
 
         paddingHorizontal: 8,
         paddingVertical: 15,
@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row", 
 
         flexWrap: "wrap",
+        flex: 1/3
     }
 })
 
