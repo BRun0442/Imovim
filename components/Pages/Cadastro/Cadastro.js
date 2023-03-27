@@ -21,7 +21,8 @@ export default function Cadastro({ navigation }) {
   const [ddd, setDDD] = useState('')
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <SafeAreaView>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
           <StatusBar />
           <Text style={defaultStyle.title}>Imovim</Text>
@@ -141,6 +142,7 @@ export default function Cadastro({ navigation }) {
           </View>
           <StatusBar />
         </KeyboardAvoidingView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScrollView>
   );
 }

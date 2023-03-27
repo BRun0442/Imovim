@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
       width: 175,
       height: 50,
       
-      marginVertical: 10,
       borderRadius: 20,
       justifyContent: "center",
       alignSelf: 'center',

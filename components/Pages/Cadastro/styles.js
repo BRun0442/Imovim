@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    marginTop: 15,
+    marginTop: 5,
   },
 
   phoneContainer: {

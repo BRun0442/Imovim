@@ -7,7 +7,8 @@ import Button from '../../Button/Button.js';
 export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+
+      <View style={styles.infoContainer}>
         <Text style={defaultStyle.title}>Imovim</Text>
         <View style={{ paddingHorizontal: 20 }}>
           <Text style={styles.text}>Seja bem-vindo a rede social brasileira de esportes!</Text>

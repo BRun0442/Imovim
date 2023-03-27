@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
       fontWeight: '400',
       // paddingLeft: 3,
       marginTop: 30,
+      marginBottom: 10,
       alignSelf: 'center',
     }
 });
