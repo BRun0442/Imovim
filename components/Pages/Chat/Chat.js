@@ -131,7 +131,7 @@ export default function Chat({ navigation }) {
               <TextInput
                 value={message}
                 onChangeText={(text) => setMessage(text)}
-                placeholder="Escreva um comentário aqui..."
+                placeholder="Mensagem.."
                 style={styles.input}
               />
 

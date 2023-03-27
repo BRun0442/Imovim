@@ -48,19 +48,21 @@ export const styles = StyleSheet.create({
   comentsContainer: {
     backgroundColor: '#ededed',
 
-    height: "80%"
+    height: "75%"
   },
 
   writeComentContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
     width: "100%",
     height: "10%",
 
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    marginBottom: 50,
 
-    marginHorizontal: 2,
+    marginHorizontal: 2
   },
 
   input: {

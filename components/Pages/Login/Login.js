@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Text, View, Image, StatusBar, KeyboardAvoidingView } from 'react-native';
+import { Text, View, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
 import { defaultStyle } from '../../../assets/style/style';
 import Input from '../../Input/Input.js';
@@ -19,52 +19,52 @@ export default function Login({ navigation }) {
   const { setAccountData } = useContext(AccountDataContext);
 
   return (
-    <View style={defaultStyle.container}>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
-        <StatusBar />
-        <Text style={defaultStyle.title}>Imovim</Text>
+    <ScrollView contentContainerStyle={defaultStyle.container}>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
+          <StatusBar />
+          <Text style={defaultStyle.title}>Imovim</Text>
 
-        <Image
-          style={defaultStyle.basketBall}
-          source={basketBall}
-        />
+          <Image
+            style={defaultStyle.basketBall}
+            source={basketBall}
+          />
 
-        <Image
-          style={defaultStyle.soccerBall}
-          source={soccerBall}
-        />
+          <Image
+            style={defaultStyle.soccerBall}
+            source={soccerBall}
+          />
 
-        <View style={defaultStyle.inputContainer}>
-          <Text style={defaultStyle.subTitle}>Login</Text>
-          <Input width="90%" inputText="Email" getInputValue={(value) => setEmail(value)} />
+          <View style={defaultStyle.inputContainer}>
+            <Text style={defaultStyle.subTitle}>Login</Text>
+            <Input width="90%" inputText="Email" getInputValue={(value) => setEmail(value)} />
 
-          <View style={styles.passwordContainer}>
-            <Input width="90%" inputText="Senha" getInputValue={(value) => setPassword(value)} />
-            <Text style={defaultStyle.smallText}>Esqueci minha senha</Text>
+            <View style={styles.passwordContainer}>
+              <Input width="90%" inputText="Senha" getInputValue={(value) => setPassword(value)} />
+              <Text style={defaultStyle.smallText}>Esqueci minha senha</Text>
+            </View>
+
+            <View style={styles.buttonContainer}>
+              <Button buttonText="Entrar" pressFunction={() => {
+                ValidateData(email, password, setLogin, setId, setAccountData)
+              }
+              } />
+              <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
+              <Text
+                style={{
+                  color: '#FF6709',
+                  fontSize: 16,
+                  fontWeight: '700',
+                  textAlign: 'center',
+                  paddingTop: 5,
+                }}
+                onPress={() => { navigation.navigate('Cadastro') }}
+              >
+                Cadastre-se aqui
+              </Text>
+            </View>
           </View>
-
-          <View style={styles.buttonContainer}>
-            <Button buttonText="Entrar" pressFunction={() => {
-              ValidateData(email, password, setLogin, setId, setAccountData)
-            }
-            } />
-            <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
-            <Text
-              style={{
-                color: '#FF6709',
-                fontSize: 16,
-                fontWeight: '700',
-                textAlign: 'center',
-                paddingTop: 5,
-              }}
-              onPress={() => { navigation.navigate('Cadastro') }}
-            >
-              Cadastre-se aqui
-            </Text>
-          </View>
-        </View>
-        <StatusBar />
-      </KeyboardAvoidingView>
-    </View>
+          <StatusBar />
+        </KeyboardAvoidingView>
+    </ScrollView>
   );
 }

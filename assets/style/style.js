@@ -8,13 +8,15 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const defaultStyle = StyleSheet.create({
   container: {
-    flex: 1,
+    width: "100%",
+    height: "100%",
+
     backgroundColor: "#A512BD",
 
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   inputContainer: {
@@ -25,7 +27,6 @@ export const defaultStyle = StyleSheet.create({
     borderRadius: 25,
     paddingHorizontal: 20,
     marginHorizontal: 20,
-    marginBottom: 0
   },
 
   title: {
@@ -36,8 +37,6 @@ export const defaultStyle = StyleSheet.create({
 
     color: "#FF6709",
     fontWeight: "700",
-
-    marginBottom: 25
   },
 
   subTitle: {
@@ -52,7 +51,6 @@ export const defaultStyle = StyleSheet.create({
   defaultText: {
     color: "white",
     fontSize: 18,
-    marginTop: 20,
     width: "100%",
     fontWeight: "500",
     // marginLeft: 40,
