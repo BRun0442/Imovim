@@ -13,7 +13,7 @@ export default function Photo( {navigation, image, post_id} ) {
                 navigation.navigate("Editar Foto");
             }}
         >
-        <Image source={{ uri: image }} style={{height: '100%', width: '100%'}} />
+        <Image source={{ uri: image }} style={{height: '100%', width: '100%', borderRadius: 15}} />
 
         </TouchableOpacity>
     )

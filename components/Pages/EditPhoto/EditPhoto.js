@@ -16,10 +16,11 @@ import { AuthContext } from "../../../contexts/auth";
 export default function EditPhoto( {navigation} ,props) {
     const { postFocusedId } = useContext(AccountDataContext)
     const { id, setChangePosts, changePosts } = useContext(AuthContext)
-    const [visibleModal, setVisibleModal] = useState(false)
     const [postImage, setPostImage] = useState(null)
     const [postId, setPostId] = useState(null)
-
+    
+    const [visibleModal, setVisibleModal] = useState(false)
+    
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [aspectRatio, setAspectRatio] = useState(0);

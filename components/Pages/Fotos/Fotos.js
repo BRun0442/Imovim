@@ -28,7 +28,7 @@ export default function Fotos({ navigation }) {
                 <Text style={styles.title}>Fotos</Text>
             </View>
 
-            <View style={{ paddingHorizontal: 20 }}>
+            <View style={{ marginHorizontal: 10, backgroundColor: "#F1F1F1" }}>
                 <FlatList 
                     numColumns={3}
                     data={posts}
