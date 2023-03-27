@@ -68,6 +68,19 @@ export const styles = StyleSheet.create({
         fontSize: 15
     },
 
+    button:{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        
+        width: 50,
+        height: 50,
+
+        borderRadius: 25,
+
+        backgroundColor: "#8B04A2",
+    },
+
     line: {
         width: "100%",
         height: 1,

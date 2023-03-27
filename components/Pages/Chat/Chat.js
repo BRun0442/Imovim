@@ -8,6 +8,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import FriendMessage from "../../FriendMessage/FriendMessage";
 import MyMessage from "../../MyMessage/MyMessage";
 import { AntDesign } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons'; 
 import { AuthContext } from "../../../contexts/auth";
 import { io } from "socket.io-client";
 import axios from "axios";
@@ -95,8 +96,18 @@ export default function Chat({ navigation }) {
               <View style={styles.dataItems}>
                 <View style={{ marginLeft: 15 }}>
                   <Text style={styles.name}>{chatNickname}</Text>
-                  <Text style={styles.message}>message</Text>
+                  <Text style={styles.message}>STATUS</Text>
                 </View>
+
+                <View style={[
+                  styles.button,
+                  {
+                    transform: [{ rotate: '90deg' }]
+                  },
+                ]} >
+                  <Entypo name="dots-three-horizontal" size={20} color="#FFF" />
+                </View>
+
               </View>
 
             </View>

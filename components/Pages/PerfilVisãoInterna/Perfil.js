@@ -4,6 +4,7 @@ import { styles } from "./style.js";
 import { FlatList } from "react-native-gesture-handler";
 import { Foundation } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
 import Header from "../../Header/Header";
 
 import Post from "../../Post/Post";
@@ -48,7 +49,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         ListHeaderComponent={
           <View>
             <Header navigation={navigation} />
-            <Image style={styles.background} source={{uri: accountData.profileInfo[0].profileBackground}}/>
+            <Image style={styles.background} source={{ uri: accountData.profileInfo[0].profileBackground }} />
             <View style={styles.perfil}>
               <View style={styles.icons}>
                 <View style={styles.iconCam}>
@@ -110,7 +111,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                   </Text>
                 </TouchableOpacity>
               </View>
-              
+
               <View>
                 {visible && (
                   <View style={styles.editProfile}>
@@ -154,7 +155,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                       onPress={() => setVisible(true)}
                       style={styles.openEdit}
                     >
-                      <Text style={styles.openEditText}>...</Text>
+                      <Entypo name="dots-three-horizontal" size={24} color="#FFF" />
                     </TouchableOpacity>
                   </View>
                 )}
