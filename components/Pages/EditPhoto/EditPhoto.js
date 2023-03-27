@@ -66,7 +66,7 @@ export default function EditPhoto( {navigation} ,props) {
     useEffect(() => {
         // if image is empty it doesnt call function
         getPost()
-    }, [])
+    }, [changePosts])
 
     return (
         <SafeAreaView>
