@@ -3,7 +3,7 @@ import { View, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, SafeAre
 import { styles } from './style'
 import Header from '../../Header/Header'
 import Button from '../../Button/Button';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import ProfileImage from '../../ProfileImage/ProfileImage';
@@ -61,13 +61,13 @@ export default function CriarPost({ navigation }) {
 
   return (
     <SafeAreaView>
-      <ScrollView style={{ backgroundColor: '#fff' }}>
+      <ScrollView style={{ backgroundColor: '#FFF', height: "100%" }}>
         <StatusBar />
         <Header navigation={navigation} />
 
         <View style={styles.photoContainer}>
           <TouchableOpacity style={{ alignSelf: 'center' }}>
-            <MaterialCommunityIcons name="camera" color={"#fff"} size={26} />
+          <FontAwesome5 name="edit" size={24} color="#FFF" />
           </TouchableOpacity>
         </View>
 
@@ -93,7 +93,7 @@ export default function CriarPost({ navigation }) {
 
         <View style={styles.buttons}>
           <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
-            <Entypo name="camera" size={26} color={'#fff'} />
+            <Entypo name="camera" size={26} color={'#FFF'} />
             <Text style={styles.buttonText}>Câmera</Text>
           </TouchableOpacity>
 
@@ -104,12 +104,12 @@ export default function CriarPost({ navigation }) {
               galeryPermisionFunction();
             }
           }} style={styles.button}>
-            <MaterialCommunityIcons name="camera-plus" size={26} color={'#fff'} />
+            <MaterialIcons name="add-photo-alternate" size={30} color="#FFF" />
             <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.button}>
-            <MaterialIcons name="place" size={26} color={'#fff'} />
+            <MaterialIcons name="place" size={28} color={'#FFF'} />
             <Text style={styles.buttonText}>Localização</Text>
           </TouchableOpacity>
         </View>

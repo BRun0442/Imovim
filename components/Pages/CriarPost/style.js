@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 
   container: {
     // flex: 1,
-    // backgroundColor: "#fff",
+    // backgroundColor: "#FFF",
   },
 
   photoContainer: {
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     // alignItems: "center",
 
-    paddingHorizontal: 25
+    paddingHorizontal: 30
   },
 
   button: {
@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: '#fff',
+    color: '#FFF',
     fontSize: 20,
     fontWeight: '500',
     marginLeft: '3%'
