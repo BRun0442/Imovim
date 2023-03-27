@@ -7,14 +7,17 @@ import { AuthContext } from "../../../contexts/auth";
 import axios from "axios";
 
 export default function Fotos({ navigation }) {
-    const { id } = useContext(AuthContext)
-    const [posts, setPosts] = useState([1, 2, 3, 4, 5])
+    const { id, changePosts } = useContext(AuthContext)
+    const [posts, setPosts] = useState(null)
 
     useEffect(() => {
-        const result = axios.get(`https://imovim-api.cyclic.app/posts/get-posts-of-user/${id}`)
-        console.log(result)
-        setPosts(result)
-    }, [])
+        const getData = async () => {
+            const result = await axios.get(`https://imovim-api.cyclic.app/post/get-posts-of-user/${id}`)
+            console.log(result.data)
+            setPosts(result.data)
+        }
+        getData()
+    }, [changePosts])
 
     return (
         <SafeAreaView style={styles.container}>
@@ -31,7 +34,7 @@ export default function Fotos({ navigation }) {
                     data={posts}
                     renderItem={({item}) => 
                         <View style={styles.photos}>
-                            <Photo navigation={navigation} />
+                            <Photo post_id={item.id} image={item.image} navigation={navigation} />
                         </View>
                     }
                 />

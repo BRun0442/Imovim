@@ -4,7 +4,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { Foundation } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function EditPhotoModal({ handleClose }) {
+export default function EditPhotoModal({ handleClose, deletePost }) {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={{ flex: 1, zIndex: 9 }} onPress={handleClose} ></TouchableOpacity>
@@ -18,7 +18,7 @@ export default function EditPhotoModal({ handleClose }) {
 
                     <View style={styles.line}></View>
 
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity onPress={() => deletePost()} style={styles.button}>
                         <Ionicons name="trash-bin" size={24} color="#FFF" />
                         <Text style={styles.textButton}>Excluir foto</Text>
                     </TouchableOpacity>
