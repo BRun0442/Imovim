@@ -36,8 +36,8 @@ export default function TelaVerMais({ navigation }) {
   }
 
   return (
-    <SafeAreaView>
-      <ScrollView style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
         <Header navigation={navigation} />
 
         <View style={styles.titleContainer}>

@@ -109,7 +109,7 @@ export const styles = StyleSheet.create({
     marginTop: 80
   },
 
-  addFriendsIcons:{
+  addFriendsIcons: {
     display: "flex",
     flexDirection: "row",
   },
@@ -136,6 +136,12 @@ export const styles = StyleSheet.create({
     marginTop: 10
   },
 
+  tagsText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+
   tagsView: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -145,15 +151,16 @@ export const styles = StyleSheet.create({
   },
 
   tags: {
-    textAlign: 'center',
-    backgroundColor: '#5CE1E6',
-    width: 90,
-    height: 30,
-    fontWeight: 'bold',
-    fontSize: 16,
-    borderRadius: 10,
-  },
+    width: 240,
+    height: 40,
 
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
 
-}
-)
+    backgroundColor: '#8B8A8B',
+    borderRadius: 25,
+
+    marginVertical: 15
+  }
+})

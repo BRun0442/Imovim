@@ -145,6 +145,13 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                         </View>
                     </View>
                     <View style={styles.border}></View>
+
+                    <View style={styles.tags}>
+                        <Text style={styles.tagsText}>
+                            #Adicione seus esportes favoritos
+                        </Text>
+                    </View>
+
                 </SafeAreaView>
             }
         />
