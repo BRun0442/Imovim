@@ -1,5 +1,3 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView, Touchable } from "react-native";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
