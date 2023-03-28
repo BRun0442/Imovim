@@ -104,11 +104,12 @@ export const styles = StyleSheet.create({
     borderBottomColor: "white",
     fontSize: 18,
     width: '100%',
-    height: height * 35,
+    // height: height * 35,
     // minHeight: 50,
     // maxHeight: 250,
     fontWeight: '400',
-    alignSelf: 'center',
-    marginTop: '5%'
+    // alignSelf: 'center',
+    marginBottom: 50,
+    marginTop: 10,
   }
 })

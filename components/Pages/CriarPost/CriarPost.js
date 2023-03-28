@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { View, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
+import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, SafeAreaView } from 'react-native';
 import { styles } from './style'
 import Header from '../../Header/Header'
 import Button from '../../Button/Button';
@@ -23,6 +23,8 @@ export default function CriarPost({ navigation }) {
   const [caption, setCaption] = useState('');
   const { image, setImage } = useContext(AuthContext);
   const [galleryPermission, setGalleryPermission] = useState(null);
+  const [height, setHeight] = useState()
+  const [width, setWidth] = useState();
   // const [type, setType] = useState(CameraType.back);
   // const [cameraPermission, setCameraPermission] = useState(null);
   // const [camera, setCamera] = useState(null);
@@ -55,9 +57,22 @@ export default function CriarPost({ navigation }) {
 
     if (!result.cancelled) {
       setImage(result.uri);
+      getImagesSize()
       // UploadImage(result.uri, setImageUrl)  // PRECISAMOS ARRUMAR ESSA GAMBIARRA!!!
     }
   };
+
+  async function getImagesSize()
+  {
+    // Use the width and height props to optimize
+    await Image.getSize(image, (width, height) => 
+    {
+      setHeight(height); 
+      setWidth(width);
+    })
+
+    // setAspectRatio(width/height)
+  }
 
   return (
     <SafeAreaView>
@@ -78,17 +93,25 @@ export default function CriarPost({ navigation }) {
               <Text style={styles.profileName}>{nickname}</Text>
             </View>
           </View>
-
-          <TextInput
-            style={styles.input}
-            value={caption}
-            multiline
-            textAlign='center'
-            placeholder='Fale sobre uma aventura aqui!'
-            placeholderTextColor={"#7B7B7B"}
-            maxLength={400}
-            onChangeText={value => setCaption(value)}
-          />
+          <View>
+            {image ? (
+              <Image style={{width: '100%', height: 300}} source={{ uri: image }} />
+            ) : (
+              <View style={{height: 300, width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#b0b3b8', marginTop: 20}}>
+                <Text style={{textAlign: 'center'}}>Nenhuma foto</Text>
+              </View>
+            )}
+            <TextInput
+              style={styles.input}
+              value={caption}
+              multiline
+              textAlign='center'
+              placeholder='Fale sobre uma aventura aqui!'
+              placeholderTextColor={"#7B7B7B"}
+              maxLength={400}
+              onChangeText={value => setCaption(value)}
+            />
+          </View>
         </View>
 
         <View style={styles.buttons}>
