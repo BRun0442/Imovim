@@ -22,6 +22,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   const { setAccountData } = useContext(AccountDataContext);
   const { setPostFocusedId } = useContext(AccountDataContext);
   const { profilePicture } = useContext(AuthContext);
+  
   const [visible, setVisible] = useState(false);
 
   return (

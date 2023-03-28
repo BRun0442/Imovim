@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
+import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView, Touchable } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Header from "../../Header/Header";
 import { styles } from "./style";
@@ -8,8 +8,10 @@ import { FontAwesome } from "@expo/vector-icons";
 import FriendMessage from "../../FriendMessage/FriendMessage";
 import MyMessage from "../../MyMessage/MyMessage";
 import { AntDesign } from "@expo/vector-icons";
-import { Entypo } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth";
+import { Ionicons } from '@expo/vector-icons';
+
 import { io } from "socket.io-client";
 import axios from "axios";
 
@@ -17,6 +19,8 @@ export default function Chat({ navigation }) {
   const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
+
+  const [visible, setVisible] = useState(false);
 
   const socket = io.connect("https://imovim-chat.onrender.com");
 
@@ -86,31 +90,64 @@ export default function Chat({ navigation }) {
         <Header navigation={navigation} />
 
         <View style={styles.container}>
+
           <View style={styles.chat}>
+
             <View style={styles.data}>
-              <Image style={styles.camContainer} source={{
-                uri: chatProfileImage ||
-                  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-              }} />
 
               <View style={styles.dataItems}>
-                <View style={{ marginLeft: 15 }}>
-                  <Text style={styles.name}>{chatNickname}</Text>
-                  <Text style={styles.message}>STATUS</Text>
+
+                <View style={styles.dataUser}>
+
+                  <Image style={styles.camContainer} source={{
+                    uri: chatProfileImage ||
+                      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                  }} />
+
+                  <View style={styles.infoUser}>
+                    <Text style={styles.name}>{chatNickname}</Text>
+                    <Text style={styles.message}>STATUS</Text>
+                  </View>
                 </View>
 
-                <View style={[
-                  styles.button,
-                  {
-                    transform: [{ rotate: '90deg' }]
-                  },
-                ]} >
-                  <Entypo name="dots-three-horizontal" size={20} color="#FFF" />
-                </View>
+                {visible && (
+                  <View style={styles.actionsContainer}>
+                    <View style={styles.actionsButton}>
+                      <TouchableOpacity>
+                        <Text style={styles.textButton}>Dados do grupo</Text>
+                      </TouchableOpacity>
 
+                      <View style={styles.lineButtons}></View>
+
+                      <TouchableOpacity>
+                        <Text style={styles.textButton}>Sair do grupo</Text>
+                      </TouchableOpacity>
+
+                      <View style={styles.lineButtons}></View>
+
+                      <TouchableOpacity>
+                        <Text style={styles.textButton}>Denunciar</Text>
+                      </TouchableOpacity>
+
+                    </View>
+
+                    <TouchableOpacity style={styles.closeIcon} onPress={() => setVisible(false)}>
+                      <Ionicons name="ios-close" size={30} color="#FFF" />
+                    </TouchableOpacity>
+                  </View>
+                )}
+
+                {!visible && (
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => setVisible(true)}
+                  >
+                    <Entypo name="dots-three-vertical" size={22} color="#FFF" />
+                  </TouchableOpacity>
+                )}
               </View>
-
             </View>
+
             <View style={styles.line} />
 
             <ScrollView style={{ height: "60%" }}>

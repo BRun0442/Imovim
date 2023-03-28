@@ -26,11 +26,16 @@ export const styles = StyleSheet.create({
     data: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
         alignItems: "center",
 
         width: "100%",
         height: "10%"
+    },
+
+    infoUser: {
+        display: "flex",
+        justifyContent: "center",
+        marginLeft: 10
     },
 
     camContainer: {
@@ -55,8 +60,12 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
 
-        width: 300,
-        height: 50,
+        width: "100%",
+    },
+
+    dataUser: {
+        display: "flex",
+        flexDirection: "row"
     },
 
     name: {
@@ -68,11 +77,11 @@ export const styles = StyleSheet.create({
         fontSize: 15
     },
 
-    button:{
+    button: {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        
+
         width: 50,
         height: 50,
 
@@ -81,13 +90,59 @@ export const styles = StyleSheet.create({
         backgroundColor: "#8B04A2",
     },
 
+    actionsContainer: {
+        width: 200,
+        height: 150,
+
+        backgroundColor: "#8B04A2",
+
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+
+        borderRadius: 22,
+
+        position: "absolute",
+        right: 0,
+
+        zIndex: 5
+    },
+
+    actionsButton: {
+        display: "flex",
+        justifyContent: "center",
+    },
+
+    textButton: {
+        color: "#FFF",
+        fontSize: 20,
+        fontWeight: "600"
+    },
+
+    closeIcon: {
+        display: "flex",
+        justifyContent: "center",
+
+        height: 150,
+    },
+
+    lineButtons: {
+        borderWidth: 1,
+        borderColor: "#E98AF9",
+
+        marginVertical: 5
+    },
+
     line: {
         width: "100%",
         height: 1,
 
         backgroundColor: "#E98AF9",
 
-        marginVertical: 15
+        marginVertical: 15,
+
+        zIndex: 0
     },
 
     messages: {
@@ -126,15 +181,15 @@ export const styles = StyleSheet.create({
     sendMessage: {
         width: 40,
         height: 40,
-    
+
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-    
+
         borderRadius: 50,
-    
+
         backgroundColor: "#FF7926",
-    
+
         marginLeft: 10,
-      },
+    },
 })
