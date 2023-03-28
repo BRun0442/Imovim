@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Header from "../../Header/Header";
@@ -14,6 +14,7 @@ import { io } from "socket.io-client";
 import axios from "axios";
 
 export default function Chat({ navigation }) {
+  const flatlistRef = useRef(null);
   const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
@@ -22,7 +23,10 @@ export default function Chat({ navigation }) {
 
   const retrieveMessages = async () => {
     await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
-      .then(res => setMessageList(res.data))
+      .then(res => {
+        setMessageList(res.data)
+        scrollToBottom()
+      })
   }
 
   const joinRoom = () => {
@@ -51,12 +55,18 @@ export default function Chat({ navigation }) {
       // in the send_message it will emit the message that you sent to the receivers
       await socket.emit("send_message", messageData); // connects to the socket and sends data to it
       setMessage("");
+      scrollToBottom()
       // joinRoom();
     }
   };
 
+  const scrollToBottom = () => {
+    flatlistRef.current?.scrollToEnd();
+  };
+
   useEffect(() => {
     joinRoom();
+    scrollToBottom()
   }, [chatFocusedId]);
 
   useEffect(() => {
@@ -65,6 +75,7 @@ export default function Chat({ navigation }) {
         console.log(data);
         setMessageList((list) => [...list, data]);
         retrieveMessages()
+        scrollToBottom()
       });
     };
     getMessage();
@@ -112,32 +123,33 @@ export default function Chat({ navigation }) {
 
             </View>
             <View style={styles.line} />
-
-            <ScrollView style={{ height: "60%" }}>
-              {messageList.map((messageContent, index) => {
-                return (
-                  <View key={index}>
-                    {messageContent.author_id == id ? (
+{/* height: "60%" */}
+            <FlatList 
+              style={{ height: "60%" }}
+              ref={flatlistRef}
+              data={messageList}
+              renderItem={({item}) => 
+                  <View key={item._id}>
+                    {item.author_id == id ? (
                       <View
                         style={[styles.messages, { alignItems: "flex-end" }]}
                       >
                         <View style={{ width: "100%" }} />
-                        <MyMessage myMessage={messageContent.message} />
+                        <MyMessage myMessage={item.message} />
                       </View>
                     ) : (
                       <View
-                        key={index}
+                        key={item._id}
                         style={[styles.messages, { alignItems: "flex-start" }]}
                       >
-                        <FriendMessage friendMessage={messageContent.message} />
+                        <FriendMessage friendMessage={item.message} />
                       </View>
                     )}
                   </View>
-                );
-              })}
 
-            </ScrollView>
-
+              }
+              />
+              
             <View style={styles.inputContainer}>
               <TextInput
                 value={message}
