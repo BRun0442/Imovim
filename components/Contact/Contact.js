@@ -5,7 +5,7 @@ import { styles } from './style'
 import { AuthContext } from "../../contexts/auth";
 import ManagementChat from "../Modals/ManagementChat"
 
-export default function Contact({ navigation, name, room_id, friend_photo, room_photo, room_type, room_name }) {
+export default function Contact({ navigation, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
     const { setChatFocusedId, setChatProfileImage, setChatNickname, setMessageList } = useContext(AuthContext)
 
     const [visibleModal, setVisibleModal] = useState(false)
@@ -48,6 +48,8 @@ export default function Contact({ navigation, name, room_id, friend_photo, room_
                     onRequestClose={() => setVisibleModal(false)}
                 >
                     <ManagementChat
+                        room_id={room_id}
+                        getChats={getChats}
                         handleClose={() => setVisibleModal(false)}
                     />
                 </Modal>

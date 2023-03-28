@@ -60,6 +60,7 @@ export default function Chat({ navigation }) {
           {chats.map((chat, index) => {
             return (
               <Contact key={index}
+                getChats={getChats}
                 name={chat.friend}
                 room_id={chat.room_id}
                 friend_photo={chat.friendPhoto}

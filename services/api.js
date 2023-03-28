@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const instance = axios.create({
+const api = axios.create({
   baseURL: "https://imovim-api.cyclic.app/",
 })
 
-export default instance;
+export default api;

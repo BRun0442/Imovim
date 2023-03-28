@@ -1,16 +1,26 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
+import axios from 'axios';
+import api from '../../services/api';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function EditPhotoModal({ handleClose, deletePost }) {
+export default function EditPhotoModal({ handleClose, room_id, getChats }) {
+    const handleDelete = async () => {
+        await api.delete(`/chat/delete-messages/${room_id}`)
+        .then((res) => {
+            console.log(res)
+            getChats()
+            handleClose()
+        })
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={{ flex: 1, zIndex: 9 }} onPress={handleClose} ></TouchableOpacity>
 
             <View style={styles.content}>
                 <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={() => handleDelete()}>
                         <Ionicons name="trash-bin" size={24} color="#FFF" />
                         <Text style={styles.textButton}>Excluir conversa</Text>
                     </TouchableOpacity>
