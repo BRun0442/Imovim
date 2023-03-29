@@ -54,31 +54,23 @@ const styles = StyleSheet.create({
     },
 
     closedButtonTop: {
-        height: "80%",
+        height: "85%",
         zIndex: 9,
-
-        backgroundColor: "red"
     },
 
     closedButtonBottom: {
-        height: "15%",
+        height: "10%",
         zIndex: 9,
-
-        backgroundColor: "red"
     },
 
     closedButtonLeft: {
         width: "15%",
         height: "100%",
-
-        backgroundColor: "blue"
     },
 
     closedButtonRight: {
         width: "15%",
         height: "100%",
-
-        backgroundColor: "blue"
     },
 
     content: {
@@ -88,8 +80,6 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-
-        backgroundColor: "#D9D9D9"
     },
 
     buttons: {
