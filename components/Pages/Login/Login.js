@@ -9,6 +9,9 @@ import soccerBall from '../../../assets/bolaFutebol.png';
 import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
 import { AccountDataContext } from '../../../contexts/accountData';
+import { showToastError, showToastSuccess } from '../../Toast/Toast';
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '../../Toast/toastConfig';
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -45,7 +48,7 @@ export default function Login({ navigation }) {
 
             <View style={styles.buttonContainer}>
               <Button buttonText="Entrar" pressFunction={() => {
-                ValidateData(email, password, setLogin, setId, setAccountData)
+                ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess)
               }
               } />
               <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
@@ -63,6 +66,7 @@ export default function Login({ navigation }) {
               </Text>
             </View>
           </View>
+          <Toast config={toastConfig} />
           <StatusBar />
         </KeyboardAvoidingView>
     </ScrollView>

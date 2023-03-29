@@ -1,4 +1,5 @@
 import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
+import { View, Text } from 'react-native';
 
 export const toastConfig = {
     /*
@@ -8,7 +9,7 @@ export const toastConfig = {
     success: (props) => (
       <BaseToast
         {...props}
-        style={{ borderLeftColor: 'pink' }}
+        // style={{ borderLeftColor: 'pink', position: 'absolute', top: 10 }}
         contentContainerStyle={{ paddingHorizontal: 15 }}
         text1Style={{
           fontSize: 15,
@@ -22,6 +23,7 @@ export const toastConfig = {
     */
     error: (props) => (
       <ErrorToast
+        style={{ position: 'absolute', top: 10 }}
         {...props}
         text1Style={{
           fontSize: 17
@@ -38,10 +40,15 @@ export const toastConfig = {
       I can consume any custom `props` I want.
       They will be passed when calling the `show` method (see below)
     */
-    tomatoToast: ({ text1, props }) => (
-      <View style={{ height: 60, width: '100%', backgroundColor: 'tomato' }}>
-        <Text>{text1}</Text>
-        <Text>{props.uuid}</Text>
+    imovimError: ({ text1, props }) => (
+      <View style={{ height: 60, width: '100%', marginTop: -35, backgroundColor: '#F9F9F9', borderLeftWidth: 8, borderLeftColor: 'red', borderRadius: 15, display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Text style={{fontSize: 20, fontWeight: "400" }}>{text1}</Text>
+      </View>
+    ),
+
+    imovimSuccess: ({ text1, props }) => (
+      <View style={{ height: 60, width: '100%', marginTop: -85, backgroundColor: '#F9F9F9', borderLeftWidth: 8, borderLeftColor: 'green', borderRadius: 15, display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Text style={{fontSize: 20, fontWeight: "400" }}>{text1}</Text>
       </View>
     )
   };

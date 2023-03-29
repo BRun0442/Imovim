@@ -8,7 +8,7 @@ export function logout(setLogin)
 }
 
 
-function ValidateData(email, password, setLogin, setId, setAccountData)
+function ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess)
 {
   if(email != '' && password != '')
   {
@@ -24,14 +24,14 @@ function ValidateData(email, password, setLogin, setId, setAccountData)
 
       setLogin(true);
       
-      alert(response.data.msg)
+      showToastSuccess(response.data.msg, 'teste')
     })
     .catch(error => {
-      alert(error.response.data.msg)
+      showToastError(error.response.data.msg, 'teste')
       setLogin(false);
     });
   }else{
-    alert('Preencha todos os dados!')
+    showToastError('Preencha todos os dados!', 'teste')
   }
 }
 

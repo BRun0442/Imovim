@@ -15,6 +15,9 @@ import { Feather } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
 
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '../../Toast/toastConfig';
+
 function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
@@ -100,6 +103,7 @@ function Feed({ navigation }) {
                 <FontAwesome5 name="edit" size={24} color="#FFF" />
               </TouchableOpacity>
             </View>
+            <Toast config={toastConfig} />
           </View>
         </SafeAreaView>
       }
