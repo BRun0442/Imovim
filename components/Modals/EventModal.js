@@ -11,49 +11,49 @@ export default function EventModal({ handleClose }, props) {
             <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose} ></TouchableOpacity>
 
             <View style={styles.content}>
+
                 <View style={styles.modal}>
 
                     <View style={styles.headerModal}>
                         <TouchableOpacity style={styles.button}>
-                            <FontAwesome5 name="calendar-plus" size={28} color="#F8670E" />
-                            {/* <Text style={styles.textButton}>{props.nameEvent}</Text> */}
-                            <Text style={styles.headerModalText}>Nome evento</Text>
+                            <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
+                            <Text style={styles.headerModalText}>{props.eventName}</Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ paddingHorizontal: 8 }}>
+                    <View style={{ paddingHorizontal: 6 }}>
 
                         <View style={styles.eventImage}>
-                            {/* <Image /> */}
+                            <Image style={styles.image} />
                         </View>
 
                         <View style={styles.modalInfo}>
 
                             <View style={styles.dateEvent}>
-                                <Text style={styles.dateTitle}>Data:</Text>
-                                <Text style={styles.date}>Sábado, 15 de novembro de 2023</Text>
+                                <Text style={styles.dateTitle}>Data: </Text>
+                                <Text style={styles.date}>{props.eventDate}</Text>
                             </View>
 
                             <View style={styles.hourEvent}>
-                                <Text style={styles.hourTitle}>Horário:</Text>
-                                <Text style={styles.hour}>15:00h</Text>
+                                <Text style={styles.hourTitle}>Horário: </Text>
+                                <Text style={styles.hour}>{props.eventHour}</Text>
                             </View>
 
                             <View style={styles.locationEvent}>
-                                <Text style={styles.locationTitle}>Local:</Text>
-                                <Text style={styles.location}>Ginásio Esportivo </Text>
+                                <Text style={styles.locationTitle}>Local: </Text>
+                                <Text style={styles.location}>{props.eventLocation}</Text>
                             </View>
 
                         </View>
 
                         <View style={styles.interactiveButtonContainer}>
                             <TouchableOpacity style={styles.interactiveButton}>
-                                <AntDesign name="like1" size={70} color="#FFF" />
+                                <AntDesign name="like1" size={60} color="#FFF" />
                                 <Text style={styles.interactiveText}>Eu vou!</Text>
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.interactiveButton}>
-                                <Ionicons name="add-circle-outline" size={80} color="#FFF" />
+                                <Ionicons name="add-circle-outline" size={70} color="#FFF" />
                                 <Text style={styles.interactiveText}>Salvar</Text>
                             </TouchableOpacity>
                         </View>
@@ -97,10 +97,10 @@ const styles = StyleSheet.create({
     modal: {
         display: "flex",
 
-        backgroundColor: "#F6F6F6",
+        backgroundColor: "#F9F9F9",
 
         width: "100%",
-        height: "90%",
+        height: "100%",
 
         borderRadius: 20,
     },
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
 
     headerModalText: {
         color: "#000",
-        fontSize: 23,
+        fontSize: 21,
         fontWeight: "600",
 
         marginLeft: 15
@@ -133,9 +133,11 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "40%",
 
-        backgroundColor: "#747474",
-
         marginBottom: 15
+    },
+
+    image:{
+        borderRadius: 15
     },
 
     dateEvent: {
@@ -158,6 +160,7 @@ const styles = StyleSheet.create({
     hourEvent: {
         display: "flex",
         flexDirection: "row",
+        alignItems: "center",
 
         marginBottom: 5
     },

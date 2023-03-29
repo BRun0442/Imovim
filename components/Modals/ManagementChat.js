@@ -7,25 +7,33 @@ import { Ionicons } from '@expo/vector-icons';
 export default function EditPhotoModal({ handleClose, room_id, getChats }) {
     const handleDelete = async () => {
         await api.delete(`/chat/delete-messages/${room_id}`)
-        .then((res) => {
-            console.log(res)
-            getChats()
-            handleClose()
-        })
+            .then((res) => {
+                console.log(res)
+                getChats()
+                handleClose()
+            })
     }
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity style={{ flex: 1, zIndex: 9 }} onPress={handleClose} ></TouchableOpacity>
+            <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose} ></TouchableOpacity>
 
-            <View style={styles.content}>
-                <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.button} onPress={() => handleDelete()}>
-                        <Ionicons name="trash-bin" size={24} color="#FFF" />
-                        <Text style={styles.textButton}>Excluir conversa</Text>
-                    </TouchableOpacity>
+            <View style={styles.modal}>
+                <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
+
+                <View style={styles.content}>
+                    <View style={styles.buttons}>
+                        <TouchableOpacity style={styles.button} onPress={() => handleDelete()}>
+                            <Ionicons name="trash-bin" size={24} color="#FFF" />
+                            <Text style={styles.textButton}>Excluir conversa</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
+
+                <TouchableOpacity style={styles.closedButtonRight} onPress={handleClose}></TouchableOpacity>
             </View>
+
+            <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} ></TouchableOpacity>
 
         </SafeAreaView>
     );
@@ -36,13 +44,52 @@ const styles = StyleSheet.create({
         flex: 1
     },
 
-    content: {
+    modal: {
         width: "100%",
-        height: "20%",
+
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
+    closedButtonTop: {
+        height: "80%",
+        zIndex: 9,
+
+        backgroundColor: "red"
+    },
+
+    closedButtonBottom: {
+        height: "15%",
+        zIndex: 9,
+
+        backgroundColor: "red"
+    },
+
+    closedButtonLeft: {
+        width: "15%",
+        height: "100%",
+
+        backgroundColor: "blue"
+    },
+
+    closedButtonRight: {
+        width: "15%",
+        height: "100%",
+
+        backgroundColor: "blue"
+    },
+
+    content: {
+        width: "75%",
+        height: "10%",
 
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+
+        backgroundColor: "#D9D9D9"
     },
 
     buttons: {
@@ -52,7 +99,7 @@ const styles = StyleSheet.create({
 
         backgroundColor: "#FF7926",
 
-        width: 300,
+        width: "100%",
         height: 75,
 
         borderRadius: 20,

@@ -7,23 +7,31 @@ import { Ionicons } from '@expo/vector-icons';
 export default function EditPhotoModal({ handleClose, deletePost }) {
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity style={{ flex: 1, zIndex: 9 }} onPress={handleClose} ></TouchableOpacity>
+            <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose}></TouchableOpacity>
 
-            <View style={styles.content}>
-                <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.button}>
-                        <Foundation name="pencil" size={24} color="#FFF" />
-                        <Text style={styles.textButton}>Editar legenda</Text>
-                    </TouchableOpacity>
+            <View style={styles.modal}>
+                <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
 
-                    <View style={styles.line}></View>
+                <View style={styles.content}>
+                    <View style={styles.buttons}>
+                        <TouchableOpacity style={styles.button}>
+                            <Foundation name="pencil" size={24} color="#FFF" />
+                            <Text style={styles.textButton}>Editar legenda</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => deletePost()} style={styles.button}>
-                        <Ionicons name="trash-bin" size={24} color="#FFF" />
-                        <Text style={styles.textButton}>Excluir foto</Text>
-                    </TouchableOpacity>
+                        <View style={styles.line}></View>
+
+                        <TouchableOpacity onPress={() => deletePost()} style={styles.button}>
+                            <Ionicons name="trash-bin" size={24} color="#FFF" />
+                            <Text style={styles.textButton}>Excluir foto</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
+
+                <TouchableOpacity style={styles.closedButtonRight} onPress={handleClose}></TouchableOpacity>
             </View>
+
+            <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} ></TouchableOpacity>
 
         </SafeAreaView>
     );
@@ -34,13 +42,45 @@ const styles = StyleSheet.create({
         flex: 1
     },
 
-    content: {
+    modal: {
         width: "100%",
-        height: "50%",
 
         display: "flex",
-        justifyContent: "flex-start",
+        flexDirection: "row",
+        justifyContent: "center",
         alignItems: "center"
+    },
+
+    closedButtonTop: {
+        height: "80%",
+        zIndex: 9,
+    },
+
+    closedButtonBottom: {
+        height: "10%",
+        zIndex: 9,
+    },
+
+    closedButtonLeft: {
+        width: "27.5%",
+        height: "100%",
+    },
+
+    closedButtonRight: {
+        width: "27.5%",
+        height: "100%",
+    },
+
+
+    content: {
+        width: "45%",
+        height: "10%",
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+        backgroundColor: "#D9D9D9"
     },
 
     buttons: {
@@ -64,7 +104,7 @@ const styles = StyleSheet.create({
         marginVertical: 2
     },
 
-    textButton:{
+    textButton: {
         color: "#FFF",
         fontSize: 20,
         fontWeight: "600",
