@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, Modal } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { styles } from './style'
 import { AuthContext } from "../../contexts/auth";
-import ManagementChat from "../Modals/ManagementChat"
+import MessagesModal from "../Modals/MessagesModal";
 
 export default function Contact({ navigation, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
     const { setChatFocusedId, setChatProfileImage, setChatNickname, setMessageList } = useContext(AuthContext)
@@ -47,7 +47,7 @@ export default function Contact({ navigation, getChats, name, room_id, friend_ph
                     transparent={true}
                     onRequestClose={() => setVisibleModal(false)}
                 >
-                    <ManagementChat
+                    <MessagesModal
                         room_id={room_id}
                         getChats={getChats}
                         handleClose={() => setVisibleModal(false)}

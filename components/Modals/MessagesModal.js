@@ -4,7 +4,7 @@ import axios from 'axios';
 import api from '../../services/api';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function EditPhotoModal({ handleClose, room_id, getChats }) {
+export default function MessagesModal({ handleClose, room_id, getChats }) {
     const handleDelete = async () => {
         await api.delete(`/chat/delete-messages/${room_id}`)
             .then((res) => {

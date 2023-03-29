@@ -6,7 +6,6 @@ export const toastConfig = {
   success: (props) => (
     <BaseToast
       {...props}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
       text1Style={{
         fontSize: 15,
         fontWeight: "400"
@@ -17,7 +16,6 @@ export const toastConfig = {
   error: (props) => (
     <ErrorToast
       {...props}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
       text1Style={{
         fontSize: 15,
         fontWeight: "400"
@@ -39,12 +37,34 @@ export const toastConfig = {
 };
 
 const styles = StyleSheet.create({
+  toastSucess: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    width: "95%",
+    height: 60,
+
+    marginTop: -35,
+
+    backgroundColor: "#F6F6F6",
+
+    borderLeftWidth: 8,
+    borderLeftColor: "#008000",
+    borderRadius: 15,
+  },
+
+  toastSucessText: {
+    fontSize: 20,
+    fontWeight: "400"
+  },
+
   toastError: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
-    width: "100%",
+    width: "95%",
     height: 60,
 
     marginTop: -35,
@@ -59,46 +79,5 @@ const styles = StyleSheet.create({
   toastErrorText: {
     fontSize: 20,
     fontWeight: "400"
-  },
-
-  toastSucess: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    width: "100%",
-    height: 60,
-
-    marginTop: -35,
-
-    backgroundColor: "#F6F6F6",
-
-    borderLeftWidth: 8,
-    borderLeftColor: "#008000",
-    borderRadius: 15,
-
-  },
-
-  toastSucessText: {
-    fontSize: 20,
-    fontWeight: "400"
   }
 })
-
-/*
-  Overwrite "success" type,
-  by modifying the existing `BaseToast` component
-*/
-
-/*
-  Or create a completely new type - `tomatoToast`,
-  building the layout from scratch.
- 
-  I can consume any custom `props` I want.
-  They will be passed when calling the `show` method (see below)
-*/
-
-/*
-Overwrite "error" type,
-by modifying the existing `ErrorToast` component
-*/
