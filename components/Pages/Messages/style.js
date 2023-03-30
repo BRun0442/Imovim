@@ -46,12 +46,14 @@ export const styles = StyleSheet.create({
         height: 80,
     },
 
-    iconContainer:{
+    iconContainer: {
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",   
+        alignItems: "center",
 
         backgroundColor: "#FFF",
+
+        width: 40,
         height: 40,
 
         borderTopLeftRadius: 20,
@@ -70,10 +72,14 @@ export const styles = StyleSheet.create({
     },
 
     addGroupIcon: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
         backgroundColor: "#FFF",
 
-        width: 35,
-        height: 35,
+        width: 40,
+        height: 40,
 
         borderRadius: 30,
     },

@@ -27,6 +27,7 @@ import DrawerRoutes from './components/Drawer/Drawer';
 
 import Messages from './components/Pages/Messages/Messages'
 import Chat from './components/Pages/Chat/Chat';
+import CriarGrupo from './components/Pages/CriarGrupo/CriarGrupo';
 
 import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
@@ -74,6 +75,7 @@ export default function Routes() {
       <Screen name="Meu Perfil" component={PerfilVisãoInterna} options={{ headerShown: false, }} />
       <Screen name="Outros Perfis" component={PerfilVisãoExterna} options={{ headerShown: false, }} />
       <Screen name="Notificações" component={Notificacoes} options={{ headerShown: false, }} />
+      <Screen name="Criar Grupo" component={CriarGrupo} options={{ headerShown: false, }} />
     </Navigator>
   )
 

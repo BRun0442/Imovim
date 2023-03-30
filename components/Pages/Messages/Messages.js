@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Text, View, TextInput, SafeAreaView, ScrollView } from 'react-native';
+import { Text, View, TextInput, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import Header from '../../Header/Header.js';
 import { styles } from './style.js'
 import Contact from '../../Contact/Contact.js';
@@ -44,19 +44,21 @@ export default function Chat({ navigation }) {
 
           <View style={styles.searchContainer}>
             <View style={styles.iconContainer}>
-              <Entypo style={{ marginRight: 15 }} name="magnifying-glass" size={25} color="#A512BD" />
+              <Entypo name="magnifying-glass" size={25} color="#A512BD" />
             </View>
 
             <TextInput style={styles.searchInput} placeholder='Pesquisar conversas' />
 
-            <View>
-              <MaterialIcons style={styles.addGroupIcon} name="group-add" size={30} color="#A512BD" />
-            </View>
+            <TouchableOpacity onPress={()=> navigation.navigate('Criar Grupo')}>
+              <View style={styles.addGroupIcon}>
+                <MaterialIcons name="group-add" size={30} color="#A512BD" />
+              </View>
+            </TouchableOpacity>
           </View>
 
         </View>
 
-        <ScrollView style={{ paddingHorizontal: 20, marginBottom: 20 }}> 
+        <ScrollView style={{ paddingHorizontal: 20, marginBottom: 20 }}>
           {chats.map((chat, index) => {
             return (
               <Contact key={index}
