@@ -12,6 +12,16 @@ import { AccountDataContext } from '../../../contexts/accountData';
 import { showToastError, showToastSuccess } from '../../Toast/Toast';
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
+import * as SecureStore from 'expo-secure-store';
+
+async function save(key, value) {
+  await SecureStore.setItemAsync(key, value);
+}
+
+const handleStorage = async (key, value) => {
+  await save(key, value)
+  // await getValueFor(key)
+}
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -48,7 +58,7 @@ export default function Login({ navigation }) {
 
             <View style={styles.buttonContainer}>
               <Button buttonText="Entrar" pressFunction={() => {
-                ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess)
+                ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess, handleStorage)
               }
               } />
               <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>

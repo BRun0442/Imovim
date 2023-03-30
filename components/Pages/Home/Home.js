@@ -18,7 +18,9 @@ export default function Home({ navigation }) {
         <View style={styles.acessContainer}>
           <Button buttonText="Login" pressFunction={() => { navigation.navigate('Login') }} />
 
-          <TouchableOpacity style={styles.transparentButton} onPress={() => { navigation.navigate('Cadastro') }}>
+          <TouchableOpacity style={styles.transparentButton} onPress={() => { 
+            navigation.navigate('Cadastro') 
+          }}>
             <Text
               style={{
                 textAlign: 'center',

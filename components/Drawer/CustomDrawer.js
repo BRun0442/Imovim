@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { View, Text, Image } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {styles} from './style'
@@ -7,13 +7,45 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-
+import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '../../contexts/auth.js';
 import { AccountDataContext } from '../../contexts/accountData.js';
 
+import getUserData from "../../services/user";
+
 export default function CustomDrawer({ navigation }, props) {
-    const { setLogin } = useContext(AuthContext);
-    const { accountData } = useContext(AccountDataContext);
+    const { setLogin, id } = useContext(AuthContext);
+    const { accountData, setAccountData } = useContext(AccountDataContext);
+    const [loaded, setLoaded] = useState(false)
+
+    async function save(key, value) {
+        await SecureStore.setItemAsync(key, value);
+    }
+
+    const handleLogout = async () => {
+        setLogin(false)
+        await save('isUserLoggedIn', 'notLoggedIn');
+        await save('user_id', 'null')
+        await save('user_data', 'null')
+    }
+
+    useEffect(() => {
+        const handleUserData = async () => {
+            await getUserData(id, setAccountData)
+            .then(() => {
+                setLoaded(true)
+            })
+        }
+        handleUserData()
+    }, [])
+
+    if (!loaded) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
 
     return (
         <View style={styles.container}>
@@ -65,7 +97,7 @@ export default function CustomDrawer({ navigation }, props) {
                 </View>
             </View>
 
-            <TouchableOpacity onPress={() => setLogin(false)}>
+            <TouchableOpacity onPress={() => handleLogout()}>
                 <View style={styles.exitContainer}>
                     <View style={styles.exit}>
                         <Ionicons name="exit-outline" size={24} color="#FFF" />

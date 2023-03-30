@@ -8,7 +8,7 @@ export function logout(setLogin)
 }
 
 
-function ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess)
+function ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess, saveDataInMemory)
 {
   if(email != '' && password != '')
   {
@@ -20,9 +20,13 @@ function ValidateData(email, password, setLogin, setId, setAccountData, showToas
       console.log(response)
       const id = parseInt(JSON.stringify(response.data.user_id))
       setId(id);
-      await getUserData(id, setAccountData)
+      const user_data = await getUserData(id, setAccountData)
 
       setLogin(true);
+
+      saveDataInMemory('isUserLoggedIn', 'loggedIn')
+      saveDataInMemory('user_id', String(id))
+      saveDataInMemory('user_data', String(user_data))
       
       showToastSuccess(response.data.msg, 'teste')
     })

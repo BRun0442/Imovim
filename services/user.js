@@ -1,10 +1,11 @@
 import api from './api';
 
-async function getUserData(id, setAccountData)
+export async function getUserData(id, setAccountData)
 {
   try {
     const response = await api.get(`/profile/get-profile-data/${id}`)
     setAccountData(response.data)
+    return response.data
   } catch (error) {
     console.log(error)
   }

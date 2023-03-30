@@ -32,6 +32,8 @@ import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
 import Notificacoes from './components/Pages/Notificacoes/Notificações';
 
+import * as SecureStore from 'expo-secure-store';
+
 const { Screen, Navigator } = createNativeStackNavigator();
 
 export default function Routes() {
@@ -79,7 +81,7 @@ export default function Routes() {
   function loginRequire() {
     console.log("Usuário logado: ", login);
 
-    if (login == true) {
+    if (login === true) {
       return userPages;
     }
 
