@@ -49,7 +49,7 @@ export default function Pesquisa({ navigation }) {
             <Header navigation={navigation} />
             <View style={styles.searchContainer}>
                 <View style={styles.icon}>
-                    <Entypo style={{ marginRight: 15 }} name="magnifying-glass" size={25} color="#FF7926" />
+                    <Entypo name="magnifying-glass" size={25} color="#FF7926" />
                 </View>
                 <TextInput value={inputText} onChangeText={async (text) => {
                     setInputText(text)

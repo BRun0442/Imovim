@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
-import { styles } from './style'
-import Header from '../../Header/Header';
-import { Entypo } from '@expo/vector-icons';
-import { Image } from 'react-native';
+import React from "react";
+import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { styles } from "./style"
+import Header from "../../Header/Header";
+import { Entypo } from "@expo/vector-icons";
+import { Image } from "react-native";
 
-export default function CriarGrupo({ navigation }, props) {
+export default function CriarGrupo({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
 
@@ -23,7 +23,7 @@ export default function CriarGrupo({ navigation }, props) {
                     <View style={styles.nameInputs}>
                         <TextInput
                             style={styles.inputType1}
-                            keyboardType='default'
+                            keyboardType="default"
                         />
                     </View>
 
@@ -31,7 +31,7 @@ export default function CriarGrupo({ navigation }, props) {
                     <View style={styles.nameInputs}>
                         <TextInput style={styles.inputType1}
                             onChangeText={(text) => setDescription(text)}
-                            keyboardType='default'
+                            keyboardType="default"
                         />
                     </View>
 
@@ -52,7 +52,10 @@ export default function CriarGrupo({ navigation }, props) {
                         </View>
                     </View>
 
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity 
+                    style={styles.button}
+                    onPress={()=> navigation.navigate("Selecionar pessoas para o grupo")}
+                    >
                         <Text style={styles.text}>Criar Grupo</Text>
                     </TouchableOpacity>
 
