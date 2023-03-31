@@ -90,7 +90,7 @@ export default function Post(props) {
 
         <View style={styles.postInteraction}>
           <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
-            <AntDesign name="like1" size={24} color="#FFF" />
+            <AntDesign name="like1" size={24} color={ props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
             <Text style={styles.interactionQuantity}>{props.likes}</Text>
           </TouchableOpacity>
 

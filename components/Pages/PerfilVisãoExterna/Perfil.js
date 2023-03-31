@@ -40,7 +40,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     }
 
     const getUserData = async () => {
-        const data = await getAnotherUserData(anotherUser_id)
+        const data = await getAnotherUserData(anotherUser_id, id)
         console.log(data)
         console.log(data.profileInfo[0].profileImage)
         setProfileImage(data.profileInfo[0].profileImage)

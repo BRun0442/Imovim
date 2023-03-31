@@ -14,9 +14,10 @@ import { FlatList } from "react-native-gesture-handler";
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
-
+import api from "../../../services/api";
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
+import axios from "axios";
 
 function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
@@ -31,7 +32,7 @@ function Feed({ navigation }) {
   async function getFeed() {
     isLoading = true;
     try {
-      const feedData = await feedManager(postAmmount)
+      const feedData = await feedManager(postAmmount, id)
       setPosts(await feedData);
       return feedData
     } catch (error) {
@@ -43,7 +44,7 @@ function Feed({ navigation }) {
   const handlePostsLoading = async () => {
     setPostAmmount(postAmmount + 5)
     try {
-      const feedData = await feedManager(postAmmount)
+      const feedData = await feedManager(postAmmount, id)
       setPosts(await feedData);
       return feedData
     } catch (error) {

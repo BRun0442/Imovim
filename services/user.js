@@ -11,10 +11,10 @@ export async function getUserData(id, setAccountData)
   }
 }
 
-export async function getAnotherUserData(id)
+export async function getAnotherUserData(id, userSeeingId)
 {
   try {
-    const response = await api.get(`/profile/get-profile-data/${id}`)
+    const response = await api.post(`/profile/get-profile-data`, {user_id: id, userSeeingId: userSeeingId})
     return response.data
   } catch (error) {
     console.log(error)

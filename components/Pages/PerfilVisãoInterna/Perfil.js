@@ -9,26 +9,61 @@ import Header from "../../Header/Header";
 
 import Post from "../../Post/Post";
 import likePost from "../../../services/post";
-import getUserData from '../../../services/user'
+// import { getUserData } from '../../../services/user'
 
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-
 import { AuthContext } from "../../../contexts/auth";
 import { AccountDataContext } from "../../../contexts/accountData";
 
+import { getAnotherUserData } from "../../../services/user";
+
 export default function PerfilVisãoInterna({ navigation }, props) {
-  const { accountData } = useContext(AccountDataContext);
-  const { setAccountData } = useContext(AccountDataContext);
+  // const { accountData } = useContext(AccountDataContext);
+  // const { setAccountData } = useContext(AccountDataContext);
   const { setPostFocusedId } = useContext(AccountDataContext);
-  const { profilePicture } = useContext(AuthContext);
-  
+  const { profilePicture, id } = useContext(AuthContext);
+  const [loaded, setLoaded] = useState(false)
   const [visible, setVisible] = useState(false);
+  const [accountData, setAccountData] = useState()
+
+    const [profileImage, setProfileImage] = useState()
+    const [backgroundImage, setBackgroundImage] = useState()
+    const [name, setName] = useState('')
+    const [location, setLocation] = useState()
+    const [currentUser, setCurrentUser] = useState()
+    const [posts, setPosts] = useState()
+
+  const getData = async () => {
+    const data = await getAnotherUserData(id, id)
+    console.log(data)
+    console.log(data.profileInfo[0].profileImage)
+    setProfileImage(data.profileInfo[0].profileImage)
+    setLocation(data.profileInfo[0].localization)
+    setName(data.profileInfo[0].nickname)
+    setCurrentUser(data.profileInfo[0].user_id)
+    setPosts(data.userPosts)
+    setBackgroundImage(data.profileInfo[0].profileBackground)
+    setLoaded(true)
+    return data
+}
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  if(!loaded) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
 
   return (
     <SafeAreaView>
       <FlatList
-        data={accountData.userPosts}
+        data={posts}
         renderItem={({ item }) => (
           <Post
             goToCommentScreen={() => {
@@ -36,8 +71,8 @@ export default function PerfilVisãoInterna({ navigation }, props) {
               navigation.navigate("Comentarios");
             }}
             likePost={async () => {
-              await likePost(accountData.profileInfo[0].id, item.id);
-              getUserData(accountData.profileInfo[0].id, setAccountData);
+              await likePost(id, item.id);
+              getData()
             }}
             {...item}
           />
@@ -50,7 +85,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         ListHeaderComponent={
           <View>
             <Header navigation={navigation} />
-            <Image style={styles.background} source={{ uri: accountData.profileInfo[0].profileBackground }} />
+            <Image style={styles.background} source={{ uri: backgroundImage }} />
             <View style={styles.perfil}>
               <View style={styles.icons}>
                 <View style={styles.iconCam}>
@@ -62,7 +97,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     }}
                     source={{
                       uri:
-                        accountData.profileInfo[0].profileImage ||
+                        profileImage ||
                         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
                     }}
                   />
@@ -79,10 +114,10 @@ export default function PerfilVisãoInterna({ navigation }, props) {
               <View style={styles.infos}>
                 <View style={styles.data}>
                   <Text style={styles.name}>
-                    {accountData.profileInfo[0].nickname}
+                    {name}
                   </Text>
                   <Text style={styles.location}>
-                    {accountData.profileInfo[0].localization}
+                    {location}
                   </Text>
                 </View>
                 <View style={styles.seeMore}>

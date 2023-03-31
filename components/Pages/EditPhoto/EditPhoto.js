@@ -58,7 +58,7 @@ export default function EditPhoto( {navigation} ,props) {
         ]
     }
     const getPost = async () => {
-        const result = await axios.get(`https://imovim-api.cyclic.app/post/get-post/${postFocusedId}`)
+        const result = await axios.post(`https://imovim-api.cyclic.app/post/get-post`, { post_id: postFocusedId, user_id: id })
         setPostImage(result.data[0].image)
         setPostId(result.data[0].id)
         result.data[0].image && getImagesSize(result.data[0].image);
