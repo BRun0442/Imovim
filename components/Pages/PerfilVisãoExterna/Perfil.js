@@ -13,6 +13,9 @@ import Header from '../../Header/Header.js'
 import { AuthContext } from '../../../contexts/auth';
 import likePost from "../../../services/post";
 import { AccountDataContext } from '../../../contexts/accountData';
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '../../Toast/toastConfig';
+import { showToastSuccess } from '../../Toast/Toast';
 
 export default function PerfilVisãoExterna({ navigation }, props) {
     const { reloadChats, setReloadChats } = useContext(AuthContext)
@@ -26,6 +29,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [location, setLocation] = useState('s')
     const [currentUser, setCurrentUser] = useState()
     const [posts, setPosts] = useState()
+    const [userIsFollowing, setUserIsFollowing] = useState()
 
     const handleChatButton = () => {
         const data = {
@@ -46,9 +50,19 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         setProfileImage(data.profileInfo[0].profileImage)
         setLocation(data.profileInfo[0].localization)
         setName(data.profileInfo[0].nickname)
+        setUserIsFollowing(data.profileInfo[0].userIsFollowing)
         setCurrentUser(data.profileInfo[0].user_id)
         setPosts(data.userPosts)
         return data
+    }
+
+    const handleFollowUser = async () => {
+        const data = { user_id: currentUser, follower_id: id}
+        await axios.post(`https://imovim-api.cyclic.app/user/follow`, data)
+        .then((res) => {
+            getUserData()
+            showToastSuccess(`${res.data.msg} ${name}!`,"")
+        })
     }
 
     useEffect(() => {
@@ -103,10 +117,10 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                 <View>
                                     <TouchableOpacity
                                         style={styles.followButton}
-                                        onPress={() => setChangeIcon(!changeIcon)}
+                                        onPress={() => handleFollowUser()}
                                     >
                                         {
-                                            changeIcon ?
+                                            userIsFollowing == 1 ?
                                                 <View style={styles.addFriendsIcons}>
                                                     <FontAwesome5 name="user-check" size={24} color="#FFF" />
                                                     <Text style={styles.addFriendText}>Seguindo</Text>
@@ -151,7 +165,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                             #Adicione seus esportes favoritos
                         </Text>
                     </View>
-
+                    <Toast config={toastConfig} />
                 </SafeAreaView>
             }
         />
