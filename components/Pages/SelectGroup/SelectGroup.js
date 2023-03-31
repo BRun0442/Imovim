@@ -17,7 +17,10 @@ export default function SelectGroup({ navigation }) {
                     <Text style={styles.title}>Adicionar participantes:</Text>
                 </View>
 
-                <TouchableOpacity style={styles.addButton}>
+                <TouchableOpacity
+                    style={styles.addButton}
+                    onPress={() => navigation.navigate("Dados do Grupo")}
+                >
                     <MaterialIcons name="group-add" size={30} color="#F8670E" />
                     <Text>Adicionar</Text>
                 </TouchableOpacity>
