@@ -16,6 +16,10 @@ function AuthProvider({ children }) {
   const [chatNickname, setChatNickname] = useState(null);
   const [messageList, setMessageList] = useState([]);
   const [changePosts, setChangePosts] = useState(1);
+  const [eventDate, setEventDate] = useState(null)
+  const [eventHour, setEventHour] = useState(null)
+  const [eventLocation, setEventLocation] = useState(null)
+  const [eventName, setEventName] = useState(null)
 
   async function getUserIsLoggedIn() {
     let result = await SecureStore.getItemAsync('isUserLoggedIn');

@@ -52,6 +52,9 @@ export default function Eventos({ navigation }) {
                                     eventName={item.event_name}
                                     eventImage={item.photo}
                                     describeEvent={item.description}
+                                    event_hour={item.event_hour}
+                                    event_date={item.event_date}
+                                    location={item.localization}
                                 />
                             )
                         })}

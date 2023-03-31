@@ -5,7 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function EventModal({ handleClose }, props) {
+export default function EventModal({ handleClose, name, image, date, hour, location }, props) {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose} ></TouchableOpacity>
@@ -17,7 +17,7 @@ export default function EventModal({ handleClose }, props) {
                     <View style={styles.headerModal}>
                         <TouchableOpacity style={styles.button}>
                             <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
-                            <Text style={styles.headerModalText}>{props.eventName}</Text>
+                            <Text style={styles.headerModalText}>{name}</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -30,17 +30,17 @@ export default function EventModal({ handleClose }, props) {
                         <View style={styles.modalInfo}>
 
                             <View style={styles.dateEvent}>
-                                <Text style={styles.dateTitle}>Data: </Text>
+                                <Text style={styles.dateTitle}>Data: {date}</Text>
                                 <Text style={styles.date}>{props.eventDate}</Text>
                             </View>
 
                             <View style={styles.hourEvent}>
-                                <Text style={styles.hourTitle}>Horário: </Text>
+                                <Text style={styles.hourTitle}>Horário: {hour}</Text>
                                 <Text style={styles.hour}>{props.eventHour}</Text>
                             </View>
 
                             <View style={styles.locationEvent}>
-                                <Text style={styles.locationTitle}>Local: </Text>
+                                <Text style={styles.locationTitle}>Local: {location}</Text>
                                 <Text style={styles.location}>{props.eventLocation}</Text>
                             </View>
 

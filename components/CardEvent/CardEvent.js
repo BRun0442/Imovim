@@ -35,6 +35,11 @@ function CardEvents(props) {
                     onRequestClose={() => setVisibleModal(false)}
                 >
                     <EventModal
+                        date={props.event_date}
+                        hour={props.event_hour}
+                        location={props.location}
+                        name={props.eventName}
+                        image={props.eventImage}
                         handleClose={() => setVisibleModal(false)}
                     />
                 </Modal>
