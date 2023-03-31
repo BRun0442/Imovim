@@ -142,15 +142,15 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: 300,
-    height: 60,
+    height: 50,
 
     backgroundColor: "#DB3232",
 
-    borderRadius: 30
+    borderRadius: 30,
   },
 
   textButton: {
-    fontSize: 25,
+    fontSize: 20,
     color: "#FFF",
     fontWeight: "bold"
   }

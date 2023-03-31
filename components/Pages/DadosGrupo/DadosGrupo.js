@@ -1,5 +1,5 @@
-import React from 'react';
-import { SafeAreaView, View, Text, ScrollView, Image, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, View, Text, ScrollView, Image, FlatList, Modal } from 'react-native';
 import Header from '../../Header/Header';
 import { styles } from './style';
 
@@ -43,7 +43,9 @@ export default function DadosGrupo({ navigator }, props) {
             <Text style={styles.describe}>Escreva uma descrição aqui</Text>
           </View>
 
-          <Foundation style={styles.icon} name="pencil" size={24} color="black" />
+          <Foundation name="pencil" size={24} color="black"
+            style={styles.icon} />
+
         </View>
 
         <View style={styles.members}>
@@ -59,7 +61,11 @@ export default function DadosGrupo({ navigator }, props) {
               style={{ height: "100%" }}
               renderItem={({ item }) =>
                 <View>
-                  <MembersGroup memberName="Tiago" /><MembersGroup memberName="Tiago" /><MembersGroup memberName="Tiago" />
+                  <MembersGroup memberName="Tiago" />
+                  <MembersGroup memberName="Lulu" />
+                  <MembersGroup memberName="Osmarito" />
+
+                  <MembersGroup memberName="Tiago" /><MembersGroup memberName="Lulu" /><MembersGroup memberName="Osmarito" />
                 </View>
               }
             />
@@ -68,9 +74,11 @@ export default function DadosGrupo({ navigator }, props) {
         </View>
 
         <View style={styles.closedButtonContainer}>
+
           <TouchableOpacity style={styles.closedButton}>
             <Text style={styles.textButton}>Sair</Text>
           </TouchableOpacity>
+
         </View>
 
       </View>
