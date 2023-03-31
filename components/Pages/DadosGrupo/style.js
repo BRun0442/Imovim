@@ -3,13 +3,17 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF"
+    backgroundColor: "#FFF",
   },
 
   titleContainer: {
+    display: "flex",
+    justifyContent: "center",
+
+    height: "5%",
+
     marginTop: 25,
     marginBottom: 20,
-
   },
 
   title: {
@@ -26,6 +30,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
+    height: "20%",
 
     paddingHorizontal: 25,
     paddingVertical: 15,
@@ -71,6 +76,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
+    height: "10%",
 
     paddingHorizontal: 25,
     paddingVertical: 15,
@@ -98,62 +104,39 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
+    height: "40%",
 
     paddingHorizontal: 15,
-    paddingVertical: 15,
+    paddingVertical: 5,
 
     borderRadius: 20,
-
-    marginBottom: 25
   },
 
-  photoMember: {
+  titleContainerMembers: {
+    height: "10%",
+
+    marginVertical: 15
+  },
+
+  titleMembers: {
+    fontSize: 22,
+    fontWeight: "600"
+  },
+
+  memberListView: {
+    height: "80%"
+  },
+
+  closedButtonContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
-    width: 110,
-    height: 110,
-
-    borderRadius: 100,
-
-    backgroundColor: "#D9D9D9",
-
-    borderWidth: 6,
-    borderColor: "#FFF",
-
-    marginRight: 15
+    width: "100%",
+    height: "10%"
   },
 
-  infoMemberContainer: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-
-  infoMember:{
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
-
-  membersName:{
-    fontSize: 18 
-  },
-
-  icons:{
-    display: "flex",
-    flexDirection: "row",
-  },
-
-  closedButtonContainer:{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-
-  closedButton:{
+  closedButton: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -166,10 +149,9 @@ export const styles = StyleSheet.create({
     borderRadius: 30
   },
 
-  textButton:{
+  textButton: {
     fontSize: 25,
     color: "#FFF",
     fontWeight: "bold"
   }
-
 })

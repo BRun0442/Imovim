@@ -7,7 +7,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
 
-    marginBottom: 15
+    marginBottom: 5,
+
+    backgroundColor: "#F1F1F1"
   },
 
   infoMember: {

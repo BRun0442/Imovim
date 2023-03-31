@@ -16,7 +16,7 @@ export default function DadosGrupo({ navigator }, props) {
     <SafeAreaView style={styles.container}>
       <Header />
 
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 15 }}>
+      <View style={{ paddingHorizontal: 15 }}>
 
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Dados do grupo</Text>
@@ -48,18 +48,23 @@ export default function DadosGrupo({ navigator }, props) {
 
         <View style={styles.members}>
 
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Participantes</Text>
+          <View style={styles.titleContainerMembers}>
+            <Text style={styles.titleMembers}>Participantes</Text>
           </View>
 
-          <FlatList
-            data={[1]}
-            renderItem={({ item }) =>
-              <View>
-                <MembersGroup memberName="Tiago" />
-              </View>
-            }
-          />
+          <View style={styles.memberListView}>
+
+            <FlatList
+              data={[1]}
+              style={{ height: "100%" }}
+              renderItem={({ item }) =>
+                <View>
+                  <MembersGroup memberName="Tiago" /><MembersGroup memberName="Tiago" /><MembersGroup memberName="Tiago" />
+                </View>
+              }
+            />
+          </View>
+
         </View>
 
         <View style={styles.closedButtonContainer}>
@@ -68,7 +73,7 @@ export default function DadosGrupo({ navigator }, props) {
           </TouchableOpacity>
         </View>
 
-      </ScrollView>
+      </View>
     </SafeAreaView >
   )
 }
