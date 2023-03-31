@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import { View, Text, Image } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {styles} from './style'
+import api from "../../services/api";
 
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -17,6 +18,8 @@ export default function CustomDrawer({ navigation }, props) {
     const { setLogin, id } = useContext(AuthContext);
     const { accountData, setAccountData } = useContext(AccountDataContext);
     const [loaded, setLoaded] = useState(false)
+    const [profileImage, setProfileImage] = useState(null)
+    const [nickname, setNickname] = useState(null)
 
     async function save(key, value) {
         await SecureStore.setItemAsync(key, value);
@@ -31,9 +34,14 @@ export default function CustomDrawer({ navigation }, props) {
 
     useEffect(() => {
         const handleUserData = async () => {
-            await getUserData(id, setAccountData)
-            .then(() => {
-                setLoaded(true)
+            await api.get(`/profile/get-profile-img/${id}`)
+            .then(async (result) => {
+                setProfileImage(result.data.profileImage)
+                setNickname(result.data.nickname)
+                await getUserData(id, setAccountData)
+                .then(() => {
+                    setLoaded(true)
+                })
             })
         }
         handleUserData()
@@ -56,10 +64,10 @@ export default function CustomDrawer({ navigation }, props) {
 
                 <View style={styles.dataContainer}>
                     <Image style={styles.dataContainerImage} source={{
-                        uri: (accountData.profileInfo)[0].profileImage || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                        uri: profileImage || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                     }}
                     />
-                    <Text style={styles.dataContainerText}>{(accountData.profileInfo)[0].nickname}</Text>
+                    <Text style={styles.dataContainerText}>{nickname}</Text>
                 </View>
 
                 <View style={styles.containerItems}>
