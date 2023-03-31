@@ -12,7 +12,7 @@ export default function DadosGrupo(props) {
 
       <View style={styles.infoMember}>
         <View style={styles.photoMember}>
-          <FontAwesome name="camera" size={22} color="#FFF" />
+          <FontAwesome name="camera" size={16} color="#FFF" />
           {/* <Image /> */}
         </View>
 

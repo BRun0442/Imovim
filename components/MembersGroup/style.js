@@ -32,14 +32,14 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    width: 110,
-    height: 110,
+    width: 80,
+    height: 80,
 
     borderRadius: 100,
 
     backgroundColor: "#D9D9D9",
 
-    borderWidth: 6,
+    borderWidth: 4,
     borderColor: "#FFF",
 
     marginRight: 15
