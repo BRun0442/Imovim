@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function EventModal({ handleClose, name, image, date, hour, location }, props) {
+        
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose} ></TouchableOpacity>
@@ -24,7 +25,7 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                     <View style={{ paddingHorizontal: 6 }}>
 
                         <View style={styles.eventImage}>
-                            <Image style={styles.image} />
+                            <Image style={styles.image} source={{ uri: image }} />
                         </View>
 
                         <View style={styles.modalInfo}>
@@ -137,7 +138,9 @@ const styles = StyleSheet.create({
     },
 
     image:{
-        borderRadius: 15
+        borderRadius: 15,
+        height: "100%",
+        width: "100%",
     },
 
     dateEvent: {

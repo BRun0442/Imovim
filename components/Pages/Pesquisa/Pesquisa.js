@@ -24,7 +24,7 @@ export default function Pesquisa({ navigation }) {
         const data = users.filter((user) => {
             const slicedName = user.nickname.slice(0, input.length)
             console.log(slicedName, input)
-            return slicedName.toLowerCase() == input.toLowerCase() && user.user_id !== id
+            return slicedName.toLowerCase() == input.toLowerCase() && user.user_id != id
         })
         console.log(data.length)
         console.log(data)
