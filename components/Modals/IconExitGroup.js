@@ -2,7 +2,8 @@ import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 
-import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+
 
 export default function IconRemoveGroup({ handleClose, deletePost }) {
   return (
@@ -13,12 +14,12 @@ export default function IconRemoveGroup({ handleClose, deletePost }) {
         <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
 
         <View style={styles.content}>
-          <View style={styles.removeUser}>
-            <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" />
-            <Text style={{ color: "#FFF" }}>Deseja remover Nome Sobrenome</Text>
+          <View>
+            <AntDesign name="closecircle" size={24} color="#FFF" />
+            <Text>Deseja sair do "Nome Grupo"</Text>
           </View>
 
-          <View style={styles.removeUserOptions}>
+          <View>
             <TouchableOpacity>
               <Text style={{ color: "#FFF" }}>
                 Sim
@@ -83,22 +84,10 @@ const styles = StyleSheet.create({
     height: "10%",
 
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column",
 
-    backgroundColor: "#F8670E"
-  },
-
-  removeUser: {
-    display: "flex",
-    flexDirection: "row"
-  },
-
-  removeUserOptions: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around"
+    backgroundColor: "#D9D9D9"
   },
 
   buttons: {
