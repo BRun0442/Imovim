@@ -13,9 +13,7 @@ import { AuthContext } from "../../../contexts/auth";
 import { Ionicons } from '@expo/vector-icons';
 
 import { io } from "socket.io-client";
-
-import { saveMessage } from "../../../services/chat";
-import { getMessages } from "../../../services/chat";
+import axios from "axios";
 
 export default function Chat({ navigation }) {
   const flatlistRef = useRef(null);
@@ -28,9 +26,11 @@ export default function Chat({ navigation }) {
   const socket = io.connect("https://imovim-chat.onrender.com");
 
   const retrieveMessages = async () => {
-    const data = await getMessages()
-    setMessageList(data)
-    scrollToBottom()
+    await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
+      .then(res => {
+        setMessageList(res.data)
+        scrollToBottom()
+      })
   }
 
   const joinRoom = () => {
@@ -38,6 +38,10 @@ export default function Chat({ navigation }) {
     retrieveMessages()
     setChatAvailable(true);
   };
+
+  const saveMessage = async (messageData) => {
+    await axios.post("https://imovim-api.cyclic.app/chat/create-message", messageData)
+  }
 
   const sendMessage = async () => {
     if (message !== "") {
