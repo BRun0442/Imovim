@@ -9,6 +9,7 @@
 <h3>Tecnologias usadas:</h3>
 
 <div align="center">
+  <img width=100 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTab05l3ndGtZqyqxgTeOkmB7g2eDGyYrQp60gRu108tIEXOLQTl8tf9Jpx90UiNJEIv1Q&usqp=CAU" />
   <img width=100 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" />
   <img width=100 src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" />
   <img width=100 src="https://cdn-icons-png.flaticon.com/512/5968/5968313.png" />
