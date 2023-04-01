@@ -1,8 +1,6 @@
 export const getMessages = async (chatFocusedId) => {
-  await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
-  .then((res) => {
-    return res.data
-  })
+  const result = await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
+  return result.data
 }
 
 export const saveMessage = async (messageData) => {

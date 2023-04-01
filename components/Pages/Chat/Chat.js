@@ -28,11 +28,9 @@ export default function Chat({ navigation }) {
   const socket = io.connect("https://imovim-chat.onrender.com");
 
   const retrieveMessages = async () => {
-    await getMessages()
-      .then((data) => {
-        setMessageList(data)
-        scrollToBottom()
-      })
+    const data = await getMessages()
+    setMessageList(data)
+    scrollToBottom()
   }
 
   const joinRoom = () => {
