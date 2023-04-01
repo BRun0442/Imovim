@@ -14,20 +14,20 @@ export default function IconRemoveGroup({ handleClose, deletePost }) {
         <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
 
         <View style={styles.content}>
-          <View>
-            <AntDesign name="closecircle" size={24} color="#FFF" />
-            <Text>Deseja sair do "Nome Grupo"</Text>
+          <View style={styles.exitGroup}>
+            <AntDesign name="closecircle" size={30} color="#FFF" />
+            <Text style={styles.exitGroupText}>Deseja sair do "Nome Grupo"</Text>
           </View>
 
-          <View>
+          <View style={styles.buttons}>
             <TouchableOpacity>
-              <Text style={{ color: "#FFF" }}>
+              <Text style={styles.textButton1}>
                 Sim
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ backgroundColor: "#CB5106" }}>
-              <Text style={{ color: "#FFF" }}>
+            <TouchableOpacity >
+              <Text style={styles.textButton2}>
                 Não
               </Text>
             </TouchableOpacity>
@@ -40,7 +40,7 @@ export default function IconRemoveGroup({ handleClose, deletePost }) {
 
       <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} ></TouchableOpacity>
 
-    </SafeAreaView>
+    </SafeAreaView >
   );
 }
 
@@ -51,11 +51,12 @@ const styles = StyleSheet.create({
 
   modal: {
     width: "100%",
+    height: "15%",
 
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   closedButtonTop: {
@@ -78,29 +79,65 @@ const styles = StyleSheet.create({
     height: "100%",
   },
 
-
   content: {
-    width: "45%",
-    height: "10%",
+    width: "90%",
+    height: "100%",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
-    backgroundColor: "#D9D9D9"
+    backgroundColor: "#F8670E",
+
+    borderRadius: 30,
+
+    paddingHorizontal: 15
+  },
+
+  exitGroup: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: "center",
+
+    marginBottom: 5
+  },
+
+  exitGroupText: {
+    fontWeight: "bold",
+    fontSize: 25,
+    color: "#FFF",
+
+    marginLeft: 10
   },
 
   buttons: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexDirection: "row",
 
-    backgroundColor: "#FF7926",
-
-    width: 200,
-    height: 100,
+    width: "50%",
 
     borderRadius: 20,
+  },
+
+  textButton1: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#FFF"
+  },
+
+  textButton2: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#FFF",
+
+    backgroundColor: "#CB5106",
+
+    padding: 10,
+
+    borderRadius: 15
   },
 
   button: {
