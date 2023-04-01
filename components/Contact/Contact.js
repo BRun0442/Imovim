@@ -4,6 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { styles } from './style'
 import { AuthContext } from "../../contexts/auth";
 import MessagesModal from "../Modals/MessagesModal";
+import ComplaintGroup from '../Modals/ComplaintGroup'
 
 export default function Contact({ navigation, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
     const { setChatFocusedId, setChatProfileImage, setChatNickname, setMessageList } = useContext(AuthContext)

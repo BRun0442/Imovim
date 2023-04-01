@@ -1,10 +1,12 @@
 import React from 'react';
-import { SafeAreaView, View, Text, ScrollView, Image } from 'react-native';
+import { SafeAreaView, View, Text, ScrollView, Image, TouchableOpacity, Modal } from 'react-native';
 import { styles } from './style';
 
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+
+import ComplaintGroup from '../Modals/ComplaintGroup'
 
 export default function DadosGrupo(props) {
   return (
@@ -20,10 +22,14 @@ export default function DadosGrupo(props) {
       </View>
 
       <View style={styles.icons}>
-        <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" />
-        <Ionicons name="chatbubble" size={30} color="#FF7926" />
-      </View>
+        <TouchableOpacity>
+          <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" />
+        </TouchableOpacity>
 
+        <TouchableOpacity>
+          <Ionicons name="chatbubble" size={30} color="#FF7926" />
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }

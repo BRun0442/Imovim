@@ -5,7 +5,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { Ionicons } from '@expo/vector-icons';
 
 
-export default function ComplaintGroup({ handleClose, deletePost }) {
+export default function ComplaintGroup({ handleClose, deletePost }, props) {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose}></TouchableOpacity>
@@ -14,20 +14,20 @@ export default function ComplaintGroup({ handleClose, deletePost }) {
         <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
 
         <View style={styles.content}>
-          <View>
-            <Ionicons name="alert-circle" size={24} color="black" />
-            <Text>Deseja denunciar o grupo “Nome Grupo”?</Text>
+          <View style={styles.exitGroup}>
+            <Ionicons name="alert-circle" size={30} color="#FFF" />
+            <Text style={styles.exitGroupText}>Deseja denunciar o grupo {props.groupName}?</Text>
           </View>
 
-          <View>
+          <View style={styles.buttonsContainer}>
             <TouchableOpacity>
-              <Text style={{ color: "#FFF" }}>
+              <Text style={styles.button1}>
                 Sim
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ backgroundColor: "#AF1A1A" }}>
-              <Text style={{ color: "#FFF" }}>
+            <TouchableOpacity>
+              <Text style={styles.button2}>
                 Não
               </Text>
             </TouchableOpacity>
@@ -51,11 +51,12 @@ const styles = StyleSheet.create({
 
   modal: {
     width: "100%",
+    height: "15%",
 
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   closedButtonTop: {
@@ -80,51 +81,53 @@ const styles = StyleSheet.create({
 
 
   content: {
-    width: "45%",
-    height: "10%",
+    width: "90%",
+    height: "100%",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
-    backgroundColor: "#DB3232"
+    backgroundColor: "#DB3232",
+
+    borderRadius: 30,
+
+    paddingHorizontal: 15
   },
 
-  buttons: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start",
-
-    backgroundColor: "#FF7926",
-
-    width: 200,
-    height: 100,
-
-    borderRadius: 20,
-  },
-
-  button: {
+  exitGroup: {
     display: "flex",
     flexDirection: "row",
-
-    paddingHorizontal: 12,
-    marginVertical: 2
   },
 
-  textButton: {
+  exitGroupText: {
     color: "#FFF",
-    fontSize: 20,
-    fontWeight: "600",
+    fontWeight: "400",
+    fontSize: 22,
 
-    paddingLeft: 10
+    marginLeft: 10
   },
 
-  line: {
-    backgroundColor: "#983A00",
-    width: "100%",
-    height: 2,
+  buttonsContainer:{
+    width: "50%",
 
-    marginVertical: 5
-  }
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",    
+  },
 
+  button1: {
+    color: "#FFF",
+    fontSize: 22,
+  },
+
+  button2: {
+    color: "#FFF",
+    fontSize: 22,
+    backgroundColor: "#AF1A1A",
+
+    padding: 8,
+    borderRadius: 15
+  },
 })
