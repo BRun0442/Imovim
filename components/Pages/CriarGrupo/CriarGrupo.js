@@ -54,7 +54,7 @@ export default function CriarGrupo({ navigation }) {
 
                     <TouchableOpacity 
                     style={styles.button}
-                    onPress={()=> navigation.navigate("Selecionar pessoas para o grupo")}
+                    onPress={()=> navigation.navigate("Adicionar Participantes")}
                     >
                         <Text style={styles.text}>Criar Grupo</Text>
                     </TouchableOpacity>

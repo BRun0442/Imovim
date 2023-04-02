@@ -78,7 +78,7 @@ export default function Routes() {
       <Screen name="Outros Perfis" component={PerfilVisãoExterna} options={{ headerShown: false, }} />
       <Screen name="Notificações" component={Notificacoes} options={{ headerShown: false, }} />
       <Screen name="Criar Grupo" component={CriarGrupo} options={{ headerShown: false, }} />
-      <Screen name="Selecionar pessoas para o grupo" component={SelectGroup} options={{ headerShown: false, }} />
+      <Screen name="Adicionar Participantes" component={SelectGroup} options={{ headerShown: false, }} />
       <Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
     </Navigator>
   )

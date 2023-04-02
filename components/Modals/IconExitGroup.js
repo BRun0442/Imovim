@@ -8,14 +8,13 @@ import { AntDesign } from '@expo/vector-icons';
 export default function IconRemoveGroup({ handleClose, deletePost }) {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose}></TouchableOpacity>
-
       <View style={styles.modal}>
-        <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
 
         <View style={styles.content}>
           <View style={styles.exitGroup}>
-            <AntDesign name="closecircle" size={30} color="#FFF" />
+            <TouchableOpacity onPress={handleClose}>
+              <AntDesign name="closecircle" size={30} color="#FFF" />
+            </TouchableOpacity>
             <Text style={styles.exitGroupText}>Deseja sair do "Nome Grupo"</Text>
           </View>
 
@@ -26,7 +25,7 @@ export default function IconRemoveGroup({ handleClose, deletePost }) {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity >
+            <TouchableOpacity onPress={handleClose}>
               <Text style={styles.textButton2}>
                 Não
               </Text>
@@ -34,19 +33,19 @@ export default function IconRemoveGroup({ handleClose, deletePost }) {
           </View>
 
         </View>
-
-        <TouchableOpacity style={styles.closedButtonRight} onPress={handleClose}></TouchableOpacity>
       </View>
-
-      <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} ></TouchableOpacity>
-
     </SafeAreaView >
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    width: "100%",
+    height: "100%",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   modal: {
@@ -57,26 +56,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  closedButtonTop: {
-    height: "80%",
-    zIndex: 9,
-  },
-
-  closedButtonBottom: {
-    height: "10%",
-    zIndex: 9,
-  },
-
-  closedButtonLeft: {
-    width: "27.5%",
-    height: "100%",
-  },
-
-  closedButtonRight: {
-    width: "27.5%",
-    height: "100%",
   },
 
   content: {
@@ -100,12 +79,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: "center",
 
-    marginBottom: 5
+    marginBottom: 10
   },
 
   exitGroupText: {
     fontWeight: "bold",
-    fontSize: 25,
+    fontSize: 23,
     color: "#FFF",
 
     marginLeft: 10

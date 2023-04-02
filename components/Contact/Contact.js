@@ -40,7 +40,7 @@ export default function Contact({ navigation, getChats, name, room_id, friend_ph
                         <Text style={styles.message}>...</Text>
                     </View>
 
-                    <View style={styles.notification}></View>
+                    {/* <View style={styles.notification}></View> */}
                 </View>
 
 

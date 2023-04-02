@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, ScrollView, Image, FlatList, Modal } from 'react-native';
+import { SafeAreaView, View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity, Touchable } from 'react-native';
 import Header from '../../Header/Header';
 import { styles } from './style';
 
@@ -9,12 +9,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 import MembersGroup from "../../MembersGroup/MembersGroup"
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import IconRemoveGroup from "../../Modals/IconExitGroup"
 
-export default function DadosGrupo({ navigator }, props) {
+export default function DadosGrupo({ navigation }, props) {
+
+  const [visibleModal, setVisibleModal] = useState(false)
+
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
+      <Header navigation={navigation} />
 
       <View style={{ paddingHorizontal: 15 }}>
 
@@ -33,7 +36,19 @@ export default function DadosGrupo({ navigator }, props) {
             <Text style={styles.groupName}>{props.groupName}</Text>
           </View>
 
-          <Foundation style={styles.icon} name="pencil" size={24} color="black" />
+          <TouchableOpacity style={styles.icon}>
+            <Foundation name="pencil" size={24} color="black" />
+          </TouchableOpacity>
+
+          <Modal
+            visible={visibleModal}
+            transparent={true}
+            onRequestClose={() => setVisibleModal(false)}
+          >
+            <IconRemoveGroup
+              handleClose={() => setVisibleModal(false)}
+            />
+          </Modal>
         </View>
 
         <View style={styles.descGroup}>
@@ -75,7 +90,10 @@ export default function DadosGrupo({ navigator }, props) {
 
         <View style={styles.closedButtonContainer}>
 
-          <TouchableOpacity style={styles.closedButton}>
+          <TouchableOpacity
+            style={styles.closedButton}
+            onPress={() => setVisibleModal(true)}
+          >
             <Text style={styles.textButton}>Sair</Text>
           </TouchableOpacity>
 
