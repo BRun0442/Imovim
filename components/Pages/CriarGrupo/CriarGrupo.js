@@ -40,7 +40,6 @@ export default function CriarGrupo({ navigation }) {
 
                         <View style={styles.banner}>
                             <TouchableOpacity
-                                onPress={() => pickImage()}
                                 style={styles.editProfileIconContainerBanner}
                             >
 

@@ -22,9 +22,9 @@ export default function DadosGrupo(props) {
       </View>
 
       <View style={styles.icons}>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <TouchableOpacity>
           <Ionicons name="chatbubble" size={30} color="#FF7926" />

@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
 
-        marginTop: 15
+        marginVertical: "5%"
     },
 
     interactiveButton: {

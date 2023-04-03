@@ -34,6 +34,7 @@ import DadosGrupo from './components/Pages/DadosGrupo/DadosGrupo';
 import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
 import Notificacoes from './components/Pages/Notificacoes/Notificações';
+import ChatGroup from './components/Pages/ChatGroup/ChatGroup';
 
 import * as SecureStore from 'expo-secure-store';
 
@@ -80,6 +81,7 @@ export default function Routes() {
       <Screen name="Criar Grupo" component={CriarGrupo} options={{ headerShown: false, }} />
       <Screen name="Adicionar Participantes" component={SelectGroup} options={{ headerShown: false, }} />
       <Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
+      <Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
     </Navigator>
   )
 

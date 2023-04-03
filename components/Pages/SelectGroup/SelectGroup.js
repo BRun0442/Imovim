@@ -19,7 +19,7 @@ export default function SelectGroup({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.addButton}
-                    onPress={() => navigation.navigate("Dados do Grupo")}
+                    onPress={() => navigation.navigate("Chat Grupo")}
                 >
                     <MaterialIcons name="group-add" size={30} color="#F8670E" />
                     <Text>Adicionar</Text>

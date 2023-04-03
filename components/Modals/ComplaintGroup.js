@@ -8,11 +8,8 @@ import { Ionicons } from '@expo/vector-icons';
 export default function ComplaintGroup({ handleClose, deletePost }, props) {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose}></TouchableOpacity>
 
       <View style={styles.modal}>
-        <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
-
         <View style={styles.content}>
           <View style={styles.exitGroup}>
             <Ionicons name="alert-circle" size={30} color="#FFF" />
@@ -26,7 +23,7 @@ export default function ComplaintGroup({ handleClose, deletePost }, props) {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleClose}>
               <Text style={styles.button2}>
                 Não
               </Text>
@@ -34,12 +31,7 @@ export default function ComplaintGroup({ handleClose, deletePost }, props) {
           </View>
 
         </View>
-
-        <TouchableOpacity style={styles.closedButtonRight} onPress={handleClose}></TouchableOpacity>
       </View>
-
-      <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} ></TouchableOpacity>
-
     </SafeAreaView>
   );
 }
@@ -51,7 +43,7 @@ const styles = StyleSheet.create({
 
   modal: {
     width: "100%",
-    height: "15%",
+    height: "100%",
 
     display: "flex",
     flexDirection: "row",
@@ -59,30 +51,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  closedButtonTop: {
-    height: "80%",
-    zIndex: 9,
-  },
-
-  closedButtonBottom: {
-    height: "10%",
-    zIndex: 9,
-  },
-
-  closedButtonLeft: {
-    width: "27.5%",
-    height: "100%",
-  },
-
-  closedButtonRight: {
-    width: "27.5%",
-    height: "100%",
-  },
-
-
   content: {
     width: "90%",
-    height: "100%",
+    height: "15%",
 
     display: "flex",
     justifyContent: "center",
