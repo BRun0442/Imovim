@@ -31,18 +31,18 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                         <View style={styles.modalInfo}>
 
                             <View style={styles.dateEvent}>
-                                <Text style={styles.dateTitle}>Data: {date}</Text>
-                                <Text style={styles.date}>{props.eventDate}</Text>
+                                <Text style={styles.dateTitle}>Data: </Text>
+                                <Text style={styles.date}>{date}</Text>
                             </View>
 
                             <View style={styles.hourEvent}>
-                                <Text style={styles.hourTitle}>Horário: {hour}</Text>
-                                <Text style={styles.hour}>{props.eventHour}</Text>
+                                <Text style={styles.hourTitle}>Horário: </Text>
+                                <Text style={styles.hour}>{hour}</Text>
                             </View>
 
                             <View style={styles.locationEvent}>
-                                <Text style={styles.locationTitle}>Local: {location}</Text>
-                                <Text style={styles.location}>{props.eventLocation}</Text>
+                                <Text style={styles.locationTitle}>Local: </Text>
+                                <Text style={styles.location}>{location}</Text>
                             </View>
 
                         </View>

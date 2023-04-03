@@ -57,39 +57,39 @@ function Feed({ navigation }) {
   }, [isFocused])
 
   return (
-    <FlatList
-      data={posts}
+    <SafeAreaView>
+      <StatusBar />
+      <Header navigation={navigation} />
+      <FlatList
+        data={posts}
 
-      renderItem={({ item }) =>
-        <Post
-          goToCommentScreen={() => {
-            setPostFocusedId(item.id)
-            navigation.navigate('Comentarios')
-          }}
-          likePost={async () => {
-            await likePost(id, item.id);
-            getFeed()
-          }}
+        renderItem={({ item }) =>
+          <Post
+            goToCommentScreen={() => {
+              setPostFocusedId(item.id)
+              navigation.navigate('Comentarios')
+            }}
+            likePost={async () => {
+              await likePost(id, item.id);
+              getFeed()
+            }}
 
-          {...item}
-        />}
+            {...item}
+          />}
 
-      onEndReached={() => handlePostsLoading()}
-      maxToRenderPerBatch={5}
-      initialNumToRender={5}
-      onRefresh={getFeed}
-      refreshing={isLoading}
-      keyExtractor={item => item.id}
-      ListFooterComponent={
-        <View style={{ height: 80, display: 'flex', width: '100%', alignItems: "center", justifyContent: "center" }}>
-          <Text>Loading...</Text>
-        </View>
-      }
-      ListHeaderComponent=
-      {
-        <SafeAreaView>
-          <StatusBar />
-          <Header navigation={navigation} />
+        onEndReached={() => handlePostsLoading()}
+        maxToRenderPerBatch={5}
+        initialNumToRender={5}
+        onRefresh={getFeed}
+        refreshing={isLoading}
+        keyExtractor={item => item.id}
+        ListFooterComponent={
+          <View style={{ height: 80, display: 'flex', width: '100%', alignItems: "center", justifyContent: "center" }}>
+            <Text>Loading...</Text>
+          </View>
+        }
+        ListHeaderComponent=
+        {
           <View style={styles.TopBarContainer}>
             <View style={styles.photoContainer}>
               <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
@@ -106,9 +106,9 @@ function Feed({ navigation }) {
             </View>
             <Toast config={toastConfig} />
           </View>
-        </SafeAreaView>
-      }
-    />
+        }
+      />
+    </SafeAreaView>
   );
 }
 

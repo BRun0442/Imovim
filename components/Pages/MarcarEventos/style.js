@@ -25,9 +25,9 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 25,
         padding: 5,
         marginTop: 18,
-        
+
         borderRadius: 30,
-        
+
         backgroundColor: "#FF6709",
     },
 
@@ -69,19 +69,19 @@ export const styles = StyleSheet.create({
 
     profileName: {
         fontWeight: "500",
-        marginLeft: 8 
-    }, 
-    
+        marginLeft: 8
+    },
+
     postDate: {
         fontWeight: "300",
     },
 
-    
+
     form: {
         paddingHorizontal: 20
     },
 
-    formText:{
+    formText: {
         fontWeight: "500",
         fontSize: 18
     },
@@ -110,7 +110,7 @@ export const styles = StyleSheet.create({
         borderColor: "#A512BD",
         borderWidth: 2,
         borderRadius: 20,
-        
+
         textAlign: "center",
 
         paddingStart: 15,
@@ -119,7 +119,7 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "400"
     },
-    
+
     inputType3: {
         width: "100%",
         height: 50,
@@ -134,9 +134,9 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
 
         textAlign: "left",
-        
-        paddingStart: 15,
-        paddingEnd: 15,
+
+        paddingHorizontal: 15,
+        padding: 10,
 
         fontSize: 18,
         fontWeight: "400"
@@ -165,20 +165,20 @@ export const styles = StyleSheet.create({
         marginBottom: "3%",
         marginTop: "3%"
     },
-    
+
     nameInputs: {
         marginBottom: "3%",
         marginTop: "3%"
     },
 
-    dataInputs:{
+    dataInputs: {
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "row",
         marginBottom: "3%",
         marginTop: "3%"
     },
-    
+
     horaInputs: {
         display: "flex",
         justifyContent: "space-around",
@@ -187,12 +187,18 @@ export const styles = StyleSheet.create({
         marginBottom: "3%",
         marginTop: "3%"
     },
-    
+
     text: {
         color: "#fff",
         fontWeight: "bold",
         fontSize: 17
+    },
+
+    descriptionLengthText: {
+        fontSize: 15,
+        fontWeight: "400",
+        alignSelf: "flex-end"
     }
-    
+
 })
 

@@ -11,7 +11,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { Image } from 'react-native';
 
-export default function MarcarEventos({navigation}, props) {
+export default function MarcarEventos({ navigation }, props) {
     const { id } = useContext(AuthContext);
     const [name, setName] = useState()
     const [localization, setLocalization] = useState()
@@ -24,46 +24,51 @@ export default function MarcarEventos({navigation}, props) {
     const [minute, setMinute] = useState()
     const [galleryPermission, setGalleryPermission] = useState(null);
 
+    const [descriptionLength, setDescriptionLength] = useState(0)
+
     useEffect(() => {
         // CameraPermisionFunction();
         // setImage(null);
         galeryPermisionFunction();
-      }, []);
-    
-      const galeryPermisionFunction = async () => {
+    }, []);
+
+    const galeryPermisionFunction = async () => {
         const galleryPermissions = await MediaLibrary.requestPermissionsAsync();
         setGalleryPermission(galleryPermissions.granted);
-      };
-      
-      
-      const pickImage = async () => {
+    };
+
+
+    const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.Images,
-          allowsEditing: true,
-          //   aspect: [1, 1],
-          //   quality: 1,
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            //   aspect: [1, 1],
+            //   quality: 1,
         });
-        
+
         if (!result.cancelled) {
-          setImage(result.uri);
-          // UploadImage(result.uri, setImageUrl)  // PRECISAMOS ARRUMAR ESSA GAMBIARRA!!!
+            setImage(result.uri);
+            // UploadImage(result.uri, setImageUrl)  // PRECISAMOS ARRUMAR ESSA GAMBIARRA!!!
         }
-      };
-    
-      const main = async () => {
-        if(galleryPermission == true)
-            {
-              pickImage();
-            }else{
-              galeryPermisionFunction();
-            }
-      }
+    };
+
+    const main = async () => {
+        if (galleryPermission == true) {
+            pickImage();
+        } else {
+            galeryPermisionFunction();
+        }
+    }
     const handleSubmit = async () => {
         console.log(id, name, localization, description, day, month, year, hour, minute)
         const eventDate = `${year}/${month}/${day}`
         const eventHour = `${hour}:${minute}`
         await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage)
+    }
+
+    const getDescriptionLength = () => {
+        setDescriptionLength(description.length)
     }
 
     return (
@@ -151,7 +156,11 @@ export default function MarcarEventos({navigation}, props) {
                         <TextInput style={styles.inputType3}
                             onChangeText={(text) => setDescription(text)}
                             keyboardType='default'
+                            multiline={true}
                         />
+
+                        <Text style={styles.descriptionLengthText}>{descriptionLength} / 100</Text>
+
                     </View>
 
                     <Text style={styles.formText}>Foto</Text>
@@ -159,30 +168,30 @@ export default function MarcarEventos({navigation}, props) {
                     <View style={styles.banner}>
                         <TouchableOpacity
 
-                            onPress={() => pickImage()} 
+                            onPress={() => pickImage()}
 
                             style={styles.editProfileIconContainerBanner}>
 
                             {!image && (
 
-                            <View style={styles.editBanner}>
-                                <Entypo name="camera" size={22} color="#FFF" />
-                            </View>
+                                <View style={styles.editBanner}>
+                                    <Entypo name="camera" size={22} color="#FFF" />
+                                </View>
 
                             )}
 
                             {image && (
-                            <Image
-                                style=
-                                {
+                                <Image
+                                    style=
                                     {
-                                        width: '95%',
-                                        height: 150,
+                                        {
+                                            width: '95%',
+                                            height: 150,
+                                        }
                                     }
-                                }
-                                source={{ uri: image }}
-                            />
-                        )}
+                                    source={{ uri: image }}
+                                />
+                            )}
                         </TouchableOpacity>
                     </View>
 
