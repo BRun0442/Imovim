@@ -20,7 +20,7 @@ import * as MediaLibrary from "expo-media-library";
 import CreatePost from "../../../services/createPost.js";
 
 export default function CriarPost({ navigation }) {
-  const { profilePicture } = useContext(AuthContext);
+  const { profilePicture, username } = useContext(AuthContext);
   const { setAccountData } = useContext(AccountDataContext);
   const { nickname } = useContext(AuthContext);
   const { id } = useContext(AuthContext);
@@ -79,75 +79,81 @@ export default function CriarPost({ navigation }) {
   return (
     <SafeAreaView>
       {/* <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} > */}
-        <ScrollView contentContainerStyle={styles.container}>
-          <StatusBar />
-          <Header navigation={navigation} />
+      <ScrollView contentContainerStyle={styles.container}>
+        <StatusBar />
+        <Header navigation={navigation} />
 
-          <View style={styles.photoContainer}>
-            <TouchableOpacity style={{ alignSelf: 'center' }}>
-              <FontAwesome5 name="edit" size={24} color="#FFF" />
-            </TouchableOpacity>
-          </View>
+        <View style={styles.photoContainer}>
+          <TouchableOpacity style={{ alignSelf: 'center' }}>
+            <FontAwesome5 name="edit" size={24} color="#FFF" />
+          </TouchableOpacity>
+        </View>
 
-          <View style={styles.postContainer}>
-            <View style={styles.postProfile}>
-              <ProfileImage profileImage={profilePicture} />
-              <View style={styles.profileContainer}>
-                <Text style={styles.profileName}>{nickname}</Text>
-              </View>
-            </View>
-            <View>
-              {image ? (
-                <Image style={{ width: '100%', height: 300, resizeMode: "stretch" }} source={{ uri: image }} />
-              ) : (
-                <View style={styles.emptyPhoto}>
-                  <FontAwesome name="photo" size={80} color="#F9F9F9" />
-                  <Text style={styles.emptyPhotoText}>Nenhuma foto...</Text>
-                </View>
-              )}
-              <TextInput
-                style={styles.input}
-                value={caption}
-                multiline
-                textAlign='center'
-                placeholder='Fale sobre uma aventura aqui!'
-                placeholderTextColor={"#7B7B7B"}
-                maxLength={400}
-                onChangeText={value => setCaption(value)}
-              />
+        <View style={styles.postContainer}>
+          <View style={styles.postProfile}>
+            <ProfileImage profileImage={profilePicture} />
+            <View style={styles.profileContainer}>
+              <Text style={styles.profileName}>{username}</Text>
             </View>
           </View>
-
-          <View style={styles.buttons}>
-            <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
-              <Entypo name="camera" size={26} color={'#FFF'} />
-              <Text style={styles.buttonText}>Câmera</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => {
-              if (galleryPermission == true) {
-                pickImage();
-              } else {
-                galeryPermisionFunction();
-              }
-            }} style={styles.button}>
-              <MaterialIcons name="add-photo-alternate" size={30} color="#FFF" />
-              <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button}>
-              <MaterialIcons name="place" size={28} color={'#FFF'} />
-              <Text style={styles.buttonText}>Localização</Text>
-            </TouchableOpacity>
+          <View>
+            {image ? (
+              <Image style={{ width: '100%', height: 300, resizeMode: "stretch" }} source={{ uri: image }} />
+            ) : (
+              <TouchableOpacity onPress={() => {
+                if (galleryPermission == true) {
+                  pickImage();
+                } else {
+                  galeryPermisionFunction();
+                }
+              }} style={styles.emptyPhoto}>
+                <FontAwesome name="photo" size={80} color="#F9F9F9" />
+                <Text style={styles.emptyPhotoText}>Nenhuma foto...</Text>
+              </TouchableOpacity>
+            )}
+            <TextInput
+              style={styles.input}
+              value={caption}
+              multiline
+              textAlign='center'
+              placeholder='Fale sobre uma aventura aqui!'
+              placeholderTextColor={"#7B7B7B"}
+              maxLength={400}
+              onChangeText={value => setCaption(value)}
+            />
           </View>
+        </View>
 
-          <Button buttonText='Criar Post' pressFunction={async () => {
-            await CreatePost(image, id, caption, setImage)
-            await getUserData(id, setAccountData)
-            navigation.navigate('Página Inicial')
-          }}
-          />
-        </ScrollView>
+        <View style={styles.buttons}>
+          <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
+            <Entypo name="camera" size={26} color={'#FFF'} />
+            <Text style={styles.buttonText}>Câmera</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {
+            if (galleryPermission == true) {
+              pickImage();
+            } else {
+              galeryPermisionFunction();
+            }
+          }} style={styles.button}>
+            <MaterialIcons name="add-photo-alternate" size={30} color="#FFF" />
+            <Text style={styles.buttonText}>Adicionar foto/imagem</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button}>
+            <MaterialIcons name="place" size={28} color={'#FFF'} />
+            <Text style={styles.buttonText}>Localização</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Button buttonText='Criar Post' pressFunction={async () => {
+          await CreatePost(image, id, caption, setImage)
+          await getUserData(id, setAccountData)
+          navigation.navigate('Página Inicial')
+        }}
+        />
+      </ScrollView>
       {/* </KeyboardAvoidingView> */}
     </SafeAreaView>
   );

@@ -69,7 +69,8 @@ export const styles = StyleSheet.create({
 
     profileName: {
         fontWeight: "500",
-        marginLeft: 8
+        marginLeft: 8,
+        fontSize: 16
     },
 
     postDate: {

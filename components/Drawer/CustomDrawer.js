@@ -15,7 +15,7 @@ import { AccountDataContext } from '../../contexts/accountData.js';
 import getUserData from "../../services/user";
 
 export default function CustomDrawer({ navigation }, props) {
-    const { setLogin, id } = useContext(AuthContext);
+    const { setLogin, id, setProfilePicture, setUsername } = useContext(AuthContext);
     const { accountData, setAccountData } = useContext(AccountDataContext);
     const [loaded, setLoaded] = useState(false)
     const [profileImage, setProfileImage] = useState(null)
@@ -38,6 +38,8 @@ export default function CustomDrawer({ navigation }, props) {
             .then(async (result) => {
                 setProfileImage(result.data.profileImage)
                 setNickname(result.data.nickname)
+                setUsername(result.data.nickname)
+                setProfilePicture(result.data.profileImage)
                 await getUserData(id, setAccountData)
                 .then(() => {
                     setLoaded(true)

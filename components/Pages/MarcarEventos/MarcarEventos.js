@@ -26,6 +26,8 @@ export default function MarcarEventos({ navigation }, props) {
 
     const [descriptionLength, setDescriptionLength] = useState(0)
 
+    const { profilePicture, username } = useContext(AuthContext);
+
     useEffect(() => {
         // CameraPermisionFunction();
         // setImage(null);
@@ -82,10 +84,10 @@ export default function MarcarEventos({ navigation }, props) {
 
                 <View style={styles.postContainer}>
                     <View style={styles.postProfile}>
-                        <ProfileImage profileImage={props.profileImage} />
+                        <ProfileImage profileImage={profilePicture} />
 
                         <View style={styles.profileContainer}>
-                            <Text style={styles.profileName}>{props.profileName}</Text>
+                            <Text style={styles.profileName}>{username}</Text>
                         </View>
                     </View>
                 </View>

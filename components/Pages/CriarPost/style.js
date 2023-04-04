@@ -84,6 +84,7 @@ export const styles = StyleSheet.create({
   },
 
   profileName: {
+    fontSize: 17,
     fontWeight: "500",
     marginLeft: 12
   },

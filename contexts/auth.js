@@ -6,6 +6,7 @@ function AuthProvider({ children }) {
   const [id, setId] = useState();
   const [login, setLogin] = useState();
   const [nickname, setNickname] = useState();
+  const [username, setUsername] = useState('')
   const [profilePicture, setProfilePicture] = useState("");
   const [image, setImage] = useState(null);
   const [anotherUser_id, setAnotherUser_id] = useState(null);
@@ -40,6 +41,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        username, 
+        setUsername,
         changePosts,
         setChangePosts,
         messageList,

@@ -12,15 +12,22 @@ import EditPhotoModal from "../../Modals/EditPhotoModal";
 import { AccountDataContext } from "../../../contexts/accountData";
 let screenWidth = Dimensions.get("window").width / 100; // screen width
 import { AuthContext } from "../../../contexts/auth";
+import likePost from "../../../services/post";
 
-export default function EditPhoto( {navigation} ,props) {
+export default function EditPhoto({ navigation }, props) {
+    const { profilePicture, username } = useContext(AuthContext);
     const { postFocusedId } = useContext(AccountDataContext)
     const { id, setChangePosts, changePosts } = useContext(AuthContext)
     const [postImage, setPostImage] = useState(null)
     const [postId, setPostId] = useState(null)
-    
+    const [created_at, setCreated_at] = useState()
+    const [commentNumber, setCommentNumber] = useState(null)
+    const [likeNumber, setLikeNumber] = useState(null)
+    const [itemId, setItemId] = useState(null)
+    const [userLikedPost, setUserLikedPost] = useState(null)
+
     const [visibleModal, setVisibleModal] = useState(false)
-    
+
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [aspectRatio, setAspectRatio] = useState(0);
@@ -31,10 +38,10 @@ export default function EditPhoto( {navigation} ,props) {
             user_id: id
         }
         await axios.post(`https://imovim-api.cyclic.app/post/delete-post`, data)
-        .then(response => {
-            setChangePosts(changePosts + 1)
-            navigation.navigate('Fotos')
-        })
+            .then(response => {
+                setChangePosts(changePosts + 1)
+                navigation.navigate('Fotos')
+            })
     }
 
     async function getImagesSize(image) {
@@ -61,6 +68,14 @@ export default function EditPhoto( {navigation} ,props) {
         const result = await axios.post(`https://imovim-api.cyclic.app/post/get-post`, { post_id: postFocusedId, user_id: id })
         setPostImage(result.data[0].image)
         setPostId(result.data[0].id)
+        setCreated_at(result.data[0].created_at)
+        setLikeNumber(result.data[0].likes)
+        setCommentNumber(result.data[0].comments)
+        setItemId(result.data[0].id)
+        setUserLikedPost(result.data[0].userLikedPost)
+
+        console.log(result.data);
+
         result.data[0].image && getImagesSize(result.data[0].image);
     }
 
@@ -78,11 +93,11 @@ export default function EditPhoto( {navigation} ,props) {
 
                     <View style={styles.headerPost} >
                         <View style={styles.postProfile}>
-                            <ProfileImage profileImage={props.profileImage} />
+                            <ProfileImage profileImage={profilePicture} />
 
                             <View style={styles.profileContainer}>
-                                <Text style={styles.profileName}>{props.nickname}</Text>
-                                <Text style={styles.postDate}>{props.created_at}</Text>
+                                <Text style={styles.profileName}>{username}</Text>
+                                <Text style={styles.postDate}>{created_at}</Text>
                             </View>
                         </View>
                         <View>
@@ -118,19 +133,22 @@ export default function EditPhoto( {navigation} ,props) {
                     <Text style={styles.postDescription}>{props.caption}</Text>
 
                     <View style={styles.postInteraction}>
-                        <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
-                            <AntDesign name="like1" size={24} color="white" />
-                            <Text style={styles.interactionQuantity}>{props.likes}</Text>
+                        <TouchableOpacity onPress={async () => {
+                            await likePost(id, itemId);
+                            getPost()
+                        }} style={styles.postInteractionImage}>
+                            <AntDesign name="like1" size={24} color={userLikedPost == 0 ? "#FFF" : "#F8670E"} />
+                            <Text style={styles.interactionQuantity}>{likeNumber}</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
-                            <Ionicons name="chatbubble" size={24} color="white" />
-                            <Text style={styles.interactionQuantity}>{props.comments}</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("Comentarios")} style={styles.postInteractionImage}>
+                            <Ionicons name="chatbubble" size={24} color="#FFF" />
+                            <Text style={styles.interactionQuantity}>{commentNumber}</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.postInteractionImage}>
-                            <FontAwesome name="share" size={24} color="white" />
-                            <Text style={styles.interactionQuantity}>{props.updated}</Text>
+                            <FontAwesome name="share" size={24} color="#FFF" />
+                            <Text style={styles.interactionQuantity}>0</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
