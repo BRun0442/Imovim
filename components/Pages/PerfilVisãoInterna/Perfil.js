@@ -133,8 +133,10 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 </View>
               </View>
             </View>
-            <View style={styles.border}></View>
+            <View style={styles.border} />
+
             <View style={styles.tagsView}>
+
               <View style={styles.tags}>
 
                 <TouchableOpacity
@@ -160,18 +162,19 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                           navigation.navigate("Tela Tags");
                         }}
                       >
-                        <Foundation name="pencil" size={24} color="#FFF" />
+                        <Foundation name="pencil" size={26} color="#FFF" />
                         <Text style={styles.editProfileText}>Editar Tags</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.whiteLine}></View>
+                      <View style={styles.whiteLine} />
+
                       <TouchableOpacity
                         style={styles.editProfileButton}
                         onPress={() => {
                           navigation.navigate("Tela Ver Mais");
                         }}
                       >
-                        <AntDesign name="eye" size={24} color="#FFF" />
+                        <AntDesign name="eye" size={26} color="#FFF" />
                         <Text style={styles.editProfileText}>Ver Mais</Text>
                       </TouchableOpacity>
                     </View>
@@ -180,7 +183,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                       onPress={() => setVisible(false)}
                       style={styles.closedButton}
                     >
-                      <Ionicons name="ios-close" size={24} color="#FFF" />
+                      <Ionicons name="ios-close" size={30} color="#FFF" />
                     </TouchableOpacity>
                   </View>
                 )}
@@ -198,7 +201,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
               </View>
             </View>
-            <View style={styles.line}></View>
           </View>
         }
       />

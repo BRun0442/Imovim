@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function EventModal({ handleClose, name, image, date, hour, location }, props) {
-        
+
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose} ></TouchableOpacity>
@@ -38,6 +38,11 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                             <View style={styles.hourEvent}>
                                 <Text style={styles.hourTitle}>Horário: </Text>
                                 <Text style={styles.hour}>{hour}</Text>
+                            </View>
+
+                            <View style={styles.descritpionEvent}>
+                                <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
+                                <Text style={styles.description}></Text>
                             </View>
 
                             <View style={styles.locationEvent}>
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
         zIndex: 9,
     },
 
-    closedButtonBottom:{
+    closedButtonBottom: {
         height: "10%",
         zIndex: 9,
     },
@@ -137,7 +142,7 @@ const styles = StyleSheet.create({
         marginBottom: 15
     },
 
-    image:{
+    image: {
         borderRadius: 15,
         height: "100%",
         width: "100%",
@@ -178,6 +183,24 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
 
+    descritpionEvent: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+
+        marginBottom: 5
+    },
+
+    descriptionTitle: {
+        marginLeft: 15,
+        color: "#CB5106",
+        fontSize: 20
+    },
+
+    description: {
+        fontSize: 20
+    },
+
     locationEvent: {
         display: "flex",
         flexDirection: "row",
@@ -199,8 +222,14 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-around",
+        alignItems: "center",
 
-        marginVertical: "5%"
+        width: "100%",
+        height: "30%",
+
+        backgroundColor: "blue",
+
+        marginTop: 20
     },
 
     interactiveButton: {
@@ -210,8 +239,8 @@ const styles = StyleSheet.create({
 
         backgroundColor: "#F8670E",
 
-        width: "40%",
-        height: "60%",
+        width: "35%",
+        height: "70%",
 
         borderRadius: 20
     },

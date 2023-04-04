@@ -10,8 +10,9 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
 
   background: {
-    resizeMode: 'contain',
+    width: "100%",
     height: 200,
+
     backgroundColor: "#d9d9d9",
   },
 
@@ -64,8 +65,10 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
+
     marginTop: 5,
     marginBottom: 10,
+    
     paddingStart: 25,
     paddingEnd: 25,
   },
@@ -119,12 +122,12 @@ export const styles = StyleSheet.create({
 
   tagsView: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
 
     height: 120,
-    paddingHorizontal: 15
+    // paddingHorizontal: 10
   },
 
   tags: {
@@ -146,12 +149,12 @@ export const styles = StyleSheet.create({
   },
 
   editProfile: {
-    width: 180,
-    height: 70,
+    width: 200,
+    height: 80,
 
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
 
     backgroundColor: "#FD5F00",
@@ -170,18 +173,19 @@ export const styles = StyleSheet.create({
 
   editProfileText: {
     color: "#FFF",
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
     marginLeft: 10
   },
 
   closedButton: {
-    width: 40, 
+    width: 30, 
     height: 70,
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
   },
 
   whiteLine: {

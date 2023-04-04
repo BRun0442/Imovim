@@ -24,6 +24,7 @@ import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
 
 import CustomDrawer from "./CustomDrawer";
+import Map from "../Pages/Map/Map"
 import { AccountDataContext } from "../../contexts/accountData";
 
 const Drawer = createDrawerNavigator();
@@ -60,6 +61,7 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Criar Grupo" component={CriarGrupo} options={{ headerShown: false, }} />
       <Drawer.Screen name="Adicionar Participantes" component={SelectGroup} options={{ headerShown: false, }} />
       <Drawer.Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }

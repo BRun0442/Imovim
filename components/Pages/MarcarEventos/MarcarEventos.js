@@ -1,15 +1,15 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
-import { styles } from './style'
-import Header from '../../Header/Header';
-import ProfileImage from '../../ProfileImage/ProfileImage';
-import { AuthContext } from '../../../contexts/auth';
+import React, { useState, useContext, useEffect } from "react";
+import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { styles } from "./style"
+import Header from "../../Header/Header";
+import ProfileImage from "../../ProfileImage/ProfileImage";
+import { AuthContext } from "../../../contexts/auth";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { Entypo } from '@expo/vector-icons';
-import { createEvent } from '../../../services/events';
+import { Entypo } from "@expo/vector-icons";
+import { createEvent } from "../../../services/events";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
-import { Image } from 'react-native';
+import { Image } from "react-native";
 
 export default function MarcarEventos({ navigation }, props) {
     const { id } = useContext(AuthContext);
@@ -98,7 +98,7 @@ export default function MarcarEventos({ navigation }, props) {
                     <View style={styles.nameInputs}>
                         <TextInput style={styles.inputType1}
                             onChangeText={(text) => setName(text)}
-                            keyboardType='default'
+                            keyboardType="default"
                         />
                     </View>
 
@@ -108,19 +108,19 @@ export default function MarcarEventos({ navigation }, props) {
                         <TextInput style={styles.inputType2}
                             onChangeText={(text) => setDay(text)}
                             placeholder="Dia"
-                            keyboardType='numeric'
+                            keyboardType="numeric"
                         />
 
                         <TextInput style={styles.inputType2}
                             onChangeText={(text) => setMonth(text)}
                             placeholder="Mês"
-                            keyboardType='numeric'
+                            keyboardType="numeric"
                         />
 
                         <TextInput style={styles.inputType2}
                             onChangeText={(text) => setYear(text)}
                             placeholder="Ano"
-                            keyboardType='numeric'
+                            keyboardType="numeric"
                         />
                     </View>
 
@@ -130,13 +130,13 @@ export default function MarcarEventos({ navigation }, props) {
                         <TextInput style={styles.inputType2}
                             onChangeText={(text) => setHour(text)}
                             placeholder="hh"
-                            keyboardType='numeric'
+                            keyboardType="numeric"
                         />
 
                         <TextInput style={styles.inputType2}
                             onChangeText={(text) => setMinute(text)}
                             placeholder="min"
-                            keyboardType='numeric'
+                            keyboardType="numeric"
                         />
 
                     </View>
@@ -146,9 +146,12 @@ export default function MarcarEventos({ navigation }, props) {
                         <View style={styles.locationInput}>
                             <TextInput style={styles.inputType4}
                                 onChangeText={(text) => setLocalization(text)}
-                                keyboardType='default'
+                                keyboardType="default"
                             />
-                            <TouchableOpacity style={styles.iconInput}>
+                            <TouchableOpacity 
+                            style={styles.iconInput}
+                            onPress={()=> navigation.navigate("Mapa")}
+                            >
                                 <Entypo name="location" size={22} color="#F8670E" />
                             </TouchableOpacity>
                         </View>
@@ -162,7 +165,7 @@ export default function MarcarEventos({ navigation }, props) {
                                 setDescription(text)
                                 setDescriptionLength(text.length)
                             }}
-                            keyboardType='default'
+                            keyboardType="default"
                             multiline={true}
                         />
 
@@ -192,7 +195,7 @@ export default function MarcarEventos({ navigation }, props) {
                                     style=
                                     {
                                         {
-                                            width: '95%',
+                                            width: "95%",
                                             height: 150,
                                         }
                                     }

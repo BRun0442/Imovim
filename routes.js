@@ -36,6 +36,8 @@ import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
 import Notificacoes from './components/Pages/Notificacoes/Notificações';
 import ChatGroup from './components/Pages/ChatGroup/ChatGroup';
 
+import Map from './components/Pages/Map/Map'
+
 import * as SecureStore from 'expo-secure-store';
 
 const { Screen, Navigator } = createNativeStackNavigator();
@@ -82,6 +84,7 @@ export default function Routes() {
       <Screen name="Adicionar Participantes" component={SelectGroup} options={{ headerShown: false, }} />
       <Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
       <Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
+      <Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
     </Navigator>
   )
 
