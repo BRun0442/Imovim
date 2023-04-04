@@ -43,8 +43,8 @@ function CardEvents(props) {
                         handleClose={() => setVisibleModal(false)}
                     />
                 </Modal>
-
             </View>
+            
         </TouchableOpacity>
     )
 }

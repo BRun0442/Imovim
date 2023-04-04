@@ -1,19 +1,27 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 
 
-import { Ionicons } from '@expo/vector-icons';
-
-
-export default function ComplaintGroup({ handleClose }, props) {
+export default function BlockUserModal({ handleClose, name }, props) {
   return (
     <SafeAreaView style={styles.container}>
 
       <View style={styles.modal}>
         <View style={styles.content}>
-          <View style={styles.exitGroup}>
-            <Ionicons name="alert-circle" size={30} color="#FFF" />
-            <Text style={styles.exitGroupText}>Deseja denunciar o grupo {props.groupName}?</Text>
+          <View style={styles.blockUserContainer}>
+
+            <View style={styles.blockNameUser}>
+              <Entypo name="block" size={30} color="#FFF" />
+              <Text style={styles.blockUserText}>Deseja bloquear</Text>
+              <Text style={styles.exitGroupUserName}>{name}</Text>
+              <Text style={styles.blockUserText}>?</Text>
+            </View>
+
+            <View style={styles.blockAlert}>
+              <Text style={styles.blockUserAlertText}>Ao confirmar, o usuário será automaticamente removido da sua lista de amigos</Text>
+            </View>
+
           </View>
 
           <View style={styles.buttonsContainer}>
@@ -53,25 +61,34 @@ const styles = StyleSheet.create({
 
   content: {
     width: "90%",
-    height: "15%",
+    height: "25%",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
-    backgroundColor: "#DB3232",
+    backgroundColor: "#F8670E",
 
     borderRadius: 30,
 
     paddingHorizontal: 15
   },
 
-  exitGroup: {
+  blockUserContainer: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
   },
 
-  exitGroupText: {
+  blockNameUser: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+
+    marginBottom: 10
+  },
+
+  blockUserText: {
     color: "#FFF",
     fontWeight: "400",
     fontSize: 22,
@@ -79,26 +96,47 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
 
-  buttonsContainer:{
+  blockUserAlertText: {
+    color: "#FFF",
+    fontWeight: "400",
+    fontSize: 22,
+  },
+
+  exitGroupUserName: {
+    color: "#FFF",
+    fontWeight: "bold",
+    fontSize: 22,
+
+    marginLeft: 10
+  },
+
+  blockAlert: {
+    display: "flex",
+    justifyContent: "flex-start",
+
+    marginBottom: 10
+  },
+
+  buttonsContainer: {
     width: "50%",
 
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",    
+    justifyContent: "space-around",
   },
 
   button1: {
     color: "#FFF",
-    fontSize: 22,
+    fontSize: 25,
   },
 
   button2: {
     color: "#FFF",
-    fontSize: 22,
+    fontSize: 25,
     backgroundColor: "#AF1A1A",
 
-    padding: 8,
+    padding: 10,
     borderRadius: 15
   },
 })

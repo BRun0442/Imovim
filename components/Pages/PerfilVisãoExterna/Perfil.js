@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { View, Text, Image, StatusBar, Alert, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, Image, StatusBar, Alert, TouchableOpacity, SafeAreaView, Modal, FlatList } from 'react-native';
 import { styles } from './style'
-import { FlatList } from "react-native-gesture-handler";
 import Post from '../../Post/Post';
 import axios from 'axios';
 import { Foundation } from '@expo/vector-icons';
@@ -17,6 +16,8 @@ import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
 import { showToastSuccess } from '../../Toast/Toast';
 
+import BlockUserModal from '../../Modals/BlockUserModal';
+
 export default function PerfilVisãoExterna({ navigation }, props) {
     const { reloadChats, setReloadChats } = useContext(AuthContext)
     const { id } = useContext(AuthContext);
@@ -30,6 +31,8 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [currentUser, setCurrentUser] = useState()
     const [posts, setPosts] = useState()
     const [userIsFollowing, setUserIsFollowing] = useState()
+
+    const [visibleModal, setVisibleModal] = useState(false)
 
     const handleChatButton = () => {
         const data = {
@@ -57,12 +60,12 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     }
 
     const handleFollowUser = async () => {
-        const data = { user_id: currentUser, follower_id: id}
+        const data = { user_id: currentUser, follower_id: id }
         await axios.post(`https://imovim-api.cyclic.app/user/follow`, data)
-        .then((res) => {
-            getUserData()
-            showToastSuccess(`${res.data.msg} ${name}!`,"")
-        })
+            .then((res) => {
+                getUserData()
+                showToastSuccess(`${res.data.msg} ${name}!`, "")
+            })
     }
 
     useEffect(() => {
@@ -80,6 +83,10 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     function handleClick() {
         handleChatButton();
         // navigation.navigate("Chat");
+    }
+
+    const handleModalVisible = () => {
+        setVisibleModal(!visibleModal)
     }
 
     return (
@@ -139,9 +146,21 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                     <TouchableOpacity>
                                         <Ionicons name="alert-circle" size={28} color="#F8670E" />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+
+                                    <TouchableOpacity onPress={()=> setVisibleModal(true)}>
                                         <Entypo name="block" size={24} color="#F8670E" style={{ marginLeft: 8, marginRight: 8 }} />
                                     </TouchableOpacity>
+
+                                    <View>
+                                        <Modal
+                                            visible={visibleModal}
+                                            transparent={true}
+                                            onRequestClose={() => setVisibleModal(false)}
+                                        >
+                                            <BlockUserModal handleClose={handleModalVisible} name={name}/>
+                                        </Modal>
+                                    </View>
+
                                     <TouchableOpacity onPress={() => handleClick()}>
                                         <Ionicons name="chatbubble" size={25} color="#F8670E" />
                                     </TouchableOpacity>

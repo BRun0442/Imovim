@@ -19,7 +19,7 @@ import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
 import axios from "axios";
 
-function Feed({ navigation }) {
+export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
   const { id } = useContext(AuthContext);
@@ -111,5 +111,3 @@ function Feed({ navigation }) {
     </SafeAreaView>
   );
 }
-
-export default Feed;

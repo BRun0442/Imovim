@@ -39,7 +39,7 @@ export default function SelectGroup({ navigation }) {
                 <ScrollView style={{ marginBottom: 30 }}>
                     <View style={styles.results}>
 
-                        {/* <ResultSearch /> */}
+                        {/* <ResultSearch nickname="Tiago" /> */}
 
                     </View>
                 </ScrollView>

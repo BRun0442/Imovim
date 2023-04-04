@@ -67,10 +67,6 @@ export default function MarcarEventos({ navigation }, props) {
         await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage)
     }
 
-    const getDescriptionLength = () => {
-        setDescriptionLength(description.length)
-    }
-
     return (
         <SafeAreaView style={styles.container}>
 
@@ -154,7 +150,11 @@ export default function MarcarEventos({ navigation }, props) {
                     <Text style={styles.formText}>Descrição</Text>
                     <View style={styles.nameInputs}>
                         <TextInput style={styles.inputType3}
-                            onChangeText={(text) => setDescription(text)}
+                            maxLength={100}
+                            onChangeText={(text) => {
+                                setDescription(text)
+                                setDescriptionLength(text.length)
+                            }}
                             keyboardType='default'
                             multiline={true}
                         />
