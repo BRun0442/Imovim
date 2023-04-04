@@ -143,6 +143,33 @@ export const styles = StyleSheet.create({
         fontWeight: "400"
     },
 
+    inputType4: {
+        width: "90%",
+        height: 25,
+
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        flexWrap: "wrap",
+
+        textAlign: "left",
+
+        paddingHorizontal: 15,
+        padding: 10,
+
+        fontSize: 18,
+        fontWeight: "400"
+    },
+
+    iconInput: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+        width: "10%",
+        height: 25,
+    },
+
     editProfileIconContainerBanner: {
         display: "flex",
         flexDirection: "row",
@@ -176,6 +203,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "row",
+
         marginBottom: "3%",
         marginTop: "3%"
     },
@@ -187,6 +215,26 @@ export const styles = StyleSheet.create({
 
         marginBottom: "3%",
         marginTop: "3%"
+    },
+
+    locationInput: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+
+        marginBottom: "3%",
+        marginTop: "3%"
+    },
+
+    borderLocationInput:{
+        borderColor: "#A512BD",
+
+        borderWidth: 2,
+
+        borderRadius: 20,
+
+        marginVertical: "3%"
     },
 
     text: {

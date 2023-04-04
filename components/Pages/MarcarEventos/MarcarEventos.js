@@ -142,11 +142,16 @@ export default function MarcarEventos({ navigation }, props) {
                     </View>
 
                     <Text style={styles.formText}>Local</Text>
-                    <View style={styles.nameInputs}>
-                        <TextInput style={styles.inputType1}
-                            onChangeText={(text) => setLocalization(text)}
-                            keyboardType='default'
-                        />
+                    <View style={styles.borderLocationInput}>
+                        <View style={styles.locationInput}>
+                            <TextInput style={styles.inputType4}
+                                onChangeText={(text) => setLocalization(text)}
+                                keyboardType='default'
+                            />
+                            <TouchableOpacity style={styles.iconInput}>
+                                <Entypo name="location" size={22} color="#F8670E" />
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                     <Text style={styles.formText}>Descrição</Text>
