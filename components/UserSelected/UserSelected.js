@@ -8,7 +8,7 @@ export default function UserSelected({ nickname, profileImage, handleSelect, sel
     const { anotherUser_id, setAnotherUser_id } = useContext(AuthContext)
     return (
         <TouchableOpacity
-            style={[styles.result, { backgroundColor: selected ? '#FF6709' : '#fff' }]}
+            style={[styles.result, { backgroundColor: selected ? '#C6C4C4' : '#FFF' }]}
             onPress={() => {
                 handleSelect(user_id)
             }}

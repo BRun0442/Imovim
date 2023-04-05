@@ -101,35 +101,36 @@ export default function SelectGroup({ navigation }) {
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.searchPeople}>
-                <View style={styles.searchContainer}>
+            <View style={{paddingHorizontal: 10}}>
+                <View style={styles.searchPeople}>
+                    <View style={styles.searchContainer}>
 
-                    <View style={styles.icon}>
-                        <Entypo name="magnifying-glass" size={25} color="#A512BD" />
+                        <View style={styles.icon}>
+                            <Entypo name="magnifying-glass" size={25} color="#A512BD" />
+                        </View>
+
+                        <TextInput
+                            onChangeText={async (text) => {
+                                setInputText(text)
+                                await searchUser(text)
+                            }}
+                            style={styles.searchInput}
+                            placeholder='Pesquise pessoas...'
+                        />
                     </View>
 
-                    <TextInput 
-                        onChangeText={async (text) => {
-                            setInputText(text)
-                            await searchUser(text)
-                        }}
-                        style={styles.searchInput} 
-                        placeholder='Pesquise pessoas...' 
-                    />
+                    <ScrollView style={{ height: "80%", marginBottom: 15 }}>
+                        <View style={styles.results}>
+
+                            {searchedUsers.map((user, index) => {
+                                return (
+                                    <UserSelected user_id={user.user_id} handleSelect={handleSelect} selected={user.selected} profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname} />
+                                )
+                            })}
+                        </View>
+                    </ScrollView>
                 </View>
-
-                <ScrollView style={{ marginBottom: 30 }}>
-                    <View style={styles.results}>
-
-                    {searchedUsers.map((user, index) => {
-                        return (
-                            <UserSelected user_id={user.user_id} handleSelect={handleSelect} selected={user.selected} profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname}  />
-                        )
-                    })}
-                    </View>
-                </ScrollView>
             </View>
-
         </SafeAreaView>
     )
 }

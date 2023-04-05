@@ -15,7 +15,9 @@ export const styles = StyleSheet.create({
         marginTop: 25,
         marginBottom: 20,
 
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+
+        height: "5%"
     },
 
     title: {
@@ -31,9 +33,14 @@ export const styles = StyleSheet.create({
 
     searchPeople:{
         backgroundColor: "#F1F1F1",
-        marginHorizontal: 15,
+        paddingHorizontal: 8,
 
-        borderRadius: 15
+        borderRadius: 15,
+
+        height: "90%",
+
+        marginBottom: 15
+
     },
 
     searchContainer: {
@@ -43,9 +50,9 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         marginTop: 15,
-        paddingHorizontal: 20,
+        paddingHorizontal: 5,
 
-        height: 80,
+        height: "10%",
     },
 
     icon: {
@@ -64,7 +71,6 @@ export const styles = StyleSheet.create({
         width: "90%",
 
         paddingHorizontal: 15,
-        marginRight: 10
     },
 
     addGroupIcon: {
@@ -99,11 +105,12 @@ export const styles = StyleSheet.create({
 
     results: {
         backgroundColor: "#FFF",
-        width: "90%",
+        width: "100%",
 
-        paddingHorizontal: 20,
-        marginHorizontal: 15,
+        paddingHorizontal: 5,
 
-        borderRadius: 25
+        borderRadius: 25,
+
+        paddingVertical: 15
     },
 })

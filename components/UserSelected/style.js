@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     result: {
+        width: "100%",
+
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
@@ -9,6 +11,9 @@ export const styles = StyleSheet.create({
         marginBottom: 15,
 
         paddingVertical: 15,
+        paddingHorizontal: 15,
+
+        borderRadius: 15
 
     },
 
