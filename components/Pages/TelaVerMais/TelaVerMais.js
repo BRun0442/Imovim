@@ -11,10 +11,10 @@ import { AuthContext } from '../../../contexts/auth.js';
 import { getSportsPracticed as getSportsData } from '../../../services/sports'
 
 export default function TelaVerMais({ navigation }) {
-
-  const { id } = useContext(AuthContext);
+  const { id, changePosts, posts } = useContext(AuthContext)
 
   const [sportsPracticed, setSportsPracticed] = useState(null)
+  // const [posts, setPosts] = useState(null)
 
   const getSportsPracticed = async () => {
     const data = await getSportsData(id)
@@ -23,11 +23,12 @@ export default function TelaVerMais({ navigation }) {
     return data
   }
 
+
   useEffect(() => {
     getSportsPracticed()
   }, [])
 
-  if (!sportsPracticed) {
+  if (!sportsPracticed || !posts) {
     return (
       <View>
         <Text>Loading...</Text>
@@ -70,9 +71,13 @@ export default function TelaVerMais({ navigation }) {
           </View>
 
           <ScrollView style={styles.photos} horizontal={true}>
-            <Photo />
-            <Photo />
-            <Photo />
+            {posts.map((post, index) => {
+              if(parseInt(index) < 3){
+                return(
+                  <Photo key={index} post_id={post.id} image={post.image} navigation={navigation} />
+                  )
+              }
+            })}
             <Photo />
           </ScrollView>
 

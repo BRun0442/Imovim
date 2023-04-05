@@ -17,6 +17,7 @@ function AuthProvider({ children }) {
   const [chatNickname, setChatNickname] = useState(null);
   const [messageList, setMessageList] = useState([]);
   const [changePosts, setChangePosts] = useState(1);
+  const [posts, setPosts] = useState()
 
   async function getUserIsLoggedIn() {
     let result = await SecureStore.getItemAsync('isUserLoggedIn');
@@ -41,6 +42,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        posts, 
+        setPosts,
         username, 
         setUsername,
         changePosts,

@@ -22,7 +22,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   // const { accountData } = useContext(AccountDataContext);
   // const { setAccountData } = useContext(AccountDataContext);
   const { setPostFocusedId } = useContext(AccountDataContext);
-  const { profilePicture, id } = useContext(AuthContext);
+  const { profilePicture, id, posts, setPosts } = useContext(AuthContext);
   const [loaded, setLoaded] = useState(false)
   const [visible, setVisible] = useState(false);
   const [accountData, setAccountData] = useState()
@@ -32,7 +32,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
     const [name, setName] = useState('')
     const [location, setLocation] = useState()
     const [currentUser, setCurrentUser] = useState()
-    const [posts, setPosts] = useState()
+    // const [posts, setPosts] = useState()
 
   const getData = async () => {
     const data = await getAnotherUserData(id, id)
