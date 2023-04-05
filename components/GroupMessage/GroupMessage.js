@@ -11,13 +11,16 @@ export default function FriendMessage(props) {
           <Entypo name="camera" size={14} color="#FFF" />
         </View>
 
-        <Text>Nome Sobrenome</Text>
-        <Text>hora</Text>
+        <Text style={styles.nameUser}>Tiaguh</Text>
+      </View>
 
-      </View>
+
       <View style={styles.friendMessage}>
-        <Text style={styles.friendMessageText}>{props.groupMessage}</Text>
+        <Text style={styles.friendMessageText}>lá ele</Text>
       </View>
+
+      <Text style={styles.hour}>hora</Text>
+
     </View>
   )
 }

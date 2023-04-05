@@ -2,9 +2,14 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     memberInfo:{
+        width: "50%",
+
         display: "flex",
         flexDirection: "row",
-        alignItems: "center"
+        justifyContent: "flex-start",
+        alignItems: "center",
+
+        marginVertical: 5
     },
 
     friendMessage: {
@@ -18,6 +23,8 @@ export const styles = StyleSheet.create({
         marginBottom: 5,
 
         borderRadius: 20,
+
+        width: "70%",
     },
 
     friendMessageText: {
@@ -31,12 +38,23 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#D9D9D9",
 
-        width: 60,
-        height: 60,
+        width: 40,
+        height: 40,
 
         borderWidth: 1,
         borderColor: "#FF7926",
 
         borderRadius: 50
+    },
+
+    nameUser:{
+        fontSize: 16,
+        fontWeight: "600",
+        marginLeft: 10
+    },
+
+    hour:{
+        fontSize: 14,
+        color: "#909090"
     }
 })
