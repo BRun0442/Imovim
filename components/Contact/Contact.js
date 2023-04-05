@@ -7,8 +7,8 @@ import MessagesModal from "../Modals/MessagesModal";
 
 import IconExitGroup from '../Modals/IconExitGroup'
 
-export default function Contact({ navigation, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
-    const { setChatFocusedId, setChatProfileImage, setChatNickname, setMessageList } = useContext(AuthContext)
+export default function Contact({ navigation, friend_id, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
+    const { setChatFocusedId, setChatProfileImage, setFriend_id, setChatNickname, setMessageList } = useContext(AuthContext)
 
     const [visibleModal, setVisibleModal] = useState(false)
 
@@ -17,6 +17,7 @@ export default function Contact({ navigation, getChats, name, room_id, friend_ph
             onPress={() => {
                 setChatFocusedId(room_id)
                 setChatNickname(name)
+                setFriend_id(friend_id)
                 setChatProfileImage(friend_photo)
                 setMessageList([])
                 navigation.navigate('Chat')

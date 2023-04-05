@@ -17,9 +17,11 @@ import axios from "axios";
 
 export default function Chat({ navigation }) {
   const flatlistRef = useRef(null);
-  const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList } = useContext(AuthContext)
+  const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
+  const [onlineUsers, setOnlineUsers] = useState([]);
+  const [isFriendOnline, setIsFriendOnline] = useState(false) 
 
   const [visible, setVisible] = useState(false);
 
@@ -82,7 +84,25 @@ export default function Chat({ navigation }) {
         scrollToBottom()
       });
     };
+    
+    const getOnlineUsers = async () => {
+      socket.emit("new-user-add", id);
+      socket.on("get-users", (users) => {
+        for (let i = 0; i < users.length; i++) {
+          if(users[i].userId == friend_id) {
+            setIsFriendOnline(true)
+            return
+          } else {
+            setIsFriendOnline(false)
+          }
+        }
+        setOnlineUsers(users);
+        console.log(users);
+      });
+    }
+    
     getMessage();
+    getOnlineUsers()
   }, [socket]); // it wll be called whenever there is a change in the socket server
 
   if (!chatAvailable) {
@@ -117,7 +137,7 @@ export default function Chat({ navigation }) {
 
                   <View style={styles.infoUser}>
                     <Text style={styles.name}>{chatNickname}</Text>
-                    <Text style={styles.message}>STATUS</Text>
+                    <Text style={styles.message}>{isFriendOnline ? "Online" : "Offline"}</Text>
                   </View>
                 </View>
 
