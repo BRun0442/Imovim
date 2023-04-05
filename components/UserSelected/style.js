@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
 
         marginBottom: 15,
 
-        paddingVertical: 15
+        paddingVertical: 15,
+
     },
 
     photoUser: {

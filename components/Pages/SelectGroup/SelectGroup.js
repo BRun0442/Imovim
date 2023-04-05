@@ -7,6 +7,7 @@ import ResultSearch from '../../ResultSearch/ResultSearch';
 import { MaterialIcons } from '@expo/vector-icons';
 import { getAllUsers } from '../../../services/user.js';
 import { AuthContext } from '../../../contexts/auth.js';
+import UserSelected from '../../UserSelected/UserSelected.js';
 
 export default function SelectGroup({ navigation }) {
     const { id } = useContext(AuthContext)
@@ -15,14 +16,20 @@ export default function SelectGroup({ navigation }) {
     const [searchedUsers, setSearchUsers] = useState([])
 
     const getUsers = async () => {
-        const data = await getAllUsers()
+        let data = await getAllUsers()
+        data = data.map((user) => {
+            return {
+                ...user,
+                selected: false
+            }
+        })
         setUsers(data)
         console.log(data)
         return data
     }
 
     const searchUser = async (input) => {
-        const data = users.filter((user) => {
+        let data = users.filter((user) => {
             const slicedName = user.nickname.slice(0, input.length)
             console.log(slicedName, input)
             return slicedName.toLowerCase() == input.toLowerCase() && user.user_id != id
@@ -31,6 +38,36 @@ export default function SelectGroup({ navigation }) {
         console.log(data)
         setSearchUsers(data)
         return data
+    }
+
+    const handleSelect = async (user_id) => {
+        let data = searchedUsers.map((user) => {
+            if (user_id == user.user_id) {
+                return {
+                    ...user,
+                    selected: !user.selected
+                }
+            } else {
+                return {
+                    ...user,
+                }
+            }
+        })
+        let usersData = users.map((user) => {
+            if (user_id == user.user_id) {
+                return {
+                    ...user,
+                    selected: !user.selected
+                }
+            } else {
+                return {
+                    ...user,
+                }
+            }
+        })
+        setSearchUsers(data)
+        setUsers(usersData)
+        console.log(data);
     }
 
     useEffect(() => {
@@ -86,7 +123,7 @@ export default function SelectGroup({ navigation }) {
 
                     {searchedUsers.map((user, index) => {
                         return (
-                            <ResultSearch user_id={user.user_id} profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname}  />
+                            <UserSelected user_id={user.user_id} handleSelect={handleSelect} selected={user.selected} profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname}  />
                         )
                     })}
                     </View>

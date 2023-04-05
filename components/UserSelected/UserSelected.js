@@ -4,12 +4,13 @@ import { styles } from './style.js'
 import { FontAwesome } from '@expo/vector-icons';
 import { AuthContext } from '../../contexts/auth.js';
 
-export default function UserSelected({ nickname, profileImage, user_id }, props) {
+export default function UserSelected({ nickname, profileImage, handleSelect, selected, user_id }, props) {
     const { anotherUser_id, setAnotherUser_id } = useContext(AuthContext)
     return (
         <TouchableOpacity
-            style={styles.result}
+            style={[styles.result, { backgroundColor: selected ? '#FF6709' : '#fff' }]}
             onPress={() => {
+                handleSelect(user_id)
             }}
         >
             <View>
