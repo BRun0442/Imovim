@@ -48,10 +48,10 @@ export default function TelaVerMais({ navigation }) {
           <Text style={styles.titleTags}>Tags</Text>
 
           <View style={styles.tags} >
-            {sportsPracticed.map((i) => {
+            {sportsPracticed.map((i, index) => {
               console.log(i);
               return (
-                <TagName nameTag={i} />
+                <TagName key={index} nameTag={i} />
               )
             })}
           </View>
