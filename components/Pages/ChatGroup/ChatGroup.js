@@ -16,6 +16,7 @@ import { io } from "socket.io-client";
 import axios from "axios";
 
 import ComplaintGroup from "../../Modals/ComplaintGroup";
+import GroupMessage from "../../GroupMessage/GroupMessage"
 
 export default function ChatGroup({ navigation }) {
   const flatlistRef = useRef(null);
@@ -119,8 +120,7 @@ export default function ChatGroup({ navigation }) {
                   }} />
 
                   <View style={styles.infoUser}>
-                    <Text style={styles.name}>{chatNickname}</Text>
-                    <Text style={styles.message}>STATUS</Text>
+                    <Text style={styles.name}>Nome do Grupo</Text>
                   </View>
                 </View>
 
@@ -139,7 +139,7 @@ export default function ChatGroup({ navigation }) {
 
                       <View style={styles.lineButtons}></View>
 
-                      <TouchableOpacity onPress={()=> setVisibleModal(true)}>
+                      <TouchableOpacity onPress={() => setVisibleModal(true)}>
                         <Text style={styles.textButton}>Denunciar</Text>
                       </TouchableOpacity>
 
@@ -176,7 +176,7 @@ export default function ChatGroup({ navigation }) {
             <FlatList
               style={{ height: "60%" }}
               ref={flatlistRef}
-              data={messageList}
+              data={[1]} // change to message list
               renderItem={({ item }) =>
                 <View key={item._id}>
                   {item.author_id == id ? (
@@ -191,8 +191,11 @@ export default function ChatGroup({ navigation }) {
                       key={item._id}
                       style={[styles.messages, { alignItems: "flex-start" }]}
                     >
-                      <FriendMessage friendMessage={item.message} />
+                      {/* <FriendMessage friendMessage={item.message} /> */}
+                      <GroupMessage groupMessage = "Tiaguh"/>
                     </View>
+
+
                   )}
                 </View>
 

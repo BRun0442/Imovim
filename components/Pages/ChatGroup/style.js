@@ -73,10 +73,6 @@ export const styles = StyleSheet.create({
         fontWeight: "bold"
     },
 
-    message: {
-        fontSize: 15
-    },
-
     button: {
         display: "flex",
         justifyContent: "center",
