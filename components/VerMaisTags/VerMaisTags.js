@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { styles } from './style.js'
 import { getSports as getSportsData } from '../../services/sports.js'
+import { AuthContext } from '../../contexts/auth.js'
 
 export default function VerMaisTags(props) {
-    const [sports, setSports] = useState([])
+    const { sports, setSports } = useContext(AuthContext)
     const [backgroundColor, setBackgroundColor] = useState()
 
     const getSports = async () => {
-        const data = await getSportsData()
-        setSports(data)
-        handleButtonColor(data)
+        if (!sports) {
+            const data = await getSportsData()
+            setSports(data)
+            handleButtonColor(data)
+        } else {
+            handleButtonColor(sports)
+        }
         console.log(data)
         return data
     }

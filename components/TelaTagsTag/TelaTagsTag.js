@@ -6,10 +6,17 @@ import { AuthContext } from '../../contexts/auth.js'
 import { insertSportPracticed } from '../../services/sports.js'
 
 export default function VerMaisTags(props) {
-    const { id } = useContext(AuthContext)
-    const [sportsPracticed, setSportsPracticed] = useState()
+    const { id, sportsPracticed, setSportsPracticed } = useContext(AuthContext)
 
     const getData = async () => {
+        if (!sportsPracticed) {
+            const data = await getSportsPracticed(id)
+            setSportsPracticed(data)
+            console.log(data)
+        }
+    }
+
+    const updateData = async () => {
         const data = await getSportsPracticed(id)
         setSportsPracticed(data)
         console.log(data)
@@ -22,7 +29,7 @@ export default function VerMaisTags(props) {
     const handleSubmit = async (id, sport_id) => {
         console.log(id, sport_id)
         await insertSportPracticed(id, sport_id)
-        await getData()
+        await updateData()
     }
 
     const handleButtonColor = () => {

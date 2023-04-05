@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "Imovim",
+    "name": "Mobile",
     "icon": "./assets/bolaBasquete.png",
     "version": "1.0.0",
-    "slug": "imovim",
+    "slug": "mobile",
     "ios": {
       "bundleIdentifier": "com.EtecEmbu.Imovim",
       "buildNumber": "1.0.0",
@@ -17,7 +17,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "643fafef-81ca-412f-a2d4-51882860ca5e"
+        "projectId": "4fe77be1-ec8b-4466-ab8f-8e9827670049"
       }
     }
   },

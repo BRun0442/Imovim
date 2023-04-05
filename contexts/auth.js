@@ -18,6 +18,8 @@ function AuthProvider({ children }) {
   const [messageList, setMessageList] = useState([]);
   const [changePosts, setChangePosts] = useState(1);
   const [posts, setPosts] = useState()
+  const [sportsPracticed, setSportsPracticed] = useState(null)
+  const [sports, setSports] = useState(null)
 
   async function getUserIsLoggedIn() {
     let result = await SecureStore.getItemAsync('isUserLoggedIn');
@@ -42,6 +44,10 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        sports, 
+        setSports,
+        sportsPracticed, 
+        setSportsPracticed,
         posts, 
         setPosts,
         username, 
