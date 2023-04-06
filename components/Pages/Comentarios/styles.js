@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   comentsContainer: {
     backgroundColor: '#ededed',
 
-    height: "75%"
+    height: "75%",
   },
 
   writeComentContainer: {

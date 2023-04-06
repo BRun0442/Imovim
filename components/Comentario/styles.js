@@ -9,7 +9,8 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({ 
   comentContainer: {
     alignSelf: 'center',
-    marginTop: '5%',
+    marginVertical: '5%',
+
     width: 350,
     backgroundColor: 'white',
     borderRadius: 35,
