@@ -193,6 +193,8 @@ export default function ChatGroup({ navigation }) {
                     >
                       {/* <FriendMessage friendMessage={item.message} /> */}
                       <GroupMessage groupMessage = "Tiaguh"/>
+                      <GroupMessage groupMessage = "Tiaguh"/>
+                      <GroupMessage groupMessage = "Tiaguh"/>
                     </View>
 
 

@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         backgroundColor: "#FFF",
-        width: "10%",
+        width: "11%",
         height: 45,
     },
 
@@ -110,7 +110,5 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 5,
 
         borderRadius: 25,
-
-        paddingVertical: 15
     },
 })

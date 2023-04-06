@@ -35,6 +35,7 @@ import Pesquisa from './components/Pages/Pesquisa/Pesquisa'
 import EditPhoto from './components/Pages/EditPhoto/EditPhoto';
 import Notificacoes from './components/Pages/Notificacoes/Notificações';
 import ChatGroup from './components/Pages/ChatGroup/ChatGroup';
+import EditarGrupo from './components/Pages/EditarGrupo/EditarGrupo'
 
 import Map from './components/Pages/Map/Map'
 
@@ -85,6 +86,7 @@ export default function Routes() {
       <Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
       <Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
       <Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
+      <Screen name="Editar Grupo" component={EditarGrupo} options={{ headerShown: false, }} />
     </Navigator>
   )
 

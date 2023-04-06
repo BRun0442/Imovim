@@ -37,7 +37,10 @@ export default function DadosGrupo({ navigation }, props) {
           </View>
 
           <TouchableOpacity style={styles.icon}>
-            <Foundation name="pencil" size={24} color="black" />
+            <Foundation
+              name="pencil" size={24} color="black"
+              onPress={() => navigation.navigate('Editar Grupo')}
+            />
           </TouchableOpacity>
 
           <Modal
@@ -59,7 +62,9 @@ export default function DadosGrupo({ navigation }, props) {
           </View>
 
           <Foundation name="pencil" size={24} color="black"
-            style={styles.icon} />
+            style={styles.icon}
+            onPress={() => navigation.navigate('Editar Grupo')}
+          />
 
         </View>
 

@@ -19,7 +19,7 @@ export default function FriendMessage(props) {
         <Text style={styles.friendMessageText}>lá ele</Text>
       </View>
 
-      <Text style={styles.hour}>hora</Text>
+      <Text style={styles.hour}>14:30</Text>
 
     </View>
   )

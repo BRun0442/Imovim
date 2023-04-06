@@ -55,6 +55,8 @@ export const styles = StyleSheet.create({
 
     hour:{
         fontSize: 14,
-        color: "#909090"
+        color: "#909090",
+
+        marginBottom: 15
     }
 })
