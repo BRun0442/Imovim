@@ -120,11 +120,12 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
 
-        paddingBottom: 15
+        paddingBottom: 15,
+        paddingHorizontal: 15
     },
 
     input:{
-        width: "90%",
+        width: "100%",
         height: 40,
 
         backgroundColor: "#FFF",
@@ -132,6 +133,8 @@ export const styles = StyleSheet.create({
         borderRadius: 50,        
         borderColor: "#DA64ED",
         borderWidth: 1,
+
+        paddingHorizontal: 15
     }
 
 })
