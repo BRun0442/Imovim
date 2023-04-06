@@ -114,7 +114,7 @@ export default function CriarPost({ navigation }) {
             <TextInput
               style={styles.input}
               value={caption}
-              multiline
+              multiline={true}
               textAlign='center'
               placeholder='Fale sobre uma aventura aqui!'
               placeholderTextColor={"#7B7B7B"}
