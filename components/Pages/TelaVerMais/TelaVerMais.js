@@ -78,7 +78,6 @@ export default function TelaVerMais({ navigation }) {
                   )
               }
             })}
-            <Photo />
           </ScrollView>
 
         </View>

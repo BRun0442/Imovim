@@ -16,7 +16,7 @@ export default function MarcarEventos({ navigation }, props) {
     const [name, setName] = useState()
     const [localization, setLocalization] = useState()
     const [description, setDescription] = useState()
-    const [image, setImage] = useState()
+    const [image, setImage] = useState(null)
     const [day, setDay] = useState()
     const [month, setMonth] = useState()
     const [year, setYear] = useState()
@@ -63,10 +63,14 @@ export default function MarcarEventos({ navigation }, props) {
         }
     }
     const handleSubmit = async () => {
-        console.log(id, name, localization, description, day, month, year, hour, minute)
-        const eventDate = `${year}/${month}/${day}`
-        const eventHour = `${hour}:${minute}`
-        await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage)
+        if(!image){
+            alert("Insira uma imagem no evento!")
+        } else {
+            console.log(id, name, localization, description, day, month, year, hour, minute)
+            const eventDate = `${year}/${month}/${day}`
+            const eventHour = `${hour}:${minute}`
+            await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage)
+        }
     }
 
     return (

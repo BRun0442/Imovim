@@ -13,7 +13,7 @@ import getUserData from "../../../services/user";
 import { validateCity } from "../../../services/getCities";
 
 function EditarPerfil({ navigation }) {
-    const { id, setProfilePicture } = useContext(AuthContext)
+    const { id, setProfilePicture, profileUpdated, setProfileUpdated } = useContext(AuthContext)
     const { setAccountData } = useContext(AccountDataContext);
     const [image, setImage] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -24,9 +24,13 @@ function EditarPerfil({ navigation }) {
         if (await validateCity(localization)) {
             await updateProfile(image, id, backgroundImage, localization, setProfilePicture)
                 .then(async () => {
-                    await getUserData(id, setAccountData)
-                    Alert.alert('Perfil atualizado!')
+                    const randomNumber = Math.random()
+                    setProfileUpdated(randomNumber)
+                    alert('Perfil atualizado!')
+                    console.log("Perfile Atualizado!");
                     navigation.navigate('Meu Perfil')
+                }).catch((err) => {
+                    console.log(err)
                 })
         }
         else {
@@ -78,7 +82,7 @@ function EditarPerfil({ navigation }) {
                 })
         }
         getProfileData()
-    }, [])
+    }, [profileUpdated])
     if (!loaded) {
         return (
             <View>

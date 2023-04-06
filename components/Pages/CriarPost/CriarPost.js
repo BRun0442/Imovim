@@ -16,11 +16,10 @@ import { AuthContext } from '../../../contexts/auth';
 import { useIsFocused } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
-
 import CreatePost from "../../../services/createPost.js";
 
 export default function CriarPost({ navigation }) {
-  const { profilePicture, username } = useContext(AuthContext);
+  const { profilePicture, username, profileUpdated, setProfileUpdated } = useContext(AuthContext);
   const { setAccountData } = useContext(AccountDataContext);
   const { nickname } = useContext(AuthContext);
   const { id } = useContext(AuthContext);
@@ -114,7 +113,7 @@ export default function CriarPost({ navigation }) {
             <TextInput
               style={styles.input}
               value={caption}
-              multiline
+              multiline={true}
               textAlign='center'
               placeholder='Fale sobre uma aventura aqui!'
               placeholderTextColor={"#7B7B7B"}
@@ -149,7 +148,8 @@ export default function CriarPost({ navigation }) {
 
         <Button buttonText='Criar Post' pressFunction={async () => {
           await CreatePost(image, id, caption, setImage)
-          await getUserData(id, setAccountData)
+          const randomNumber = Math.random()
+          setProfileUpdated(randomNumber)
           navigation.navigate('Página Inicial')
         }}
         />

@@ -12,10 +12,8 @@ import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '../../contexts/auth.js';
 import { AccountDataContext } from '../../contexts/accountData.js';
 
-import getUserData from "../../services/user";
-
 export default function CustomDrawer({ navigation }, props) {
-    const { setLogin, id, setProfilePicture, setUsername } = useContext(AuthContext);
+    const { setLogin, id, setProfilePicture, setUsername, profileUpdated } = useContext(AuthContext);
     const { accountData, setAccountData } = useContext(AccountDataContext);
     const [loaded, setLoaded] = useState(false)
     const [profileImage, setProfileImage] = useState(null)
@@ -40,14 +38,11 @@ export default function CustomDrawer({ navigation }, props) {
                 setNickname(result.data.nickname)
                 setUsername(result.data.nickname)
                 setProfilePicture(result.data.profileImage)
-                await getUserData(id, setAccountData)
-                .then(() => {
-                    setLoaded(true)
-                })
+                setLoaded(true)
             })
         }
         handleUserData()
-    }, [])
+    }, [profileUpdated])
 
     if (!loaded) {
         return (
