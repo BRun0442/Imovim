@@ -2,116 +2,121 @@ import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 
-import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
-export default function IconRemoveGroup({ handleClose, deletePost }) {
+
+export default function IconRemoveGroup({ handleClose }) {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose}></TouchableOpacity>
-
       <View style={styles.modal}>
-        <TouchableOpacity style={styles.closedButtonLeft} onPress={handleClose}></TouchableOpacity>
 
         <View style={styles.content}>
-          <View style={styles.removeUser}>
-            <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" />
-            <Text style={{ color: "#FFF" }}>Deseja remover Nome Sobrenome</Text>
+          <View style={styles.exitGroup}>
+            <TouchableOpacity onPress={handleClose}>
+              <AntDesign name="closecircle" size={30} color="#FFF" />
+            </TouchableOpacity>
+            <Text style={styles.exitGroupText}>Deseja remover "Nome Grupo"</Text>
           </View>
 
-          <View style={styles.removeUserOptions}>
+          <View style={styles.buttons}>
             <TouchableOpacity>
-              <Text style={{ color: "#FFF" }}>
+              <Text style={styles.textButton1}>
                 Sim
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={{ backgroundColor: "#CB5106" }}>
-              <Text style={{ color: "#FFF" }}>
+            <TouchableOpacity onPress={handleClose}>
+              <Text style={styles.textButton2}>
                 Não
               </Text>
             </TouchableOpacity>
           </View>
 
         </View>
-
-        <TouchableOpacity style={styles.closedButtonRight} onPress={handleClose}></TouchableOpacity>
       </View>
-
-      <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} ></TouchableOpacity>
-
-    </SafeAreaView>
+    </SafeAreaView >
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    width: "100%",
+    height: "100%",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   modal: {
     width: "100%",
+    height: "15%",
 
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
-
-  closedButtonTop: {
-    height: "80%",
-    zIndex: 9,
-  },
-
-  closedButtonBottom: {
-    height: "10%",
-    zIndex: 9,
-  },
-
-  closedButtonLeft: {
-    width: "27.5%",
-    height: "100%",
-  },
-
-  closedButtonRight: {
-    width: "27.5%",
-    height: "100%",
-  },
-
 
   content: {
-    width: "45%",
-    height: "10%",
+    width: "95%",
+    height: "100%",
 
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column",
 
-    backgroundColor: "#F8670E"
+    backgroundColor: "#F8670E",
+
+    borderRadius: 30,
+
+    paddingHorizontal: 15
   },
 
-  removeUser: {
-    display: "flex",
-    flexDirection: "row"
-  },
-
-  removeUserOptions: {
+  exitGroup: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around"
+    justifyContent: 'center',
+    alignItems: "center",
+
+    marginBottom: 10
+  },
+
+  exitGroupText: {
+    fontWeight: "bold",
+    fontSize: 23,
+    color: "#FFF",
+
+    marginLeft: 10
   },
 
   buttons: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexDirection: "row",
 
-    backgroundColor: "#FF7926",
-
-    width: 200,
-    height: 100,
+    width: "50%",
 
     borderRadius: 20,
+  },
+
+  textButton1: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#FFF"
+  },
+
+  textButton2: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#FFF",
+
+    backgroundColor: "#CB5106",
+
+    padding: 10,
+
+    borderRadius: 15
   },
 
   button: {

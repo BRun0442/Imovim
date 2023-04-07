@@ -5,7 +5,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function IconRemoveGroup({ handleClose, deletePost }) {
+export default function IconExitGroup({ handleClose }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.modal}>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    width: "90%",
+    width: "95%",
     height: "100%",
 
     display: "flex",
