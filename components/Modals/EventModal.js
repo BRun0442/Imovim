@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 export default function EventModal({ handleClose, name, image, date, hour, location }, props) {
+
+    const [actionIcon, setActionIcon] = useState(false)
+    const [iGo, setIgo] = useState(0)
 
     return (
         <SafeAreaView style={styles.container}>
@@ -22,7 +26,7 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                         </TouchableOpacity>
                     </View>
 
-                    <View style={{ paddingHorizontal: 6 }}>
+                    <View style={styles.modalContainer}>
 
                         <View style={styles.eventImage}>
                             <Image style={styles.image} source={{ uri: image }} />
@@ -53,13 +57,25 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                         </View>
 
                         <View style={styles.interactiveButtonContainer}>
-                            <TouchableOpacity style={styles.interactiveButton}>
+
+                            <TouchableOpacity onPress={()=> setIgo(iGo + 1) } style={styles.interactiveButton}>
+
                                 <AntDesign name="like1" size={60} color="#FFF" />
                                 <Text style={styles.interactiveText}>Eu vou!</Text>
+
+                                <View style={styles.iGoContainer}>
+                                    <Text style={styles.iGo}>{iGo}</Text>
+                                </View>
+
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.interactiveButton}>
-                                <Ionicons name="add-circle-outline" size={70} color="#FFF" />
+                            <TouchableOpacity onPress={() => setActionIcon(!actionIcon)} style={styles.interactiveButton}>
+                                {
+                                    actionIcon === true ?
+                                        <Ionicons name="add-circle-outline" size={70} color="#FFF" />
+                                        :
+                                        <Feather name="check-circle" size={60} color="#FFF" />
+                                }
                                 <Text style={styles.interactiveText}>Salvar</Text>
                             </TouchableOpacity>
                         </View>
@@ -80,29 +96,22 @@ const styles = StyleSheet.create({
 
     content: {
         width: "100%",
-        height: "70%",
+        height: "80%",
 
-        display: "flex",
-        alignItems: "center",
-
-        // backgroundColor: "#000",
-
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
     },
 
     closedButtonTop: {
-        height: "20%",
+        height: "15%",
         zIndex: 9,
     },
 
     closedButtonBottom: {
-        height: "10%",
+        height: "5%",
         zIndex: 9,
     },
 
     modal: {
-        display: "flex",
-
         backgroundColor: "#F9F9F9",
 
         width: "100%",
@@ -135,9 +144,17 @@ const styles = StyleSheet.create({
         marginLeft: 15
     },
 
+    modalContainer: {
+        paddingHorizontal: 4,
+
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
+    },
+
     eventImage: {
         width: "100%",
-        height: "40%",
+        height: "35%",
 
         marginBottom: 15
     },
@@ -152,7 +169,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
 
-        marginBottom: 5
+        marginVertical: 5
     },
 
     dateTitle: {
@@ -170,7 +187,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
 
-        marginBottom: 5
+        marginVertical: 5
     },
 
     hourTitle: {
@@ -188,7 +205,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
 
-        marginBottom: 5
+        marginVertical: 5
     },
 
     descriptionTitle: {
@@ -205,7 +222,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
 
-        marginBottom: 5
+        marginVertical: 5
     },
 
     locationTitle: {
@@ -226,10 +243,6 @@ const styles = StyleSheet.create({
 
         width: "100%",
         height: "30%",
-
-        backgroundColor: "blue",
-
-        marginTop: 20
     },
 
     interactiveButton: {
@@ -249,6 +262,29 @@ const styles = StyleSheet.create({
         color: "#FFF",
         fontSize: 20,
         fontWeight: "bold"
+    },
+
+    iGoContainer: {
+        width: 30,
+        height: 30,
+
+        borderRadius: 100,
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+        position: "absolute",
+        top: 10,
+        right: 10,
+
+        backgroundColor: "#D9D9D9"
+    },
+
+    iGo: {
+        color: "#000",
+        fontSize: 18,
+        fontWeight: "600"
     },
 
     button: {
