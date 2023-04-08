@@ -35,8 +35,9 @@ export default function Chat({ navigation }) {
       })
   }
 
-  const joinRoom = () => {
-    socket.emit("join_room", chatFocusedId); // connects to the socket and sends the room code
+  const joinRoom = async () => {
+    await socket.emit("join_room", chatFocusedId); // connects to the socket and sends the room code
+    await socket.emit("new-user-add", id);
     retrieveMessages()
     setChatAvailable(true);
   };
@@ -62,7 +63,7 @@ export default function Chat({ navigation }) {
       await socket.emit("send_message", messageData); // connects to the socket and sends data to it
       setMessage("");
       scrollToBottom()
-      // joinRoom();
+      joinRoom();
     }
   };
 
@@ -86,11 +87,11 @@ export default function Chat({ navigation }) {
     };
     
     const getOnlineUsers = async () => {
-      socket.emit("new-user-add", id);
-      socket.on("get-users", (users) => {
+      await socket.on("get-users", (users) => {
         for (let i = 0; i < users.length; i++) {
           if(users[i].userId == friend_id) {
             setIsFriendOnline(true)
+            console.log('onlineeeeee');
             return
           } else {
             setIsFriendOnline(false)

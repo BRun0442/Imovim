@@ -7,6 +7,8 @@ import CreateUserProvider from './contexts/createUser';
 import CreateAccountDataContext from './contexts/accountData';
 import Routes from './routes';
 
+// eas build -p android --profile preview
+
 function App() {
   return (
     <NavigationContainer>
