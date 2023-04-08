@@ -19,8 +19,6 @@ import { AccountDataContext } from "../../../contexts/accountData";
 import { getAnotherUserData } from "../../../services/user";
 
 export default function PerfilVisãoInterna({ navigation }, props) {
-  // const { accountData } = useContext(AccountDataContext);
-  // const { setAccountData } = useContext(AccountDataContext);
   const { setPostFocusedId } = useContext(AccountDataContext);
   const { profilePicture, id, posts, setPosts, profileUpdated, setProfileUpdated } = useContext(AuthContext);
   const [loaded, setLoaded] = useState(false)

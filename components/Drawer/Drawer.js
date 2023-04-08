@@ -19,6 +19,7 @@ import VerAmigos from "../Pages/VerAmigos/VerAmigos";
 import EditPhoto from "../Pages/EditPhoto/EditPhoto";
 import Notificacoes from "../Pages/Notificacoes/Notificações";
 import CriarGrupo from "../Pages/CriarGrupo/CriarGrupo";
+import Comentarios from '../Comentario/Comentario'
 
 import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
@@ -38,9 +39,11 @@ export default function DrawerRoutes() {
         <CustomDrawer {...props} accountData={accountData}/>
       } 
 
+      backBehavior = "history"
       initialRouteName="Feed"
     >
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
       <Drawer.Screen name="Meu Perfil" component={Perfil} options={{ headerShown: false, }} />
       <Drawer.Screen name="Eventos" component={Eventos} options={{ headerShown: false, }} />
       <Drawer.Screen name="Notificações" component={Notificacoes} options={{ headerShown: false, }} />

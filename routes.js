@@ -49,7 +49,8 @@ export default function Routes() {
   //Rotas caso o usuário não esteja logado
   const loginPages = (
     <Navigator screenOptions={{
-      headerShown: false
+      headerShown: true,
+      // swipeEnabled: false
     }}>
       <Screen name="Home" component={Home} />
       <Screen name="Login" component={Login} />
@@ -61,32 +62,10 @@ export default function Routes() {
   //Rotas caso o usuário esteja logado
   const userPages = (
     <Navigator initialRouteName='Feed' screenOptions={{
-      headerShown: false
+      headerShown: true,
+      // headerBackVisible: true
     }}>
-      <Screen name="Drawer" component={DrawerRoutes} options={{ headerShown: false, }} />
-      <Screen name="Camera" component={Camera} options={{ headerShown: false, }} />
-      <Screen name="Comentarios" component={Comentarios} options={{ headerShown: false, }} />
-      <Screen name="Criar Post" component={CriarPost} options={{ headerShown: false, }} />
-      <Screen name="Criar Evento" component={MarcarEvento} options={{ headerShown: false, }} />
-      <Screen name="Editar Perfil" component={EditarPerfil} options={{ headerShown: false, }} />
-      <Screen name="Tela Ver Mais" component={TelaVerMais} options={{ headerShown: false, }} />
-      <Screen name="Tela Tags" component={TelaTags} options={{ headerShown: false, }} />
-      <Screen name="Chat" component={Chat} options={{ headerShown: false, }} />
-      <Screen name="Mensagens" component={Messages} options={{ headerShown: false, }} />
-      <Screen name="Pesquisa" component={Pesquisa} options={{ headerShown: false, }} />
-      <Screen name="Ver Amigos" component={VerAmigos} options={{ headerShown: false, }} />
-      <Screen name="Meus Eventos" component={MeusEventos} options={{ headerShown: false, }} />
-      <Screen name="Fotos" component={Fotos} options={{ headerShown: false, }} />
-      <Screen name="Editar Foto" component={EditPhoto} options={{ headerShown: false, }} />
-      <Screen name="Meu Perfil" component={PerfilVisãoInterna} options={{ headerShown: false, }} />
-      <Screen name="Outros Perfis" component={PerfilVisãoExterna} options={{ headerShown: false, }} />
-      <Screen name="Notificações" component={Notificacoes} options={{ headerShown: false, }} />
-      <Screen name="Criar Grupo" component={CriarGrupo} options={{ headerShown: false, }} />
-      <Screen name="Adicionar Participantes" component={SelectGroup} options={{ headerShown: false, }} />
-      <Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
-      <Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
-      <Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
-      <Screen name="Editar Grupo" component={EditarGrupo} options={{ headerShown: false, }} />
+        <Screen name="Drawer" component={DrawerRoutes} options={{ headerShown: false, }} />
     </Navigator>
   )
 
