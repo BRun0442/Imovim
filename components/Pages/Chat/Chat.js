@@ -40,6 +40,7 @@ export default function Chat({ navigation }) {
     await socket.emit("new-user-add", id);
     retrieveMessages()
     setChatAvailable(true);
+    getOnlineUsers()
   };
 
   const saveMessage = async (messageData) => {
@@ -60,8 +61,8 @@ export default function Chat({ navigation }) {
       saveMessage(messageData)
 
       // in the send_message it will emit the message that you sent to the receivers
-      await socket.emit("send_message", messageData); // connects to the socket and sends data to it
       setMessage("");
+      await socket.emit("send_message", messageData); // connects to the socket and sends data to it
       scrollToBottom()
       joinRoom();
     }
@@ -75,7 +76,22 @@ export default function Chat({ navigation }) {
     joinRoom();
     scrollToBottom()
   }, [chatFocusedId]);
-
+  
+  const getOnlineUsers = async () => {
+    await socket.on("get-users", (users) => {
+      for (let i = 0; i < users.length; i++) {
+        if(users[i].userId == friend_id) {
+          setIsFriendOnline(true)
+          console.log('onlineeeeee');
+          return
+        } else {
+          setIsFriendOnline(false)
+        }
+      }
+      setOnlineUsers(users);
+      console.log(users);
+    });
+  }
   useEffect(() => {
     const getMessage = async () => {
       await socket.on("receive_message", (data) => {
@@ -86,21 +102,6 @@ export default function Chat({ navigation }) {
       });
     };
     
-    const getOnlineUsers = async () => {
-      await socket.on("get-users", (users) => {
-        for (let i = 0; i < users.length; i++) {
-          if(users[i].userId == friend_id) {
-            setIsFriendOnline(true)
-            console.log('onlineeeeee');
-            return
-          } else {
-            setIsFriendOnline(false)
-          }
-        }
-        setOnlineUsers(users);
-        console.log(users);
-      });
-    }
     
     getMessage();
     getOnlineUsers()
