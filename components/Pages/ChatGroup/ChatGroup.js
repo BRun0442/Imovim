@@ -15,6 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { io } from "socket.io-client";
 import axios from "axios";
 
+import ExitGroup from "../../Modals/IconExitGroup"
 import ComplaintGroup from "../../Modals/ComplaintGroup";
 import GroupMessage from "../../GroupMessage/GroupMessage"
 
@@ -25,7 +26,8 @@ export default function ChatGroup({ navigation }) {
   const [message, setMessage] = useState("");
 
   const [visible, setVisible] = useState(false);
-  const [visibleModal, setVisibleModal] = useState(false)
+  const [visibleComplaintModal, setVisibleComplaintModal] = useState(false)
+  const [visibleExitGroupModal, setVisibleExitGroupModal] = useState(false)
 
   const socket = io.connect("https://imovim-chat.onrender.com");
 
@@ -133,23 +135,33 @@ export default function ChatGroup({ navigation }) {
 
                       <View style={styles.lineButtons}></View>
 
-                      <TouchableOpacity>
+                      <TouchableOpacity onPress={()=> setVisibleExitGroupModal(true)}>
                         <Text style={styles.textButton}>Sair do grupo</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.lineButtons}></View>
+                      <Modal
+                        visible={visibleExitGroupModal}
+                        transparent={true}
+                        onRequestClose={() => setVisibleExitGroupModal(false)}
+                      >
+                        <ExitGroup
+                          handleClose={() => setVisibleExitGroupModal(false)}
+                        />
+                      </Modal>
 
-                      <TouchableOpacity onPress={() => setVisibleModal(true)}>
+                      <View style={styles.lineButtons} />
+
+                      <TouchableOpacity onPress={() => setVisibleComplaintModal(true)}>
                         <Text style={styles.textButton}>Denunciar</Text>
                       </TouchableOpacity>
 
                       <Modal
-                        visible={visibleModal}
+                        visible={visibleComplaintModal}
                         transparent={true}
-                        onRequestClose={() => setVisibleModal(false)}
+                        onRequestClose={() => setVisibleComplaintModal(false)}
                       >
                         <ComplaintGroup
-                          handleClose={() => setVisibleModal(false)}
+                          handleClose={() => setVisibleComplaintModal(false)}
                         />
                       </Modal>
 
@@ -192,12 +204,10 @@ export default function ChatGroup({ navigation }) {
                       style={[styles.messages, { alignItems: "flex-start" }]}
                     >
                       {/* <FriendMessage friendMessage={item.message} /> */}
-                      <GroupMessage groupMessage = "Tiaguh"/>
-                      <GroupMessage groupMessage = "Tiaguh"/>
-                      <GroupMessage groupMessage = "Tiaguh"/>
+                      <GroupMessage groupMessage="Tiaguh" />
+                      <GroupMessage groupMessage="Tiaguh" />
+                      <GroupMessage groupMessage="Tiaguh" />
                     </View>
-
-
                   )}
                 </View>
 

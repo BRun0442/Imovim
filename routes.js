@@ -49,7 +49,7 @@ export default function Routes() {
   //Rotas caso o usuário não esteja logado
   const loginPages = (
     <Navigator screenOptions={{
-      headerShown: true,
+      headerShown: false,
       // swipeEnabled: false
     }}>
       <Screen name="Home" component={Home} />

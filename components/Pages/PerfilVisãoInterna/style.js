@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
 
     marginTop: 5,
     marginBottom: 10,
-    
+
     paddingStart: 25,
     paddingEnd: 25,
   },
@@ -122,12 +122,22 @@ export const styles = StyleSheet.create({
 
   tagsView: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
 
     height: 120,
-    // paddingHorizontal: 10
+    paddingHorizontal: 10
+  },
+
+  tagsContainer: {
+    width: "60%",
+    height: "100%",
+
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flexDirection: "row",
   },
 
   tags: {
@@ -137,6 +147,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
 
     backgroundColor: '#8B8A8B',
     borderRadius: 25,
@@ -148,9 +159,20 @@ export const styles = StyleSheet.create({
     fontSize: 14,
   },
 
+  editProfileContainer: {
+    width: "40%",
+    height: "100%",
+
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flexDirection: "row",
+
+  },
+
   editProfile: {
-    width: 200,
-    height: 80,
+    width: 180,
+    height: 75,
 
     display: "flex",
     flexDirection: "row",
@@ -161,7 +183,7 @@ export const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
 
   editProfileButton: {
@@ -179,7 +201,7 @@ export const styles = StyleSheet.create({
   },
 
   closedButton: {
-    width: 30, 
+    width: 30,
     height: 70,
 
     display: "flex",

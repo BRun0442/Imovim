@@ -25,12 +25,12 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   const [visible, setVisible] = useState(false);
   const [accountData, setAccountData] = useState()
 
-    const [profileImage, setProfileImage] = useState()
-    const [backgroundImage, setBackgroundImage] = useState()
-    const [name, setName] = useState('')
-    const [location, setLocation] = useState()
-    const [currentUser, setCurrentUser] = useState()
-    // const [posts, setPosts] = useState()
+  const [profileImage, setProfileImage] = useState()
+  const [backgroundImage, setBackgroundImage] = useState()
+  const [name, setName] = useState('')
+  const [location, setLocation] = useState()
+  const [currentUser, setCurrentUser] = useState()
+  // const [posts, setPosts] = useState()
 
   const getData = async () => {
     const data = await getAnotherUserData(id, id)
@@ -44,13 +44,13 @@ export default function PerfilVisãoInterna({ navigation }, props) {
     setBackgroundImage(data.profileInfo[0].profileBackground)
     setLoaded(true)
     return data
-}
+  }
 
   useEffect(() => {
     getData()
   }, [profileUpdated])
 
-  if(!loaded) {
+  if (!loaded) {
     return (
       <View>
         <Text>Loading...</Text>
@@ -135,20 +135,26 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
             <View style={styles.tagsView}>
 
-              <View style={styles.tags}>
+              <View style={styles.tagsContainer}>
 
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate("Tela Tags");
-                  }}
-                >
-                  <Text style={styles.tagsText}>
-                    #Adicione seus esportes favoritos
-                  </Text>
-                </TouchableOpacity>
+                <View style={styles.tags}>
+
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate("Tela Tags");
+                    }}
+                  >
+                    <Text style={styles.tagsText}>
+                      #Adicione seus esportes favoritos
+                    </Text>
+                  </TouchableOpacity>
+
+                </View>
+
               </View>
 
-              <View>
+              <View style={styles.editProfileContainer}>
+
                 {visible && (
                   <View style={styles.editProfile}>
 
@@ -198,6 +204,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 )}
 
               </View>
+
             </View>
           </View>
         }

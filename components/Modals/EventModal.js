@@ -58,7 +58,7 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
 
                         <View style={styles.interactiveButtonContainer}>
 
-                            <TouchableOpacity onPress={()=> setIgo(iGo + 1) } style={styles.interactiveButton}>
+                            <TouchableOpacity onPress={() => setIgo(iGo + 1)} style={styles.interactiveButton}>
 
                                 <AntDesign name="like1" size={60} color="#FFF" />
                                 <Text style={styles.interactiveText}>Eu vou!</Text>
@@ -72,9 +72,9 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                             <TouchableOpacity onPress={() => setActionIcon(!actionIcon)} style={styles.interactiveButton}>
                                 {
                                     actionIcon === true ?
-                                        <Ionicons name="add-circle-outline" size={70} color="#FFF" />
-                                        :
                                         <Feather name="check-circle" size={60} color="#FFF" />
+                                        :
+                                        <Ionicons name="add-circle-outline" size={70} color="#FFF" />
                                 }
                                 <Text style={styles.interactiveText}>Salvar</Text>
                             </TouchableOpacity>
