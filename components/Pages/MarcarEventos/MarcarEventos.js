@@ -63,7 +63,7 @@ export default function MarcarEventos({ navigation }, props) {
         }
     }
     const handleSubmit = async () => {
-        if(!image){
+        if (!image) {
             alert("Insira uma imagem no evento!")
         } else {
             console.log(id, name, localization, description, day, month, year, hour, minute)
@@ -152,9 +152,9 @@ export default function MarcarEventos({ navigation }, props) {
                                 onChangeText={(text) => setLocalization(text)}
                                 keyboardType="default"
                             />
-                            <TouchableOpacity 
-                            style={styles.iconInput}
-                            onPress={()=> navigation.navigate("Mapa")}
+                            <TouchableOpacity
+                                style={styles.iconInput}
+                                // onPress={() => navigation.navigate("Mapa")}
                             >
                                 <Entypo name="location" size={22} color="#F8670E" />
                             </TouchableOpacity>

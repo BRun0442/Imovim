@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
-export default function EventModal({ handleClose, name, image, date, hour, location }, props) {
+export default function EventModal({ handleClose, name, image, date, hour, location, description }) {
 
     const [actionIcon, setActionIcon] = useState(false)
     const [iGo, setIgo] = useState(0)
@@ -44,15 +44,20 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
                                 <Text style={styles.hour}>{hour}</Text>
                             </View>
 
-                            <View style={styles.descritpionEvent}>
-                                <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
-                                <Text style={styles.description}></Text>
-                            </View>
-
                             <View style={styles.locationEvent}>
                                 <Text style={styles.locationTitle}>Local: </Text>
                                 <Text style={styles.location}>{location}</Text>
                             </View>
+
+                            <ScrollView>
+                                <View style={styles.descritpionEvent}>
+
+                                    <Text style={styles.description}>
+                                        <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
+                                        {description}
+                                    </Text>
+                                </View>
+                            </ScrollView>
 
                         </View>
 
@@ -203,7 +208,7 @@ const styles = StyleSheet.create({
     descritpionEvent: {
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
+        justifyContent: 'flex-start',
 
         marginVertical: 5
     },
@@ -215,7 +220,8 @@ const styles = StyleSheet.create({
     },
 
     description: {
-        fontSize: 20
+        fontSize: 20,
+        paddingHorizontal: 15,
     },
 
     locationEvent: {

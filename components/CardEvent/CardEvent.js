@@ -37,6 +37,7 @@ function CardEvents(props) {
                     <EventModal
                         date={props.event_date}
                         hour={props.event_hour}
+                        description={props.describeEvent}
                         location={props.location}
                         name={props.eventName}
                         image={props.eventImage}
