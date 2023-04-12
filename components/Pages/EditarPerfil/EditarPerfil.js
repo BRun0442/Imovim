@@ -19,6 +19,7 @@ function EditarPerfil({ navigation }) {
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [localization, setLocalization] = useState("");
     const [loaded, setLoaded] = useState(false)
+    const [name, setName] = useState('');
 
     const handleSubmit = async () => {
         if (await validateCity(localization)) {
@@ -131,8 +132,12 @@ function EditarPerfil({ navigation }) {
 
                     </TouchableOpacity>
 
+                    <View style={[styles.editProfileTitleContainer, {marginTop: 15, marginBottom: -2}]}>
+                        <Text style={styles.editProfileTitle}>Nickname</Text>
+                    </View>
+
                     <View style={styles.editProfileNameContainerInput}>
-                        <TextInput style={styles.input} />
+                        <TextInput value={name} onChangeText={(text) => { setName(text) }} style={styles.input} />
                     </View>
 
                     <View style={styles.lineContainer}>
