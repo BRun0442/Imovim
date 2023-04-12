@@ -26,7 +26,7 @@ function EditarPerfil({ navigation }) {
             try{
                 await updateProfile(image, id, backgroundImage, localization, setProfilePicture, nickname, navigation)
                     .then(async () => {
-                        const randomNumber = Math.random()
+                        let randomNumber = Date.now()
                         console.log(randomNumber);
                         setProfileUpdated(randomNumber)
                         console.log("Perfile Atualizado!");

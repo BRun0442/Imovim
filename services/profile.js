@@ -16,7 +16,7 @@ export const sendProfileDataToApi = async (user_id, image, background, localizat
     try{
       await axios.post(`https://imovim-api.cyclic.app/profile/update-profile`, data)
       .then((res) => {
-          console.log(res)
+          // console.log(res)
           alert(res.data.msg)
           navigation.navigate("Meu Perfil")
       })
