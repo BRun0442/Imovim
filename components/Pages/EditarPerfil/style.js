@@ -4,18 +4,19 @@ export const styles = StyleSheet.create({
     container: {
         backgroundColor: "#FFF",
         height: "100%",
+
+        paddingHorizontal: 10,
     },
-    
+
     titleContainer: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
 
-        paddingStart: 10,
-        paddingEnd: 10,
-        
-        marginTop: 15,
+
+        width: "100%",
+        height: "10%",
     },
 
     title: {
@@ -23,11 +24,7 @@ export const styles = StyleSheet.create({
     },
 
     editProfileContainer: {
-        marginHorizontal: 8,
-
-        marginTop: 18,
-        marginBottom: 15,
-
+        width: "100%",
         height: "80%",
         backgroundColor: "#F1F1F1",
 
@@ -36,8 +33,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
 
-        paddingTop: 30,
-        paddingBottom: 20
+        paddingVertical: 30,
     },
 
     editProfileTitleContainer: {
@@ -45,24 +41,12 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "flex-start",
 
-        paddingLeft: 20,
-        marginBottom: 15
+        paddingHorizontal: 15,
+        marginBottom: 10
     },
 
     editProfileTitle: {
         fontSize: 16
-    },
-
-    editProfile: {
-        height: "85%",
-        backgroundColor: "#F1F1F1",
-        borderRadius: 15,
-
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-
-        paddingTop: 30,
     },
 
     editProfileIconContainerPhoto: {
@@ -83,16 +67,26 @@ export const styles = StyleSheet.create({
         backgroundColor: "#FFF"
     },
 
+    editProfileNameContainerInput: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+
+        paddingVertical: 15,
+        paddingHorizontal: 15
+    },
+
     lineContainer: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
 
-        marginVertical: 15
+        paddingHorizontal: 20,
+        paddingVertical: 20
     },
 
     line: {
-        width: "90%",
+        width: "100%",
         height: 2,
 
         backgroundColor: "#D9D9D9",
@@ -101,7 +95,9 @@ export const styles = StyleSheet.create({
     editProfileIconContainerBanner: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+
+        paddingHorizontal: 15
     },
 
     editBanner: {
@@ -109,8 +105,8 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        width: "95%",
-        height: 150,
+        width: "100%",
+        height: 180,
 
         backgroundColor: "#FFF"
     },
@@ -120,21 +116,20 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
 
-        paddingBottom: 15,
         paddingHorizontal: 15
     },
 
-    input:{
+    input: {
         width: "100%",
         height: 40,
 
         backgroundColor: "#FFF",
 
-        borderRadius: 50,        
+        borderRadius: 45,
         borderColor: "#DA64ED",
         borderWidth: 1,
 
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
     }
 
 })

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, Text, StatusBar, TouchableOpacity, Image, Alert, TextInput, ScrollView, SafeAreaView } from "react-native";
 import Header from "../../Header/Header";
-import { styles } from './style.js'
-import { Entypo } from '@expo/vector-icons';
+import { styles } from "./style.js"
+import { Entypo } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import axios from "axios";
@@ -17,7 +17,7 @@ function EditarPerfil({ navigation }) {
     const { setAccountData } = useContext(AccountDataContext);
     const [image, setImage] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState(null);
-    const [localization, setLocalization] = useState('');
+    const [localization, setLocalization] = useState("");
     const [loaded, setLoaded] = useState(false)
 
     const handleSubmit = async () => {
@@ -26,15 +26,15 @@ function EditarPerfil({ navigation }) {
                 .then(async () => {
                     const randomNumber = Math.random()
                     setProfileUpdated(randomNumber)
-                    alert('Perfil atualizado!')
+                    alert("Perfil atualizado!")
                     console.log("Perfile Atualizado!");
-                    navigation.navigate('Meu Perfil')
+                    navigation.navigate("Meu Perfil")
                 }).catch((err) => {
                     console.log(err)
                 })
         }
         else {
-            Alert.alert('Cidade invalida!')
+            Alert.alert("Cidade invalida!")
         }
     }
 
@@ -92,8 +92,8 @@ function EditarPerfil({ navigation }) {
     }
     return (
         <SafeAreaView>
-            <ScrollView style={styles.container}>
-                <Header navigation={navigation} />
+            <Header navigation={navigation} />
+            <ScrollView contentContainerStyle={styles.container}>
 
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Editar Perfil</Text>
@@ -131,8 +131,12 @@ function EditarPerfil({ navigation }) {
 
                     </TouchableOpacity>
 
+                    <View style={styles.editProfileNameContainerInput}>
+                        <TextInput style={styles.input} />
+                    </View>
+
                     <View style={styles.lineContainer}>
-                        <View style={styles.line}></View>
+                        <View style={styles.line} />
                     </View>
 
                     <View style={styles.editProfileTitleContainer}>
@@ -150,8 +154,10 @@ function EditarPerfil({ navigation }) {
                                 style=
                                 {
                                     {
-                                        width: '95%',
-                                        height: 150,
+                                        width: "100%",
+                                        height: 180,
+
+                                        marginTop: 10
                                     }
                                 }
                                 source={{ uri: backgroundImage }}
@@ -160,7 +166,7 @@ function EditarPerfil({ navigation }) {
                     </TouchableOpacity>
 
                     <View style={styles.lineContainer}>
-                        <View style={styles.line}></View>
+                        <View style={styles.line} />
                     </View>
 
                     <View style={styles.editProfileTitleContainer}>
