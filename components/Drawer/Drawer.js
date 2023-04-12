@@ -19,7 +19,7 @@ import VerAmigos from "../Pages/VerAmigos/VerAmigos";
 import EditPhoto from "../Pages/EditPhoto/EditPhoto";
 import Notificacoes from "../Pages/Notificacoes/Notificações";
 import CriarGrupo from "../Pages/CriarGrupo/CriarGrupo";
-import Comentarios from '../Comentario/Comentario'
+import Comentarios from '../Pages/Comentarios/Comentarios'
 
 import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
