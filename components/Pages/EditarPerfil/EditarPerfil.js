@@ -19,20 +19,24 @@ function EditarPerfil({ navigation }) {
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [localization, setLocalization] = useState("");
     const [loaded, setLoaded] = useState(false)
-    const [name, setName] = useState('');
+    const [nickname, setNickname] = useState('');
 
     const handleSubmit = async () => {
         if (await validateCity(localization)) {
-            await updateProfile(image, id, backgroundImage, localization, setProfilePicture)
-                .then(async () => {
-                    const randomNumber = Math.random()
-                    setProfileUpdated(randomNumber)
-                    alert("Perfil atualizado!")
-                    console.log("Perfile Atualizado!");
-                    navigation.navigate("Meu Perfil")
-                }).catch((err) => {
-                    console.log(err)
-                })
+            try{
+                await updateProfile(image, id, backgroundImage, localization, setProfilePicture, nickname, navigation)
+                    .then(async () => {
+                        const randomNumber = Math.random()
+                        console.log(randomNumber);
+                        setProfileUpdated(randomNumber)
+                        console.log("Perfile Atualizado!");
+                        
+                    }).catch((err) => {
+                        console.log(err)
+                    })
+            } catch (err) {
+                console.log(err);
+            }
         }
         else {
             Alert.alert("Cidade invalida!")
@@ -78,6 +82,7 @@ function EditarPerfil({ navigation }) {
                         setImage(element.profileImage)
                         setBackgroundImage(element.profileBackground)
                         setLocalization(element.localization)
+                        setNickname(element.nickname)
                         setLoaded(true)
                     });
                 })
@@ -137,7 +142,7 @@ function EditarPerfil({ navigation }) {
                     </View>
 
                     <View style={styles.editProfileNameContainerInput}>
-                        <TextInput value={name} onChangeText={(text) => { setName(text) }} style={styles.input} />
+                        <TextInput value={nickname} onChangeText={(text) => { setNickname(text) }} style={styles.input} />
                     </View>
 
                     <View style={styles.lineContainer}>

@@ -5,17 +5,24 @@ import axios from "axios";
 
 initializeApp(firebaseConfig);
 
-export const sendProfileDataToApi = async (user_id, image, background, localization) => {
+export const sendProfileDataToApi = async (user_id, image, background, localization, nickname, navigation) => {
     const data = {
         user_id: user_id, 
         image: image, 
         background: background, 
-        localization: localization
+        localization: localization,
+        nickname: nickname
     }
-    await axios.post(`https://imovim-api.cyclic.app/profile/update-profile`, data)
-    .then((res) => {
-        console.log(res)
-    })
+    try{
+      await axios.post(`https://imovim-api.cyclic.app/profile/update-profile`, data)
+      .then((res) => {
+          console.log(res)
+          alert(res.data.msg)
+          navigation.navigate("Meu Perfil")
+      })
+    } catch (err) {
+      alert(err.response.data.msg)
+    }
 }
 
 export const updateBackgroundInApi = async (user_id, background) => {
@@ -64,7 +71,7 @@ export const updateBackground = async (user_id, background) => {
   }
 }
 
-export const updateProfile = async (image, user_id, background, localization, setProfilePicture) => {
+export const updateProfile = async (image, user_id, background, localization, setProfilePicture, nickname, navigation) => {
     if(image)
   {
     let imageRef;
@@ -78,7 +85,7 @@ export const updateProfile = async (image, user_id, background, localization, se
       getDownloadURL(imageRef)
         .then(async (url) => {
         setProfilePicture(url)
-          await sendProfileDataToApi(user_id, url, background, localization)  
+          await sendProfileDataToApi(user_id, url, background, localization, nickname, navigation)  
           .then(res => console.log(res))
           console.log('url:', url)
           url = ''
@@ -93,7 +100,7 @@ export const updateProfile = async (image, user_id, background, localization, se
     });
   }else{
     imageRef = null;
-    sendProfileDataToApi(user_id, '', background, localization)  
+    sendProfileDataToApi(user_id, '', background, localization, nickname, navigation)  
     return;
   }
   if (background) {
