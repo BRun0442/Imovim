@@ -63,7 +63,7 @@ export default function Pesquisa({ navigation }) {
                 <Text style={styles.tag}>Publicações</Text>
             </View>
 
-            <ScrollView style={{marginBottom: 30}}>
+            <ScrollView style={{marginBottom: 30, paddingHorizontal: 15}}>
                 <View style={styles.results}>
                     {searchedUsers.map((user, index) => {
                         return (

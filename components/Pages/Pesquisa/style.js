@@ -69,10 +69,9 @@ export const styles = StyleSheet.create({
 
     results: {
         backgroundColor: "#FFF",
-        width: "90%",
+        width: "100%",
 
         paddingHorizontal: 20,
-        marginHorizontal: 15,
 
         borderRadius: 25
     },
