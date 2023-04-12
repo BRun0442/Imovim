@@ -54,14 +54,14 @@ export default function Pesquisa({ navigation }) {
                 <TextInput value={inputText} onChangeText={async (text) => {
                     setInputText(text)
                     await searchUser(text)
-                }} style={styles.searchInput} placeholder='Pesquise amigos, eventos etc.' />
+                }} style={styles.searchInput} placeholder='Pesquise por amigos...' />
             </View>
 
-            <View style={styles.tags}>
+            {/* <View style={styles.tags}>
                 <Text style={styles.tag}>Pessoas</Text>
                 <Text style={styles.tag}>Eventos</Text>
                 <Text style={styles.tag}>Publicações</Text>
-            </View>
+            </View> */}
 
             <ScrollView style={{marginBottom: 30, paddingHorizontal: 15}}>
                 <View style={styles.results}>
