@@ -40,7 +40,7 @@ export default function Chat({ navigation }) {
     await socket.emit("new-user-add", id);
     retrieveMessages()
     setChatAvailable(true);
-    getOnlineUsers()
+    // getOnlineUsers()
   };
 
   const saveMessage = async (messageData) => {
@@ -104,7 +104,7 @@ export default function Chat({ navigation }) {
     
     
     getMessage();
-    getOnlineUsers()
+    // getOnlineUsers()
   }, [socket]); // it wll be called whenever there is a change in the socket server
 
   if (!chatAvailable) {

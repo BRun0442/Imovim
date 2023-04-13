@@ -30,13 +30,14 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [location, setLocation] = useState('s')
     const [currentUser, setCurrentUser] = useState()
     const [posts, setPosts] = useState()
-    const [userIsFollowing, setUserIsFollowing] = useState()
+    const [friendShipExists, setfriendShipExists] = useState()
+    const [userIdWhoSentSolicitation, setUserIdWhoSentSolicitation] = useState()
 
     const [visibleModal, setVisibleModal] = useState(false)
 
     const handleChatButton = () => {
         const data = {
-            user_id: id,
+            user_id: parseInt(id),
             friend_id: anotherUser_id
         }
         axios.post(`https://imovim-api.cyclic.app/chat/create-room`, data)
@@ -53,19 +54,47 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         setProfileImage(data.profileInfo[0].profileImage)
         setLocation(data.profileInfo[0].localization)
         setName(data.profileInfo[0].nickname)
-        setUserIsFollowing(data.profileInfo[0].userIsFollowing)
+        setfriendShipExists(data.profileInfo[0].pending)
         setCurrentUser(data.profileInfo[0].user_id)
+        setUserIdWhoSentSolicitation(data.profileInfo[0].userIdWhoSentSolicitation)
         setPosts(data.userPosts)
         return data
     }
 
-    const handleFollowUser = async () => {
-        const data = { user_id: currentUser, follower_id: id }
-        await axios.post(`https://imovim-api.cyclic.app/user/follow`, data)
+    const handleFriendship = async () => {
+        const data = { user_id: id, friend_id: currentUser }
+        if (friendShipExists === null) {
+            await axios.post(`https://imovim-api.cyclic.app/friendShip/send-solicitation`, data)
             .then((res) => {
                 getUserData()
                 showToastSuccess(`${res.data.msg} ${name}!`, "")
             })
+        }
+
+        else if (friendShipExists === 1 && userIdWhoSentSolicitation != id) {
+            await axios.post(`https://imovim-api.cyclic.app/friendShip/accept-solicitation`, data)
+            .then(async (res) => {
+                await getUserData()
+                showToastSuccess(`${res.data.msg} ${name}!`, "")
+                alert('Amizade aceita')
+                })
+        }
+
+        else if (friendShipExists === 1 && userIdWhoSentSolicitation == id) {
+            await axios.post(`https://imovim-api.cyclic.app/friendShip/remove-friendship`, data)
+            .then((res) => {
+                getUserData()
+                showToastSuccess(`${res.data.msg} ${name}!`, "")
+            })
+        }
+
+        else if (friendShipExists === 0) {
+            await axios.post(`https://imovim-api.cyclic.app/friendShip/remove-friendship`, data)
+            .then((res) => {
+                getUserData()
+                showToastSuccess(`${res.data.msg} ${name}!`, "")
+            })
+        }
     }
 
     useEffect(() => {
@@ -124,20 +153,35 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                 <View>
                                     <TouchableOpacity
                                         style={styles.followButton}
-                                        onPress={() => handleFollowUser()}
+                                        onPress={() => handleFriendship()}
                                     >
                                         {
-                                            userIsFollowing == 1 ?
+                                            friendShipExists === 1  && userIdWhoSentSolicitation != id && 
                                                 <View style={styles.addFriendsIcons}>
                                                     <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                    <Text style={styles.addFriendText}>Seguindo</Text>
+                                                    <Text style={styles.addFriendText}>Aceitar solicitação</Text>
                                                 </View>
-                                                :
-                                                <View style={styles.addFriendsIcons} >
-                                                    <Ionicons name="person-add" size={24} color="#FFF" />
-                                                    <Text style={styles.addFriendText}>Seguir</Text>
+                                        }
+                                        {
+                                            friendShipExists === 1  && userIdWhoSentSolicitation == id && 
+                                                <View style={styles.addFriendsIcons}>
+                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                    <Text style={styles.addFriendText}>Pendente</Text>
                                                 </View>
-
+                                        }
+                                        {
+                                            friendShipExists === null && 
+                                                <View style={styles.addFriendsIcons}>
+                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                    <Text style={styles.addFriendText}>Enviar solicitação</Text>
+                                                </View>
+                                        }
+                                        {
+                                            friendShipExists === 0 && 
+                                                <View style={styles.addFriendsIcons}>
+                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                    <Text style={styles.addFriendText}>Amigo</Text>
+                                                </View>
                                         }
                                     </TouchableOpacity>
                                 </View>
