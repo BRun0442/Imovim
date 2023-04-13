@@ -6,6 +6,7 @@ import { styles } from './style'
 import NotificationNewFriend from '../../Notifications/NotificationNewFriend/NotificationNewFriend'
 import NotificationLike from "../../Notifications/NotificationLike/NotificationLike";
 import NotificationComent from "../../Notifications/NotificationComent/NotificationComent";
+import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 
 export default function Notificacoes({ navigation }) {
     return (
@@ -17,7 +18,8 @@ export default function Notificacoes({ navigation }) {
 
             <ScrollView style={styles.notifications}>
                 <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
-                <NotificationLike name="Tiago" /> 
+                <NotificationLike name="Tiago" />
+                <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
                 <NotificationComent name="Tiago" />
             </ScrollView>
 

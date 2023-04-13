@@ -27,7 +27,10 @@ export const styles = StyleSheet.create({
     },
 
     notifications:{
-        marginBottom: 20
+        marginBottom: 20,
+
+        paddingHorizontal: 20
+
     }
 
 })
