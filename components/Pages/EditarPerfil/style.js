@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: "#FFF",
-        height: "100%",
+        height: "110%",
 
         paddingHorizontal: 10,
     },
@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-
 
         width: "100%",
         height: "10%",
@@ -25,7 +24,7 @@ export const styles = StyleSheet.create({
 
     editProfileContainer: {
         width: "100%",
-        height: "80%",
+        height: "75%",
         backgroundColor: "#F1F1F1",
 
         borderRadius: 15,
@@ -33,7 +32,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
 
-        paddingVertical: 30,
+        paddingVertical: 20
     },
 
     editProfileTitleContainer: {
@@ -42,12 +41,13 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
 
         paddingHorizontal: 15,
-        marginBottom: 10
     },
 
     editProfileTitle: {
         fontSize: 17,
-        fontWeight: "450"
+        fontWeight: "450",
+
+        marginVertical: 10
     },
 
     editProfileIconContainerPhoto: {
@@ -73,7 +73,6 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
 
-        paddingVertical: 15,
         paddingHorizontal: 15
     },
 
@@ -134,6 +133,5 @@ export const styles = StyleSheet.create({
 
         fontSize: 16,
         fontWeight: "450"
-    }
-
+    },
 })
