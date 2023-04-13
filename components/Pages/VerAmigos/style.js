@@ -11,8 +11,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
 
-        paddingStart: 10,
-        paddingEnd: 10,
+        paddingHorizontal: 10,
 
         marginTop: 20,
     },
@@ -28,25 +27,48 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        
-        padding: 15,
-        marginHorizontal: 20,     
-        marginBottom: 200,
+
+        paddingHorizontal: 15,
+        marginHorizontal: 20,
+
         borderRadius: 20,
 
         backgroundColor: "#F1F1F1"
     },
 
+    searchInputContainer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    iconContainer: {
+        width: "10%",
+        height: 50,
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+        backgroundColor: "#FFF",
+
+        borderTopStartRadius: 20,
+        borderBottomStartRadius: 20,
+    },
+
     searchInput: {
         backgroundColor: "#FFF",
-        height: 45,
-        width: "100%",
-        borderRadius: 50,
+        height: 50,
+        width: "90%",
+
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
 
         paddingHorizontal: 15,
-        marginTop: 15,
-        marginBottom: 20,
-    },  
+
+        marginVertical: 15
+    },
 
     results: {
         paddingHorizontal: 15,
@@ -55,4 +77,4 @@ export const styles = StyleSheet.create({
         marginVertical: 10
     },
 
-})	
+})

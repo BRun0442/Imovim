@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
 
-        marginBottom: 10
+        marginVertical: 10
     },
 
     photoUser: {

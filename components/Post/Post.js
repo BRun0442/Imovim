@@ -48,11 +48,17 @@ export default function Post(props) {
       <View style={styles.postContainer}>
 
         <View style={styles.postProfile}>
-          <ProfileImage profileImage={props.profileImage} />
+          <TouchableOpacity onPress={() => props.goToProfile()}>
+            <ProfileImage profileImage={props.profileImage} />
+          </TouchableOpacity>
+
 
           <View style={styles.profileContainer}>
             <View style={{ marginLeft: 10 }}>
-              <Text style={styles.profileName}>{props.nickname}</Text>
+              <TouchableOpacity onPress={() => props.goToProfile()}>
+                <Text style={styles.profileName}>{props.nickname}</Text>
+              </TouchableOpacity>
+
               <Text style={styles.postDate}>{props.created_at}</Text>
             </View>
 
@@ -90,7 +96,7 @@ export default function Post(props) {
 
         <View style={styles.postInteraction}>
           <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
-            <AntDesign name="like1" size={24} color={ props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
+            <AntDesign name="like1" size={24} color={props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
             <Text style={styles.interactionQuantity}>{props.likes}</Text>
           </TouchableOpacity>
 

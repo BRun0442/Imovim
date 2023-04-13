@@ -32,6 +32,10 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   const [currentUser, setCurrentUser] = useState()
   // const [posts, setPosts] = useState()
 
+  const goToProfile = () => {
+    navigation.navigate('Meu Perfil')
+}
+
   const getData = async () => {
     const data = await getAnotherUserData(id, id)
     console.log(data)
@@ -64,6 +68,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         data={posts}
         renderItem={({ item }) => (
           <Post
+            goToProfile={goToProfile}
             goToCommentScreen={() => {
               setPostFocusedId(item.id);
               navigation.navigate("Comentarios");

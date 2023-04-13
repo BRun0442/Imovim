@@ -22,7 +22,7 @@ import axios from "axios";
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
-  const { id } = useContext(AuthContext);
+  const { id, setAnotherUser_id } = useContext(AuthContext);
   const [postAmmount, setPostAmmount] = useState(5);
   let isLoading;
 
@@ -65,6 +65,14 @@ export default function Feed({ navigation }) {
 
         renderItem={({ item }) =>
           <Post
+            goToProfile={() => {
+              if(item.user_id != id) {
+                setAnotherUser_id(item.user_id)
+                navigation.navigate('Outros Perfis')
+              } else {
+                navigation.navigate('Meu Perfil')
+              }
+            }}
             goToCommentScreen={() => {
               setPostFocusedId(item.id)
               navigation.navigate('Comentarios')
