@@ -46,7 +46,8 @@ export const styles = StyleSheet.create({
     },
 
     editProfileTitle: {
-        fontSize: 16
+        fontSize: 17,
+        fontWeight: "450"
     },
 
     editProfileIconContainerPhoto: {
@@ -130,6 +131,9 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
 
         paddingHorizontal: 15,
+
+        fontSize: 16,
+        fontWeight: "450"
     }
 
 })
