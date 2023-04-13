@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         backgroundColor: "#F1F1F1",
 
-        width: "90%",
+        width: "100%",
         height: 120,
         
         padding: 15,

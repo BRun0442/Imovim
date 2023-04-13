@@ -14,11 +14,10 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
 
-        paddingStart: 10,
-        paddingEnd: 10,
+        width: "100%",
+        height: "10%",
 
-        marginTop: 20,
-        marginBottom: 30
+        paddingHorizontal: 10,
     },
 
     title: {
@@ -27,10 +26,10 @@ export const styles = StyleSheet.create({
     },
 
     notifications:{
-        marginBottom: 20,
+        width: "100%",
 
-        paddingHorizontal: 20
-
+        paddingHorizontal: 20,
+        paddingVertical: 20,
     }
 
 })

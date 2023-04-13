@@ -11,16 +11,21 @@ import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/Sol
 export default function Notificacoes({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
+
             <Header navigation={navigation} />
+
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Notificações</Text>
             </View>
 
             <ScrollView style={styles.notifications}>
-                <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
-                <NotificationLike name="Tiago" />
+                {/* <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" /> */}
+                {/* <NotificationLike name="Tiago" /> */}
                 <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
-                <NotificationComent name="Tiago" />
+            
+
+                {/* <NotificationComent name="Tiago" /> */}
+                {/* <NotificationComent name="Tiago" /> */}
             </ScrollView>
 
         </SafeAreaView>

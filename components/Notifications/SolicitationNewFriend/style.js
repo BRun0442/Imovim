@@ -1,94 +1,97 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    container:{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
+  container: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
 
-        flexDirection: "row",
-        backgroundColor: "#F1F1F1",
+    flexDirection: "row",
+    backgroundColor: "#F1F1F1",
 
-        width: "100%",
-        height: "25%",
-        
-        paddingHorizontal: 20,
+    width: "100%",
+    height: "100%",
 
-        borderRadius: 30,
-    },
+    paddingHorizontal: 20,
+    paddingVertical: 20,
 
-    userInfo:{
-        display: "flex",
-        flexDirection: "row",
+    marginBottom: 20,
 
-        width: "65%"
-    },
-    
-    iconCam: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+    borderRadius: 30,
+  },
 
-        width: 75,
-        height: 75,
+  userInfo: {
+    display: "flex",
+    flexDirection: "row",
 
-        backgroundColor: "#d9d9d9",
+    width: "65%"
+  },
 
-        borderRadius: 100,
-        borderColor: "#fff",
-        borderWidth: 3
-      },
+  iconCam: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
-      data:{
-        display: "flex",
-        flexDirection: "column",
+    width: 75,
+    height: 75,
 
-        marginLeft: 10
-      },
+    backgroundColor: "#d9d9d9",
 
-      buttons:{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
+    borderRadius: 100,
+    borderColor: "#fff",
+    borderWidth: 3
+  },
 
-        width: "35%",
-        height: "100%",
-      },
+  data: {
+    display: "flex",
+    flexDirection: "column",
 
-      textButton:{
-        color: "#FFF",
-        fontSize: 18,
+    marginLeft: 10
+  },
 
-        fontWeight: "bold"
-      },
+  buttons: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
 
-      aceptButton:{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+    width: "35%",
+    height: "100%",
+  },
 
-        width: "100%",
-        height: "30%",
+  textButton: {
+    color: "#FFF",
+    fontSize: 18,
 
-        backgroundColor: "#A512BD",
+    fontWeight: "bold"
+  },
 
-        borderRadius: 15,
+  aceptButton: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
-        marginVertical: 4
-      },
+    width: "100%",
+    height: "50%",
 
-      deleteButton:{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+    backgroundColor: "#A512BD",
 
-        width: "100%",
-        height: "30%",
+    borderRadius: 15,
 
-        backgroundColor: "#D9D9D9",
+    marginVertical: 4
+  },
 
-        borderRadius: 15,
+  deleteButton: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
-        marginVertical: 4
-      }
+    width: "100%",
+    height: "50%",
+
+    backgroundColor: "#D9D9D9",
+
+    borderRadius: 15,
+
+    marginVertical: 4
+  }
 })
