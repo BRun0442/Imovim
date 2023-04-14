@@ -7,13 +7,14 @@ export default function SolicitationNewFriend(props) {
     return (
         <View style={styles.container}>
             <View style={styles.userInfo}>
-                <View style={styles.iconCam}>
-                    {/* <Image source={uri:} /> */}
-                    <Entypo name="camera" size={20} color="#FFF" />
-                </View>
+                <TouchableOpacity onPress={() => props.navigateToProfile(props.friend_id)} style={styles.iconCam}>
+                    <Image style={styles.iconCam} source={{ uri: props.profileImage }} />
+                </TouchableOpacity>
 
                 <View style={styles.data}>
-                    <Text style={{ fontWeight: "600", fontSize: 18 }}>{props.name}</Text>
+                    <TouchableOpacity onPress={() => props.navigateToProfile(props.friend_id)}>
+                        <Text style={{ fontWeight: "600", fontSize: 18 }}>{props.name}</Text>
+                    </TouchableOpacity>
                     <Text>{props.city}</Text>
                     <Text>{props.numberComumSports} esporte em comum</Text>
                     {/* se for só um esporte renderiza ESPORTE, se forem dois ou mais ESPORTESSS */}
