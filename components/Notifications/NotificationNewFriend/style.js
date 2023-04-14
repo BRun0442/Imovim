@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
 
         borderRadius: 30,
 
-        marginVertical: 8
+        marginBottom: 10,
     },
     
     iconCam: {

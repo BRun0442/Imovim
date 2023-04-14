@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Touchable, TouchableOpacity, Alert, SafeAreaView } from "react-native";
+import { View, Text, Touchable, TouchableOpacity, Alert, SafeAreaView, ScrollView } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from './style.js'
 import { Entypo } from '@expo/vector-icons';
@@ -33,9 +33,10 @@ function TelaTags({ navigation }) {
             <Header navigation={navigation} />
 
             <View style={styles.containerTitle}>
-                <View style={styles.title}>
-                    <Text style={styles.text}>Selecione seus esportes favoritos</Text>
+                <View>
+                    <Text style={styles.title}>Selecione seus esportes favoritos</Text>
                 </View>
+
                 <TouchableOpacity
                     onPress={() => {
                         navigation.navigate("Meu Perfil");
@@ -46,7 +47,7 @@ function TelaTags({ navigation }) {
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.containerTags}>
+            <ScrollView style={styles.containerTags}>
                 <View style={styles.tags}>
                     {sports.map((i) => {
                         return (
@@ -54,7 +55,7 @@ function TelaTags({ navigation }) {
                         )
                     })}
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     )
 }

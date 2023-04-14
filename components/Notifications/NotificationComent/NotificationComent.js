@@ -7,7 +7,7 @@ export default function NotificationComent(props) {
     return (
         <View style={styles.container}>
             <View style={styles.iconCam}>
-                <Entypo name="camera" size={15} color="white" />
+                <Entypo name="camera" size={20} color="white" />
             </View>
             <Text style={{marginLeft: 15}}>{props.name} comentou em sua postagem</Text>
         </View >

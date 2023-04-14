@@ -10,12 +10,12 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
-    height: "100%",
+    height: 150,
 
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingVertical: 20,
 
-    marginBottom: 20,
+    marginBottom: 10,
 
     borderRadius: 30,
   },
@@ -32,8 +32,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    width: 75,
-    height: 75,
+    width: 80,
+    height: 80,
 
     backgroundColor: "#d9d9d9",
 
@@ -71,13 +71,13 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "50%",
+    height: 45,
 
     backgroundColor: "#A512BD",
 
     borderRadius: 15,
 
-    marginVertical: 4
+    marginVertical: 5
   },
 
   deleteButton: {
@@ -86,12 +86,12 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "50%",
+    height: 45,
 
     backgroundColor: "#D9D9D9",
 
     borderRadius: 15,
 
-    marginVertical: 4
+    marginVertical: 5
   }
 })

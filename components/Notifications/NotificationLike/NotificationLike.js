@@ -7,7 +7,7 @@ export default function NotificationLike(props) {
     return (
         <View style={styles.container}>
             <View style={styles.iconCam}>
-                <Entypo name="camera" size={15} color="white" />
+                <Entypo name="camera" size={20} color="white" />
             </View>
 
             <Text style={{ marginLeft: 15 }}>{props.name} curtiu sua postagem </Text>

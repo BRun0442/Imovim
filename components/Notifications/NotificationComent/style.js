@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
 
         borderRadius: 30,
 
-        marginVertical: 8
+        marginBottom: 10,
     },
 
     iconCam: {
@@ -25,8 +25,8 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
 
-        width: 60,
-        height: 60,
+        width: 80,
+        height: 80,
 
         backgroundColor: "#d9d9d9",
 
