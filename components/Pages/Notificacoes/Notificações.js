@@ -22,7 +22,7 @@ export default function Notificacoes({ navigation }) {
                 {/* <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" /> */}
                 {/* <NotificationLike name="Tiago" /> */}
                 <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
-            
+                <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
 
                 {/* <NotificationComent name="Tiago" /> */}
                 {/* <NotificationComent name="Tiago" /> */}

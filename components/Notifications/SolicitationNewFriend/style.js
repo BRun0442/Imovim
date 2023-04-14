@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
-    height: "100%",
+    height: 150,
 
     paddingHorizontal: 20,
     paddingVertical: 20,
@@ -71,13 +71,13 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "50%",
+    height: 45,
 
     backgroundColor: "#A512BD",
 
     borderRadius: 15,
 
-    marginVertical: 4
+    marginVertical: 5
   },
 
   deleteButton: {
@@ -86,12 +86,12 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "50%",
+    height: 45,
 
     backgroundColor: "#D9D9D9",
 
     borderRadius: 15,
 
-    marginVertical: 4
+    marginVertical: 5
   }
 })

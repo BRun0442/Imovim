@@ -30,6 +30,8 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 20,
         paddingVertical: 20,
+
+        marginVertical: 20
     }
 
 })
