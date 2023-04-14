@@ -7,7 +7,7 @@ export default function NotificationNewFriend(props) {
         <View style={styles.container}>
             <View>
                 <View style={styles.iconCam}>
-                    <Entypo name="camera" size={18} color="white" />
+                    <Entypo name="camera" size={20} color="white" />
                 </View>
             </View>
             <View style={styles.data}>

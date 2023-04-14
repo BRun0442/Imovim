@@ -18,14 +18,23 @@ export default function Notificacoes({ navigation }) {
                 <Text style={styles.title}>Notificações</Text>
             </View>
 
-            <ScrollView style={styles.notifications}>
-                {/* <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" /> */}
-                {/* <NotificationLike name="Tiago" /> */}
-                <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
-                <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" /><SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
+            <View style={styles.notificationTypes}>
+                <TouchableOpacity style={styles.notificationTypesButton}>
+                    <Text style={styles.notificationTypesText}>Solicitações</Text>
+                </TouchableOpacity>
 
-                {/* <NotificationComent name="Tiago" /> */}
-                {/* <NotificationComent name="Tiago" /> */}
+                <TouchableOpacity style={styles.notificationTypesButton}>
+                    <Text style={styles.notificationTypesText}>Publicações</Text>
+                </TouchableOpacity>
+            </View>
+
+            <ScrollView style={styles.notifications}>
+                
+                <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
+                <NotificationLike name="Tiago" />
+                <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
+                <NotificationComent name="Tiago" />
+
             </ScrollView>
 
         </SafeAreaView>

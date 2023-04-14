@@ -25,13 +25,13 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#FFF",
         width: "10%",
-        height: "60%",
+        height: 60,
     },
 
     searchInput: {
         backgroundColor: "#FFF",
-        height: "60%",
         width: "90%",
+        height: 60,
 
         paddingHorizontal: 15,
     },

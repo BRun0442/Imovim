@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
     titleContainer: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between",
         alignItems: "center",
 
         width: "100%",
@@ -23,6 +22,35 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: "600"
+    },
+
+    notificationTypes:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+      
+        width: "100%",
+        height: "5%",
+
+    },
+
+    notificationTypesButton:{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+
+        width: 150,
+        height: 50,
+
+        backgroundColor: "#F1F1F1",
+
+        borderRadius: 50
+    },
+
+    notificationTypesText:{
+        fontSize: 18,
+        fontWeight: "bold"
     },
 
     notifications:{

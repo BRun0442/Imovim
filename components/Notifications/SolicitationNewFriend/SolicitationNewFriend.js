@@ -9,7 +9,7 @@ export default function SolicitationNewFriend(props) {
             <View style={styles.userInfo}>
                 <View style={styles.iconCam}>
                     {/* <Image source={uri:} /> */}
-                    <Entypo name="camera" size={18} color="white" />
+                    <Entypo name="camera" size={20} color="#FFF" />
                 </View>
 
                 <View style={styles.data}>
