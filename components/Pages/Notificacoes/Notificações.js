@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import Header from '../../Header/Header'
 import { styles } from './style'
@@ -9,6 +9,9 @@ import NotificationComent from "../../Notifications/NotificationComent/Notificat
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 
 export default function Notificacoes({ navigation }) {
+
+    const [changeComponent, setChangeComponent] = useState(false)
+
     return (
         <SafeAreaView style={styles.container}>
 
@@ -19,23 +22,51 @@ export default function Notificacoes({ navigation }) {
             </View>
 
             <View style={styles.notificationTypes}>
-                <TouchableOpacity style={styles.notificationTypesButton}>
+                <TouchableOpacity
+                    onPress={() => setChangeComponent(true)}
+                    style={styles.notificationTypesButton}
+                >
                     <Text style={styles.notificationTypesText}>Solicitações</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.notificationTypesButton}>
+                <TouchableOpacity
+                    onPress={() => setChangeComponent(false)}
+                    style={styles.notificationTypesButton}
+                >
                     <Text style={styles.notificationTypesText}>Publicações</Text>
                 </TouchableOpacity>
             </View>
 
-            <ScrollView style={styles.notifications}>
-                
+            {
+                changeComponent === true ?
+
+                    <ScrollView style={styles.notifications}>
+
+                        <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
+                        <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
+                        <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
+
+                    </ScrollView>
+
+                    :
+
+                    <ScrollView style={styles.notifications}>
+
+                        <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
+                        <NotificationLike name="Tiago" />
+                        <NotificationComent name="Tiago" />
+
+                    </ScrollView>
+            }
+
+            {/* <ScrollView style={styles.notifications}>
+
                 <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
                 <NotificationLike name="Tiago" />
                 <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
                 <NotificationComent name="Tiago" />
 
-            </ScrollView>
+            </ScrollView> */}
 
         </SafeAreaView>
     )
