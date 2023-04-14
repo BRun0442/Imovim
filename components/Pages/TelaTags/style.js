@@ -17,27 +17,25 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
 
-    paddingStart: 10,
-    paddingEnd: 10,
+    paddingHorizontal: 10,
 
-    marginTop: 15
+    width: "100%",
+    height: "8%"
   },
 
   title: {
-    width: "70%"
-  },
-
-  text: {
-    fontSize: 18
+    fontSize: 20,
   },
 
   containerTags: {
+    width: "100%",
+
     paddingHorizontal: 8,
+    paddingVertical: 15,
 
-    marginTop: 18,
-
-    paddingHorizontal: 15
+    marginVertical: 15,
   },
 
   tags: {
@@ -50,7 +48,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-around",
     flexWrap: "wrap",
 
-    paddingTop: 15,
+    paddingVertical: 30
   },
 })
 
