@@ -1,16 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import Header from '../../Header/Header'
 import { styles } from './style'
+import { AuthContext } from "../../../contexts/auth";
 
 import NotificationNewFriend from '../../Notifications/NotificationNewFriend/NotificationNewFriend'
 import NotificationLike from "../../Notifications/NotificationLike/NotificationLike";
 import NotificationComent from "../../Notifications/NotificationComent/NotificationComent";
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 
-export default function Notificacoes({ navigation }) {
+import { getSolicitations } from "../../../services/notifications";
 
-    const [changeComponent, setChangeComponent] = useState(false)
+export default function Notificacoes({ navigation }) {
+    const { id, setAnotherUser_id } = useContext(AuthContext)
+    const [solicitations, setSolicitations] = useState(null)
+    const [changeComponent, setChangeComponent] = useState(true)
+
+    const navigateToProfile = (user_id) => {
+        setAnotherUser_id(user_id)
+        navigation.navigate('Outros Perfis') 
+    }
+
+    useEffect(() => {
+        const getData = async () => {
+            const data = await getSolicitations(id)
+            setSolicitations(data)
+        }
+
+        getData()
+    }, [])
+
+    if(!solicitations) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -42,10 +68,19 @@ export default function Notificacoes({ navigation }) {
 
                     <ScrollView style={styles.notifications}>
 
-                        <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
-                        <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
-                        <SolicitationNewFriend name="Zezão" city="Guarulhos" numberComumSports="2" />
-
+                        {solicitations.map((solicitation, index) => {
+                            return (
+                                <SolicitationNewFriend key={index} 
+                                    profileImage={solicitation.profileImage} 
+                                    name={solicitation.nickname} 
+                                    city={solicitation.localization} 
+                                    numberComumSports={solicitation.sportsInCommon} 
+                                    friend_id={solicitation.friend1}
+                                    navigateToProfile={navigateToProfile}
+                                />
+                            )
+                        })}
+                       
                     </ScrollView>
 
                     :
