@@ -18,7 +18,7 @@
 <br>
 
 <p align="center">
-  <img alt="capa projeto" src="../../assets/README.md/img/capa.jpg" width="100%">
+  <img alt="capa projeto" src="./assets/README.md/img/capa.jpg" width="100%">
 </p>
 
 ## 🚀 Tecnologias
