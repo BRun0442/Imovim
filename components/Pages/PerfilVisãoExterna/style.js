@@ -100,7 +100,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: '#A512BD',
 
-    width: 220,
+    width: 180,
     height: 40,
 
     borderRadius: 40,

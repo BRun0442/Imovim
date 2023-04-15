@@ -159,28 +159,28 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                             friendShipExists === 1 && userIdWhoSentSolicitation != id &&
                                             <View style={styles.addFriendsIcons}>
                                                 <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                <Text style={styles.addFriendText}>Aceitar solicitação</Text>
+                                                <Text style={styles.addFriendText}>Aceitar</Text>
                                             </View>
                                         }
                                         {
                                             friendShipExists === 1 && userIdWhoSentSolicitation == id &&
                                             <View style={styles.addFriendsIcons}>
-                                                <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                <Text style={styles.addFriendText}>Pendente</Text>
+                                                <Entypo name="paper-plane" size={24} color="#FFF" />
+                                                <Text style={styles.addFriendText}>Enviado</Text>
                                             </View>
                                         }
                                         {
                                             friendShipExists === null &&
                                             <View style={styles.addFriendsIcons}>
-                                                <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                <Text style={styles.addFriendText}>Enviar solicitação</Text>
+                                                <Ionicons name="md-person-add-sharp" size={24} color="#FFF" />
+                                                <Text style={styles.addFriendText}>Adicionar</Text>
                                             </View>
                                         }
                                         {
                                             friendShipExists === 0 &&
                                             <View style={styles.addFriendsIcons}>
                                                 <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                <Text style={styles.addFriendText}>Amigo</Text>
+                                                <Text style={styles.addFriendText}>Adicionado</Text>
                                             </View>
                                         }
                                     </TouchableOpacity>
