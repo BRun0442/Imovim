@@ -30,7 +30,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-A landing page é uma página de apresentação de um produto ou de um sistema, ela pode ou não direcionar  o usuário à uma infomação. Neste caso, o objetivo é encaminhar o usuário para o link de download da aplicação imovim, além de expor uma breve explicação sobre a plataforma, os desenvolvedores envolvidos e meios para contato.
+Imovim é um projeto voltada ao ambiente esportivo, que tem como principal objetivo unir a comunidade do esporte e incentivar a volta ou o início de práticas físicas e através da interface permitir o compartilhamento de experiências entre os usuários, além de possibilitar o agendamento de eventos com finalidade social. 
 
 
 ## 🧵 Layout
