@@ -14,7 +14,7 @@ export default function VerAmigos({ navigation }) {
     const { id, setAnotherUser_id } = useContext(AuthContext)
 
     const getFriends = async () => {
-        await api.get(`/user/get-followers-list/${id}`)
+        await api.get(`/friendShip/get-friends/${id}`)
             .then((res) => {
                 console.log(res)
                 setFriends(res.data)
@@ -58,7 +58,7 @@ export default function VerAmigos({ navigation }) {
                 <ScrollView style={styles.results}>
                     {friends.map((friend, index) => {
                         return (
-                            <ResultSearchFriends key={index} user_id={friend.friend_id} goToProfile={goToProfile} profileImage={friend.profileImage} name={friend.nickname} />
+                            <ResultSearchFriends key={index} user_id={friend.user_id} goToProfile={goToProfile} profileImage={friend.profileImage} name={friend.nickname} />
                         )
                     })}
                 </ScrollView>
