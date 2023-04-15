@@ -10,25 +10,53 @@ import NotificationComent from "../../Notifications/NotificationComent/Notificat
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 
 import { getSolicitations } from "../../../services/notifications";
+import axios from "axios";
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '../../Toast/toastConfig';
+import { showToastSuccess } from '../../Toast/Toast';
 
 export default function Notificacoes({ navigation }) {
     const { id, setAnotherUser_id } = useContext(AuthContext)
     const [solicitations, setSolicitations] = useState(null)
     const [changeComponent, setChangeComponent] = useState(true)
+    const [updateScreen, setUpdateScreen] = useState(0)
 
     const navigateToProfile = (user_id) => {
         setAnotherUser_id(user_id)
         navigation.navigate('Outros Perfis') 
     }
 
-    useEffect(() => {
-        const getData = async () => {
-            const data = await getSolicitations(id)
-            setSolicitations(data)
+    const getData = async () => {
+        const data = await getSolicitations(id)
+        setSolicitations(data)
+    }
+
+    const resignSolicitation = async (user_id, friend_id) => {
+        const data = { user_id: user_id, friend_id: friend_id }
+        await axios.post(`https://imovim-api.cyclic.app/friendShip/remove-friendship`, data)
+            .then(async (res) => {
+                // setUpdateScreen(Date.now())
+                await getData()
+                showToastSuccess(`${res.data.msg}!`, "")
+            })
+    }
+
+    const acceptSolicitation = async (user_id, friend_id) => {
+        const data = { user_id: user_id, friend_id: friend_id }
+        await axios.post(`https://imovim-api.cyclic.app/friendShip/accept-solicitation`, data)
+            .then(async (res) => {
+                await getData()
+                // setUpdateScreen(Date.now())
+                showToastSuccess(`${res.data.msg}!`, "")
+                alert('Amizade aceita')
+                })
         }
 
+
+    useEffect(() => {
+
         getData()
-    }, [])
+    }, [updateScreen])
 
     if(!solicitations) {
         return (
@@ -77,6 +105,8 @@ export default function Notificacoes({ navigation }) {
                                     numberComumSports={solicitation.sportsInCommon} 
                                     friend_id={solicitation.friend1}
                                     navigateToProfile={navigateToProfile}
+                                    acceptSolicitation={acceptSolicitation}
+                                    resignSolicitation={resignSolicitation}
                                 />
                             )
                         })}
@@ -102,7 +132,7 @@ export default function Notificacoes({ navigation }) {
                 <NotificationComent name="Tiago" />
 
             </ScrollView> */}
-
+            <Toast config={toastConfig} />
         </SafeAreaView>
     )
 }

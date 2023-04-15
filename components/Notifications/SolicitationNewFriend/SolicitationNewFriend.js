@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Image, Text, TouchableOpacity } from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 import { styles } from "./style";
+import { AuthContext } from "../../../contexts/auth";
 
 export default function SolicitationNewFriend(props) {
+    const { id } = useContext(AuthContext)
+
     return (
         <View style={styles.container}>
             <View style={styles.userInfo}>
@@ -22,11 +25,11 @@ export default function SolicitationNewFriend(props) {
             </View>
 
             <View style={styles.buttons}>
-                <TouchableOpacity style={styles.aceptButton}>
+                <TouchableOpacity onPress={() => props.acceptSolicitation(id, props.friend_id)} style={styles.aceptButton}>
                     <Text style={styles.textButton}>Aceitar</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.deleteButton}>
+                <TouchableOpacity onPress={() => props.resignSolicitation(id, props.friend_id)} style={styles.deleteButton}>
                     <Text style={styles.textButton}>Excluir</Text>
                 </TouchableOpacity>
             </View>
