@@ -1,7 +1,7 @@
-<h1 align="center"> Landing Page imovim </h1>
+<h1 align="center"> Imovim APP</h1>
 
 <p align="center">
-  Página de apresentação para o trabalho de conclusão do curso de Desenvolvimento de Sistemas.  <br/>
+  Frontend da aplicação que está sendo desenvolvido para a apresentação do trabalho de conclusão do curso de Desenvolvimento de Sistemas.  <br/>
 </p>
 
 <p align="center">
@@ -25,10 +25,8 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- React
+- React Native
 - JavaScript
-- Git e Github
-- Figma
 
 ## 💻 Projeto
 
@@ -37,7 +35,7 @@ A landing page é uma página de apresentação de um produto ou de um sistema, 
 
 ## 🧵 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/XcLGwNRW1qLCBhAM4YmJUL/IMOVIM?node-id=591%3A36&t=cTYHbDcIFRCt9NyC-1) apresente na página 2. É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+Você pode visualizar a prototipagem do projeto através [DESSE LINK](https://www.figma.com/file/XcLGwNRW1qLCBhAM4YmJUL/IMOVIM?node-id=591%3A36&t=cTYHbDcIFRCt9NyC-1). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
 ## 🧾 Licença
 
