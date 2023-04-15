@@ -34,7 +34,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
   const goToProfile = () => {
     navigation.navigate('Meu Perfil')
-}
+  }
 
   const getData = async () => {
     const data = await getAnotherUserData(id, id)
@@ -142,19 +142,23 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
               <View style={styles.tagsContainer}>
 
-                <View style={styles.tags}>
+                <ScrollView horizontal={true}>
 
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate("Tela Tags");
-                    }}
-                  >
-                    <Text style={styles.tagsText}>
-                      #Adicione seus esportes favoritos
-                    </Text>
-                  </TouchableOpacity>
+                  <View style={styles.tags}>
 
-                </View>
+                    <TouchableOpacity
+                      onPress={() => {
+                        navigation.navigate("Tela Tags");
+                      }}
+                    >
+                      <Text style={styles.tagsText}>
+                        #Adicione seus esportes favoritos
+                      </Text>
+                    </TouchableOpacity>
+
+                  </View>
+                  
+                </ScrollView>
 
               </View>
 

@@ -38,8 +38,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
 
-    paddingStart: 20,
-    paddingEnd: 20,
+    paddingHorizontal: 15
   },
 
   iconCam: {
@@ -101,7 +100,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: '#A512BD',
 
-    width: 170,
+    width: 220,
     height: 40,
 
     borderRadius: 40,

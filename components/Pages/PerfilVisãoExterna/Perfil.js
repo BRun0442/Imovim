@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { View, Text, Image, StatusBar, Alert, TouchableOpacity, SafeAreaView, Modal, FlatList } from 'react-native';
+import { View, Text, Image, StatusBar, Alert, TouchableOpacity, SafeAreaView, Modal, FlatList, ScrollView } from 'react-native';
 import { styles } from './style'
 import Post from '../../Post/Post';
 import axios from 'axios';
@@ -65,35 +65,35 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         const data = { user_id: id, friend_id: currentUser }
         if (friendShipExists === null) {
             await axios.post(`https://imovim-api.cyclic.app/friendShip/send-solicitation`, data)
-            .then((res) => {
-                getUserData()
-                showToastSuccess(`${res.data.msg} ${name}!`, "")
-            })
+                .then((res) => {
+                    getUserData()
+                    showToastSuccess(`${res.data.msg} ${name}!`, "")
+                })
         }
 
         else if (friendShipExists === 1 && userIdWhoSentSolicitation != id) {
             await axios.post(`https://imovim-api.cyclic.app/friendShip/accept-solicitation`, data)
-            .then(async (res) => {
-                await getUserData()
-                showToastSuccess(`${res.data.msg} ${name}!`, "")
-                alert('Amizade aceita')
+                .then(async (res) => {
+                    await getUserData()
+                    showToastSuccess(`${res.data.msg} ${name}!`, "")
+                    alert('Amizade aceita')
                 })
         }
 
         else if (friendShipExists === 1 && userIdWhoSentSolicitation == id) {
             await axios.post(`https://imovim-api.cyclic.app/friendShip/remove-friendship`, data)
-            .then((res) => {
-                getUserData()
-                showToastSuccess(`${res.data.msg} ${name}!`, "")
-            })
+                .then((res) => {
+                    getUserData()
+                    showToastSuccess(`${res.data.msg} ${name}!`, "")
+                })
         }
 
         else if (friendShipExists === 0) {
             await axios.post(`https://imovim-api.cyclic.app/friendShip/remove-friendship`, data)
-            .then((res) => {
-                getUserData()
-                showToastSuccess(`${res.data.msg} ${name}!`, "")
-            })
+                .then((res) => {
+                    getUserData()
+                    showToastSuccess(`${res.data.msg} ${name}!`, "")
+                })
         }
     }
 
@@ -156,43 +156,43 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                         onPress={() => handleFriendship()}
                                     >
                                         {
-                                            friendShipExists === 1  && userIdWhoSentSolicitation != id && 
-                                                <View style={styles.addFriendsIcons}>
-                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                    <Text style={styles.addFriendText}>Aceitar solicitação</Text>
-                                                </View>
+                                            friendShipExists === 1 && userIdWhoSentSolicitation != id &&
+                                            <View style={styles.addFriendsIcons}>
+                                                <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                <Text style={styles.addFriendText}>Aceitar solicitação</Text>
+                                            </View>
                                         }
                                         {
-                                            friendShipExists === 1  && userIdWhoSentSolicitation == id && 
-                                                <View style={styles.addFriendsIcons}>
-                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                    <Text style={styles.addFriendText}>Pendente</Text>
-                                                </View>
+                                            friendShipExists === 1 && userIdWhoSentSolicitation == id &&
+                                            <View style={styles.addFriendsIcons}>
+                                                <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                <Text style={styles.addFriendText}>Pendente</Text>
+                                            </View>
                                         }
                                         {
-                                            friendShipExists === null && 
-                                                <View style={styles.addFriendsIcons}>
-                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                    <Text style={styles.addFriendText}>Enviar solicitação</Text>
-                                                </View>
+                                            friendShipExists === null &&
+                                            <View style={styles.addFriendsIcons}>
+                                                <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                <Text style={styles.addFriendText}>Enviar solicitação</Text>
+                                            </View>
                                         }
                                         {
-                                            friendShipExists === 0 && 
-                                                <View style={styles.addFriendsIcons}>
-                                                    <FontAwesome5 name="user-check" size={24} color="#FFF" />
-                                                    <Text style={styles.addFriendText}>Amigo</Text>
-                                                </View>
+                                            friendShipExists === 0 &&
+                                            <View style={styles.addFriendsIcons}>
+                                                <FontAwesome5 name="user-check" size={24} color="#FFF" />
+                                                <Text style={styles.addFriendText}>Amigo</Text>
+                                            </View>
                                         }
                                     </TouchableOpacity>
                                 </View>
 
                                 <View style={styles.iconsActions}>
                                     <TouchableOpacity>
-                                        <Ionicons name="alert-circle" size={28} color="#F8670E" />
+                                        <Ionicons name="alert-circle" size={35} color="#F8670E" />
                                     </TouchableOpacity>
 
-                                    <TouchableOpacity onPress={()=> setVisibleModal(true)}>
-                                        <Entypo name="block" size={24} color="#F8670E" style={{ marginLeft: 8, marginRight: 8 }} />
+                                    <TouchableOpacity onPress={() => setVisibleModal(true)}>
+                                        <Entypo name="block" size={29} color="#F8670E" style={{ marginLeft: 8, marginRight: 8 }} />
                                     </TouchableOpacity>
 
                                     <View>
@@ -201,12 +201,12 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                                             transparent={true}
                                             onRequestClose={() => setVisibleModal(false)}
                                         >
-                                            <BlockUserModal handleClose={handleModalVisible} name={name}/>
+                                            <BlockUserModal handleClose={handleModalVisible} name={name} />
                                         </Modal>
                                     </View>
 
                                     <TouchableOpacity onPress={() => handleClick()}>
-                                        <Ionicons name="chatbubble" size={25} color="#F8670E" />
+                                        <Ionicons name="chatbubble" size={30} color="#F8670E" />
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -221,13 +221,26 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
                         </View>
                     </View>
-                    <View style={styles.border}></View>
+                    <View style={styles.border} />
 
-                    <View style={styles.tags}>
-                        <Text style={styles.tagsText}>
-                            #Adicione seus esportes favoritos
-                        </Text>
+                    <View style={{ display: "flex", flexDirection: "row" }}>
+
+                        <ScrollView horizontal={true}>
+                            <View style={styles.tags}>
+                                <Text style={styles.tagsText}>
+                                    #Adicione seus esportes favoritos
+                                </Text>
+                            </View>
+                        </ScrollView>
+
+                        <View>
+                            <TouchableOpacity>
+                                <Text>teste</Text>
+                            </TouchableOpacity>
+                        </View>
+
                     </View>
+
                     <Toast config={toastConfig} />
                 </SafeAreaView>
             }

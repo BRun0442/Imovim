@@ -140,6 +140,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
+
   tags: {
     width: 240,
     height: 40,
@@ -167,7 +168,6 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
     flexDirection: "row",
-
   },
 
   editProfile: {
