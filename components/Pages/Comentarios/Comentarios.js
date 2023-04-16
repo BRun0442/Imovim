@@ -20,14 +20,18 @@ import { getComments, sendComment } from "../../../services/comment";
 function Comentarios(props) {
   const { id } = useContext(AuthContext)
   const { postFocusedId } = useContext(AccountDataContext)
+  const [currentPost, setCurrentPost] = useState()
   const [comments, setComments] = useState(null)
   const [commentText, setCommentText] = useState('')
 
   useEffect(() => {
     getComments(postFocusedId, setComments)
-  }, [])
+    .then(() => {
+      setCurrentPost(postFocusedId)
+    })
+  }, [postFocusedId])
 
-  if (comments === null) {
+  if (comments === null || currentPost != postFocusedId) {
     return (
       <View style={styles.loadingContainer}>
         <Text>Loading...</Text>
