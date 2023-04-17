@@ -27,7 +27,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const { anotherUser_id } = useContext(AuthContext)
     const [profileImage, setProfileImage] = useState()
     const [name, setName] = useState('')
-    const [location, setLocation] = useState('s')
+    const [location, setLocation] = useState(null)
     const [currentUser, setCurrentUser] = useState()
     const [posts, setPosts] = useState()
     const [friendShipExists, setfriendShipExists] = useState()

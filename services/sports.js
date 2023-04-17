@@ -8,10 +8,10 @@ const getSports = async () => {
 const getSportsPracticed = async (id) => {
     const results = await axios.get(`https://imovim-api.cyclic.app/sports/get-sports-practiced/${id}`)
     let data = results.data
-    data = await data.map((i) => {
-        return i.sport_name
-    })
-    console.log(data)
+    // data = await data.map((i) => {
+    //     return i.sport_name
+    // })
+    // console.log(data)
     return data
 }
 

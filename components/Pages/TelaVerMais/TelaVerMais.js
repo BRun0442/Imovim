@@ -11,16 +11,18 @@ import { AuthContext } from '../../../contexts/auth.js';
 import { getSportsPracticed as getSportsData } from '../../../services/sports'
 
 export default function TelaVerMais({ navigation }) {
-  const { id, changePosts, posts } = useContext(AuthContext)
+  const { id, changePosts, posts, sportsPracticed, setSportsPracticed } = useContext(AuthContext)
 
-  const [sportsPracticed, setSportsPracticed] = useState(null)
+  // const [sportsPracticed, setSportsPracticed] = useState(null)
   // const [posts, setPosts] = useState(null)
 
   const getSportsPracticed = async () => {
-    const data = await getSportsData(id)
-    setSportsPracticed(data)
-    console.log(data)
-    return data
+    if(!sportsPracticed) {
+      const data = await getSportsData(id)
+      setSportsPracticed(data)
+      console.log(data)
+      return data
+    }
   }
 
 
@@ -52,7 +54,7 @@ export default function TelaVerMais({ navigation }) {
             {sportsPracticed.map((i, index) => {
               console.log(i);
               return (
-                <TagName key={index} nameTag={i} />
+                <TagName key={index} sport_color={i.sport_color} sport_name={i.sport_name} />
               )
             })}
           </View>
