@@ -248,26 +248,28 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
                     <View style={styles.tagsView}>
 
-                        <ScrollView horizontal={true}>
+                        <ScrollView horizontal={true}
+                            style={{ paddingHorizontal: 8 }}
+                        >
 
                             {sportsPracticed.map((sport) => {
                                 return (
 
-                                    <TouchableOpacity
+                                    <View
                                         style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
-                                       
+
                                     >
                                         <Text style={styles.addFavoriteSportsText}>
                                             #{sport.sport_name}
                                         </Text>
-                                    </TouchableOpacity>
+                                    </View>
 
                                 )
                             })}
 
                         </ScrollView>
-
                     </View>
+
                     <Toast config={toastConfig} />
                 </SafeAreaView>
             }

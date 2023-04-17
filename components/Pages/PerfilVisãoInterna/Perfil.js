@@ -161,12 +161,14 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
               <View style={styles.tagsContainer}>
 
-                <ScrollView horizontal={true}>
+                <ScrollView horizontal={true}
+                  style={{ paddingHorizontal: 8 }}
+                >
 
                   {sportsPracticed.map((sport) => {
                     return (
-                      
-                      <TouchableOpacity
+
+                      <View
                         style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
                         onPress={() => {
                           navigation.navigate("Tela Tags");
@@ -175,7 +177,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                         <Text style={styles.addFavoriteSportsText}>
                           #{sport.sport_name}
                         </Text>
-                      </TouchableOpacity>
+                      </View>
 
                     )
                   })}
