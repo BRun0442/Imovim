@@ -20,7 +20,7 @@ import { getAnotherUserData } from "../../../services/user";
 
 export default function PerfilVisãoInterna({ navigation }, props) {
   const { setPostFocusedId } = useContext(AccountDataContext);
-  const { profilePicture, id, posts, setPosts, profileUpdated, setProfileUpdated } = useContext(AuthContext);
+  const { profilePicture, sportsPracticed, setSportsPracticed, id, posts, setPosts, profileUpdated, setProfileUpdated } = useContext(AuthContext);
   const [loaded, setLoaded] = useState(false)
   const [visible, setVisible] = useState(false);
   const [accountData, setAccountData] = useState()
@@ -45,6 +45,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
     setName(data.profileInfo[0].nickname)
     setCurrentUser(data.profileInfo[0].user_id)
     setPosts(data.userPosts)
+    setSportsPracticed(data.sportsPracticed)
     setBackgroundImage(data.profileInfo[0].profileBackground)
     setLoaded(true)
     return data
@@ -161,7 +162,8 @@ export default function PerfilVisãoInterna({ navigation }, props) {
               <View style={styles.tagsContainer}>
 
                 <ScrollView horizontal={true}>
-
+                    {sportsPracticed.map((sport) => {
+                      return (
                   <TouchableOpacity
                     style={styles.addFavoriteSports}
                     onPress={() => {
@@ -169,9 +171,12 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     }}
                   >
                     <Text style={styles.addFavoriteSportsText}>
-                      #Adicione seus esportes favoritos
+                      #{sport.sport_name}
                     </Text>
                   </TouchableOpacity>
+
+                      )
+                    })}
 
                 </ScrollView>
 
