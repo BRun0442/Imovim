@@ -25,7 +25,9 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [changeIcon, setChangeIcon] = useState(false)
 
     const { anotherUser_id } = useContext(AuthContext)
+    const [sportsPracticed, setSportsPracticed] = useState()
     const [profileImage, setProfileImage] = useState()
+    const [backgroundImage, setBackgroundImage] = useState()
     const [name, setName] = useState('')
     const [location, setLocation] = useState(null)
     const [currentUser, setCurrentUser] = useState()
@@ -52,12 +54,14 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         console.log(data)
         console.log(data.profileInfo[0].profileImage)
         setProfileImage(data.profileInfo[0].profileImage)
+        setBackgroundImage(data.profileInfo[0].profileBackground)
         setLocation(data.profileInfo[0].localization)
         setName(data.profileInfo[0].nickname)
         setfriendShipExists(data.profileInfo[0].pending)
         setCurrentUser(data.profileInfo[0].user_id)
         setUserIdWhoSentSolicitation(data.profileInfo[0].userIdWhoSentSolicitation)
         setPosts(data.userPosts)
+        setSportsPracticed(data.sportsPracticed)
         return data
     }
 

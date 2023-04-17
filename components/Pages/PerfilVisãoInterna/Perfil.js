@@ -165,7 +165,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     {sportsPracticed.map((sport) => {
                       return (
                   <TouchableOpacity
-                    style={styles.addFavoriteSports}
+                    style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
                     onPress={() => {
                       navigation.navigate("Tela Tags");
                     }}

@@ -34,13 +34,10 @@ export default function VerMaisTags(props) {
 
   const handleButtonColor = () => {
     for (let i = 0; i < sportsPracticed.length; i++) {
-        if (sportsPracticed[i] == props.nameEsportTag) {
+        if (sportsPracticed[i].sport_name == props.nameEsportTag) {
           console.log("igual", sportsPracticed[i].sport_name, props.nameEsportTag)
           return { backgroundColor: props.color };
-        } else {
-          console.log('diferente', sportsPracticed[i].sport_name, props.nameEsportTag)
-          return { backgroundColor: "#565353" };
-        }
+        } 
     }
   };
 
