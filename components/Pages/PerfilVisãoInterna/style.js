@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
 
     borderRadius: 100,
     borderColor: "#FFF",
-    borderWidth: 5,
+    borderWidth: 3,
 
     marginTop: -60
   },
@@ -82,7 +82,6 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-
     backgroundColor: "#A512BD",
 
     borderRadius: 40,
@@ -118,7 +117,7 @@ export const styles = StyleSheet.create({
   },
 
   tagsContainer: {
-    width: "60%",
+    width: "80%",
     height: "100%",
 
     display: "flex",
@@ -128,8 +127,8 @@ export const styles = StyleSheet.create({
   },
 
   addFavoriteSports: {
-    width: 240,
-    height: 40,
+    width: 145,
+    height: 55,
 
     display: "flex",
     justifyContent: "center",
@@ -138,16 +137,18 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#8B8A8B",
     borderRadius: 25,
+
+    marginRight: 2,
   },
 
   addFavoriteSportsText: {
     color: "#FFF",
     fontWeight: "bold",
-    fontSize: 14,
+    fontSize: 20,
   },
 
   editProfileContainer: {
-    width: "40%",
+    width: "20%",
     height: "100%",
 
     display: "flex",

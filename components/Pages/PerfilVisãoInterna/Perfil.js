@@ -162,21 +162,23 @@ export default function PerfilVisãoInterna({ navigation }, props) {
               <View style={styles.tagsContainer}>
 
                 <ScrollView horizontal={true}>
-                    {sportsPracticed.map((sport) => {
-                      return (
-                  <TouchableOpacity
-                    style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
-                    onPress={() => {
-                      navigation.navigate("Tela Tags");
-                    }}
-                  >
-                    <Text style={styles.addFavoriteSportsText}>
-                      #{sport.sport_name}
-                    </Text>
-                  </TouchableOpacity>
 
-                      )
-                    })}
+                  {sportsPracticed.map((sport) => {
+                    return (
+                      
+                      <TouchableOpacity
+                        style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
+                        onPress={() => {
+                          navigation.navigate("Tela Tags");
+                        }}
+                      >
+                        <Text style={styles.addFavoriteSportsText}>
+                          #{sport.sport_name}
+                        </Text>
+                      </TouchableOpacity>
+
+                    )
+                  })}
 
                 </ScrollView>
 
