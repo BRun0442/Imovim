@@ -8,46 +8,56 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({ 
   comentContainer: {
-    alignSelf: 'center',
-    marginVertical: '5%',
+    width: "100%",
 
-    width: 350,
-    backgroundColor: 'white',
+    backgroundColor: "#FFF",
+
     borderRadius: 35,
     padding: 15,
-    
+    marginVertical: 10,
   },
 
   comentProfile: {
-    height: 48,
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginBottom: '3%',
+    height: 55,
+
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+
+    marginBottom: 10,
   },
 
   coment: {
-    marginTop: '1%',
+    marginTop: 5,
     marginLeft: 15,
-    fontWeight: '500',
+
+    fontWeight: "500",
+    fontSize: 15
   },
 
   profileImage: {
     height: 50,
     width: 50,
-    resizeMode: 'stretch',
+    resizeMode: "stretch",
   },
 
   profileName: {
-    fontWeight: '500',
+    fontWeight: "500",
   },
 
   daysAgo: {
-    fontWeight: '400',
-    color: 'gray'
+    fontWeight: "400",
+    color: "gray"
+  },
+
+  icons:{
+    display: "flex",
+    flexDirection: "row"
   },
 
   profileContainer: {
-    flexDirection: 'column',
-    marginLeft: '2%',
+    display: "flex",
+    flexDirection: "column",
+    marginLeft: 10,
   },
 });

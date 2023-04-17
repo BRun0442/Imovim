@@ -1,24 +1,19 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from "react-native";
-
-import { defaultStyle } from "../../assets/style/style";
+import React, {useState} from "react";
+import { Text, View, TouchableOpacity, Modal, } from "react-native";
 import { styles } from "./styles";
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
+
 import ProfileImage from '../ProfileImage/ProfileImage';
+import EditComentModal from "../Modals/EditComentModal";
 
 function Comentario(props) {
+  const [visibleModal, setVisibleModal] = useState(false)
+
   return (
-    <View style={styles.comentContainer}>
+    <TouchableOpacity
+      onLongPress={() => setVisibleModal(true)}
+      style={styles.comentContainer}
+    >
+
       <View style={styles.comentProfile}>
         <ProfileImage profileImage={props.profileImage} />
 
@@ -29,7 +24,18 @@ function Comentario(props) {
       </View>
 
       <Text style={styles.coment}>{props.coment}</Text>
-    </View>
+
+      <Modal
+        visible={visibleModal}
+        transparent={true}
+        onRequestClose={() => setVisibleModal(false)}
+      >
+        <EditComentModal
+          handleClose={() => setVisibleModal(false)}
+        />
+      </Modal>
+
+    </TouchableOpacity>
   );
 }
 
