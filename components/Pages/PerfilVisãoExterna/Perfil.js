@@ -25,7 +25,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [changeIcon, setChangeIcon] = useState(false)
 
     const { anotherUser_id } = useContext(AuthContext)
-    const [sportsPracticed, setSportsPracticed] = useState()
+    const [sportsPracticed, setSportsPracticed] = useState([])
     const [profileImage, setProfileImage] = useState()
     const [backgroundImage, setBackgroundImage] = useState()
     const [name, setName] = useState('')
