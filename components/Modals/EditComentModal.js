@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-nativ
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function EditComentModal(handleClose) {
+export default function EditComentModal({handleClose}) {
     return (
         <View style={styles.container}>
 
@@ -19,6 +19,7 @@ export default function EditComentModal(handleClose) {
                     <TextInput
                         style={styles.input}
                         placeholder="Editar o comentário..."
+                        placeholderTextColor={"#FFF"}
                     />
                     <TouchableOpacity style={styles.inputIcon}>
                         <FontAwesome name="check" size={20} color="#FF7926" />
@@ -33,7 +34,7 @@ export default function EditComentModal(handleClose) {
                 </View>
             </View>
 
-            <TouchableOpacity style={styles.closedButtonTop} onPress={handleClose} />
+            <TouchableOpacity style={styles.closedButtonBottom} onPress={handleClose} />
         </View>
     )
 }
@@ -47,7 +48,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        paddingHorizontal: 15,
+        paddingHorizontal: 15
+    },
+
+    closedButtonTop:{
+        width: "100%",
+        height: "39%"
     },
 
     modal: {
@@ -62,7 +68,12 @@ const styles = StyleSheet.create({
         borderRadius: 20,
 
         paddingHorizontal: 15,
-        paddingVertical: 10
+        paddingVertical: 10,
+    },
+
+    closedButtonBottom:{
+        width: "100%",
+        height: "39%"
     },
 
     titleModal: {
