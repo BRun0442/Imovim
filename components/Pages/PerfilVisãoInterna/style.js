@@ -136,7 +136,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
 
     backgroundColor: "#8B8A8B",
-    borderRadius: 25,
+    borderRadius: 40,
 
     marginRight: 2,
   },

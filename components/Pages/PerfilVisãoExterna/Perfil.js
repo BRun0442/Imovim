@@ -36,6 +36,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     const [userIdWhoSentSolicitation, setUserIdWhoSentSolicitation] = useState()
 
     const [visibleModal, setVisibleModal] = useState(false)
+    const [visible, setVisible] = useState(false);
 
     const handleChatButton = () => {
         const data = {
@@ -142,18 +143,35 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                 <SafeAreaView>
                     <Header navigation={navigation} />
 
-                    <View style={styles.background} />
+                    <Image style={styles.background} source={{ uri: backgroundImage }} />
 
-                    <View style={styles.perfil}>
+                    <View>
 
-                        <View style={styles.iconsContainer}>
-                            {!profileImage && <View style={styles.iconCam}>
-                                <Entypo name="camera" size={22} color="white" />
-                            </View>}
+                        <View style={styles.icons}>
 
-                            {profileImage && <Image style={styles.profileImage} source={{ uri: profileImage }} />}
+                            <View style={styles.iconCam}>
+                                {
+                                    !profileImage &&
+                                    <View>
+                                        <Entypo name="camera" size={22} color="white" />
+                                    </View>
+
+                                }
+
+                                {
+                                    profileImage &&
+                                    <Image style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        borderRadius: 100,
+                                    }}
+                                        source={{ uri: profileImage }} />
+                                }
+                            </View>
+
 
                             <View style={styles.addFriendContainer}>
+
                                 <View>
                                     <TouchableOpacity
                                         style={styles.followButton}
@@ -216,6 +234,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                             </View>
                         </View>
 
+
                         <View style={styles.infos}>
 
                             <View style={styles.data}>
@@ -227,24 +246,82 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                     </View>
                     <View style={styles.border} />
 
-                    <View style={{ display: "flex", flexDirection: "row" }}>
+                    <View style={styles.tagsView}>
 
                         <ScrollView horizontal={true}>
-                            <View style={styles.tags}>
-                                <Text style={styles.tagsText}>
-                                    #Adicione seus esportes favoritos
-                                </Text>
-                            </View>
+
+                            {sportsPracticed.map((sport) => {
+                                return (
+
+                                    <TouchableOpacity
+                                        style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
+                                        onPress={() => {
+                                            navigation.navigate("Tela Tags");
+                                        }}
+                                    >
+                                        <Text style={styles.addFavoriteSportsText}>
+                                            #{sport.sport_name}
+                                        </Text>
+                                    </TouchableOpacity>
+
+                                )
+                            })}
+
                         </ScrollView>
 
-                        <View>
-                            <TouchableOpacity>
-                                <Text>teste</Text>
-                            </TouchableOpacity>
+                        <View style={styles.editProfileContainer}>
+
+                            {visible && (
+                                <View style={styles.editProfile}>
+
+                                    <View style={styles.editProfileButtonContainer}>
+
+                                        <TouchableOpacity
+                                            style={styles.editProfileButton}
+                                            onPress={() => {
+                                                navigation.navigate("Tela Tags");
+                                            }}
+                                        >
+                                            <MaterialCommunityIcons name="pencil" size={25} color="#FFF" />
+                                            <Text style={styles.editProfileText}>Editar Tags</Text>
+                                        </TouchableOpacity>
+
+                                        <View style={styles.whiteLine} />
+
+                                        <TouchableOpacity
+                                            style={styles.editProfileButton}
+                                            onPress={() => {
+                                                navigation.navigate("Tela Ver Mais");
+                                            }}
+                                        >
+                                            <AntDesign name="eye" size={26} color="#FFF" />
+                                            <Text style={styles.editProfileText}>Ver Mais</Text>
+                                        </TouchableOpacity>
+
+                                    </View>
+
+                                    <TouchableOpacity
+                                        onPress={() => setVisible(false)}
+                                        style={styles.closedButton}
+                                    >
+                                        <Ionicons name="ios-close" size={30} color="#FFF" />
+                                    </TouchableOpacity>
+                                </View>
+                            )}
+
+                            {!visible && (
+                                <View>
+                                    <TouchableOpacity
+                                        onPress={() => setVisible(true)}
+                                        style={styles.openEdit}
+                                    >
+                                        <Entypo name="dots-three-horizontal" size={24} color="#FFF" />
+                                    </TouchableOpacity>
+                                </View>
+                            )}
+
                         </View>
-
                     </View>
-
                     <Toast config={toastConfig} />
                 </SafeAreaView>
             }

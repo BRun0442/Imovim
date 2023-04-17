@@ -10,47 +10,38 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
 
   background: {
-    height: 80,
-    backgroundColor: "#d9d9d9",
+    width: "100%",
+    height: 180,
+
+    backgroundColor: "#D9D9D9",
   },
 
-  logo: {
-    position: 'absolute',
+  icons: {
+    width: "100%",
 
-    // Alinha verticalmente
-    justifyContent: 'center',
-
-    //Alinha horizontalmente
-    alignSelf: 'center',
-
-    fontSize: 50,
-    color: '#FF6709',
-    zIndex: 1,
-  },
-
-  perfil: {
-    marginTop: -60,
-  },
-
-  iconsContainer: {
     display: "flex",
-    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "row",
 
-    paddingHorizontal: 15
+    paddingHorizontal: 20,
   },
 
   iconCam: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     width: 140,
     height: 140,
-    backgroundColor: "#d9d9d9",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#D9D9D9",
+
     borderRadius: 100,
-    borderColor: "#fff",
-    borderWidth: 5
+    borderColor: "#FFF",
+    borderWidth: 3,
+
+    marginTop: -80
   },
 
   profileImage: {
@@ -65,6 +56,8 @@ export const styles = StyleSheet.create({
   addFriendContainer: {
     display: "flex",
     flexDirection: "column",
+
+    marginTop: 20
   },
 
   infos: {
@@ -79,7 +72,7 @@ export const styles = StyleSheet.create({
   },
 
   data: {
-    textAlign: "left"
+    textAlign: "left",
   },
 
   name: {
@@ -88,24 +81,64 @@ export const styles = StyleSheet.create({
   },
 
   location: {
+    fontSize: 15
+  },
+
+  tagsView: {
+    width: "100%",
+    height: 120,
+
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+
+    paddingHorizontal: 5,
+  },
+
+  tagsContainer: {
+    width: "80%",
+    height: "100%",
+
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+
+  addFavoriteSports: {
+    width: 145,
+    height: 55,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+
+    backgroundColor: "#8B8A8B",
+    borderRadius: 40,
+
+    marginRight: 2,
+  },
+
+  addFavoriteSportsText: {
+    color: "#FFF",
     fontWeight: "bold",
-    fontSize: 12
+    fontSize: 20,
   },
 
   followButton: {
-    display: "flex",
-    flexDirection: 'row',
-    justifyContent: "space-around",
-    alignItems: "center",
-
-    backgroundColor: '#A512BD',
-
     width: 180,
     height: 40,
 
-    borderRadius: 40,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
 
-    marginTop: 80
+    backgroundColor: "#A512BD",
+
+    borderRadius: 40,
   },
 
   addFriendsIcons: {
@@ -161,5 +194,98 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
 
     marginVertical: 15
-  }
+  },
+
+  editProfileContainer: {
+    width: "20%",
+    height: "100%",
+
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+
+  editProfile: {
+    width: 190,
+    height: 90,
+
+    display: "flex",
+    flexDirection: "row",
+
+    backgroundColor: "#FD5F00",
+
+    borderRadius: 20,
+
+    paddingHorizontal: 5
+  },
+
+  editProfileButtonContainer: {
+    width: 130,
+    height: 90,
+
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+
+    paddingStart: 5
+  },
+
+  editProfileButton: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+
+  editProfileText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: 8
+  },
+
+  closedButton: {
+    width: 45,
+    height: 90,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+  whiteLine: {
+    width: "100%",
+    height: 1,
+
+    backgroundColor: "#FFF",
+
+    marginVertical: 5
+  },
+
+  button: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#FF6709",
+    width: 40,
+    height: 40,
+
+    borderRadius: 40,
+  },
+
+  openEdit: {
+    width: 50,
+    height: 50,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#FD5F00",
+
+    borderRadius: 40,
+  },
 })
