@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
-import { Entypo } from '@expo/vector-icons';
 import { styles } from './style'
 
 export default function NotificationLike(props) {
@@ -15,7 +14,7 @@ export default function NotificationLike(props) {
 
             <View style={styles.textContainer}>
                 <Text style={styles.textNotifcation}>{props.text}</Text>
-                <Text style={styles.textTime}>Há {props.time}</Text>
+                <Text style={styles.textTime}>{props.created_at}</Text>
             </View>
         </View>
     )
