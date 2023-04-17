@@ -4,9 +4,9 @@ import Header from '../../Header/Header'
 import { styles } from './style'
 import { AuthContext } from "../../../contexts/auth";
 
+import { getPostNotifications } from "../../../services/notifications";
 import NotificationNewFriend from '../../Notifications/NotificationNewFriend/NotificationNewFriend'
-import NotificationLike from "../../Notifications/NotificationLike/NotificationLike";
-import NotificationComent from "../../Notifications/NotificationComent/NotificationComent";
+import Notification from "../../Notifications/NotificationLike/NotificationLike";
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 
 import { getSolicitations } from "../../../services/notifications";
@@ -18,6 +18,7 @@ import { showToastSuccess } from '../../Toast/Toast';
 export default function Notificacoes({ navigation }) {
     const { id, setAnotherUser_id } = useContext(AuthContext)
     const [solicitations, setSolicitations] = useState(null)
+    const [notifications, setNotifications] = useState(null)
     const [changeComponent, setChangeComponent] = useState(true)
     const [updateScreen, setUpdateScreen] = useState(0)
 
@@ -27,8 +28,10 @@ export default function Notificacoes({ navigation }) {
     }
 
     const getData = async () => {
-        const data = await getSolicitations(id)
-        setSolicitations(data)
+        const solicitationsData = await getSolicitations(id)
+        setSolicitations(solicitationsData)
+        const notificationsData = await getPostNotifications(id)
+        setNotifications(notificationsData)
     }
 
     const resignSolicitation = async (user_id, friend_id) => {
@@ -116,10 +119,11 @@ export default function Notificacoes({ navigation }) {
                     :
 
                     <ScrollView style={styles.notifications}>
-
-                        <NotificationNewFriend name="Tiago" city="Taboão da Serra" sports="3 esportes em comum" />
-                        <NotificationLike name="Tiago" />
-                        <NotificationComent name="Tiago" />
+                        {notifications.map((notification, index) => {
+                            return (
+                                <Notification profileImage={notification.profileImage} text={notification.text} />
+                            )
+                        })}
 
                     </ScrollView>
             }
