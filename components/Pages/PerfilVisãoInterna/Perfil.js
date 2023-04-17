@@ -1,18 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
+import { View, Text, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView, FlatList } from "react-native";
 import { styles } from "./style.js";
-import { FlatList } from "react-native-gesture-handler";
+
 import { Foundation } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
-import Header from "../../Header/Header";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 
+import Header from "../../Header/Header";
 import Post from "../../Post/Post";
 import likePost from "../../../services/post";
 // import { getUserData } from '../../../services/user'
 
-import { AntDesign } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { AuthContext } from "../../../contexts/auth";
 import { AccountDataContext } from "../../../contexts/accountData";
 
@@ -112,39 +112,46 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 </View>
 
                 <TouchableOpacity
-                  style={styles.buttonSeeMore}
+                  style={styles.buttonSeeFriends}
                   onPress={() => {
                     navigation.navigate("Ver Amigos");
                   }}
                 >
-                  <Ionicons name="person-add" size={20} color="#FFF" />
-                  <Text style={styles.textButtonSeeMore}>Ver Amigos</Text>
+                  <Ionicons name="person-add" size={22} color="#FFF" />
+                  <Text style={styles.textButtonSeeFriends}>Ver Amigos</Text>
                 </TouchableOpacity>
 
               </View>
 
               <View style={styles.infos}>
+
                 <View style={styles.data}>
+
                   <Text style={styles.name}>
                     {name}
                   </Text>
+
                   <Text style={styles.location}>
                     {location}
                   </Text>
+
                 </View>
 
                 <View>
+
                   <TouchableOpacity
                     style={styles.iconPencil}
                     onPress={() => {
                       navigation.navigate("Editar Perfil");
                     }}
                   >
-                    <Foundation name="pencil" size={25} color="black" />
+                    <MaterialCommunityIcons name="pencil" size={28} color="#000" />
                   </TouchableOpacity>
+
                 </View>
 
               </View>
+
             </View>
 
             <View style={styles.border} />
@@ -155,19 +162,16 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                 <ScrollView horizontal={true}>
 
-                  <View style={styles.tags}>
-
-                    <TouchableOpacity
-                      onPress={() => {
-                        navigation.navigate("Tela Tags");
-                      }}
-                    >
-                      <Text style={styles.tagsText}>
-                        #Adicione seus esportes favoritos
-                      </Text>
-                    </TouchableOpacity>
-
-                  </View>
+                  <TouchableOpacity
+                    style={styles.addFavoriteSports}
+                    onPress={() => {
+                      navigation.navigate("Tela Tags");
+                    }}
+                  >
+                    <Text style={styles.addFavoriteSportsText}>
+                      #Adicione seus esportes favoritos
+                    </Text>
+                  </TouchableOpacity>
 
                 </ScrollView>
 
@@ -178,7 +182,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 {visible && (
                   <View style={styles.editProfile}>
 
-                    <View>
+                    <View style={styles.editProfileButtonContainer}>
 
                       <TouchableOpacity
                         style={styles.editProfileButton}
@@ -186,7 +190,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                           navigation.navigate("Tela Tags");
                         }}
                       >
-                        <Foundation name="pencil" size={26} color="#FFF" />
+                        <MaterialCommunityIcons name="pencil" size={25} color="#FFF" />
                         <Text style={styles.editProfileText}>Editar Tags</Text>
                       </TouchableOpacity>
 
@@ -201,6 +205,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                         <AntDesign name="eye" size={26} color="#FFF" />
                         <Text style={styles.editProfileText}>Ver Mais</Text>
                       </TouchableOpacity>
+
                     </View>
 
                     <TouchableOpacity
@@ -224,7 +229,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 )}
 
               </View>
-
             </View>
           </View>
         }

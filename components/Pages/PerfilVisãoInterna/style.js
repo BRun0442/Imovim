@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 
   background: {
     width: "100%",
-    height: 200,
+    height: 180,
 
     backgroundColor: "#D9D9D9",
   },
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     borderColor: "#FFF",
     borderWidth: 5,
 
-    marginTop: -50
+    marginTop: -60
   },
 
   iconPencil: {
@@ -55,13 +55,9 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
 
-    marginTop: 5,
-    marginBottom: 10,
+    marginVertical: 10,
 
-    paddingStart: 25,
-    paddingEnd: 25,
-
-    
+    paddingHorizontal: 25
   },
 
   data: {
@@ -74,32 +70,30 @@ export const styles = StyleSheet.create({
   },
 
   location: {
-    fontWeight: "bold",
-    fontSize: 12
+    fontSize: 15
   },
 
-  buttonSeeMore: {
-    width: 150,
+  buttonSeeFriends: {
+    width: 180,
     height: 40,
 
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    alignItems: "center",
+
 
     backgroundColor: "#A512BD",
 
     borderRadius: 40,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   },
 
-  textButtonSeeMore: {
+  textButtonSeeFriends: {
     color: "#FFF",
     fontWeight: "bold",
     fontSize: 18,
 
-    marginLeft: 2
+    marginLeft: 5
   },
 
   border: {
@@ -112,13 +106,15 @@ export const styles = StyleSheet.create({
   },
 
   tagsView: {
+    width: "100%",
+    height: 120,
+
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
 
-    height: 120,
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
   },
 
   tagsContainer: {
@@ -131,8 +127,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
-
-  tags: {
+  addFavoriteSports: {
     width: 240,
     height: 40,
 
@@ -145,7 +140,7 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
   },
 
-  tagsText: {
+  addFavoriteSportsText: {
     color: "#FFF",
     fontWeight: "bold",
     fontSize: 14,
@@ -162,19 +157,29 @@ export const styles = StyleSheet.create({
   },
 
   editProfile: {
-    width: 180,
-    height: 75,
+    width: 190,
+    height: 90,
 
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
 
     backgroundColor: "#FD5F00",
 
     borderRadius: 20,
 
-    paddingHorizontal: 10,
+    paddingHorizontal: 5
+  },
+
+  editProfileButtonContainer: {
+    width: 130,
+    height: 90,
+
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+
+    paddingStart: 5
   },
 
   editProfileButton: {
@@ -186,19 +191,18 @@ export const styles = StyleSheet.create({
 
   editProfileText: {
     color: "#FFF",
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
-    marginLeft: 10
+    marginLeft: 8
   },
 
   closedButton: {
-    width: 30,
-    height: 70,
+    width: 45,
+    height: 90,
 
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-
+    alignItems: "center"
   },
 
   whiteLine: {
@@ -207,7 +211,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#FFF",
 
-    marginVertical: 4
+    marginVertical: 5
   },
 
   button: {
