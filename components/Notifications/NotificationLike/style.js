@@ -4,16 +4,14 @@ export const styles = StyleSheet.create({
     container: {
         display: "flex",
         alignItems: "center",
-
-        alignSelf: "center",
-
         flexDirection: "row",
+
         backgroundColor: "#F1F1F1",
 
         width: "100%",
         height: 120,
 
-        padding: 15,
+        paddingHorizontal: 5,
 
         borderRadius: 30,
 
@@ -32,6 +30,23 @@ export const styles = StyleSheet.create({
 
         borderRadius: 100,
         borderColor: "#fff",
-        borderWidth: 3
+        borderWidth: 3,
+
+        marginRight: 10
+    },
+
+    textContainer:{
+        display: "flex",
+        flexDirection: "column",  
+        flexWrap: "wrap"
+    },
+
+    textNotifcation:{
+        fontSize: 15,
+        fontWeight: "500"
+    },
+
+    textTime:{
+        fontSize: 14
     }
 })

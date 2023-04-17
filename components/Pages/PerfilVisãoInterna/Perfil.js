@@ -87,10 +87,15 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         //   refreshing={isLoading}
         ListHeaderComponent={
           <View>
+
             <Header navigation={navigation} />
+
             <Image style={styles.background} source={{ uri: backgroundImage }} />
-            <View style={styles.perfil}>
+
+            <View>
+
               <View style={styles.icons}>
+
                 <View style={styles.iconCam}>
                   <Image
                     style={{
@@ -105,15 +110,19 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     }}
                   />
                 </View>
+
                 <TouchableOpacity
-                  style={styles.iconPencil}
+                  style={styles.buttonSeeMore}
                   onPress={() => {
-                    navigation.navigate("Editar Perfil");
+                    navigation.navigate("Ver Amigos");
                   }}
                 >
-                  <Foundation name="pencil" size={25} color="black" />
+                  <Ionicons name="person-add" size={20} color="#FFF" />
+                  <Text style={styles.textButtonSeeMore}>Ver Amigos</Text>
                 </TouchableOpacity>
+
               </View>
+
               <View style={styles.infos}>
                 <View style={styles.data}>
                   <Text style={styles.name}>
@@ -123,19 +132,21 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     {location}
                   </Text>
                 </View>
-                <View style={styles.seeMore}>
+
+                <View>
                   <TouchableOpacity
-                    style={styles.buttonSeeMore}
+                    style={styles.iconPencil}
                     onPress={() => {
-                      navigation.navigate("Ver Amigos");
+                      navigation.navigate("Editar Perfil");
                     }}
                   >
-                    <Ionicons name="person-add" size={20} color="#FFF" />
-                    <Text style={styles.textButtonSeeMore}>Ver Amigos</Text>
+                    <Foundation name="pencil" size={25} color="black" />
                   </TouchableOpacity>
                 </View>
+
               </View>
             </View>
+
             <View style={styles.border} />
 
             <View style={styles.tagsView}>
@@ -157,7 +168,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     </TouchableOpacity>
 
                   </View>
-                  
+
                 </ScrollView>
 
               </View>

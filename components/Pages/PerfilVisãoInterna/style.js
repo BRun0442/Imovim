@@ -13,46 +13,35 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: 200,
 
-    backgroundColor: "#d9d9d9",
-  },
-
-  logo: {
-    position: 'absolute',
-
-    // Alinha verticalmente
-    justifyContent: 'center',
-
-    //Alinha horizontalmente
-    alignSelf: 'center',
-
-    fontSize: 50,
-    color: '#FF6709',
-    zIndex: 1,
-  },
-
-  perfil: {
-    marginTop: -60,
+    backgroundColor: "#D9D9D9",
   },
 
   icons: {
+    width: "100%",
+
     display: "flex",
-    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingStart: 20,
-    paddingEnd: 20,
+    flexDirection: "row",
+
+    paddingHorizontal: 20
   },
 
   iconCam: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     width: 140,
     height: 140,
-    backgroundColor: "#d9d9d9",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#D9D9D9",
+
     borderRadius: 100,
-    borderColor: "#fff",
-    borderWidth: 5
+    borderColor: "#FFF",
+    borderWidth: 5,
+
+    marginTop: -50
   },
 
   iconPencil: {
@@ -71,10 +60,12 @@ export const styles = StyleSheet.create({
 
     paddingStart: 25,
     paddingEnd: 25,
+
+    
   },
 
   data: {
-    textAlign: "left"
+    textAlign: "left",
   },
 
   name: {
@@ -91,11 +82,11 @@ export const styles = StyleSheet.create({
     width: 150,
     height: 40,
 
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
 
-    backgroundColor: '#A512BD',
+    backgroundColor: "#A512BD",
 
     borderRadius: 40,
     display: "flex",
@@ -115,19 +106,19 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: 5,
 
-    backgroundColor: '#A312BB',
+    backgroundColor: "#A312BB",
 
     marginTop: 10
   },
 
   tagsView: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
 
     height: 120,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
 
   tagsContainer: {
@@ -145,18 +136,18 @@ export const styles = StyleSheet.create({
     width: 240,
     height: 40,
 
-    display: 'flex',
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
 
-    backgroundColor: '#8B8A8B',
+    backgroundColor: "#8B8A8B",
     borderRadius: 25,
   },
 
   tagsText: {
-    color: '#FFF',
-    fontWeight: 'bold',
+    color: "#FFF",
+    fontWeight: "bold",
     fontSize: 14,
   },
 
@@ -245,28 +236,28 @@ export const styles = StyleSheet.create({
   },
 
   openEditText: {
-    color: 'white',
+    color: "white",
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 
   line: {
-    width: '100%',
+    width: "100%",
     height: 1,
-    backgroundColor: '#FF1493',
+    backgroundColor: "#FF1493",
     marginBottom: 15,
   },
 
   posts: {
     display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   alert: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 25,
-    color: '#A6A6A6'
+    color: "#A6A6A6"
   },
 }
 )

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { SafeAreaView, View, Text, TouchableOpacity, ScrollView } from 'react-native'
-import Header from '../../Header/Header'
-import { styles } from './style'
 import { AuthContext } from "../../../contexts/auth";
-
 import { getPostNotifications } from "../../../services/notifications";
-import NotificationNewFriend from '../../Notifications/NotificationNewFriend/NotificationNewFriend'
+import { styles } from './style'
+
+import Header from '../../Header/Header'
 import Notification from "../../Notifications/NotificationLike/NotificationLike";
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 
