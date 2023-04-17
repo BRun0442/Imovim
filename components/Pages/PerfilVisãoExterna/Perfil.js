@@ -255,9 +255,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
                                     <TouchableOpacity
                                         style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
-                                        onPress={() => {
-                                            navigation.navigate("Tela Tags");
-                                        }}
+                                       
                                     >
                                         <Text style={styles.addFavoriteSportsText}>
                                             #{sport.sport_name}
@@ -269,58 +267,6 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
                         </ScrollView>
 
-                        <View style={styles.editProfileContainer}>
-
-                            {visible && (
-                                <View style={styles.editProfile}>
-
-                                    <View style={styles.editProfileButtonContainer}>
-
-                                        <TouchableOpacity
-                                            style={styles.editProfileButton}
-                                            onPress={() => {
-                                                navigation.navigate("Tela Tags");
-                                            }}
-                                        >
-                                            <MaterialCommunityIcons name="pencil" size={25} color="#FFF" />
-                                            <Text style={styles.editProfileText}>Editar Tags</Text>
-                                        </TouchableOpacity>
-
-                                        <View style={styles.whiteLine} />
-
-                                        <TouchableOpacity
-                                            style={styles.editProfileButton}
-                                            onPress={() => {
-                                                navigation.navigate("Tela Ver Mais");
-                                            }}
-                                        >
-                                            <AntDesign name="eye" size={26} color="#FFF" />
-                                            <Text style={styles.editProfileText}>Ver Mais</Text>
-                                        </TouchableOpacity>
-
-                                    </View>
-
-                                    <TouchableOpacity
-                                        onPress={() => setVisible(false)}
-                                        style={styles.closedButton}
-                                    >
-                                        <Ionicons name="ios-close" size={30} color="#FFF" />
-                                    </TouchableOpacity>
-                                </View>
-                            )}
-
-                            {!visible && (
-                                <View>
-                                    <TouchableOpacity
-                                        onPress={() => setVisible(true)}
-                                        style={styles.openEdit}
-                                    >
-                                        <Entypo name="dots-three-horizontal" size={24} color="#FFF" />
-                                    </TouchableOpacity>
-                                </View>
-                            )}
-
-                        </View>
                     </View>
                     <Toast config={toastConfig} />
                 </SafeAreaView>
