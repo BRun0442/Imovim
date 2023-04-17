@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#FFF",
 
-    borderRadius: 35,
+    borderRadius: 15,
     padding: 15,
     marginVertical: 10,
   },

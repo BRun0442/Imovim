@@ -10,48 +10,72 @@ const statusBarHeight = StatusBar.currentHeight
 
 export const styles = StyleSheet.create({
   container: {
+    width: "100%",
+    height: "100%",
+
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between"
   },
 
-
   header: {
-    backgroundColor: '#A512BD',
-    height: "10%",
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 35,
+    width: "100%",
+    height: "6%",
+    
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#A512BD",
+
+    paddingHorizontal: 10,
   },
 
-  likeAndComents: {
-    width: '45%',
+  likeAndComentsContainer: {
+    display: "flex",
+    flexDirection: "row",
 
-    flex: 1,
-    flexDirection: 'row',
+    position: "absolute",
+    left: 10
+  },
+
+  shareContainer:{
+    position: "absolute",
+    right: 10
+  },
+
+  title: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+  logo: {
+    fontSize: 40,
+    fontWeight: "bold",
+    color: "#FF6709",
   },
 
   button: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 
   buttonText: {
-    color: 'white',
-    fontWeight: '500',
-    alignSelf: 'center',
+    color: "white",
+    fontWeight: "500",
+    alignSelf: "center",
     fontSize: 15,
     paddingLeft: 5,
   },
 
   comentsContainer: {
-    backgroundColor: '#ededed',
+    backgroundColor: "#ededed",
 
     width: "100%",
-    height: "75%",
+    height: "84%",
 
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
     paddingTop: 25
   },
 
@@ -63,8 +87,6 @@ export const styles = StyleSheet.create({
 
     width: "100%",
     height: "10%",
-
-    marginBottom: 50,
 
     marginHorizontal: 2
   },

@@ -26,9 +26,9 @@ function Comentarios(props) {
 
   useEffect(() => {
     getComments(postFocusedId, setComments)
-    .then(() => {
-      setCurrentPost(postFocusedId)
-    })
+      .then(() => {
+        setCurrentPost(postFocusedId)
+      })
   }, [postFocusedId])
 
   if (comments === null || currentPost != postFocusedId) {
@@ -51,7 +51,7 @@ function Comentarios(props) {
 
         <View style={styles.header}>
 
-          <View style={styles.likeAndComents}>
+          <View style={styles.likeAndComentsContainer}>
 
             <TouchableOpacity style={styles.button}>
               <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
@@ -64,11 +64,13 @@ function Comentarios(props) {
             </TouchableOpacity>
 
           </View>
-
-          <TouchableOpacity style={styles.button}>
-            <FontAwesome name="share" size={24} color="white" />
-            <Text style={styles.buttonText}>{props.shareQuantity}</Text>
-          </TouchableOpacity>
+          
+          <View style={styles.shareContainer}>
+            <TouchableOpacity style={styles.button}>
+              <FontAwesome name="share" size={24} color="white" />
+              <Text style={styles.buttonText}>{props.shareQuantity}</Text>
+            </TouchableOpacity>
+          </View>
 
         </View>
 
