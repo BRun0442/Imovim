@@ -120,7 +120,7 @@ export default function Notificacoes({ navigation }) {
                     <ScrollView style={styles.notifications}>
                         {notifications.map((notification, index) => {
                             return (
-                                <Notification created_at={notification.created_at} profileImage={notification.profileImage} text={notification.text} />
+                                <Notification user_id={notification.user_id} navigateToProfile={navigateToProfile} created_at={notification.created_at} profileImage={notification.profileImage} text={notification.text} />
                             )
                         })}
 

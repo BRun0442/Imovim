@@ -15,14 +15,12 @@ export default function ResultSearch({ navigation, nickname, profileImage, user_
             }}
         >
             <View>
-                {
-                    !profileImage ?
-                        <View style={styles.photoUser}>
-                            <FontAwesome name="camera" size={20} color="#FFF" />
-                        </View>
-                        :
-                        <Image style={styles.profileImage} source={{ uri: profileImage }} />
-                }
+               
+                        <Image style={styles.profileImage} source={{
+                            uri:
+                              profileImage ||
+                              "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+                          }} />
             </View>
             <Text style={styles.resultText}>{nickname}</Text>
         </TouchableOpacity>
