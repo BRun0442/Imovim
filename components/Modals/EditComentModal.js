@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native"
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { updateComment } from "../../services/comment";
+import { AuthContext } from "../../contexts/auth";
 
-export default function EditComentModal({handleClose}) {
+export default function EditComentModal({handleClose, comment_id}) {
+    const { id } = useContext(AuthContext)
+    const [comment, setComment] = useState('')
+
     return (
         <View style={styles.container}>
 
@@ -17,11 +22,12 @@ export default function EditComentModal({handleClose}) {
 
                 <View style={styles.inputContainer}>
                     <TextInput
+                        onChangeText={(text) => setComment(text)}
                         style={styles.input}
                         placeholder="Editar o comentário..."
                         placeholderTextColor={"#FFF"}
                     />
-                    <TouchableOpacity style={styles.inputIcon}>
+                    <TouchableOpacity onPress={() => updateComment(comment, id, comment_id)} style={styles.inputIcon}>
                         <FontAwesome name="check" size={20} color="#FF7926" />
                     </TouchableOpacity>
                 </View>

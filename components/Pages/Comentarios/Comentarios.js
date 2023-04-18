@@ -75,10 +75,12 @@ function Comentarios(props) {
         </View>
 
         <ScrollView style={styles.comentsContainer}>
-          {comments.map((item) => {
+          {comments.map((item, index) => {
             return (
               <Comentario
-                key={item.id}
+                key={index}
+                comment_id={item.comment_id}
+                user_id={item.user_id}
                 profileImage={item.profileImage}
                 profileName={item.nickname}
                 daysAgo={item.created_at}

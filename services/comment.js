@@ -19,3 +19,14 @@ export const sendComment = async (commentText, id, postId, setCommentText, setCo
       setCommentText('')
     })
   }
+
+export const updateComment = async (comment, user_id, comment_id) => {
+  const data = {
+    comment, 
+    user_id, 
+    comment_id
+  }
+
+  await axios.post(`https://imovim-api.cyclic.app/comment/update-comment`, data)
+  .then((res) => console.log(res))
+}

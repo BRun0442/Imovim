@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Text, View, TouchableOpacity, Modal, } from "react-native";
 import { styles } from "./styles";
 
 import ProfileImage from '../ProfileImage/ProfileImage';
 import EditComentModal from "../Modals/EditComentModal";
+import { AuthContext } from "../../contexts/auth";
 
 function Comentario(props) {
   const [visibleModal, setVisibleModal] = useState(false)
+  const { id } = useContext(AuthContext)
 
   return (
     <TouchableOpacity
-      onLongPress={() => setVisibleModal(true)}
+      onLongPress={() => setVisibleModal(props.user_id == id ? true : false)}
       style={styles.comentContainer}
     >
 
@@ -31,6 +33,7 @@ function Comentario(props) {
         onRequestClose={() => setVisibleModal(false)}
       >
         <EditComentModal
+          comment_id={props.comment_id}
           handleClose={() => setVisibleModal(false)}
         />
       </Modal>
