@@ -21,7 +21,10 @@ function ComentContent(props) {
         <ProfileImage profileImage={props.profileImage} />
 
         <View style={styles.profileContainer}>
-          <Text style={styles.profileName}>{props.profileName}</Text>
+          <View style={{display: 'flex', flexDirection:'row', justifyContent:'space-between', width: '73%'}}>
+            <Text style={styles.profileName}>{props.profileName}</Text>
+            <Text style={styles.daysAgo}>{props.updated ? 'Atualizado' : null}</Text>
+          </View>
           <Text style={styles.daysAgo}>{props.daysAgo}</Text>
         </View>
       </View>

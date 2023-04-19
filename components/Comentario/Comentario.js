@@ -22,6 +22,7 @@ export default function Comentario(props) {
           profileName={props.profileName}
           daysAgo={props.daysAgo}
           coment={props.coment}
+          updated={props.updated}
         />
   
         <Modal
@@ -48,6 +49,7 @@ export default function Comentario(props) {
           profileName={props.profileName}
           daysAgo={props.daysAgo}
           coment={props.coment}
+          updated={props.updated}
         />
     )
   }

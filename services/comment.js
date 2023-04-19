@@ -30,3 +30,8 @@ export const updateComment = async (comment, user_id, comment_id) => {
   await axios.post(`https://imovim-api.cyclic.app/comment/update-comment`, data)
   .then((res) => console.log(res))
 }
+
+export const deleteComment = async (comment_id, user_id) => {
+  await axios.delete(`https://imovim-api.cyclic.app/comment/delete-comment?id=${comment_id}&user=${user_id}`)
+  .then((res) => console.log(res))
+}

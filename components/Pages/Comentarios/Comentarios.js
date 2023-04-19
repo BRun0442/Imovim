@@ -88,6 +88,7 @@ function Comentarios({ navigation }, props) {
             <Comentario
               key={index}
               comment_id={item.comment_id}
+              updated={item.updated}
               user_id={item.user_id}
               profileImage={item.profileImage}
               profileName={item.nickname}

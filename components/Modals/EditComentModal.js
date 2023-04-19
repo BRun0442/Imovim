@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native"
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { updateComment } from "../../services/comment";
+import { updateComment, deleteComment } from "../../services/comment";
 import { AuthContext } from "../../contexts/auth";
 
 export default function EditComentModal({handleClose, comment_id, coment, getComments}) {
@@ -40,7 +40,15 @@ export default function EditComentModal({handleClose, comment_id, coment, getCom
                 </View>
 
                 <View style={styles.deleteContainer}>
-                    <TouchableOpacity style={styles.deleteButton}>
+                    <TouchableOpacity style={styles.deleteButton}
+                        onPress={() => {
+                            deleteComment(comment_id, id)
+                            .then(() => {
+                                getComments()
+                                handleClose()
+                            })
+                        }}
+                        >
                         <Text style={styles.deleteTitle}>Apagar comentário</Text>
                         <MaterialIcons name="delete" size={30} color="#FFF" />
                     </TouchableOpacity>
