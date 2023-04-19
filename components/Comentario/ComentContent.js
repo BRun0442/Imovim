@@ -7,26 +7,36 @@ import EditComentModal from "../Modals/EditComentModal";
 import { AuthContext } from "../../contexts/auth";
 
 function ComentContent(props) {
-  const [visibleModal, setVisibleModal] = useState(false)
   const { id } = useContext(AuthContext)
 
   return (
-    <View
-      style={styles.comentContainer}
-    >
+    <View style={styles.comentContainer}>
 
-      <View
-        style={styles.comentProfile}
-      >
-        <ProfileImage profileImage={props.profileImage} />
+      <View style={styles.comentProfile}>
 
         <View style={styles.profileContainer}>
-          <View style={{display: 'flex', flexDirection:'row', justifyContent:'space-between', width: '73%'}}>
-            <Text style={styles.profileName}>{props.profileName}</Text>
-            <Text style={styles.daysAgo}>{props.updated ? 'Atualizado' : null}</Text>
+
+          <ProfileImage profileImage={props.profileImage} />
+
+          <View style={styles.infoUser}>
+
+            <Text style={styles.profileName}>
+              {props.profileName}
+            </Text>
+
+            <Text style={styles.daysAgo}>
+              {props.daysAgo}
+            </Text>
+
           </View>
-          <Text style={styles.daysAgo}>{props.daysAgo}</Text>
+
         </View>
+
+
+        <Text style={styles.daysAgo}>
+          {props.updated ? '(Editado)' : null}
+        </Text>
+
       </View>
 
       <Text style={styles.coment}>{props.coment}</Text>

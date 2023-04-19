@@ -18,13 +18,16 @@ export const styles = StyleSheet.create({
   },
 
   comentProfile: {
+    width: "100%",
     height: 55,
 
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
+    justifyContent: "space-between",
 
     marginBottom: 10,
+
   },
 
   coment: {
@@ -33,12 +36,6 @@ export const styles = StyleSheet.create({
 
     fontWeight: "500",
     fontSize: 15
-  },
-
-  profileImage: {
-    height: 50,
-    width: 50,
-    resizeMode: "stretch",
   },
 
   profileName: {
@@ -57,7 +54,15 @@ export const styles = StyleSheet.create({
 
   profileContainer: {
     display: "flex",
-    flexDirection: "column",
-    marginLeft: 10,
+    flexDirection: "row",
   },
+  
+  infoUser:{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    
+    marginLeft: 10,
+  }
+
 });
