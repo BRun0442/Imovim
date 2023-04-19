@@ -25,11 +25,16 @@ function Comentarios({ navigation }, props) {
   const [comments, setComments] = useState(null)
   const [commentText, setCommentText] = useState('')
 
-  useEffect(() => {
+
+  const getData = () => {
     getComments(postFocusedId, setComments)
       .then(() => {
         setCurrentPost(postFocusedId)
       })
+  }
+
+  useEffect(() => {
+    getData()
   }, [postFocusedId])
 
   if (comments === null || currentPost != postFocusedId) {
@@ -88,6 +93,7 @@ function Comentarios({ navigation }, props) {
               profileName={item.nickname}
               daysAgo={item.created_at}
               coment={item.comment}
+              getComments={getData}
             />
           )
         })}

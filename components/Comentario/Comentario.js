@@ -30,6 +30,8 @@ export default function Comentario(props) {
           onRequestClose={() => setVisibleModal(false)}
         >
           <EditComentModal
+            coment={props.coment}
+            getComments={props.getComments}
             comment_id={props.comment_id}
             handleClose={() => setVisibleModal(false)}
           />

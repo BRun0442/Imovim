@@ -5,9 +5,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import { updateComment } from "../../services/comment";
 import { AuthContext } from "../../contexts/auth";
 
-export default function EditComentModal({handleClose, comment_id}) {
+export default function EditComentModal({handleClose, comment_id, coment, getComments}) {
     const { id } = useContext(AuthContext)
-    const [comment, setComment] = useState('')
+    const [comment, setComment] = useState(coment)
 
     return (
         <View style={styles.container}>
@@ -22,12 +22,19 @@ export default function EditComentModal({handleClose, comment_id}) {
 
                 <View style={styles.inputContainer}>
                     <TextInput
+                        value={comment}
                         onChangeText={(text) => setComment(text)}
                         style={styles.input}
                         placeholder="Editar o comentário..."
                         placeholderTextColor={"#FFF"}
                     />
-                    <TouchableOpacity onPress={() => updateComment(comment, id, comment_id)} style={styles.inputIcon}>
+                    <TouchableOpacity onPress={() => {
+                        updateComment(comment, id, comment_id)
+                        .then(() => {
+                            getComments()
+                            handleClose()
+                        })
+                    }} style={styles.inputIcon}>
                         <FontAwesome name="check" size={20} color="#FF7926" />
                     </TouchableOpacity>
                 </View>
