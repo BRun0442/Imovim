@@ -24,10 +24,11 @@ export default function EditComentModal({handleClose, comment_id, coment, getCom
                     <TextInput
                         value={comment}
                         onChangeText={(text) => setComment(text)}
-                        style={styles.input}
                         placeholder="Editar o comentário..."
                         placeholderTextColor={"#FFF"}
-                    />
+                        multiline={true}
+                        style={styles.input}
+                        />
                     <TouchableOpacity onPress={() => {
                         updateComment(comment, id, comment_id)
                         .then(() => {
@@ -74,12 +75,12 @@ const styles = StyleSheet.create({
 
     closedButtonTop:{
         width: "100%",
-        height: "39%"
+        height: "36%"
     },
 
     modal: {
         width: "100%",
-        height: "22%",
+        height: "25%",
 
         display: "flex",
         alignItems: "center",
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F8670E",
         borderRadius: 20,
 
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
         paddingVertical: 10,
     },
 
@@ -122,13 +123,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
 
         width: "100%",
-        height: "40%",
-
+        height: "35%",
     },
 
     input: {
         width: "85%",
         height: 40,
+
+        color: "#FFF",
+        fontSize: 17,
+        fontWeight: "500",
 
         borderColor: "#D9D9D9",
         borderBottomWidth: 2
@@ -151,11 +155,13 @@ const styles = StyleSheet.create({
 
     deleteContainer: {
         width: "100%",
-        height: "30%",
+        height: "25%",
 
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+
+        marginVertical: 15
 
     },
     
