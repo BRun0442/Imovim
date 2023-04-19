@@ -1,45 +1,52 @@
 import React, {useContext, useState} from "react";
-import { Text, View, TouchableOpacity, Modal, } from "react-native";
-import { styles } from "./styles";
+import { TouchableOpacity, Modal, } from "react-native";
 
-import ProfileImage from '../ProfileImage/ProfileImage';
 import EditComentModal from "../Modals/EditComentModal";
 import { AuthContext } from "../../contexts/auth";
+import ComentContent from "./ComentContent";
 
-function Comentario(props) {
+export default function Comentario(props) {
   const [visibleModal, setVisibleModal] = useState(false)
   const { id } = useContext(AuthContext)
 
-  return (
-    <TouchableOpacity
-      onLongPress={() => setVisibleModal(props.user_id == id ? true : false)}
-      style={styles.comentContainer}
-    >
-
-      <View style={styles.comentProfile}>
-        <ProfileImage profileImage={props.profileImage} />
-
-        <View style={styles.profileContainer}>
-          <Text style={styles.profileName}>{props.profileName}</Text>
-          <Text style={styles.daysAgo}>{props.daysAgo}</Text>
-        </View>
-      </View>
-
-      <Text style={styles.coment}>{props.coment}</Text>
-
-      <Modal
-        visible={visibleModal}
-        transparent={true}
-        onRequestClose={() => setVisibleModal(false)}
+  if (props.user_id == id) {
+    return (
+      <TouchableOpacity
+        onLongPress={() => setVisibleModal(props.user_id == id ? true : false)}
       >
-        <EditComentModal
+        
+        <ComentContent 
           comment_id={props.comment_id}
-          handleClose={() => setVisibleModal(false)}
+          user_id={props.user_id}
+          profileImage={props.profileImage}
+          profileName={props.profileName}
+          daysAgo={props.daysAgo}
+          coment={props.coment}
         />
-      </Modal>
-
-    </TouchableOpacity>
-  );
+  
+        <Modal
+          visible={visibleModal}
+          transparent={true}
+          onRequestClose={() => setVisibleModal(false)}
+        >
+          <EditComentModal
+            comment_id={props.comment_id}
+            handleClose={() => setVisibleModal(false)}
+          />
+        </Modal>
+  
+      </TouchableOpacity>
+    );
+  } else {
+    return (
+      <ComentContent 
+          comment_id={props.comment_id}
+          user_id={props.user_id}
+          profileImage={props.profileImage}
+          profileName={props.profileName}
+          daysAgo={props.daysAgo}
+          coment={props.coment}
+        />
+    )
+  }
 }
-
-export default Comentario;
