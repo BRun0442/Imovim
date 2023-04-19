@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#ededed",
 
     width: "100%",
-    height: "84%",
+    height: "80%",
 
     paddingHorizontal: 20,
     paddingTop: 25

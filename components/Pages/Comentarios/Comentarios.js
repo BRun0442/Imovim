@@ -3,6 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar, 
 
 import { CreateUserContext } from "../../../contexts/createUser";
 import { useContext } from "react";
+import Header from "../../Header/Header"
 
 import { defaultStyle } from "../../../assets/style/style";
 import { styles } from "./styles";
@@ -17,7 +18,7 @@ import { AuthContext } from "../../../contexts/auth";
 
 import { getComments, sendComment } from "../../../services/comment";
 
-function Comentarios(props) {
+function Comentarios({ navigation }, props) {
   const { id } = useContext(AuthContext)
   const { postFocusedId } = useContext(AccountDataContext)
   const [currentPost, setCurrentPost] = useState()
@@ -47,9 +48,11 @@ function Comentarios(props) {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
 
-        <View style={styles.header}>
+
+      <Header navigation={navigation} />
+
+      {/* <View style={styles.header}>
 
           <View style={styles.likeAndComentsContainer}>
 
@@ -72,26 +75,27 @@ function Comentarios(props) {
             </TouchableOpacity>
           </View>
 
-        </View>
+        </View> */}
 
-        <ScrollView style={styles.comentsContainer}>
-          {comments.map((item, index) => {
-            return (
-              <Comentario
-                key={index}
-                comment_id={item.comment_id}
-                user_id={item.user_id}
-                profileImage={item.profileImage}
-                profileName={item.nickname}
-                daysAgo={item.created_at}
-                coment={item.comment}
-              />
-            )
-          })}
-        </ScrollView>
+      <ScrollView style={styles.comentsContainer}>
+        {comments.map((item, index) => {
+          return (
+            <Comentario
+              key={index}
+              comment_id={item.comment_id}
+              user_id={item.user_id}
+              profileImage={item.profileImage}
+              profileName={item.nickname}
+              daysAgo={item.created_at}
+              coment={item.comment}
+            />
+          )
+        })}
+      </ScrollView>
 
+
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
         <View style={styles.writeComentContainer}>
-
           <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
 
           <TouchableOpacity onPress={() => sendComment(commentText, id, postFocusedId, setCommentText, setComments)} style={styles.buttonSendComment}>
@@ -99,8 +103,8 @@ function Comentarios(props) {
           </TouchableOpacity>
 
         </View>
-        <StatusBar />
       </KeyboardAvoidingView>
+      <StatusBar />
     </SafeAreaView>
   );
 }

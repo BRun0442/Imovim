@@ -10,7 +10,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   container:{
     width: "100%",
-    height: "120%",
+    height: "130%",
 
     backgroundColor: '#FFF', 
   },
@@ -91,7 +91,7 @@ export const styles = StyleSheet.create({
 
   emptyPhoto:{
     width: "100%", 
-    height: 300, 
+    height: 200, 
 
     display: "flex", 
     justifyContent: "center", 

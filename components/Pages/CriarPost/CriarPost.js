@@ -76,8 +76,6 @@ export default function CriarPost({ navigation }) {
   }
 
   return (
-    <SafeAreaView>
-      {/* <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} > */}
       <ScrollView contentContainerStyle={styles.container}>
         <StatusBar />
         <Header navigation={navigation} />
@@ -97,7 +95,7 @@ export default function CriarPost({ navigation }) {
           </View>
           <View>
             {image ? (
-              <Image style={{ width: '100%', height: 300, resizeMode: "stretch" }} source={{ uri: image }} />
+              <Image style={{ width: '100%', height: 200, resizeMode: "stretch" }} source={{ uri: image }} />
             ) : (
               <TouchableOpacity onPress={() => {
                 if (galleryPermission == true) {
@@ -154,7 +152,5 @@ export default function CriarPost({ navigation }) {
         }}
         />
       </ScrollView>
-      {/* </KeyboardAvoidingView> */}
-    </SafeAreaView>
   );
 }
