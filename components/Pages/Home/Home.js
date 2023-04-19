@@ -27,7 +27,7 @@ export default function Home({ navigation }) {
               onPress={() => { navigation.navigate('Cadastro') }}
             >
 
-              <Text style={styles.textButtons}>Cadastrar-se</Text>
+              <Text style={styles.textButtons}>Cadastre-se</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

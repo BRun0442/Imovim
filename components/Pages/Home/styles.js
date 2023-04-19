@@ -15,11 +15,12 @@ export const styles = StyleSheet.create({
 
     display: "flex",
     flexDirection: "column",
+    justifyContent: "space-between"
   },
 
   infoContainer: {
     width: "100%",
-    height: "80%",    
+    height: "70%",    
   },
 
   titleContainer:{
@@ -28,7 +29,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "30%",
+    height: "40%",
   },
 
   title: {
@@ -68,7 +69,7 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: "#FF6709",
     width: "55%",
-    height: 60,
+    height: 65,
 
     borderRadius: 20,
     justifyContent: "center",
@@ -76,18 +77,10 @@ export const styles = StyleSheet.create({
 
     marginBottom: 25,
   },
-
-  textButtons: {
-    color: "#FFF",
-    fontSize: 22,
-    fontWeight: "500",
-
-    textAlign: "center",
-  },
-
+  
   transparentButton: {
     width: "55%",
-    height: 60,
+    height: 65,
 
     borderBottomWidth: 2,
     borderColor: "#FF6709",
@@ -96,6 +89,14 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: "center",
     alignSelf: "center",
+  },
+
+  textButtons: {
+    color: "#FFF",
+    fontSize: 22,
+    fontWeight: "500",
+
+    textAlign: "center",
   },
 
   buttonsContainer:{
