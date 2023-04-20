@@ -58,16 +58,32 @@ export async function sendDataToApi(user_id, event_name, event_date, event_hour,
   }
 }
 
-export async function getAllEvents()
+export async function getAllEvents(user_id)
 {
   try {
-    const response = await api.get("/event/get-all-events")
+    const response = await api.get(`/event/get-all-events/${user_id}`)
     return response.data
   } catch (error) {
     console.log(error.data.msg)
   }
 }
 
+export async function goToEvent(user_id, event_id) {
+  const data = {user_id, event_id}
+  try {
+    await api.post(`/event/go-to-event/`, data)
+  } catch (error) {
+    console.log(error.data.msg)
+  }
+}
 
+export async function saveEvent(user_id, event_id) {
+  const data = {user_id, event_id}
+  try {
+    await api.post(`/event/save-event/`, data)
+  } catch (error) {
+    console.log(error.data.msg)
+  }
+}
 
 export default createEvent;

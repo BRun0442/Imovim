@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { goToEvent } from '../../services/events';
+import { saveEvent } from '../../services/events';
+import { AuthContext } from '../../contexts/auth';
 
-export default function EventModal({ handleClose, name, image, date, hour, location, description }) {
-
-    const [actionIcon, setActionIcon] = useState(false)
-    const [iGo, setIgo] = useState(0)
+export default function EventModal({ event_id, participants, userGoes, userSaved, handleClose, name, image, date, hour, location, description }) {
+    const { id } = useContext(AuthContext)
 
     return (
         <SafeAreaView style={styles.container}>
@@ -63,25 +64,31 @@ export default function EventModal({ handleClose, name, image, date, hour, locat
 
                         <View style={styles.interactiveButtonContainer}>
 
-                            <TouchableOpacity onPress={() => setIgo(iGo + 1)} style={styles.interactiveButton}>
+                            <TouchableOpacity onPress={() => goToEvent(id, event_id)} style={styles.interactiveButton}>
 
-                                <AntDesign name="like1" size={60} color="#FFF" />
+                                <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
                                 <Text style={styles.interactiveText}>Eu vou!</Text>
 
                                 <View style={styles.iGoContainer}>
-                                    <Text style={styles.iGo}>{iGo}</Text>
+                                    <Text style={styles.iGo}>{participants}</Text>
                                 </View>
 
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => setActionIcon(!actionIcon)} style={styles.interactiveButton}>
+                            <TouchableOpacity onPress={() => saveEvent(id, event_id)} style={styles.interactiveButton}>
                                 {
-                                    actionIcon === true ?
-                                        <Feather name="check-circle" size={60} color="#FFF" />
+                                    userSaved ? (
+                                        <View>
+                                            <Feather name="check-circle" size={60} color="purple" />
+                                            <Text style={styles.interactiveText}>Salvo</Text>
+                                        </View>
+                                    )
                                         :
-                                        <Ionicons name="add-circle-outline" size={70} color="#FFF" />
+                                        <View>
+                                            <Ionicons name="add-circle-outline" size={70} color="#FFF" />
+                                            <Text style={styles.interactiveText}>Salvar</Text>
+                                        </View>
                                 }
-                                <Text style={styles.interactiveText}>Salvar</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

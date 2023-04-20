@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, ScrollView, SafeAreaView } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from "./style"
 import { AntDesign } from '@expo/vector-icons';
 import CardEvents from "../../CardEvent/CardEvent";
 import { getAllEvents } from "../../../services/events";
+import { AuthContext } from "../../../contexts/auth";
 
 export default function Eventos({ navigation }) {
+    const { id } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
     const getData = async () => {
-        const data = await getAllEvents()
+        const data = await getAllEvents(id)
         return data
     }
 
@@ -49,12 +51,16 @@ export default function Eventos({ navigation }) {
                             return (
                                 <CardEvents
                                     key={id}
+                                    event_id={item.id}
                                     eventName={item.event_name}
                                     eventImage={item.photo}
                                     describeEvent={item.description}
                                     event_hour={item.event_hour}
                                     event_date={item.event_date}
                                     location={item.localization}
+                                    participants={item.participants}
+                                    userGoes={item.userGoesToEvent}
+                                    userSaved={item.userSavedEvent}
                                 />
                             )
                         })}

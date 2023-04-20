@@ -41,6 +41,10 @@ function CardEvents(props) {
                         location={props.location}
                         name={props.eventName}
                         image={props.eventImage}
+                        participants={props.participants}
+                        userGoes={props.userGoes}
+                        userSaved={props.userSaved}
+                        event_id={props.event_id}
                         handleClose={() => setVisibleModal(false)}
                     />
                 </Modal>
