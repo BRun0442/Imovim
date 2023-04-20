@@ -68,6 +68,16 @@ export async function getAllEvents(user_id)
   }
 }
 
+export async function getEvent(user_id, event_id)
+{
+  try {
+    const response = await api.get(`/event/get-event/${user_id}/${event_id}`)
+    return response.data
+  } catch (error) {
+    console.log(error.data.msg)
+  }
+}
+
 export async function goToEvent(user_id, event_id) {
   const data = {user_id, event_id}
   try {

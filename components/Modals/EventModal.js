@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -7,10 +7,49 @@ import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { goToEvent } from '../../services/events';
 import { saveEvent } from '../../services/events';
+import { getEvent } from '../../services/events';
 import { AuthContext } from '../../contexts/auth';
 
-export default function EventModal({ event_id, participants, userGoes, userSaved, handleClose, name, image, date, hour, location, description }) {
+export default function EventModal({ event_id, handleClose }) {
     const { id } = useContext(AuthContext)
+    const [currentEvent, setCurrentEvent] = useState()
+    const [participants, setParticipants] = useState() 
+    const [userGoes, setUserGoes] = useState() 
+    const [userSaved, setUserSaved] = useState()
+    const [name, setName] = useState() 
+    const [image, setImage] = useState() 
+    const [date, setDate] = useState() 
+    const [hour, setHour] = useState() 
+    const [location, setLocation] = useState() 
+    const [description, setDescription] = useState()
+
+    const getData = async () => {
+        await getEvent(id, event_id)
+        .then((event) => {
+            setCurrentEvent(event[0].id);
+            setParticipants(event[0].participants)
+            setUserGoes(event[0].userGoesToEvent)
+            setUserSaved(event[0].userSavedEvent)
+            setName(event[0].event_name)
+            setImage(event[0].photo)
+            setDate(event[0].event_date)
+            setHour(event[0].event_hour)
+            setLocation(event[0].localization)
+            setDescription(event[0].description)
+        })
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
+
+    if (event_id != currentEvent) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -64,7 +103,10 @@ export default function EventModal({ event_id, participants, userGoes, userSaved
 
                         <View style={styles.interactiveButtonContainer}>
 
-                            <TouchableOpacity onPress={() => goToEvent(id, event_id)} style={styles.interactiveButton}>
+                            <TouchableOpacity onPress={() => {
+                                goToEvent(id, event_id)
+                                .then(() => getData())
+                                }} style={styles.interactiveButton}>
 
                                 <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
                                 <Text style={styles.interactiveText}>Eu vou!</Text>
@@ -75,7 +117,10 @@ export default function EventModal({ event_id, participants, userGoes, userSaved
 
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => saveEvent(id, event_id)} style={styles.interactiveButton}>
+                            <TouchableOpacity onPress={() => {
+                                saveEvent(id, event_id)
+                                .then(() => getData())
+                                }} style={styles.interactiveButton}>
                                 {
                                     userSaved ? (
                                         <View>
