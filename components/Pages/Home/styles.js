@@ -69,9 +69,9 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: "#FF6709",
     width: "55%",
-    height: 65,
+    height: 60,
 
-    borderRadius: 20,
+    borderRadius: 15,
     justifyContent: "center",
     alignSelf: "center",
 
@@ -80,13 +80,13 @@ export const styles = StyleSheet.create({
   
   transparentButton: {
     width: "55%",
-    height: 65,
+    height: 60,
 
     borderBottomWidth: 2,
     borderColor: "#FF6709",
     borderWidth: 3,
 
-    borderRadius: 20,
+    borderRadius: 15,
     justifyContent: "center",
     alignSelf: "center",
   },

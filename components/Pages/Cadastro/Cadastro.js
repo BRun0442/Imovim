@@ -1,11 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
-import { defaultStyle } from '../../../assets/style/style';
-import Input from '../../Input/Input';
-import Button from '../../Button/Button';
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
@@ -21,128 +17,135 @@ export default function Cadastro({ navigation }) {
   const [ddd, setDDD] = useState('')
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <SafeAreaView>
+    <SafeAreaView>
+      <View style={styles.container}>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
           <StatusBar />
-          <Text style={defaultStyle.title}>Imovim</Text>
+
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>Imovim</Text>
+          </View>
 
           <Image
-            style={defaultStyle.basketBall}
+            style={styles.basketBall}
             source={basketBall}
           />
 
           <Image
-            style={defaultStyle.soccerBall}
+            style={styles.soccerBall}
             source={soccerBall}
           />
 
-          <View style={defaultStyle.inputContainer}>
-            <Text style={defaultStyle.subTitle}>Cadastro</Text>
-            <Input width="90%" inputText="Nome" getInputValue={(value) => { setNickname(value) }} />
+          <View style={styles.formContainer}>
 
-            <View style={styles.textBox}>
-              <Text style={defaultStyle.defaultText}>Data de nascimento</Text>
+            <View style={styles.form}>
 
-              <TextInput
-                style={styles.input}
-                keyboardType='numeric'
-                placeholder='dd'
-                placeholderTextColor="#DCDCDC"
-                textAlign="center"
-                maxLength={2}
-                onChangeText={(value) => { setDay(value) }}
-              >
-              </TextInput>
+              <View style={styles.subTitleContainer}>
+                <Text style={styles.subTitle}>Cadastre-se</Text>
+              </View>
 
-              <TextInput
-                style={styles.input}
-                keyboardType='numeric'
-                placeholder='mm'
-                placeholderTextColor="#DCDCDC"
-                textAlign="center"
-                maxLength={2}
-                onChangeText={(value) => { setMonth(value) }}
-              >
-              </TextInput>
+              <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
 
-              <TextInput
-                style={styles.input}
-                keyboardType='numeric'
-                placeholder='aaaa'
-                placeholderTextColor="#DCDCDC"
-                textAlign="center"
-                maxLength={4}
-                onChangeText={(value) => { setYear(value) }}
-              >
-              </TextInput>
+                <TextInput
+                  style={styles.inputLong}
+                  onChangeText={(value) => { setNickname(value) }}
+                  placeholder="Nome completo"
+                  placeholderTextColor={"#FFF"}
+                />
+
+              </KeyboardAvoidingView>
+
+              <View style={styles.formDateContainer}>
+
+                <Text style={styles.formDateText}>Data de nascimento</Text>
+
+                <View style={styles.formDate}>
+
+                  <TextInput
+                    style={styles.input}
+                    keyboardType='numeric'
+                    placeholder='Dia'
+                    placeholderTextColor="#DCDCDC"
+                    textAlign="center"
+                    maxLength={2}
+                    onChangeText={(value) => { setDay(value) }}
+                  />
+
+                  <TextInput
+                    style={styles.input}
+                    keyboardType='numeric'
+                    placeholder='Mês'
+                    placeholderTextColor="#DCDCDC"
+                    textAlign="center"
+                    maxLength={2}
+                    onChangeText={(value) => { setMonth(value) }}
+                  />
+
+                  <TextInput
+                    style={styles.input}
+                    keyboardType='numeric'
+                    placeholder='Ano'
+                    placeholderTextColor="#DCDCDC"
+                    textAlign="center"
+                    maxLength={4}
+                    onChangeText={(value) => { setYear(value) }}
+                  />
+
+                </View>
+
+                <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
+
+                  <TextInput
+                    style={styles.inputLong}
+                    placeholder='Telefone'
+                    placeholderTextColor="#DCDCDC"
+                    maxLength={11}
+                    onChangeText={(value) => { setPhoneNumberInput(value) }}
+                  />
+
+                </KeyboardAvoidingView>
+
+              </View>
+
+              <View style={styles.buttonContainer}>
+
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    // phoneNumber.reverse();
+                    // birthday.reverse()
+                    setPhoneNumber(`${ddd} ${phoneNumberInput}`);
+                    setBirthday(`${year}/${month}/${day}`);
+                    navigation.navigate('CadastroContinuacao')
+                  }
+                  }>
+                  <Text style={styles.buttonText}>Entrar</Text>
+                </TouchableOpacity>
+
+                <View style={styles.forgotPasswordContainer}>
+
+                  <Text
+                    style={styles.text1}
+                    onPress={() => { navigation.navigate('Login') }}
+                  >
+                    Já possui um cadastro?
+                  </Text>
+
+                  <Text style={styles.text2}>
+                    Login
+                  </Text>
+
+                </View>
+
+              </View>
 
             </View>
 
-            <View style={{
-              display: "flex",
-              flexWrap: "wrap",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              width: "85%",
-              marginLeft: 25,
-            }}
-            >
-              <TextInput
-                style={styles.input}
-                placeholder='DDD'
-                placeholderTextColor="#DCDCDC"
-                textAlign="center"
-                maxLength={2}
-                onChangeText={(value) => { setDDD(value) }}
-              >
-              </TextInput>
-
-              <TextInput
-                style={styles.input}
-                placeholder='Telefone'
-                placeholderTextColor="#DCDCDC"
-                textAlign="center"
-                maxLength={9}
-                onChangeText={(value) => { setPhoneNumberInput(value) }}
-              >
-              </TextInput>
-            </View>
-
-            <View style={styles.buttonContainer}>
-              <Button buttonText="Avançar" pressFunction=
-                {() => {
-                  // phoneNumber.reverse();
-                  // birthday.reverse()
-                  setPhoneNumber(`${ddd} ${phoneNumberInput}`);
-                  setBirthday(`${year}/${month}/${day}`);
-                  navigation.navigate('CadastroContinuacao')
-                }
-                }
-              />
-
-              <Text
-                style={defaultStyle.mediumText}
-                onPress={() => { navigation.navigate('Login') }}
-              >
-                Já possui um cadastro?
-
-                <Text
-                  style={{
-                    color: '#FF6709',
-                    fontSize: 16,
-                    fontWeight: '700',
-                    paddingTop: 5
-                  }}
-                >
-                  Login
-                </Text>
-              </Text>
-            </View>
           </View>
-          <StatusBar />
+
         </KeyboardAvoidingView>
-      </SafeAreaView>
-    </ScrollView>
+        <StatusBar />
+      </View>
+    </SafeAreaView>
   );
 }

@@ -24,17 +24,17 @@ export default function Home({ navigation }) {
 
             <TouchableOpacity
               style={styles.button}
-              onPress={() => { navigation.navigate('Cadastro') }}
+              onPress={() => { navigation.navigate('Login') }}
             >
-
-              <Text style={styles.textButtons}>Cadastre-se</Text>
+              <Text style={styles.textButtons}>Login</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.transparentButton}
-              onPress={() => { navigation.navigate('Login') }}
+              onPress={() => { navigation.navigate('Cadastro') }}
             >
-              <Text style={styles.textButtons}>Login</Text>
+
+              <Text style={styles.textButtons}>Cadastre-se</Text>
             </TouchableOpacity>
 
           </View>

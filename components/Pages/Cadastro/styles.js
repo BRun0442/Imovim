@@ -11,41 +11,173 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: "#A512BD",
-
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center"
   },
 
-  textBox: {
+  titleContainer: {
+    width: "100%",
+    height: "15%",
+
     display: "flex",
-    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  title: {
+    fontSize: 60,
+
+    fontWeight: "bold",
+
+    color: "#FF6709",
+    fontWeight: "700",
+  },
+
+  form: {
+    width: "100%",
+    height: "85%",
+    alignSelf: "center",
+    borderRadius: 25,
+    paddingHorizontal: 20,
+    marginHorizontal: 20,
+    backgroundColor: "rgba(0,0,0,0.3)",
+
+    paddingHorizontal: 15
+  },
+
+  basketBall: {
+    position: "absolute",
+    right: -75,
+    top: 170,
+    resizeMode: "stretch",
+    width: 150,
+    height: 150,
+  },
+
+  soccerBall: {
+    position: "absolute",
+    resizeMode: "stretch",
+    bottom: 200,
+    left: -80,
+    width: 150,
+    height: 150,
+  },
+
+  formDateContainer: {
+    width: "100%",
+    height: "40%",
+  },
+
+  formDateText: {
+    width: "100%",
+
+    color: "#FFF",
+    fontSize: 20,
+    fontWeight: "bold",
+
+    marginTop: 25
+  },
+
+  formDate: {
+    display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
-    width: "85%",
-    marginLeft: 25,
-    marginTop: 20,
+    justifyContent: "space-between",
+
+    marginVertical: 20
   },
 
   input: {
+    width: "25%",
+    height: 50,
+
     color: "#FFF",
-    borderBottomWidth: 2,
-    borderBottomColor: "white",
+
+    borderBottomWidth: 3,
+    borderBottomColor: "#FFF",
+
     fontSize: 20,
     fontWeight: "400",
-    paddingBottom: 6,
-    marginTop: 35,
-    alignSelf: "center",
-    flexGrow: 1,
-    marginHorizontal: 5,
+  },
+
+  formContainer: {
+    paddingHorizontal: 15,
+  },
+
+
+
+  subTitleContainer: {
+    width: "100%",
+    height: "15%",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+  },
+
+  subTitle: {
+    fontSize: 35,
+    fontWeight: "bold",
+    color: "#FFF",
+  },
+
+  inputLong: {
+    width: "100%",
+    height: 50,
+
+    color: "#FFF",
+
+    borderBottomWidth: 3,
+    borderBottomColor: "#FFF",
+    fontSize: 20,
+    fontWeight: "400",
+
+    padding: 5
   },
 
   buttonContainer: {
-    marginTop: 5,
+    width: "100%",
+    height: "30%",
+    // backgroundColor: "red"
   },
 
-  phoneContainer: {
-    flex: 1,
-    flexWrap: 'wrap',
+  button: {
+    backgroundColor: "#FF6709",
+    width: "60%",
+    height: 60,
+
+    borderRadius: 15,
+    justifyContent: "center",
+    alignSelf: "center",
+
+    marginBottom: 25,
   },
+
+  buttonText: {
+    color: "#FFF",
+    fontSize: 22,
+    fontWeight: "500",
+
+    textAlign: "center",
+  },
+
+  forgotPasswordContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
+  },
+
+  text1: {
+    color: "#FFF",
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+
+  text2: {
+    color: "#FF6709",
+    fontSize: 21,
+    fontWeight: "bold",
+
+    marginLeft: 10
+  },
+
 });

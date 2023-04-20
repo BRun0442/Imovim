@@ -68,22 +68,4 @@ export const defaultStyle = StyleSheet.create({
     textAlign: "center",
     paddingTop: 5,
   },
-
-  basketBall: {
-    position: "absolute",
-    right: -75,
-    top: 170,
-    resizeMode: "stretch",
-    width: 150,
-    height: 150,
-  },
-
-  soccerBall: {
-    position: "absolute",
-    resizeMode: "stretch",
-    bottom: 200,
-    left: -80,
-    width: 150,
-    height: 150,
-  },
 });

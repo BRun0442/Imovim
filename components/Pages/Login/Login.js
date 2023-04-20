@@ -38,12 +38,12 @@ export default function Login({ navigation }) {
           <Text style={defaultStyle.title}>Imovim</Text>
 
           <Image
-            style={defaultStyle.basketBall}
+            style={styles.basketBall}
             source={basketBall}
           />
 
           <Image
-            style={defaultStyle.soccerBall}
+            style={styles.soccerBall}
             source={soccerBall}
           />
 
