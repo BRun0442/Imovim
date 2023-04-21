@@ -9,9 +9,10 @@ import TagEvent from '../../VerMaisEventos/VerMaisEventos';
 
 import { AuthContext } from '../../../contexts/auth.js';
 import { getSportsPracticed as getSportsData } from '../../../services/sports'
+import { getMyEvents } from '../../../services/events';
 
 export default function TelaVerMais({ navigation }) {
-  const { id, changePosts, posts, sportsPracticed, setSportsPracticed } = useContext(AuthContext)
+  const { id, changePosts, posts, sportsPracticed, setSportsPracticed, myEvents, setMyEvents } = useContext(AuthContext)
 
   // const [sportsPracticed, setSportsPracticed] = useState(null)
   // const [posts, setPosts] = useState(null)
@@ -25,12 +26,18 @@ export default function TelaVerMais({ navigation }) {
     }
   }
 
+  const getUserEvents = async () => {
+    await getMyEvents(id)
+    .then((data) => setMyEvents(data))
+  }
+
 
   useEffect(() => {
     getSportsPracticed()
+    getUserEvents()
   }, [])
 
-  if (!sportsPracticed || !posts) {
+  if (!sportsPracticed || !posts || !myEvents) {
     return (
       <View>
         <Text>Loading...</Text>
@@ -96,7 +103,11 @@ export default function TelaVerMais({ navigation }) {
           </View>
 
           <View style={styles.events}>
-            <TagEvent nameEvent="Evento 0" />
+            {myEvents.map((event, index) => {
+              return (
+                <TagEvent key={index} nameEvent={event.event_name} />
+              )
+            })}
           </View>
         </View>
 
