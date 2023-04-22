@@ -11,8 +11,8 @@ export default function Home({ navigation }) {
         <View style={styles.infoContainer}>
 
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>Imovim</Text>
-            {/* <Image style={styles.title} source={require('../../../assets/logo.png')} /> */}
+            {/* <Text style={styles.title}>Imovim</Text> */}
+            <Image style={styles.title} source={require('../../../assets/logo.png')} />
           </View>
 
           <View style={styles.textContainer}>

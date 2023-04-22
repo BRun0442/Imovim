@@ -20,10 +20,10 @@ export const styles = StyleSheet.create({
 
   infoContainer: {
     width: "100%",
-    height: "70%",    
+    height: "70%",
   },
 
-  titleContainer:{
+  titleContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -32,22 +32,22 @@ export const styles = StyleSheet.create({
     height: "40%",
   },
 
+  // title: {
+  //   fontSize: 100,
+  //   textAlign: "center",
+
+  //   fontWeight: "bold",
+
+  //   color: "#FF6709",
+  //   fontWeight: "700",
+  // },
+
   title: {
-    fontSize: 120,
-    textAlign: "center",
-
-    fontWeight: "bold",
-
-    color: "#FF6709",
-    fontWeight: "700",
+    width: "100%",
+    height: "50%"
   },
 
-  // title: {
-  //   width: "100%",
-  //   height: "60%"
-  // },
-  
-  textContainer:{
+  textContainer: {
     width: "100%",
     height: "35%",
 
@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
 
   button: {
     backgroundColor: "#FF6709",
-    width: "55%",
+    width: "50%",
     height: 60,
 
     borderRadius: 15,
@@ -77,9 +77,9 @@ export const styles = StyleSheet.create({
 
     marginBottom: 25,
   },
-  
+
   transparentButton: {
-    width: "55%",
+    width: "50%",
     height: 60,
 
     borderBottomWidth: 2,
@@ -99,16 +99,16 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  buttonsContainer:{
+  buttonsContainer: {
     width: "100%",
-    height: "40%",
+    height: "30%",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
 
-  imgContainer:{
+  imgContainer: {
     width: "100%",
     height: "20%",
   },
