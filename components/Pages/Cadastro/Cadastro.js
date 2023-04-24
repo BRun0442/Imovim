@@ -116,7 +116,7 @@ export default function Cadastro({ navigation }) {
               navigation.navigate('CadastroContinuacao')
             }
             }>
-            <Text style={styles.buttonText}>Entrar</Text>
+            <Text style={styles.buttonText}>Avançar</Text>
           </TouchableOpacity>
 
           <View style={styles.forgotPasswordContainer}>
