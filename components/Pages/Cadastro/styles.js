@@ -15,37 +15,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
 
-  titleContainer: {
-    width: "100%",
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    marginVertical: 20
-  },
-
-  title: {
-    fontSize: 60,
-
-    fontWeight: "bold",
-
-    color: "#FF6709",
-    fontWeight: "700",
-  },
-
-  form: {
-    width: "100%",
-    
-    display: "flex",
-    // justifyContent: "center",
-
-    borderRadius: 25,
-    backgroundColor: "rgba(0,0,0,0.3)",
-
-    paddingHorizontal: 15,
-  },
-
   basketBall: {
     position: "absolute",
     right: -75,
@@ -62,6 +31,37 @@ export const styles = StyleSheet.create({
     left: -80,
     width: 150,
     height: 150,
+  },
+
+  titleContainer: {
+    width: "100%",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    marginVertical: 20
+  },
+
+  title: {
+    fontSize: 50,
+
+    fontWeight: "bold",
+
+    color: "#FF6709",
+    fontWeight: "700",
+  },
+
+  form: {
+    width: "100%",
+    
+    display: "flex",
+    // justifyContent: "center",
+
+    borderRadius: 25,
+    backgroundColor: "#640c74",
+
+    paddingHorizontal: 15,
   },
 
   formDateContainer: {
@@ -132,7 +132,8 @@ export const styles = StyleSheet.create({
 
   buttonContainer: {
     width: "100%",
-    height: "30%",
+    
+    marginVertical: 50
   },
 
   button: {
@@ -175,4 +176,34 @@ export const styles = StyleSheet.create({
 
     marginLeft: 10
   },
+
+  radioContainer:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+
+    marginVertical: 50
+  },
+
+  radio:{
+      width: 15,
+      height: 15,
+
+      backgroundColor: "#D9D9D9",
+
+      borderRadius: 20,
+
+      marginHorizontal: 15
+  },
+
+  radioOrange:{
+    width: 15,
+    height: 15,
+
+    backgroundColor: "#F8670E",
+
+    borderRadius: 20,
+
+    marginHorizontal: 15
+  }
 });

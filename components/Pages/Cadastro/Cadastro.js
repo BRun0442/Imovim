@@ -134,7 +134,15 @@ export default function Cadastro({ navigation }) {
 
         </View>
 
+        <View style={styles.radioContainer} >
+          <View style={styles.radioOrange} />
+          <View style={styles.radio} />
+          <View style={styles.radio} />
+        </View>
+
       </View>
+
+
     </ScrollView >
   );
 }
