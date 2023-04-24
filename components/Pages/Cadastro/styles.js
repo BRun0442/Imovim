@@ -9,17 +9,20 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "100%",
+    height: "120%",
     backgroundColor: "#A512BD",
+
+    paddingHorizontal: 10
   },
 
   titleContainer: {
     width: "100%",
-    height: "15%",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+
+    marginVertical: 20
   },
 
   title: {
@@ -33,14 +36,14 @@ export const styles = StyleSheet.create({
 
   form: {
     width: "100%",
-    height: "85%",
-    alignSelf: "center",
+    
+    display: "flex",
+    // justifyContent: "center",
+
     borderRadius: 25,
-    paddingHorizontal: 20,
-    marginHorizontal: 20,
     backgroundColor: "rgba(0,0,0,0.3)",
 
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
   },
 
   basketBall: {
@@ -55,7 +58,7 @@ export const styles = StyleSheet.create({
   soccerBall: {
     position: "absolute",
     resizeMode: "stretch",
-    bottom: 200,
+    bottom: 400,
     left: -80,
     width: 150,
     height: 150,
@@ -63,7 +66,6 @@ export const styles = StyleSheet.create({
 
   formDateContainer: {
     width: "100%",
-    height: "40%",
   },
 
   formDateText: {
@@ -97,20 +99,14 @@ export const styles = StyleSheet.create({
     fontWeight: "400",
   },
 
-  formContainer: {
-    paddingHorizontal: 15,
-  },
-
-
-
   subTitleContainer: {
     width: "100%",
-    height: "15%",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
 
+    marginTop: 30
   },
 
   subTitle: {
@@ -130,13 +126,13 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "400",
 
-    padding: 5
+    padding: 5,
+    marginVertical: 20
   },
 
   buttonContainer: {
     width: "100%",
     height: "30%",
-    // backgroundColor: "red"
   },
 
   button: {
@@ -179,5 +175,4 @@ export const styles = StyleSheet.create({
 
     marginLeft: 10
   },
-
 });
