@@ -6,6 +6,7 @@ import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
 import Cadastro from './components/Pages/Cadastro/Cadastro';
 import CadastroContinuacao from './components/Pages/CadastroContinuacao/CadastroContinuacao'
+import CadastroValidacao from './components/Pages/CadastroValidacao/CadastroValidacao'
 
 import Comentarios from './components/Pages/Comentarios/Comentarios';
 import CriarPost from './components/Pages/CriarPost/CriarPost';
@@ -55,7 +56,8 @@ export default function Routes() {
       <Screen name="Home" component={Home} />
       <Screen name="Login" component={Login} />
       <Screen name="Cadastro" component={Cadastro} />
-      <Screen name="CadastroContinuacao" component={CadastroContinuacao} />
+      <Screen name="Cadastro Continuacao" component={CadastroContinuacao} />
+      <Screen name="Cadastro Validacao" component={CadastroValidacao} />
     </Navigator>
   )
 

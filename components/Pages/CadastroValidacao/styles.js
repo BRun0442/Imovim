@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
 
   form: {
     width: "100%",
-    
+
     display: "flex",
     // justifyContent: "center",
 
@@ -115,6 +115,34 @@ export const styles = StyleSheet.create({
     color: "#FFF",
   },
 
+  interTitleContainer: {
+    width: "100%",
+
+    display: "flex",
+    alignItems: "flex-start",
+
+    marginTop: 30,
+  },
+
+  interTitle: {
+    fontSize: 20,
+    fontWeight: "400",
+    color: "#FFF",
+  },
+
+  inputContainer:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    borderWidth: 2,
+    borderColor: "#F8670E",
+
+    paddingHorizontal: 50,
+    marginVertical: 40
+
+  },
+
   inputLong: {
     width: "100%",
     height: 50,
@@ -130,14 +158,9 @@ export const styles = StyleSheet.create({
     marginVertical: 20
   },
 
-  icon:{
-    position: "absolute",
-    right: 0
-  },
-
   buttonContainer: {
     width: "100%",
-    
+
     marginVertical: 50
   },
 
@@ -182,7 +205,7 @@ export const styles = StyleSheet.create({
     marginLeft: 10
   },
 
-  radioContainer:{
+  radioContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -190,18 +213,18 @@ export const styles = StyleSheet.create({
     marginVertical: 50
   },
 
-  radio:{
-      width: 15,
-      height: 15,
+  radio: {
+    width: 15,
+    height: 15,
 
-      backgroundColor: "#D9D9D9",
+    backgroundColor: "#D9D9D9",
 
-      borderRadius: 20,
+    borderRadius: 20,
 
-      marginHorizontal: 15
+    marginHorizontal: 15
   },
 
-  radioOrange:{
+  radioOrange: {
     width: 15,
     height: 15,
 

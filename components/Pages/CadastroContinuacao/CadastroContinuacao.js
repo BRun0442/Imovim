@@ -6,12 +6,16 @@ import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
 
+import { Ionicons } from '@expo/vector-icons';
+
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
 
   const goToLoginScreen = () => {
     navigation.navigate('Login');
   }
+
+  const [visiblePassword, setVisiblePassword] = useState(true)
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -53,14 +57,18 @@ export default function Cadastro({ navigation }) {
               placeholder="Senha"
               placeholderTextColor={"#FFF"}
               getInputValue={(value) => { setPassword(value) }}
+              secureTextEntry={visiblePassword}
             />
 
-            <TextInput
-              // value={passwordConfirm}
-              style={styles.inputLong}
-              placeholder="Confirmar Senha"
-              placeholderTextColor={"#FFF"}
-              getInputValue={(value) => { setPasswordConfirm(value) }} />
+
+              <TextInput
+                // value={passwordConfirm}
+                style={styles.inputLong}
+                placeholder="Confirmar Senha"
+                placeholderTextColor={"#FFF"}
+                getInputValue={(value) => { setPasswordConfirm(value) }}
+                secureTextEntry={visiblePassword}
+              />
 
           </View>
 
@@ -73,7 +81,7 @@ export default function Cadastro({ navigation }) {
             onPress={() => {
               // phoneNumber.reverse();
               // birthday.reverse()
-              navigation.navigate('CadastroContinuacao')
+              navigation.navigate('Cadastro Validacao')
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>

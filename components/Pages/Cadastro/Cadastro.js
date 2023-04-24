@@ -113,7 +113,7 @@ export default function Cadastro({ navigation }) {
               // birthday.reverse()
               setPhoneNumber(`${ddd} ${phoneNumberInput}`);
               setBirthday(`${year}/${month}/${day}`);
-              navigation.navigate('CadastroContinuacao')
+              navigation.navigate('Cadastro Continuacao')
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>
@@ -123,7 +123,7 @@ export default function Cadastro({ navigation }) {
 
             <Text
               style={styles.text1}
-              onPress={() => { navigation.navigate('Login') }}
+              onPress={() => navigation.navigate('Login') }
             >
               Já possui um cadastro?
             </Text>
