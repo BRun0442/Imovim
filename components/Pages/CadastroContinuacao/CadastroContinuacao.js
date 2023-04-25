@@ -82,6 +82,7 @@ export default function Cadastro({ navigation }) {
               // phoneNumber.reverse();
               // birthday.reverse()
               navigation.navigate('Cadastro Validacao')
+              // CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen)
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>

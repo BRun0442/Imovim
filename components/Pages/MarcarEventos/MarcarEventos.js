@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView, KeyboardAvoidingView } from "react-native";
 import { styles } from "./style"
 import Header from "../../Header/Header";
 import ProfileImage from "../../ProfileImage/ProfileImage";
@@ -74,29 +74,28 @@ export default function MarcarEventos({ navigation }, props) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
 
             <Header navigation={navigation} />
 
-            <ScrollView>
+            <View style={styles.iconContainer}>
+                <TouchableOpacity>
+                    <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
+                </TouchableOpacity>
+            </View>
 
-                <View style={styles.iconContainer}>
-                    <TouchableOpacity>
-                        <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
-                    </TouchableOpacity>
-                </View>
+            <View style={styles.postContainer}>
+                <View style={styles.postProfile}>
+                    <ProfileImage profileImage={profilePicture} />
 
-                <View style={styles.postContainer}>
-                    <View style={styles.postProfile}>
-                        <ProfileImage profileImage={profilePicture} />
-
-                        <View style={styles.profileContainer}>
-                            <Text style={styles.profileName}>{username}</Text>
-                        </View>
+                    <View style={styles.profileContainer}>
+                        <Text style={styles.profileName}>{username}</Text>
                     </View>
                 </View>
+            </View>
 
-                <View style={styles.form}>
+            <View style={styles.form}>
+                <KeyboardAvoidingView behavior={"height"} >
 
                     <Text style={styles.formText}>Nome</Text>
                     <View style={styles.nameInputs}>
@@ -154,7 +153,7 @@ export default function MarcarEventos({ navigation }, props) {
                             />
                             <TouchableOpacity
                                 style={styles.iconInput}
-                                // onPress={() => navigation.navigate("Mapa")}
+                            // onPress={() => navigation.navigate("Mapa")}
                             >
                                 <Entypo name="location" size={22} color="#F8670E" />
                             </TouchableOpacity>
@@ -176,47 +175,46 @@ export default function MarcarEventos({ navigation }, props) {
                         <Text style={styles.descriptionLengthText}>{descriptionLength} / 100</Text>
 
                     </View>
+                </KeyboardAvoidingView>
 
-                    <Text style={styles.formText}>Foto</Text>
+                <Text style={styles.formText}>Foto</Text>
 
-                    <View style={styles.banner}>
-                        <TouchableOpacity
+                <View style={styles.banner}>
+                    <TouchableOpacity
 
-                            onPress={() => pickImage()}
+                        onPress={() => pickImage()}
 
-                            style={styles.editProfileIconContainerBanner}>
+                        style={styles.editProfileIconContainerBanner}>
 
-                            {!image && (
+                        {!image && (
 
-                                <View style={styles.editBanner}>
-                                    <Entypo name="camera" size={22} color="#FFF" />
-                                </View>
+                            <View style={styles.editBanner}>
+                                <Entypo name="camera" size={22} color="#FFF" />
+                            </View>
 
-                            )}
+                        )}
 
-                            {image && (
-                                <Image
-                                    style=
+                        {image && (
+                            <Image
+                                style=
+                                {
                                     {
-                                        {
-                                            width: "95%",
-                                            height: 150,
-                                        }
+                                        width: "95%",
+                                        height: 150,
                                     }
-                                    source={{ uri: image }}
-                                />
-                            )}
-                        </TouchableOpacity>
-                    </View>
-
-                    <TouchableOpacity onPress={() => handleSubmit()} style={styles.button}>
-                        <Text style={styles.text}>Criar Evento</Text>
+                                }
+                                source={{ uri: image }}
+                            />
+                        )}
                     </TouchableOpacity>
-
                 </View>
-            </ScrollView>
+
+                <TouchableOpacity onPress={() => handleSubmit()} style={styles.button}>
+                    <Text style={styles.text}>Criar Evento</Text>
+                </TouchableOpacity>
+            </View>
 
             <StatusBar />
-        </SafeAreaView>
+        </ScrollView >
     );
 }

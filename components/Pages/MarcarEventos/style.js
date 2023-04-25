@@ -9,7 +9,8 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: "100%",
+        height: "130%"
     },
 
     iconContainer: {
@@ -79,7 +80,9 @@ export const styles = StyleSheet.create({
 
 
     form: {
-        paddingHorizontal: 20
+        width: "100%",
+        
+        paddingHorizontal: 20,
     },
 
     formText: {
@@ -97,8 +100,7 @@ export const styles = StyleSheet.create({
 
         textAlign: "left",
 
-        paddingStart: 15,
-        paddingEnd: 15,
+        paddingHorizontal: 15,
 
         fontSize: 18,
         fontWeight: "400"
@@ -114,8 +116,7 @@ export const styles = StyleSheet.create({
 
         textAlign: "center",
 
-        paddingStart: 15,
-        paddingEnd: 15,
+        paddingHorizontal: 15,
 
         fontSize: 18,
         fontWeight: "400"
@@ -155,7 +156,6 @@ export const styles = StyleSheet.create({
         textAlign: "left",
 
         paddingHorizontal: 15,
-        padding: 10,
 
         fontSize: 18,
         fontWeight: "400"
@@ -190,13 +190,13 @@ export const styles = StyleSheet.create({
     },
 
     banner: {
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginBottom: 15,
+        marginTop: 15
     },
 
     nameInputs: {
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginBottom: 15,
+        marginTop: 15
     },
 
     dataInputs: {
@@ -204,8 +204,8 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         flexDirection: "row",
 
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginBottom: 15,
+        marginTop: 15
     },
 
     horaInputs: {
@@ -213,8 +213,8 @@ export const styles = StyleSheet.create({
         justifyContent: "space-around",
         flexDirection: "row",
 
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginBottom: 15,
+        marginTop: 15
     },
 
     locationInput: {
@@ -223,18 +223,18 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
 
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginBottom: 15,
+        marginTop: 15
     },
 
-    borderLocationInput:{
+    borderLocationInput: {
         borderColor: "#A512BD",
 
         borderWidth: 2,
 
         borderRadius: 20,
 
-        marginVertical: "3%"
+        marginVertical: 15
     },
 
     text: {

@@ -44,43 +44,49 @@ export default function Post(props) {
   })
 
   return (
-    <View style={styles.postBackground}>
-      <View style={styles.postContainer}>
+    <View style={styles.postContainer}>
 
-        <View style={styles.postProfile}>
+      <View style={styles.userInfoContainer}>
+
+        <View style={styles.profileContainer}>
+
           <TouchableOpacity onPress={() => props.goToProfile()}>
             <ProfileImage profileImage={props.profileImage} />
           </TouchableOpacity>
 
+          <View style={{ marginLeft: 10 }}>
 
-          <View style={styles.profileContainer}>
-            <View style={{ marginLeft: 10 }}>
-              <TouchableOpacity onPress={() => props.goToProfile()}>
-                <Text style={styles.profileName}>{props.nickname}</Text>
-              </TouchableOpacity>
+            <TouchableOpacity onPress={() => props.goToProfile()}>
+              <Text style={styles.profileName}>{props.nickname}</Text>
+            </TouchableOpacity>
 
-              <Text style={styles.postDate}>{props.created_at}</Text>
-            </View>
+            <Text style={styles.postDate}>{props.created_at}</Text>
 
-            <View>
-              <TouchableOpacity onPress={() => setVisibleModal(true)}>
-                <Text style={styles.complaint}>!</Text>
-              </TouchableOpacity>
-
-              <Modal
-                visible={visibleModal}
-                transparent={true}
-                onRequestClose={() => setVisibleModal(false)}
-              >
-                <ComplaintModal
-                  handleClose={() => setVisibleModal(false)}
-                />
-              </Modal>
-
-            </View>
           </View>
+
         </View>
 
+        <TouchableOpacity onPress={() => setVisibleModal(true)}>
+          <Text style={styles.complaint}>!</Text>
+        </TouchableOpacity>
+
+      </View>
+
+      <View>
+
+        <Modal
+          visible={visibleModal}
+          transparent={true}
+          onRequestClose={() => setVisibleModal(false)}
+        >
+          <ComplaintModal
+            handleClose={() => setVisibleModal(false)}
+          />
+        </Modal>
+
+      </View>
+
+      <TouchableOpacity onPress={() => props.goToSeePostScreen()}>
         <RenderImage
           style=
           {
@@ -91,26 +97,27 @@ export default function Post(props) {
           }
           id={props.id}
         />
+      </TouchableOpacity>
 
-        <Text style={styles.postDescription}>{props.caption}</Text>
+      <Text style={styles.postDescription}>{props.caption}</Text>
 
-        <View style={styles.postInteraction}>
-          <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
-            <AntDesign name="like1" size={24} color={props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
-            <Text style={styles.interactionQuantity}>{props.likes}</Text>
-          </TouchableOpacity>
+      <View style={styles.postInteraction}>
+        <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
+          <AntDesign name="like1" size={24} color={props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
+          <Text style={styles.interactionQuantity}>{props.likes}</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
-            <Ionicons name="chatbubble" size={24} color="#FFF" />
-            <Text style={styles.interactionQuantity}>{props.comments}</Text>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
+          <Ionicons name="chatbubble" size={24} color="#FFF" />
+          <Text style={styles.interactionQuantity}>{props.comments}</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity style={styles.postInteractionImage}>
-            <FontAwesome name="share" size={24} color="#FFF" />
-            <Text style={styles.interactionQuantity}>{props.updated}</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.postInteractionImage}>
+          <FontAwesome name="share" size={24} color="#FFF" />
+          <Text style={styles.interactionQuantity}>{props.updated}</Text>
+        </TouchableOpacity>
       </View>
+
     </View>
   )
 }

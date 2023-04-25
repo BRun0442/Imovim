@@ -78,6 +78,10 @@ export default function Feed({ navigation }) {
               setPostFocusedId(item.id)
               navigation.navigate('Comentarios')
             }}
+            goToSeePostScreen={() => {
+              // setPostFocusedId(item.id)
+              navigation.navigate('Ver Post')
+            }}
             likePost={async () => {
               await likePost(id, item.id);
               getFeed()
