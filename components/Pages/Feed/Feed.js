@@ -14,6 +14,7 @@ import { FlatList } from "react-native-gesture-handler";
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
+import { AntDesign } from '@expo/vector-icons';
 import api from "../../../services/api";
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
@@ -66,7 +67,7 @@ export default function Feed({ navigation }) {
         renderItem={({ item }) =>
           <Post
             goToProfile={() => {
-              if(item.user_id != id) {
+              if (item.user_id != id) {
                 setAnotherUser_id(item.user_id)
                 navigation.navigate('Outros Perfis')
               } else {
