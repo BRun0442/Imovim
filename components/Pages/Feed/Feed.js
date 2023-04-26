@@ -23,7 +23,7 @@ import axios from "axios";
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
-  const { id, setAnotherUser_id } = useContext(AuthContext);
+  const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext);
   const [postAmmount, setPostAmmount] = useState(5);
   let isLoading;
 
@@ -79,7 +79,7 @@ export default function Feed({ navigation }) {
               navigation.navigate('Comentarios')
             }}
             goToSeePostScreen={() => {
-              // setPostFocusedId(item.id)
+              setCurrentPost(item.id)
               navigation.navigate('Ver Post')
             }}
             likePost={async () => {

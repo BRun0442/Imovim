@@ -1,18 +1,58 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native"
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../../contexts/auth";
+import { View, Text, TouchableOpacity, FlatList } from "react-native"
 import Header from "../../Header/Header";
 import {styles} from './styles'
 import Post from "../../Post/Post";
+import axios from "axios";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import SinglePost from "../../Post/SinglePost";
 
-export default function VerPost() {
+export default function VerPost({navigation}) {
+    const { id, currentPost, setAnotherUser_id } = useContext(AuthContext)
+    const [post, setPost] = useState(null)
+
+    const getPost = async () => {
+        const result = await axios.post(`https://imovim-api.cyclic.app/post/get-post`, { post_id: currentPost, user_id: id })
+        setPost(result.data)
+        console.log(result.data);
+    }
+
+    useEffect(() => {
+        getPost()
+    }, [currentPost])
+
+    if (!post) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
+    
     return (
         <View style={styles.container}>
             <Header />
-            {/* <Post /> */}
+                {post.map((item, index) => {
+                    return(
+                        <SinglePost 
+                            goToProfile={() => {
+                                if (item.user_id != id) {
+                                setAnotherUser_id(item.user_id)
+                                navigation.navigate('Outros Perfis')
+                                } else {
+                                navigation.navigate('Meu Perfil')
+                                }
+                            }}
+                
+                            {...item}
+                        />
+                    )
+                })}
+            
 
             <View style={styles.imgContainer}>
                 {/* <Image /> */}
