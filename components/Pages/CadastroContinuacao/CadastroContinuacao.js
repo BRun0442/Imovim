@@ -5,12 +5,13 @@ import { styles } from './styles'
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
-
+import { sendMail } from '../../../services/sendMail';
 import { Entypo } from '@expo/vector-icons';
+import { AuthContext } from '../../../contexts/auth';
 
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
-
+  const { securityCode, setSecurityCode } = useContext(AuthContext)
   const goToLoginScreen = () => {
     navigation.navigate('Login');
   }
@@ -128,11 +129,12 @@ export default function Cadastro({ navigation }) {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => {
-              // phoneNumber.reverse();
-              // birthday.reverse()
+            onPress={async () => {
+              const res = await sendMail(email, "Confirmação de email")
+              const array = securityCode
+              array.push(res)
+              setSecurityCode(array)
               navigation.navigate('Cadastro Validacao')
-              // CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen)
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>

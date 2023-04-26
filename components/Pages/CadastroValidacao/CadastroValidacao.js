@@ -6,9 +6,13 @@ import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
 import CreateUser from '../../../services/createUser';
+import { AuthContext } from '../../../contexts/auth';
+import { sendMail } from '../../../services/sendMail';
 
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
+  const { securityCode, setSecurityCode } = useContext(AuthContext)
+  const [code, setCode] = useState('')
 
   const goToLoginScreen = () => {
     navigation.navigate('Login');
@@ -56,7 +60,9 @@ export default function Cadastro({ navigation }) {
             <View style={styles.inputContainer}>
 
               <TextInput
+                onChangeText={(value) => setCode(value)}
                 style={styles.inputLong}
+                maxLength={6}
                 keyboardType="numeric"
               />
 
@@ -68,13 +74,27 @@ export default function Cadastro({ navigation }) {
 
         <View style={styles.buttonContainer}>
 
+        <TouchableOpacity
+            style={styles.button}
+            onPress={async () => {
+              const res = await sendMail(email, "Confirmação de email")
+              const array = securityCode
+              array.push(res)
+              setSecurityCode(array)
+            }
+            }>
+            <Text style={styles.buttonText}>Reenviar codigo</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              // phoneNumber.reverse();
-              // birthday.reverse()
-              // navigation.navigate('CadastroContinuacao')
-              CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen)
+              if (securityCode.includes(parseInt(code))) {
+                CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen)
+              } else {
+                console.log(securityCode.length);
+                alert('Código de verificação incorreto!')
+              }
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>
