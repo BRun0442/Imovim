@@ -130,9 +130,10 @@ export const styles = StyleSheet.create({
     marginVertical: 20
   },
 
-  icon:{
+  iconInput:{
     position: "absolute",
-    right: 0
+    right: 8,
+    top: 25
   },
 
   buttonContainer: {

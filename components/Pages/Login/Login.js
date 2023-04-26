@@ -10,6 +10,7 @@ import { showToastError, showToastSuccess } from '../../Toast/Toast';
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
 import * as SecureStore from 'expo-secure-store';
+import { Entypo } from '@expo/vector-icons';
 
 async function save(key, value) {
   await SecureStore.setItemAsync(key, value);
@@ -27,6 +28,8 @@ export default function Login({ navigation }) {
   const { setLogin } = useContext(AuthContext);
   const { setId } = useContext(AuthContext);
   const { setAccountData } = useContext(AccountDataContext);
+
+  const [visiblePassword, setVisiblePassword] = useState(true)
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -62,12 +65,38 @@ export default function Login({ navigation }) {
               placeholderTextColor={"#FFF"}
             />
 
-            <TextInput
-              style={styles.inputLong}
-              onChangeText={(value) => setPassword(value)}
-              placeholder="Email"
-              placeholderTextColor={"#FFF"}
-            />
+            <View>
+              <TextInput
+                style={styles.inputLong}
+                onChangeText={(value) => setPassword(value)}
+                placeholder="Senha"
+                placeholderTextColor={"#FFF"}
+                secureTextEntry={visiblePassword}
+              />
+
+              {
+                visiblePassword === true && (
+                  <TouchableOpacity
+                    style={styles.iconInput}
+                    onPress={() => setVisiblePassword(false)}
+                  >
+                    <Entypo name="eye-with-line" size={30} color="#FFF" />
+                  </TouchableOpacity>
+                )
+              }
+
+              {
+                visiblePassword === false && (
+                  <TouchableOpacity
+                    style={styles.iconInput}
+                    onPress={() => setVisiblePassword(true)}
+                  >
+                    <Entypo name="eye" size={30} color="#FFF" />
+                  </TouchableOpacity>
+                )
+              }
+
+            </View>
 
           </View>
 
@@ -90,7 +119,7 @@ export default function Login({ navigation }) {
               style={styles.text1}
               onPress={() => navigation.navigate('Login')}
             >
-              Não possui cadastro? 
+              Não possui cadastro?
             </Text>
 
             <Text style={styles.text2}>Cadastre-se aqui</Text>

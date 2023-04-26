@@ -6,7 +6,7 @@ import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
 
-import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
@@ -15,7 +15,8 @@ export default function Cadastro({ navigation }) {
     navigation.navigate('Login');
   }
 
-  const [visiblePassword, setVisiblePassword] = useState(true)
+  const [visiblePassword1, setVisiblePassword1] = useState(true)
+  const [visiblePassword2, setVisiblePassword2] = useState(true)
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -51,24 +52,73 @@ export default function Cadastro({ navigation }) {
               onChangeText={(value) => { setEmail(value) }}
             />
 
-            <TextInput
-              // value={password}
-              style={styles.inputLong}
-              placeholder="Senha"
-              placeholderTextColor={"#FFF"}
-              onChangeText={(value) => { setPassword(value) }}
-              secureTextEntry={visiblePassword}
-            />
+            <View>
+              <TextInput
+                // value={password}
+                style={styles.inputLong}
+                placeholder="Senha"
+                placeholderTextColor={"#FFF"}
+                onChangeText={(value) => { setPassword(value) }}
+                secureTextEntry={visiblePassword1}
+              />
 
+              {
+                visiblePassword1 === true && (
+                  <TouchableOpacity
+                    style={styles.iconInput}
+                    onPress={() => setVisiblePassword1(false)}
+                  >
+                    <Entypo name="eye-with-line" size={30} color="#FFF" />
+                  </TouchableOpacity>
+                )
+              }
 
+              {
+                visiblePassword1 === false && (
+                  <TouchableOpacity
+                    style={styles.iconInput}
+                    onPress={() => setVisiblePassword1(true)}
+                  >
+                    <Entypo name="eye" size={30} color="#FFF" />
+                  </TouchableOpacity>
+                )
+              }
+
+            </View>
+
+            <View>
               <TextInput
                 // value={passwordConfirm}
                 style={styles.inputLong}
                 placeholder="Confirmar Senha"
                 placeholderTextColor={"#FFF"}
                 onChangeText={(value) => { setPasswordConfirm(value) }}
-                secureTextEntry={visiblePassword}
+                secureTextEntry={visiblePassword2}
               />
+
+              {
+                visiblePassword2 === true && (
+                  <TouchableOpacity
+                    style={styles.iconInput}
+                    onPress={() => setVisiblePassword2(false)}
+                  >
+                    <Entypo name="eye-with-line" size={30} color="#FFF" />
+                  </TouchableOpacity>
+                )
+              }
+
+              {
+                visiblePassword2 === false && (
+                  <TouchableOpacity
+                    style={styles.iconInput}
+                    onPress={() => setVisiblePassword2(true)}
+                  >
+                    <Entypo name="eye" size={30} color="#FFF" />
+                  </TouchableOpacity>
+                )
+              }
+
+            </View>
 
           </View>
 

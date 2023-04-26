@@ -130,6 +130,12 @@ export const styles = StyleSheet.create({
     marginVertical: 20
   },
 
+  iconInput:{
+    position: "absolute",
+    right: 8,
+    top: 25,
+  },
+
   buttonContainer: {
     width: "100%",
     
