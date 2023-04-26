@@ -48,7 +48,7 @@ export default function Cadastro({ navigation }) {
               style={styles.inputLong}
               placeholder="Email"
               placeholderTextColor={"#FFF"}
-              getInputValue={(value) => { setEmail(value) }}
+              onChangeText={(value) => { setEmail(value) }}
             />
 
             <TextInput
@@ -56,7 +56,7 @@ export default function Cadastro({ navigation }) {
               style={styles.inputLong}
               placeholder="Senha"
               placeholderTextColor={"#FFF"}
-              getInputValue={(value) => { setPassword(value) }}
+              onChangeText={(value) => { setPassword(value) }}
               secureTextEntry={visiblePassword}
             />
 
@@ -66,7 +66,7 @@ export default function Cadastro({ navigation }) {
                 style={styles.inputLong}
                 placeholder="Confirmar Senha"
                 placeholderTextColor={"#FFF"}
-                getInputValue={(value) => { setPasswordConfirm(value) }}
+                onChangeText={(value) => { setPasswordConfirm(value) }}
                 secureTextEntry={visiblePassword}
               />
 

@@ -1,20 +1,32 @@
-import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import React, { useState, useContext } from 'react';
+import { Text, View, Image, TextInput, StatusBar, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
-import { CreateUserContext } from '../../../contexts/createUser';
+import { AuthContext } from '../../../contexts/auth.js';
+import ValidateData from '../../../services/login.js';
+import { AccountDataContext } from '../../../contexts/accountData';
+import { showToastError, showToastSuccess } from '../../Toast/Toast';
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '../../Toast/toastConfig';
+import * as SecureStore from 'expo-secure-store';
 
-export default function Cadastro({ navigation }) {
-  const { setNickname, setBirthday, setPhoneNumber } = useContext(CreateUserContext)
-  let phoneNumber = ['', '']
-  let birthday = ['', '', '']
-  const [day, setDay] = useState('')
-  const [month, setMonth] = useState('')
-  const [year, setYear] = useState('')
-  const [phoneNumberInput, setPhoneNumberInput] = useState('')
-  const [ddd, setDDD] = useState('')
+async function save(key, value) {
+  await SecureStore.setItemAsync(key, value);
+}
+
+const handleStorage = async (key, value) => {
+  await save(key, value)
+  // await getValueFor(key)
+}
+
+export default function Login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { setLogin } = useContext(AuthContext);
+  const { setId } = useContext(AuthContext);
+  const { setAccountData } = useContext(AccountDataContext);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -66,11 +78,7 @@ export default function Cadastro({ navigation }) {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              // phoneNumber.reverse();
-              // birthday.reverse()
-              setPhoneNumber(`${ddd} ${phoneNumberInput}`);
-              setBirthday(`${year}/${month}/${day}`);
-              navigation.navigate('Cadastro Continuacao')
+              ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess, handleStorage)
             }
             }>
             <Text style={styles.buttonText}>Entrar</Text>
@@ -91,7 +99,7 @@ export default function Cadastro({ navigation }) {
 
         </View>
       </View>
-
+      <Toast config={toastConfig} />
     </ScrollView >
   );
 }

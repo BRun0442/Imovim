@@ -5,6 +5,7 @@ import { styles } from './styles'
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
 import { CreateUserContext } from '../../../contexts/createUser';
+import CreateUser from '../../../services/createUser';
 
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
@@ -72,7 +73,8 @@ export default function Cadastro({ navigation }) {
             onPress={() => {
               // phoneNumber.reverse();
               // birthday.reverse()
-              navigation.navigate('CadastroContinuacao')
+              // navigation.navigate('CadastroContinuacao')
+              CreateUser(nickname, email, password, passwordConfirm, birthday, phoneNumber, goToLoginScreen)
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>
