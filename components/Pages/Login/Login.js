@@ -1,84 +1,97 @@
-import React, { useState, useContext } from 'react';
-import { Text, View, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
-import { defaultStyle } from '../../../assets/style/style';
-import Input from '../../Input/Input.js';
-import Button from '../../Button/Button.js';
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
-import { AuthContext } from '../../../contexts/auth.js';
-import ValidateData from '../../../services/login.js';
-import { AccountDataContext } from '../../../contexts/accountData';
-import { showToastError, showToastSuccess } from '../../Toast/Toast';
-import Toast from 'react-native-toast-message'
-import { toastConfig } from '../../Toast/toastConfig';
-import * as SecureStore from 'expo-secure-store';
+import { CreateUserContext } from '../../../contexts/createUser';
 
-async function save(key, value) {
-  await SecureStore.setItemAsync(key, value);
-}
-
-const handleStorage = async (key, value) => {
-  await save(key, value)
-  // await getValueFor(key)
-}
-
-export default function Login({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { setLogin } = useContext(AuthContext);
-  const { setId } = useContext(AuthContext);
-  const { setAccountData } = useContext(AccountDataContext);
+export default function Cadastro({ navigation }) {
+  const { setNickname, setBirthday, setPhoneNumber } = useContext(CreateUserContext)
+  let phoneNumber = ['', '']
+  let birthday = ['', '', '']
+  const [day, setDay] = useState('')
+  const [month, setMonth] = useState('')
+  const [year, setYear] = useState('')
+  const [phoneNumberInput, setPhoneNumberInput] = useState('')
+  const [ddd, setDDD] = useState('')
 
   return (
-    <ScrollView contentContainerStyle={defaultStyle.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <StatusBar />
+
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Imovim</Text>
+      </View>
+
+      <Image
+        style={styles.basketBall}
+        source={basketBall}
+      />
+
+      <Image
+        style={styles.soccerBall}
+        source={soccerBall}
+      />
+
+      <View style={styles.form}>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
-          <StatusBar />
-          <Text style={defaultStyle.title}>Imovim</Text>
 
-          <Image
-            style={styles.basketBall}
-            source={basketBall}
-          />
-
-          <Image
-            style={styles.soccerBall}
-            source={soccerBall}
-          />
-
-          <View style={defaultStyle.inputContainer}>
-            <Text style={defaultStyle.subTitle}>Login</Text>
-            <Input width="90%" inputText="Email" getInputValue={(value) => setEmail(value)} />
-
-            <View style={styles.passwordContainer}>
-              <Input width="90%" inputText="Senha" getInputValue={(value) => setPassword(value)} />
-              <Text style={defaultStyle.smallText}>Esqueci minha senha</Text>
-            </View>
-
-            <View style={styles.buttonContainer}>
-              <Button buttonText="Entrar" pressFunction={() => {
-                ValidateData(email, password, setLogin, setId, setAccountData, showToastError, showToastSuccess, handleStorage)
-              }
-              } />
-              <Text style={defaultStyle.mediumText}>Não possui cadastro?</Text>
-              <Text
-                style={{
-                  color: '#FF6709',
-                  fontSize: 16,
-                  fontWeight: '700',
-                  textAlign: 'center',
-                  paddingTop: 5,
-                }}
-                onPress={() => { navigation.navigate('Cadastro') }}
-              >
-                Cadastre-se aqui
-              </Text>
-            </View>
+          <View style={styles.subTitleContainer}>
+            <Text style={styles.subTitle}>Login</Text>
           </View>
-          <Toast config={toastConfig} />
-          <StatusBar />
+
+          <View>
+
+            <TextInput
+              style={styles.inputLong}
+              onChangeText={(value) => setEmail(value)}
+              placeholder="Email"
+              placeholderTextColor={"#FFF"}
+            />
+
+            <TextInput
+              style={styles.inputLong}
+              onChangeText={(value) => setPassword(value)}
+              placeholder="Email"
+              placeholderTextColor={"#FFF"}
+            />
+
+          </View>
+
         </KeyboardAvoidingView>
-    </ScrollView>
+
+        <View style={styles.buttonContainer}>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              // phoneNumber.reverse();
+              // birthday.reverse()
+              setPhoneNumber(`${ddd} ${phoneNumberInput}`);
+              setBirthday(`${year}/${month}/${day}`);
+              navigation.navigate('Cadastro Continuacao')
+            }
+            }>
+            <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+
+          <View style={styles.forgotPasswordContainer}>
+
+            <Text
+              style={styles.text1}
+              onPress={() => navigation.navigate('Login')}
+            >
+              Não possui cadastro? 
+            </Text>
+
+            <Text style={styles.text2}>Cadastre-se aqui</Text>
+
+          </View>
+
+        </View>
+      </View>
+
+    </ScrollView >
   );
 }
