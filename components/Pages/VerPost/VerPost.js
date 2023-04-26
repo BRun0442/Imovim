@@ -14,10 +14,12 @@ import SinglePost from "../../Post/SinglePost";
 export default function VerPost({navigation}) {
     const { id, currentPost, setAnotherUser_id } = useContext(AuthContext)
     const [post, setPost] = useState(null)
+    const [postId, setPostId] = useState()
 
     const getPost = async () => {
         const result = await axios.post(`https://imovim-api.cyclic.app/post/get-post`, { post_id: currentPost, user_id: id })
         setPost(result.data)
+        setPostId(result.data[0].id)
         console.log(result.data);
     }
 
@@ -25,7 +27,7 @@ export default function VerPost({navigation}) {
         getPost()
     }, [currentPost])
 
-    if (!post) {
+    if (!post || postId != currentPost) {
         return (
             <View>
                 <Text>Loading...</Text>

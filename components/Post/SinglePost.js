@@ -88,15 +88,14 @@ export default function SinglePost(props) {
 
       </View>
 
-        <RenderImage
+        <Image
           style=
           {
             ImageStyle.style
           }
-          url={
+          source={
             props.image ? { uri: props.image } : ''
           }
-          id={props.id}
         />
 
       <Text style={styles.postDescription}>{props.caption}</Text>
