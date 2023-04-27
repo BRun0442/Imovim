@@ -21,6 +21,7 @@ import Notificacoes from "../Pages/Notificacoes/Notificações";
 import CriarGrupo from "../Pages/CriarGrupo/CriarGrupo";
 import Comentarios from '../Pages/Comentarios/Comentarios'
 import VerPost from "../Pages/VerPost/VerPost";
+import Denuncia from "../Pages/Denuncia/Denuncia"
 
 import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
@@ -67,6 +68,7 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Dados do Grupo" component={DadosGrupo} options={{ headerShown: false, }} />
       <Drawer.Screen name="Ver Post" component={VerPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Denuncia" component={Denuncia} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }
