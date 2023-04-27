@@ -138,7 +138,7 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#F8670E",
 
-    paddingHorizontal: 50,
+    paddingHorizontal: 80,
     marginVertical: 40
 
   },
@@ -155,7 +155,9 @@ export const styles = StyleSheet.create({
     fontWeight: "400",
 
     padding: 5,
-    marginVertical: 20
+    marginVertical: 20,
+    
+    textAlign: "center"
   },
 
   buttonContainer: {

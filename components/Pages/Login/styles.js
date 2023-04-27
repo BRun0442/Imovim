@@ -166,7 +166,10 @@ export const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+    flexWrap: "wrap",
+
+    paddingHorizontal: 10
   },
 
   text1: {

@@ -115,14 +115,11 @@ export default function Login({ navigation }) {
 
           <View style={styles.forgotPasswordContainer}>
 
-            <Text
-              style={styles.text1}
-              onPress={() => navigation.navigate('Login')}
-            >
-              Não possui cadastro?
-            </Text>
+            <Text style={styles.text1}> Não possui cadastro?</Text>
 
-            <Text style={styles.text2}>Cadastre-se aqui</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
+              <Text style={styles.text2}>Cadastre-se aqui</Text>
+            </TouchableOpacity>
 
           </View>
 

@@ -72,19 +72,19 @@ export default function Cadastro({ navigation }) {
 
         </KeyboardAvoidingView>
 
+        <TouchableOpacity
+          onPress={async () => {
+            const res = await sendMail(email, "Confirmação de email")
+            const array = securityCode
+            array.push(res)
+            setSecurityCode(array)
+          }
+          }>
+          <Text style={styles.buttonText}>Reenviar codigo</Text>
+        </TouchableOpacity>
+
         <View style={styles.buttonContainer}>
 
-        <TouchableOpacity
-            style={styles.button}
-            onPress={async () => {
-              const res = await sendMail(email, "Confirmação de email")
-              const array = securityCode
-              array.push(res)
-              setSecurityCode(array)
-            }
-            }>
-            <Text style={styles.buttonText}>Reenviar codigo</Text>
-          </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button}
@@ -97,7 +97,7 @@ export default function Cadastro({ navigation }) {
               }
             }
             }>
-            <Text style={styles.buttonText}>Avançar</Text>
+            <Text style={styles.buttonText}>Concluir</Text>
           </TouchableOpacity>
 
           <View style={styles.forgotPasswordContainer}>

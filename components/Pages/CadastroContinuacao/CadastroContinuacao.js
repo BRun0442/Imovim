@@ -142,14 +142,11 @@ export default function Cadastro({ navigation }) {
 
           <View style={styles.forgotPasswordContainer}>
 
-            <Text
-              style={styles.text1}
-              onPress={() => { navigation.navigate('Login') }}
-            >
-              Já possui um cadastro?
-            </Text>
+            <Text style={styles.text1}> Já possui um cadastro? </Text>
 
-            <Text style={styles.text2}>Login</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <Text style={styles.text2}>Login</Text>
+            </TouchableOpacity>
 
           </View>
 
