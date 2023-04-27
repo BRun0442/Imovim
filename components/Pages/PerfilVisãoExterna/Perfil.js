@@ -128,7 +128,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     getUserData();
   }, [anotherUser_id]);
 
-  if (anotherUser_id !== currentUser) {
+  if (anotherUser_id !== currentUser || !posts) {
     return (
       <View>
         <Text>Loading...</Text>
@@ -149,19 +149,33 @@ export default function PerfilVisãoExterna({ navigation }, props) {
     <FlatList
       style={styles.container}
       data={posts}
-      renderItem={({ item }) => (
-        <Post
-          goToCommentScreen={() => {
-            setPostFocusedId(item.id);
-            navigation.navigate("Comentarios");
-          }}
-          likePost={async () => {
-            await likePost(id, item.id);
-            await getUserData();
-          }}
-          {...item}
-        />
-      )}
+      renderItem={({ item }) => {
+        return (
+          <View>
+            <Post
+              goToReportScreen={() => navigation.navigate("Denuncia")}
+              goToCommentScreen={() => {
+                setPostFocusedId(item.id);
+                navigation.navigate("Comentarios");
+              }}
+              likePost={async () => {
+                await likePost(id, item.id);
+                await getUserData();
+              }}
+              {...item}
+            />
+          </View>
+        )
+      }}
+      ListFooterComponent={
+        <View>
+          {posts.length == 0 ? (
+            <View>
+              <Text>Nenhum post</Text>
+            </View>
+          ) : null}
+        </View>
+      }
       ListHeaderComponent={
         <SafeAreaView>
           <Header navigation={navigation} />

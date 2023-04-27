@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { styles } from './style'
 
 export default function ComplaintModal() {
   return (
@@ -18,7 +19,7 @@ export default function ComplaintModal() {
           </View>
 
           <View>
-            <TouchableOpacity onPress={handleClose}>
+            <TouchableOpacity>
               <AntDesign name="close" size={24} color="black" />
             </TouchableOpacity>
           </View>

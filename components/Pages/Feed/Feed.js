@@ -66,6 +66,7 @@ export default function Feed({ navigation }) {
 
         renderItem={({ item }) =>
           <Post
+            goToReportScreen={() => navigation.navigate("Denuncia")}
             goToProfile={() => {
               if (item.user_id != id) {
                 setAnotherUser_id(item.user_id)

@@ -63,7 +63,7 @@ export default function Post(props) {
 
         </View>
 
-        <TouchableOpacity onPress={()=> navigation.navigate("Denuncia")}>
+        <TouchableOpacity onPress={()=> props.goToReportScreen()}>
           <Text style={styles.complaint}>!</Text>
         </TouchableOpacity>
 

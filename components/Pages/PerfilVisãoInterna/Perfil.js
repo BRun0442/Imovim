@@ -69,6 +69,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         data={posts}
         renderItem={({ item }) => (
           <Post
+            goToReportScreen={() => null}
             goToProfile={goToProfile}
             goToCommentScreen={() => {
               setPostFocusedId(item.id);
@@ -161,28 +162,42 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
               <View style={styles.tagsContainer}>
 
-                <ScrollView horizontal={true}
-                  style={{ paddingHorizontal: 8 }}
-                >
+                {sportsPracticed.length == 0 ? (
+                  <TouchableOpacity
+                    style={styles.tags}
+                    onPress={() => {
+                      navigation.navigate("Tela Tags");
+                    }}
+                  >
+                    <Text style={styles.tagsText}>
+                      #Adicione seus esportes favoritos
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <ScrollView horizontal={true}
+                    style={{ paddingHorizontal: 8 }}
+                  >
 
-                  {sportsPracticed.map((sport) => {
-                    return (
+                    {sportsPracticed.map((sport, index) => {
+                      return (
 
-                      <View
-                        style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
-                        onPress={() => {
-                          navigation.navigate("Tela Tags");
-                        }}
-                      >
-                        <Text style={styles.addFavoriteSportsText}>
-                          #{sport.sport_name}
-                        </Text>
-                      </View>
+                        <View
+                          key={index}
+                          style={[styles.addFavoriteSports, { backgroundColor: sport.sport_color }]}
+                          onPress={() => {
+                            navigation.navigate("Tela Tags");
+                          }}
+                        >
+                          <Text style={styles.addFavoriteSportsText}>
+                            #{sport.sport_name}
+                          </Text>
+                        </View>
 
-                    )
-                  })}
+                      )
+                    })}
 
-                </ScrollView>
+                  </ScrollView>
+                )}
 
               </View>
 

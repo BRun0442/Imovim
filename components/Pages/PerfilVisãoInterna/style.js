@@ -104,6 +104,25 @@ export const styles = StyleSheet.create({
     marginTop: 10
   },
 
+  tags: {
+    width: 240,
+    height: 40,
+
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+
+    backgroundColor: '#8B8A8B',
+    borderRadius: 25,
+  },
+
+  tagsText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+
   tagsView: {
     width: "100%",
     height: 120,
