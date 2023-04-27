@@ -22,13 +22,15 @@ import CriarGrupo from "../Pages/CriarGrupo/CriarGrupo";
 import Comentarios from '../Pages/Comentarios/Comentarios'
 import VerPost from "../Pages/VerPost/VerPost";
 import Denuncia from "../Pages/Denuncia/Denuncia"
-
+import Configuracoes from "../Pages/Configuracoes/Configuracoes";
 import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
+import RedefinirValidacao from "../Pages/RedefinirSenha/RedefinirValidacao"
 
 import CustomDrawer from "./CustomDrawer";
 import Map from "../Pages/Map/Map"
 import { AccountDataContext } from "../../contexts/accountData";
+import RedefinirSenha from "../Pages/RedefinirSenha/RedefinirSenha";
 
 const Drawer = createDrawerNavigator();
 
@@ -69,6 +71,9 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Ver Post" component={VerPost} options={{ headerShown: false, }} />
       <Drawer.Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
       <Drawer.Screen name="Denuncia" component={Denuncia} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Configurações" component={Configuracoes} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Validação Para Redefinir Senha" component={RedefinirValidacao} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />     
     </Drawer.Navigator>
   );
 }

@@ -8,6 +8,7 @@ import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialIcons } from '@expo/vector-icons'; 
 import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '../../contexts/auth.js';
 import { AccountDataContext } from '../../contexts/accountData.js';
@@ -98,6 +99,13 @@ export default function CustomDrawer({ navigation }, props) {
                     >
                         <MaterialCommunityIcons name="bell-badge" size={24} color="#FFF" />
                         <Text style={styles.itemText}>Notificações</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.items}
+                        onPress={() => { navigation.navigate('Configurações') }}
+                    >
+                        <MaterialIcons name="settings" size={24} color="#FFF" />
+                        <Text style={styles.itemText}>Configurações</Text>
                     </TouchableOpacity>
                 </View>
             </View>
