@@ -118,4 +118,13 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start",
     flexDirection: "column",
   },
+
+  photo: {
+    display: "flex",
+    justifyContent: "flex-start",
+    flexDirection: "row",
+
+    flexWrap: "wrap",
+    flex: 1 / 3
+  }
 })

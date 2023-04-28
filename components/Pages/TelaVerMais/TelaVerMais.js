@@ -18,7 +18,7 @@ export default function TelaVerMais({ navigation }) {
   // const [posts, setPosts] = useState(null)
 
   const getSportsPracticed = async () => {
-    if(!sportsPracticed) {
+    if (!sportsPracticed) {
       const data = await getSportsData(id)
       setSportsPracticed(data)
       console.log(data)
@@ -28,7 +28,7 @@ export default function TelaVerMais({ navigation }) {
 
   const getUserEvents = async () => {
     await getMyEvents(id)
-    .then((data) => setMyEvents(data))
+      .then((data) => setMyEvents(data))
   }
 
 
@@ -81,10 +81,12 @@ export default function TelaVerMais({ navigation }) {
 
           <ScrollView style={styles.photos} horizontal={true}>
             {posts.map((post, index) => {
-              if(parseInt(index) < 3){
-                return(
-                  <Photo key={index} post_id={post.id} image={post.image} navigation={navigation} />
-                  )
+              if (parseInt(index) < 3) {
+                return (
+                  <View style={styles.photo} >
+                    <Photo key={index} post_id={post.id} image={post.image} navigation={navigation} />
+                  </View>
+                )
               }
             })}
           </ScrollView>

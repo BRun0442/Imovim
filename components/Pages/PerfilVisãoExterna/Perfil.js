@@ -170,8 +170,8 @@ export default function PerfilVisãoExterna({ navigation }, props) {
       ListFooterComponent={
         <View>
           {posts.length == 0 ? (
-            <View>
-              <Text>Nenhum post</Text>
+            <View style={styles.anyPost}>
+              <Text style={styles.anyPostText}>Não há nenhuma publicação aqui</Text>
             </View>
           ) : null}
         </View>
@@ -287,6 +287,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
               </View>
             </View>
           </View>
+          
           <View style={styles.border} />
 
           <View style={styles.tagsView}>
@@ -307,6 +308,8 @@ export default function PerfilVisãoExterna({ navigation }, props) {
               })}
             </ScrollView>
           </View>
+
+          <View style={styles.line} />
 
           <Toast config={toastConfig} />
         </SafeAreaView>

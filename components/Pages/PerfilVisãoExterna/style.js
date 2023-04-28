@@ -84,28 +84,6 @@ export const styles = StyleSheet.create({
     fontSize: 15
   },
 
-  tagsView: {
-    width: "100%",
-    height: 120,
-
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-
-    paddingHorizontal: 5,
-  },
-
-  tagsContainer: {
-    width: "80%",
-    height: "100%",
-
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-
   addFavoriteSports: {
     width: 145,
     height: 55,
@@ -168,18 +146,32 @@ export const styles = StyleSheet.create({
     marginTop: 10
   },
 
+  tagsView: {
+    width: "100%",
+    height: 100,
+
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+
+    paddingHorizontal: 5,
+  },
+
+  tagsContainer: {
+    width: "80%",
+    height: "100%",
+
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+
   tagsText: {
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 14,
-  },
-
-  tagsView: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    marginTop: 15,
-    marginBottom: 25,
   },
 
   tags: {
@@ -288,4 +280,25 @@ export const styles = StyleSheet.create({
 
     borderRadius: 40,
   },
+
+  anyPost:{
+    width: "100%",
+    height: 300,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  anyPostText:{
+    fontSize: 21,
+    fontWeight: "bold",
+    color: "#BAB9B9"
+  },
+
+  line:{
+    backgroundColor: "#E98AF9",
+    width: "100%",
+    height: 1
+  }
 })
