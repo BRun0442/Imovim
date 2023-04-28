@@ -13,6 +13,7 @@ import Camera from "../Pages/Camera/Camera";
 import Fotos from "../Pages/Fotos/Fotos";
 import Messages from "../Pages/Messages/Messages"
 import Chat from "../Pages/Chat/Chat";
+import ChatGroup from "../Pages/ChatGroup/ChatGroup";
 import Pesquisa from "../Pages/Pesquisa/Pesquisa";
 import PerfilVisãoExterna from "../Pages/PerfilVisãoExterna/Perfil";
 import VerAmigos from "../Pages/VerAmigos/VerAmigos";
@@ -73,7 +74,8 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Denuncia" component={Denuncia} options={{ headerShown: false, }} />
       <Drawer.Screen name="Configurações" component={Configuracoes} options={{ headerShown: false, }} />
       <Drawer.Screen name="Validação Para Redefinir Senha" component={RedefinirValidacao} options={{ headerShown: false, }} />
-      <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />     
+      <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />   
+      <Drawer.Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />  
     </Drawer.Navigator>
   );
 }

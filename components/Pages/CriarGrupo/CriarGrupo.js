@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
 import { styles } from "./style"
 import Header from "../../Header/Header";
 import { Entypo } from "@expo/vector-icons";
 import { Image } from "react-native";
+import * as ImagePicker from "expo-image-picker";
+import * as MediaLibrary from "expo-media-library";
 
 export default function CriarGrupo({ navigation }) {
+    const [chatName, setChatName] = useState('')
+    const [description, setDescription] = useState('')
+    const [image, setImage] = useState(null);
+  const [galleryPermission, setGalleryPermission] = useState(null);
+
+    const galeryPermisionFunction = async () => {
+        const galleryPermissions = await MediaLibrary.requestPermissionsAsync();
+        setGalleryPermission(galleryPermissions.granted);
+      };
+    
+    
+      const pickImage = async () => {
+        // No permissions request is necessary for launching the image library
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.Images,
+          allowsEditing: true,
+          //   aspect: [1, 1],
+          //   quality: 1,
+        });
+    
+        if (!result.cancelled) {
+          setImage(result.uri);
+        }
+      };
+
+    const handleSubmit = async () => {
+        navigation.navigate("Adicionar Participantes")
+    }
     return (
         <SafeAreaView style={styles.container}>
 
@@ -22,6 +52,8 @@ export default function CriarGrupo({ navigation }) {
 
                     <View style={styles.nameInputs}>
                         <TextInput
+                            value={chatName}
+                            onChangeText={(text) => setChatName(text)}
                             style={styles.inputType1}
                             keyboardType="default"
                         />
@@ -30,6 +62,7 @@ export default function CriarGrupo({ navigation }) {
                     <Text style={styles.formText}>Descrição do grupo</Text>
                     <View style={styles.nameInputs}>
                         <TextInput style={styles.inputType1}
+                            value={description}
                             onChangeText={(text) => setDescription(text)}
                             keyboardType="default"
                         />
@@ -40,12 +73,22 @@ export default function CriarGrupo({ navigation }) {
 
                         <View style={styles.banner}>
                             <TouchableOpacity
+                                onPress={() => {
+                                    if (galleryPermission == true) {
+                                        pickImage();
+                                      } else {
+                                        galeryPermisionFunction();
+                                      }
+                                }}
                                 style={styles.editProfileIconContainerBanner}
                             >
-
-                                <View style={styles.editBanner}>
-                                    <Entypo name="camera" size={22} color="#FFF" />
-                                </View>
+                                { image ? (
+                                    <Image source={{ uri: image }} style={styles.editBanner} />
+                                ) : (
+                                    <View style={styles.editBanner}>
+                                        <Entypo name="camera" size={22} color="#FFF" />
+                                    </View>
+                                )}
 
                             </TouchableOpacity>
                         </View>
@@ -53,7 +96,7 @@ export default function CriarGrupo({ navigation }) {
 
                     <TouchableOpacity 
                     style={styles.button}
-                    onPress={()=> navigation.navigate("Adicionar Participantes")}
+                    onPress={ () => handleSubmit() }
                     >
                         <Text style={styles.text}>Criar Grupo</Text>
                     </TouchableOpacity>
