@@ -17,8 +17,6 @@ export default function SinglePost(props) {
   const [aspectRatio, setAspectRatio] = useState(0);
   const { id, currentPost, setAnotherUser_id } = useContext(AuthContext)
 
-  const [visibleModal, setVisibleModal] = useState(false)
-
   async function getImagesSize() {
     // Use the width and height props to optimize
     await Image.getSize(props.image, (width, height) => {
@@ -68,35 +66,21 @@ export default function SinglePost(props) {
 
         </View>
 
-        <TouchableOpacity onPress={() => setVisibleModal(true)}>
+        <TouchableOpacity>
           <Text style={styles.complaint}>!</Text>
         </TouchableOpacity>
 
       </View>
 
-      <View>
-
-        <Modal
-          visible={visibleModal}
-          transparent={true}
-          onRequestClose={() => setVisibleModal(false)}
-        >
-          <ComplaintModal
-            handleClose={() => setVisibleModal(false)}
-          />
-        </Modal>
-
-      </View>
-
-        <Image
-          style=
-          {
-            ImageStyle.style
-          }
-          source={
-            props.image ? { uri: props.image } : ''
-          }
-        />
+      <Image
+        style=
+        {
+          ImageStyle.style
+        }
+        source={
+          props.image ? { uri: props.image } : ''
+        }
+      />
 
       <Text style={styles.postDescription}>{props.caption}</Text>
 

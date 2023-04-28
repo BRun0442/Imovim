@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, TextInput } from "react-native"
 import { styles } from "./style"
 import Header from "../../Header/Header";
+import { Modalize } from "react-native-modalize";
 
 import { Entypo } from '@expo/vector-icons';
 
@@ -19,6 +20,11 @@ export default function RedefinirSenha() {
             <TextInput
                 placeholder="Digite sua nova senha"
             />
+
+            <Modalize>
+                
+            </Modalize>
+
         </View>
     )
 }

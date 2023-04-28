@@ -11,16 +11,18 @@ export const styles = StyleSheet.create({
 
     imgContainer:{
         width: "100%",
-        height: "80%",
+        height: "75%",
 
-        backgroundColor: "#F1F1F1"
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+
+        backgroundColor: "#D9D9D9"
     },
 
     iconsContainer:{
         width: "100%",
-        height: "15%",
-
-        backgroundColor: "#FFF",
+        height: "20%",
 
         display: "flex",
         alignItems: "center",
