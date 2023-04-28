@@ -1,6 +1,7 @@
 import { firebaseConfig, storage } from "../firebase/config.js";
 import { uploadBytes, getDownloadURL, ref, getStorage } from "firebase/storage";
 import { initializeApp } from "firebase/app";
+import api from './api.js'
 
 export const getMessages = async (chatFocusedId) => {
   const result = await axios.get(`https://imovim-api.cyclic.app/chat/get-messages/${chatFocusedId}`)
@@ -11,11 +12,23 @@ export const saveMessage = async (messageData) => {
   await axios.post("https://imovim-api.cyclic.app/chat/create-message", messageData)
 }
 
-const createGroup = async (image, groupName, groupDescription) => {
+const createGroup = async (image, groupName, groupDescription, user_id, setGroupId) => {
+  const data = {
+    room_name: groupName, 
+    description: groupDescription, 
+    photo: image,
+    user_id: user_id
+  }
 
+  await api.post(`chat/create-group`, data)
+  .then((res) => {
+    console.log(res.data)
+    setGroupId(res.data.room_id)
+    console.log(res.data.room_id);
+  })
 }
 
-export const handleCreateGroup = async (image, groupName, groupDescription) => {
+export const handleCreateGroup = async (image, groupName, groupDescription, user_id, setGroupId) => {
   if(image)
   {
     let imageRef;
@@ -28,7 +41,7 @@ export const handleCreateGroup = async (image, groupName, groupDescription) => {
     .then(() => {
       getDownloadURL(imageRef)
         .then(async (url) => {
-          await createGroup(url, groupName, groupDescription)
+          await createGroup(url, groupName, groupDescription, user_id, setGroupId)
           .then(res => console.log(res))
           console.log('url:', url)
           url = ''
@@ -43,7 +56,7 @@ export const handleCreateGroup = async (image, groupName, groupDescription) => {
     });
   }else{
     imageRef = null;
-    createGroup('', groupName, groupDescription)
+    createGroup('', groupName, groupDescription, user_id, setGroupId)
     return;
   }
 }

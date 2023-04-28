@@ -10,10 +10,20 @@ import { AuthContext } from '../../../contexts/auth.js';
 import UserSelected from '../../UserSelected/UserSelected.js';
 
 export default function SelectGroup({ navigation }) {
-    const { id } = useContext(AuthContext)
+    const { id, groupId, setGroupId  } = useContext(AuthContext)
     const [users, setUsers] = useState(null)
     const [inputText, setInputText] = useState('')
     const [searchedUsers, setSearchUsers] = useState([])
+
+    const handleSubmit = async () => {
+        let selectedUsers = []
+        users.forEach((user) => {
+            if (user.selected) {
+                selectedUsers.push(user)
+            }
+        });
+        console.log(selectedUsers);
+    }
 
     const getUsers = async () => {
         let data = await getAllUsers()
@@ -94,7 +104,7 @@ export default function SelectGroup({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.addButton}
-                    onPress={() => navigation.navigate("Chat Grupo")}
+                    onPress={() => handleSubmit()}
                 >
                     <MaterialIcons name="group-add" size={30} color="#F8670E" />
                     <Text>Adicionar</Text>

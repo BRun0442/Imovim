@@ -3,6 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
+  const [groupId, setGroupId] = useState(null)
   const [securityCode, setSecurityCode] = useState([])
   const [id, setId] = useState();
   const [myEvents, setMyEvents] = useState(null)
@@ -49,6 +50,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        groupId, 
+        setGroupId,
         securityCode, 
         setSecurityCode,
         currentPost, 

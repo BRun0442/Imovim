@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
 import { styles } from "./style"
 import Header from "../../Header/Header";
@@ -6,8 +6,11 @@ import { Entypo } from "@expo/vector-icons";
 import { Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
+import { handleCreateGroup } from "../../../services/chat";
+import { AuthContext } from "../../../contexts/auth";
 
 export default function CriarGrupo({ navigation }) {
+    const { id, groupId, setGroupId } = useContext(AuthContext)
     const [chatName, setChatName] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState(null);
@@ -34,7 +37,10 @@ export default function CriarGrupo({ navigation }) {
       };
 
     const handleSubmit = async () => {
-        navigation.navigate("Adicionar Participantes")
+        await handleCreateGroup(image, chatName, description, id, setGroupId)
+        .then(() => {
+            navigation.navigate("Adicionar Participantes")
+        })
     }
     return (
         <SafeAreaView style={styles.container}>
