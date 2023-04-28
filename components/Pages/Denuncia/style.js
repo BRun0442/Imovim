@@ -2,73 +2,57 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: "100%",
+    height: "100%",
 
-    justifyContent: "center",
+    backgroundColor: "#FFF"
+  },
+
+  titleContainer: {
+    display: "flex",
+    flexDirection: "row",
     alignItems: "center",
 
-    paddingHorizontal: 15
+    width: "100%",
+    height: "10%",
+
+    paddingHorizontal: 10,
+  },
+
+  title: {
+    fontSize: 18,
+    fontWeight: "600"
   },
 
   content: {
     width: "100%",
     height: "80%",
 
-    display: "flex",
-    alignItems: "center",
-
-    backgroundColor: "#D9D9D9",
-
-    paddingHorizontal: 15,
-
-    borderRadius: 20
-  },
-
-  modal: {
-    display: "flex",
-
-    backgroundColor: "#F1F1F1",
-
-    width: "100%",
-    height: "85%",
-
-    borderRadius: 20,
-  },
-
-  headerModal: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-
-    width: "100%",
-    height: "10%",
-  },
-
-  headerModalText: {
-    color: "#000",
-    fontSize: 21,
-    fontWeight: "600",
+    paddingHorizontal: 20,
   },
 
   optionsComplaint: {
-    height: "80%",
+    height: "100%",
+    backgroundColor: "#F1F1F1",
 
-    paddingHorizontal: 10,
+    borderRadius: 20,
+    paddingVertical: 25,
+    paddingHorizontal: 10
   },
 
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
+  titleComplaint: {
+    fontSize: 18,
+    fontWeight: "600",
 
-    marginBottom: 15,
-    marginTop: 25
+    marginVertical: 15
   },
 
   info: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+
+    marginVertical: 5
   },
 
   infoText: {
@@ -83,7 +67,7 @@ export const styles = StyleSheet.create({
 
     height: "15%",
 
-    marginTop: 50
+    marginTop: 25
   },
 
   complaintButton: {

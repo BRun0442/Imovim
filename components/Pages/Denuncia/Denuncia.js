@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
+import Header from '../../Header/Header';
+
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { styles } from './style'
@@ -9,26 +11,17 @@ export default function ComplaintModal() {
   return (
     <View style={styles.container}>
 
+      <Header />
+
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Denunciar</Text>
+      </View>
+
       <View style={styles.content}>
 
-        <View style={styles.headerModal}>
-          <View>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.headerModalText}>Denunciar</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View>
-            <TouchableOpacity>
-              <AntDesign name="close" size={24} color="black" />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={styles.modal}>
           <View style={styles.optionsComplaint}>
 
-            <Text style={styles.title}>Denuncie publicações que contenham:</Text>
+            <Text style={styles.titleComplaint}>Denuncie publicações que contenham:</Text>
 
             <View style={styles.info}>
               <Entypo name="dot-single" size={24} color="black" />
@@ -85,9 +78,11 @@ export default function ComplaintModal() {
                 <Text style={styles.complaintText}>Denunciar</Text>
               </TouchableOpacity>
             </View>
-          </View>
+
         </View>
+
       </View>
+      
     </View >
   );
 }
