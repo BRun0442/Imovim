@@ -17,10 +17,19 @@ export const styles = StyleSheet.create({
         backgroundColor: "#F1F1F1",
         borderRadius: 15,
 
-        paddingHorizontal: 20
+        paddingHorizontal: 15
     },
 
     camContainer: {
+        width: "20%",
+        height: "100%",
+
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    cam:{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -34,10 +43,15 @@ export const styles = StyleSheet.create({
     },
 
     messageTexts: {
-        display: "flex",
-        flexDirection: "column",
+        width: "80%",
+        height: "100%",
 
-        marginLeft: 15
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: "row",
+
+        paddingHorizontal: 10
     },
     
     messageItems: {
@@ -46,7 +60,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
 
-        width: 300,
+        width: "100%",
         height: 50,
     },
 

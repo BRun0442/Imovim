@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/auth";
 import MessagesModal from "../Modals/MessagesModal";
 
 import IconExitGroup from '../Modals/IconExitGroup'
+import { Entypo } from '@expo/vector-icons';
 
 export default function Contact({ navigation, friend_id, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
     const { setChatFocusedId, setChatProfileImage, setFriend_id, setChatNickname, setMessageList } = useContext(AuthContext)
@@ -30,17 +31,20 @@ export default function Contact({ navigation, friend_id, getChats, name, room_id
             style={styles.messageContainer}
         >
             <View style={styles.NewMessageContainer}>
-                <Image style={styles.camContainer} source={{
-                    uri: room_type == 'private' ? ( friend_photo ||
-                        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png") :
-                        (room_photo ||
-                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
-                }} />
+                <View style={styles.camContainer}>
+                    <Image style={styles.cam} source={{
+                        uri: room_type == 'private' ? (friend_photo ||
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png") :
+                            (room_photo ||
+                                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
+                    }} />
+                </View>
 
                 <View style={styles.messageItems}>
                     <View style={styles.messageTexts}>
-                        <Text style={styles.name}>{room_type == 'public' ? room_name : name} {room_type == 'public' ? '(publico)' : '(privado)'}</Text>
-                        <Text style={styles.message}>...</Text>
+                        <Text style={styles.name}>{room_type == 'public' ? room_name : name}</Text>
+                        <Text style={styles.name}>{room_type == 'public' ? (<Entypo name="globe" size={20} color="#000" />) : (<FontAwesome name="lock" size={20} color="#000" />)}</Text>
+                        {/* <Text style={styles.message}>...</Text> */}
                     </View>
 
                     {/* <View style={styles.notification}></View> */}
@@ -59,7 +63,7 @@ export default function Contact({ navigation, friend_id, getChats, name, room_id
                     />
 
                 </Modal>
-                
+
             </View>
         </TouchableOpacity>
     )
