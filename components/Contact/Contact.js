@@ -31,13 +31,15 @@ export default function Contact({ navigation, friend_id, getChats, name, room_id
         >
             <View style={styles.NewMessageContainer}>
                 <Image style={styles.camContainer} source={{
-                    uri: friend_photo ||
-                        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    uri: room_type == 'private' ? ( friend_photo ||
+                        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png") :
+                        (room_photo ||
+                            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png")
                 }} />
 
                 <View style={styles.messageItems}>
                     <View style={styles.messageTexts}>
-                        <Text style={styles.name}>{name}</Text>
+                        <Text style={styles.name}>{room_type == 'public' ? room_name : name} {room_type == 'public' ? '(publico)' : '(privado)'}</Text>
                         <Text style={styles.message}>...</Text>
                     </View>
 
