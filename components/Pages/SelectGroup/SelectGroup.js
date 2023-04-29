@@ -8,21 +8,31 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { getAllUsers } from '../../../services/user.js';
 import { AuthContext } from '../../../contexts/auth.js';
 import UserSelected from '../../UserSelected/UserSelected.js';
+import { addUsersToTheGroup } from '../../../services/chat.js';
 
 export default function SelectGroup({ navigation }) {
-    const { id, groupId, setGroupId  } = useContext(AuthContext)
+    const { id, groupId, setGroupId, reloadChats, setReloadChats } = useContext(AuthContext)
     const [users, setUsers] = useState(null)
     const [inputText, setInputText] = useState('')
     const [searchedUsers, setSearchUsers] = useState([])
 
     const handleSubmit = async () => {
         let selectedUsers = []
-        users.forEach((user) => {
+        await users.forEach((user, index) => {
             if (user.selected) {
                 selectedUsers.push(user)
             }
+            else {
+                selectedUsers.slice(index)
+            }
         });
-        console.log(selectedUsers);
+        
+        console.log(selectedUsers, groupId);
+        await addUsersToTheGroup(selectedUsers, groupId)
+        .then(() => {
+            setReloadChats(reloadChats + 1);
+            navigation.navigate('Mensagens')
+        })
     }
 
     const getUsers = async () => {

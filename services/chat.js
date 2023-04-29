@@ -60,3 +60,10 @@ export const handleCreateGroup = async (image, groupName, groupDescription, user
     return;
   }
 }
+
+export const addUsersToTheGroup = async (users, room_id) => {
+  await api.post(`/chat/insert-user-in-group`, { users, room_id })
+  .then((res) => {
+    console.log(res.data);
+  })
+}
