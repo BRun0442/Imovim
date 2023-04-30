@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { AuthContext } from "../../../contexts/auth";
-import { View, Text, TouchableOpacity, FlatList, ScrollView } from "react-native"
+import { View, Text, TouchableOpacity, ScrollView } from "react-native"
 import Header from "../../Header/Header";
 import { styles } from './styles'
 import axios from "axios";
@@ -23,7 +23,7 @@ export default function VerPost({ navigation }) {
     const [postId, setPostId] = useState()
     const [likeList, setLikeList] = useState(null)
     const [comments, setComments] = useState(null)
-    const [likeAmmount, setLikeAmmount] = useState() 
+    const [likeAmmount, setLikeAmmount] = useState()
     const [commentsAmmount, setCommentsAmmount] = useState()
 
     const getPost = async () => {
@@ -102,7 +102,7 @@ export default function VerPost({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.iconContainer}
-                    onPress={onOpenLike}
+                    onLongPress={onOpenLike}
                 >
                     <AntDesign name="like1" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
@@ -130,33 +130,35 @@ export default function VerPost({ navigation }) {
             </View>
 
             <Modalize ref={modalizeComents}>
-                <ScrollView>
-                {comments.map((item, index) => {
-                    return (
-                        <Comentario
-                            key={index}
-                            comment_id={item.comment_id}
-                            updated={item.updated}
-                            user_id={item.user_id}
-                            profileImage={item.profileImage}
-                            profileName={item.nickname}
-                            daysAgo={item.created_at}
-                            coment={item.comment}
-                            getComments={() => getComments(currentPost, setComments)}
-                        />
-                    )
-                })}
+                <ScrollView contentContainerStyle={styles.containerLikes}>
+                    {comments.map((item, index) => {
+                        return (
+                            <Comentario
+                                key={index}
+                                comment_id={item.comment_id}
+                                updated={item.updated}
+                                user_id={item.user_id}
+                                profileImage={item.profileImage}
+                                profileName={item.nickname}
+                                daysAgo={item.created_at}
+                                coment={item.comment}
+                                getComments={() => getComments(currentPost, setComments)}
+                            />
+                        )
+                    })}
                 </ScrollView>
             </Modalize>
 
             <Modalize ref={modalizeLikes}>
+
                 <ScrollView contentContainerStyle={styles.containerLikes}>
                     {likeList.map((like, index) => {
-                        return(
+                        return (
                             <UsersLikePost key={index} goToProfile={goToProfile} user_id={like.user_id} profileImage={like.profileImage} name={like.nickname} />
                         )
                     })}
                 </ScrollView>
+
             </Modalize>
 
         </View>

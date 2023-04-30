@@ -69,6 +69,8 @@ export const styles = StyleSheet.create({
 
     containerLikes:{
         paddingVertical: 15,
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+
+        backgroundColor: "#F1F1F1"
     }
 })
