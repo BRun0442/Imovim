@@ -44,7 +44,7 @@ export default function SinglePost(props) {
   }, [currentPost])
 
   return (
-    <View style={styles.postContainer}>
+    <View style={styles.singlePostContainer}>
 
       <View style={styles.userInfoContainer}>
 
