@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native"
+import { View, Text, TouchableOpacity } from "react-native"
 import ProfileImage from "../ProfileImage/ProfileImage";
 import { AntDesign } from "@expo/vector-icons";
 import { styles } from "./style";
@@ -9,8 +9,12 @@ export default function UsersLikePost(props) {
         <View style={styles.container}>
 
             <View style={styles.userInfo}>
-                <ProfileImage />
-                <Text style={styles.name}>{props.name}</Text>
+                <TouchableOpacity onPress={() => props.goToProfile(props.user_id)}>
+                    <ProfileImage profileImage={props.profileImage} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => props.goToProfile(props.user_id)}>
+                    <Text style={styles.name}>{props.name}</Text>
+                </TouchableOpacity>
             </View>
 
             <View>

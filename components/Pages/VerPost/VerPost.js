@@ -14,18 +14,40 @@ import Comentario from "../../Comentario/Comentario"
 import UsersLikePost from "../../UsersLikePost/UsersLikePost";
 
 import { Modalize } from "react-native-modalize";
+import { getComments } from "../../../services/comment";
 
 
 export default function VerPost({ navigation }) {
     const { id, currentPost, setAnotherUser_id } = useContext(AuthContext)
     const [post, setPost] = useState(null)
     const [postId, setPostId] = useState()
+    const [likeList, setLikeList] = useState(null)
+    const [comments, setComments] = useState(null)
+    const [likeAmmount, setLikeAmmount] = useState() 
+    const [commentsAmmount, setCommentsAmmount] = useState()
 
     const getPost = async () => {
         const result = await axios.post(`https://imovim-api.cyclic.app/post/get-post`, { post_id: currentPost, user_id: id })
         setPost(result.data)
         setPostId(result.data[0].id)
+        setLikeAmmount(result.data[0].likes)
+        setCommentsAmmount(result.data[0].comments)
         console.log(result.data);
+    }
+
+    const getLikeList = async () => {
+        const result = await axios.get(`https://imovim-api.cyclic.app/post/get-like-list/${currentPost}`)
+        setLikeList(result.data)
+        console.log(result.data);
+    }
+
+    const goToProfile = async (user_id) => {
+        if (user_id == id) {
+            navigation.navigate('Meu Perfil')
+        } else {
+            setAnotherUser_id(user_id)
+            navigation.navigate('Outros Perfis')
+        }
     }
 
     const modalizeComents = useRef(null);
@@ -41,9 +63,11 @@ export default function VerPost({ navigation }) {
 
     useEffect(() => {
         getPost()
+        getLikeList()
+        getComments(currentPost, setComments)
     }, [currentPost])
 
-    if (!post || postId != currentPost) {
+    if (!post || postId != currentPost || !likeList || !comments) {
         return (
             <View>
                 <Text>Loading...</Text>
@@ -82,7 +106,7 @@ export default function VerPost({ navigation }) {
                 >
                     <AntDesign name="like1" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
-                        <Text style={styles.interactionQuantity}>1</Text>
+                        <Text style={styles.interactionQuantity}>{likeAmmount}</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -92,14 +116,14 @@ export default function VerPost({ navigation }) {
                 >
                     <Ionicons name="chatbubble" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
-                        <Text style={styles.interactionQuantity}>1</Text>
+                        <Text style={styles.interactionQuantity}>{commentsAmmount}</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.iconContainer}>
                     <FontAwesome name="share" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
-                        <Text style={styles.interactionQuantity}>1</Text>
+                        <Text style={styles.interactionQuantity}>0</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -107,15 +131,31 @@ export default function VerPost({ navigation }) {
 
             <Modalize ref={modalizeComents}>
                 <ScrollView>
-                    <Comentario />
+                {comments.map((item, index) => {
+                    return (
+                        <Comentario
+                            key={index}
+                            comment_id={item.comment_id}
+                            updated={item.updated}
+                            user_id={item.user_id}
+                            profileImage={item.profileImage}
+                            profileName={item.nickname}
+                            daysAgo={item.created_at}
+                            coment={item.comment}
+                            getComments={() => getComments(currentPost, setComments)}
+                        />
+                    )
+                })}
                 </ScrollView>
             </Modalize>
 
             <Modalize ref={modalizeLikes}>
                 <ScrollView contentContainerStyle={styles.containerLikes}>
-                    <UsersLikePost name = "Lulu" />
-                    <UsersLikePost name = "Põe o nome do menó aqui" />
-                    <UsersLikePost name= "Kvalo" />
+                    {likeList.map((like, index) => {
+                        return(
+                            <UsersLikePost key={index} goToProfile={goToProfile} user_id={like.user_id} profileImage={like.profileImage} name={like.nickname} />
+                        )
+                    })}
                 </ScrollView>
             </Modalize>
 
