@@ -77,7 +77,7 @@ export default function VerPost({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
 
             {post.map((item, index) => {
                 return (

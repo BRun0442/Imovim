@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { View, Text, ScrollView, SafeAreaView } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from "./style"
@@ -7,6 +7,8 @@ import CardEvents from "../../CardEvent/CardEvent";
 import { getAllEvents } from "../../../services/events";
 import { AuthContext } from "../../../contexts/auth";
 
+import { Modalize } from "react-native-modalize";
+
 export default function Eventos({ navigation }) {
     const { id } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
@@ -14,6 +16,12 @@ export default function Eventos({ navigation }) {
         const data = await getAllEvents(id)
         return data
     }
+
+    const modalizeEvents = useRef(null);
+
+    const onOpenEvents = () => {
+        modalizeEvents.current?.open();
+    };
 
     useEffect(() => {
         getData()
@@ -89,6 +97,13 @@ export default function Eventos({ navigation }) {
                 </View>
 
             </ScrollView>
+
+            <Modalize ref={modalizeEvents}>
+                <View>
+                    <Text>Teste sla</Text>
+                </View>
+            </Modalize>
+
         </SafeAreaView>
     )
 }

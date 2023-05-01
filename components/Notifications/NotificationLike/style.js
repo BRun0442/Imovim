@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         borderColor: "#fff",
         borderWidth: 3,
 
-        marginRight: 10
+        marginRight: 6
     },
 
     textContainer:{

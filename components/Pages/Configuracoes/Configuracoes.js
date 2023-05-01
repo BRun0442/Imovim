@@ -8,7 +8,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 export default function Configuracoes({navigation}) {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
 
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Configurações</Text>
