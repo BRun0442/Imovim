@@ -91,27 +91,32 @@ export const styles = StyleSheet.create({
     },
 
     actionsContainer: {
-        width: 200,
-        height: 150,
+        width: 240,
+        height: 200,
 
         backgroundColor: "#8B04A2",
 
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
 
         borderRadius: 22,
 
         position: "absolute",
         right: 0,
 
-        zIndex: 5
+        zIndex: 5,
+
+        paddingHorizontal: 15
     },
 
     actionsButton: {
         display: "flex",
         justifyContent: "center",
+
+        width: 150,
+        height: 200,
     },
 
     textButton: {
@@ -123,8 +128,10 @@ export const styles = StyleSheet.create({
     closeIcon: {
         display: "flex",
         justifyContent: "center",
+        alignItems: "center",
 
-        height: 150,
+        width: 50,
+        height: 50,
     },
 
     lineButtons: {

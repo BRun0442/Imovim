@@ -21,7 +21,7 @@ export default function Chat({ navigation }) {
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const [isFriendOnline, setIsFriendOnline] = useState(false) 
+  const [isFriendOnline, setIsFriendOnline] = useState(false)
 
   const [visible, setVisible] = useState(false);
 
@@ -76,11 +76,11 @@ export default function Chat({ navigation }) {
     joinRoom();
     scrollToBottom()
   }, [chatFocusedId]);
-  
+
   const getOnlineUsers = async () => {
     await socket.on("get-users", (users) => {
       for (let i = 0; i < users.length; i++) {
-        if(users[i].userId == friend_id) {
+        if (users[i].userId == friend_id) {
           setIsFriendOnline(true)
           console.log('onlineeeeee');
           return
@@ -101,8 +101,8 @@ export default function Chat({ navigation }) {
         scrollToBottom()
       });
     };
-    
-    
+
+
     getMessage();
     // getOnlineUsers()
   }, [socket]); // it wll be called whenever there is a change in the socket server
@@ -145,18 +145,26 @@ export default function Chat({ navigation }) {
 
                 {visible && (
                   <View style={styles.actionsContainer}>
+
                     <View style={styles.actionsButton}>
-                      <TouchableOpacity>
-                        <Text style={styles.textButton}>Dados do grupo</Text>
-                      </TouchableOpacity>
-
-                      <View style={styles.lineButtons}></View>
 
                       <TouchableOpacity>
-                        <Text style={styles.textButton}>Sair do grupo</Text>
+                        <Text style={styles.textButton}>Ver Perfil</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.lineButtons}></View>
+                      <View style={styles.lineButtons} />
+
+                      <TouchableOpacity>
+                        <Text style={styles.textButton}>Bloquear</Text>
+                      </TouchableOpacity>
+
+                      <View style={styles.lineButtons} />
+
+                      <TouchableOpacity>
+                        <Text style={styles.textButton}>Denunciar</Text>
+                      </TouchableOpacity>
+
+                      <View style={styles.lineButtons} />
 
                       <TouchableOpacity>
                         <Text style={styles.textButton}>Denunciar</Text>
@@ -182,32 +190,32 @@ export default function Chat({ navigation }) {
             </View>
 
             <View style={styles.line} />
-            <FlatList 
+            <FlatList
               style={{ height: "60%" }}
               ref={flatlistRef}
               data={messageList}
-              renderItem={({item}) => 
-                  <View key={item._id}>
-                    {item.author_id == id ? (
-                      <View
-                        style={[styles.messages, { alignItems: "flex-end" }]}
-                      >
-                        <View style={{ width: "100%" }} />
-                        <MyMessage myMessage={item.message} />
-                      </View>
-                    ) : (
-                      <View
-                        key={item._id}
-                        style={[styles.messages, { alignItems: "flex-start" }]}
-                      >
-                        <FriendMessage friendMessage={item.message} />
-                      </View>
-                    )}
-                  </View>
+              renderItem={({ item }) =>
+                <View key={item._id}>
+                  {item.author_id == id ? (
+                    <View
+                      style={[styles.messages, { alignItems: "flex-end" }]}
+                    >
+                      <View style={{ width: "100%" }} />
+                      <MyMessage myMessage={item.message} />
+                    </View>
+                  ) : (
+                    <View
+                      key={item._id}
+                      style={[styles.messages, { alignItems: "flex-start" }]}
+                    >
+                      <FriendMessage friendMessage={item.message} />
+                    </View>
+                  )}
+                </View>
 
               }
-              />
-              
+            />
+
             <View style={styles.inputContainer}>
               <TextInput
                 value={message}
