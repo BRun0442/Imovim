@@ -26,6 +26,7 @@ function AuthProvider({ children }) {
   const [friend_id, setFriend_id] = useState(null)
   const [profileUpdated, setProfileUpdated] = useState(0)
   const [currentPost, setCurrentPost] = useState(null)
+  const [groupDescription, setGroupDescription] = useState('')
 
   async function getUserIsLoggedIn() {
     let result = await SecureStore.getItemAsync('isUserLoggedIn');
@@ -50,6 +51,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        groupDescription,
+        setGroupDescription,
         groupId, 
         setGroupId,
         securityCode, 

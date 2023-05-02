@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { SafeAreaView, View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity, Touchable } from 'react-native';
 import Header from '../../Header/Header';
 import { styles } from './style';
+import { AuthContext } from '../../../contexts/auth';
 
 import { MaterialIcons } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import api from '../../../services/api';
 
 import MembersGroup from "../../MembersGroup/MembersGroup"
 import IconRemoveGroup from "../../Modals/IconExitGroup"
 
 export default function DadosGrupo({ navigation }, props) {
+  const { id, groupDescription, setGroupDescription, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
 
   const [visibleModal, setVisibleModal] = useState(false)
+  const [groupMembers, setGroupMembers] = useState([])
+
+  const getGroupMembers = async() => {
+    api.get(`/chat/get-group-members/${chatFocusedId}`)
+    .then((res) => {
+      setGroupMembers(res.data)
+      console.log(res.data);
+    })
+  }
+
+  useEffect(() => {
+    getGroupMembers()
+  }, [chatFocusedId])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -28,8 +44,11 @@ export default function DadosGrupo({ navigation }, props) {
         <View style={styles.dataGroup}>
 
           <View style={styles.photoGroup}>
-            <MaterialIcons name="group" size={35} color="#ADADAD" />
-            {/* <Image /> */}
+            { chatProfileImage ? (
+              <Image style={styles.photoGroup} source={{ uri: chatProfileImage }} />
+            ) : (
+               <MaterialIcons name="group" size={35} color="#ADADAD" /> 
+            )}
           </View>
 
           <View>
@@ -39,7 +58,7 @@ export default function DadosGrupo({ navigation }, props) {
           <TouchableOpacity style={styles.icon}>
             <Foundation
               name="pencil" size={24} color="black"
-              onPress={() => navigation.navigate('Editar Grupo')}
+              // onPress={() => navigation.navigate('Editar Grupo')}
             />
           </TouchableOpacity>
 
@@ -58,12 +77,12 @@ export default function DadosGrupo({ navigation }, props) {
 
           <View>
             <Text style={styles.describeTitle}>Descrição</Text>
-            <Text style={styles.describe}>Escreva uma descrição aqui</Text>
+            <Text style={styles.describe}>{groupDescription}</Text>
           </View>
 
           <Foundation name="pencil" size={24} color="black"
             style={styles.icon}
-            onPress={() => navigation.navigate('Editar Grupo')}
+            // onPress={() => navigation.navigate('Editar Grupo')}
           />
 
         </View>
@@ -77,15 +96,11 @@ export default function DadosGrupo({ navigation }, props) {
           <View style={styles.memberListView}>
 
             <FlatList
-              data={[1]}
+              data={groupMembers}
               style={{ height: "100%" }}
               renderItem={({ item }) =>
                 <View>
-                  <MembersGroup memberName="Tiago" />
-                  <MembersGroup memberName="Lulu" />
-                  <MembersGroup memberName="Osmarito" />
-
-                  <MembersGroup memberName="Tiago" /><MembersGroup memberName="Lulu" /><MembersGroup memberName="Osmarito" />
+                  <MembersGroup memberName={item.nickname} profileImage={item.profileImage} />
                 </View>
               }
             />

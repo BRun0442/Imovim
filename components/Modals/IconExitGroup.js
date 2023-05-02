@@ -5,7 +5,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function IconExitGroup({ handleClose }) {
+export default function IconExitGroup({ handleClose, chatNickname }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.modal}>
@@ -15,7 +15,7 @@ export default function IconExitGroup({ handleClose }) {
             <TouchableOpacity onPress={handleClose}>
               <AntDesign name="closecircle" size={30} color="#FFF" />
             </TouchableOpacity>
-            <Text style={styles.exitGroupText}>Deseja sair do "Nome Grupo"</Text>
+            <Text style={styles.exitGroupText}>Deseja sair do {chatNickname}</Text>
           </View>
 
           <View style={styles.buttons}>

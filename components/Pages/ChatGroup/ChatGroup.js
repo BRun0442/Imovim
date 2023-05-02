@@ -21,7 +21,7 @@ import GroupMessage from "../../GroupMessage/GroupMessage"
 
 export default function ChatGroup({ navigation }) {
   const flatlistRef = useRef(null);
-  const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList } = useContext(AuthContext)
+  const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -89,6 +89,7 @@ export default function ChatGroup({ navigation }) {
       });
     };
     getMessage();
+    // console.log('teste', socket);
   }, [socket]); // it wll be called whenever there is a change in the socket server
 
   if (!chatAvailable) {
@@ -122,7 +123,7 @@ export default function ChatGroup({ navigation }) {
                   }} />
 
                   <View style={styles.infoUser}>
-                    <Text style={styles.name}>Nome do Grupo</Text>
+                    <Text style={styles.name}>{chatNickname}</Text>
                   </View>
                 </View>
 
@@ -145,6 +146,7 @@ export default function ChatGroup({ navigation }) {
                         onRequestClose={() => setVisibleExitGroupModal(false)}
                       >
                         <ExitGroup
+                          chatNickname={chatNickname}
                           handleClose={() => setVisibleExitGroupModal(false)}
                         />
                       </Modal>
@@ -188,7 +190,7 @@ export default function ChatGroup({ navigation }) {
             <FlatList
               style={{ height: "60%" }}
               ref={flatlistRef}
-              data={[1]} // change to message list
+              data={messageList} // change to message list
               renderItem={({ item }) =>
                 <View key={item._id}>
                   {item.author_id == id ? (

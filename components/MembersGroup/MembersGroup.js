@@ -16,10 +16,7 @@ export default function DadosGrupo(props) {
     <View style={styles.infoMemberContainer}>
 
       <View style={styles.infoMember}>
-        <View style={styles.photoMember}>
-          <FontAwesome name="camera" size={16} color="#FFF" />
-          {/* <Image /> */}
-        </View>
+          <Image style={styles.photoMember} source={{ uri: props.profileImage }} />
 
         <Text style={styles.membersName}>{props.memberName}</Text>
       </View>

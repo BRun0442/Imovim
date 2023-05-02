@@ -64,6 +64,7 @@ export default function Chat({ navigation }) {
               <Contact key={index}
                 getChats={getChats}
                 name={chat.friend}
+                description={chat.description}
                 friend_id={chat.friend_id}
                 room_id={chat.room_id}
                 friend_photo={chat.friendPhoto}

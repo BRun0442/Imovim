@@ -8,8 +8,8 @@ import MessagesModal from "../Modals/MessagesModal";
 import IconExitGroup from '../Modals/IconExitGroup'
 import { Entypo } from '@expo/vector-icons';
 
-export default function Contact({ navigation, friend_id, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
-    const { setChatFocusedId, setChatProfileImage, setFriend_id, setChatNickname, setMessageList } = useContext(AuthContext)
+export default function Contact({ navigation, description, friend_id, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
+    const { groupDescription, setGroupDescription, setChatFocusedId, setChatProfileImage, setFriend_id, setChatNickname, setMessageList } = useContext(AuthContext)
 
     const [visibleModal, setVisibleModal] = useState(false)
 
@@ -17,11 +17,19 @@ export default function Contact({ navigation, friend_id, getChats, name, room_id
         <TouchableOpacity
             onPress={() => {
                 setChatFocusedId(room_id)
-                setChatNickname(name)
+                setGroupDescription(description)
                 setFriend_id(friend_id)
-                setChatProfileImage(friend_photo)
-                setMessageList([])
-                navigation.navigate('Chat')
+                // setMessageList([])
+                if (room_type == 'private') {
+                    setChatProfileImage(friend_photo)
+                    setChatNickname(name)
+                    navigation.navigate('Chat')
+                } 
+                else {
+                    setChatProfileImage(room_photo)
+                    setChatNickname(room_name)
+                    navigation.navigate('Chat Grupo')
+                }
             }}
 
             onLongPress={() => {
