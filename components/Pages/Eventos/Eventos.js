@@ -1,11 +1,18 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, ScrollView, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image } from "react-native";
 import Header from "../../Header/Header";
 import { styles } from "./style"
-import { AntDesign } from '@expo/vector-icons';
 import CardEvents from "../../CardEvent/CardEvent";
 import { getAllEvents } from "../../../services/events";
 import { AuthContext } from "../../../contexts/auth";
+import { getEvent } from '../../../services/events';
+import { goToEvent } from '../../../services/events';
+import { saveEvent } from '../../../services/events';
+
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 import { Modalize } from "react-native-modalize";
 
@@ -15,6 +22,33 @@ export default function Eventos({ navigation }) {
     const getData = async () => {
         const data = await getAllEvents(id)
         return data
+    }
+    const [currentEvent, setCurrentEvent] = useState()
+    const [participants, setParticipants] = useState()
+    const [userGoes, setUserGoes] = useState()
+    const [userSaved, setUserSaved] = useState()
+    const [name, setName] = useState()
+    const [image, setImage] = useState()
+    const [date, setDate] = useState()
+    const [hour, setHour] = useState()
+    const [location, setLocation] = useState()
+    const [description, setDescription] = useState()
+    const [eventId, setEventId] = useState(null)
+
+    const getEspecificData = async (event_id) => {
+        await getEvent(id, event_id)
+            .then((event) => {
+                setCurrentEvent(event[0].id);
+                setParticipants(event[0].participants)
+                setUserGoes(event[0].userGoesToEvent)
+                setUserSaved(event[0].userSavedEvent)
+                setName(event[0].event_name)
+                setImage(event[0].photo)
+                setDate(event[0].event_date)
+                setHour(event[0].event_hour)
+                setLocation(event[0].localization)
+                setDescription(event[0].description)
+            })
     }
 
     const modalizeEvents = useRef(null);
@@ -38,9 +72,16 @@ export default function Eventos({ navigation }) {
             </View>
         )
     }
+    // if (eventId != currentEvent) {
+    //     return (
+    //         <View>
+    //             <Text>Loading...</Text>
+    //         </View>
+    //     )
+    // }
 
     return (
-        <SafeAreaView>
+        <View style={styles.container}>
             <ScrollView>
                 <Header navigation={navigation} />
                 <View style={styles.titleContainer}>
@@ -57,19 +98,25 @@ export default function Eventos({ navigation }) {
                     <ScrollView horizontal={true}>
                         {events.map((item, id) => {
                             return (
-                                <CardEvents
-                                    key={id}
-                                    event_id={item.id}
-                                    eventName={item.event_name}
-                                    eventImage={item.photo}
-                                    describeEvent={item.description}
-                                    event_hour={item.event_hour}
-                                    event_date={item.event_date}
-                                    location={item.localization}
-                                    participants={item.participants}
-                                    userGoes={item.userGoesToEvent}
-                                    userSaved={item.userSavedEvent}
-                                />
+                                <TouchableOpacity onPress={() => {
+                                    setEventId(item.id)
+                                    getEspecificData(item.id)
+                                    onOpenEvents()
+                                }}>
+                                    <CardEvents
+                                        key={id}
+                                        event_id={item.id}
+                                        eventName={item.event_name}
+                                        eventImage={item.photo}
+                                        describeEvent={item.description}
+                                        event_hour={item.event_hour}
+                                        event_date={item.event_date}
+                                        location={item.localization}
+                                        participants={item.participants}
+                                        userGoes={item.userGoesToEvent}
+                                        userSaved={item.userSavedEvent}
+                                    />
+                                </TouchableOpacity>
                             )
                         })}
                     </ScrollView>
@@ -99,11 +146,107 @@ export default function Eventos({ navigation }) {
             </ScrollView>
 
             <Modalize ref={modalizeEvents}>
+                {eventId != currentEvent ? (
+                      <View>
+                                <Text>Loading...</Text>
+                              </View>
+                ) : (
+                    
                 <View>
-                    <Text>Teste sla</Text>
+
+                    <View style={styles.content}>
+
+                        <View style={styles.modal}>
+
+                            <View style={styles.headerModal}>
+                                <TouchableOpacity style={styles.button}>
+                                    <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
+                                    <Text style={styles.headerModalText}>{name}</Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.modalContainer}>
+
+                                <View style={styles.eventImage}>
+                                    <Image style={styles.image} source={{ uri: image }} />
+                                </View>
+
+                                <View style={styles.modalInfo}>
+
+                                    <View style={styles.dateEvent}>
+                                        <Text style={styles.dateTitle}>Data: </Text>
+                                        <Text style={styles.date}>{date}</Text>
+                                    </View>
+
+                                    <View style={styles.hourEvent}>
+                                        <Text style={styles.hourTitle}>Horário: </Text>
+                                        <Text style={styles.hour}>{hour}</Text>
+                                    </View>
+
+                                    <View style={styles.locationEvent}>
+                                        <Text style={styles.locationTitle}>Local: </Text>
+                                        <Text style={styles.location}>{location}</Text>
+                                    </View>
+
+                                    <ScrollView>
+                                        <View style={styles.descritpionEvent}>
+
+                                            <Text style={styles.description}>
+                                                <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
+                                                {description}
+                                            </Text>
+                                        </View>
+                                    </ScrollView>
+
+                                </View>
+
+                                <View style={styles.interactiveButtonContainer}>
+
+                                    <TouchableOpacity onPress={() => {
+                                        goToEvent(id, eventId)
+                                            .then(() => {
+                                                console.log('testeeee');
+                                                getEspecificData(eventId)})
+                                    }} style={styles.interactiveButton}>
+
+                                        <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
+                                        <Text style={styles.interactiveText}>Eu vou!</Text>
+
+                                        <View style={styles.iGoContainer}>
+                                            <Text style={styles.iGo}>{participants}</Text>
+                                        </View>
+
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity onPress={() => {
+                                        saveEvent(id, eventId)
+                                            .then(() => {
+                                                console.log('testeeee');
+                                                getEspecificData(eventId)})
+                                    }} style={styles.interactiveButton}>
+                                        {
+                                            userSaved ? (
+                                                <View>
+                                                    <Feather name="check-circle" size={60} color="purple" />
+                                                    <Text style={styles.interactiveText}>Salvo</Text>
+                                                </View>
+                                            )
+                                                :
+                                                <View>
+                                                    <Ionicons name="add-circle-outline" size={70} color="#FFF" />
+                                                    <Text style={styles.interactiveText}>Salvar</Text>
+                                                </View>
+                                        }
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+
                 </View>
+                )}
             </Modalize>
 
-        </SafeAreaView>
+        </View>
     )
 }

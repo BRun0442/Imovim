@@ -102,7 +102,7 @@ export default function VerPost({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.iconContainer}
-                    onLongPress={onOpenLike}
+                    onLongPress={() => onOpenLike()}
                 >
                     <AntDesign name="like1" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
@@ -112,7 +112,7 @@ export default function VerPost({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.iconContainer}
-                    onPress={onOpenComent}
+                    onPress={() => onOpenComent()}
                 >
                     <Ionicons name="chatbubble" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
