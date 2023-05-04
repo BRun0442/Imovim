@@ -206,9 +206,7 @@ export default function ChatGroup({ navigation }) {
                       style={[styles.messages, { alignItems: "flex-start" }]}
                     >
                       {/* <FriendMessage friendMessage={item.message} /> */}
-                      <GroupMessage groupMessage="Tiaguh" />
-                      <GroupMessage groupMessage="Tiaguh" />
-                      <GroupMessage groupMessage="Tiaguh" />
+                      <GroupMessage hour={item.time} message={item.message} user={item.author_id} />
                     </View>
                   )}
                 </View>
