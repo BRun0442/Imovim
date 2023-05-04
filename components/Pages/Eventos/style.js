@@ -57,34 +57,17 @@ export const styles = StyleSheet.create({
         marginBottom: 30
     },
 
-
     content: {
         width: "100%",
-        height: 800,
+        height: 1000,
 
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
+        paddingVertical: 30,
+
+        backgroundColor: "#FFF"
     },
 
-    closedButtonTop: {
-        height: "15%",
-        zIndex: 9,
-    },
-
-    closedButtonBottom: {
-        height: "5%",
-        zIndex: 9,
-    },
-
-    modal: {
-        backgroundColor: "#F9F9F9",
-
-        width: "100%",
-        height: "100%",
-
-        borderRadius: 20,
-    },
-
-    headerModal: {
+    header: {
         display: "flex",
         justifyContent: "center",
 
@@ -96,11 +79,18 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 15,
         padding: 10,
-
+        
         marginBottom: 15
     },
+    
+    button: {
+        display: "flex",
+        flexDirection: "row",
 
-    headerModalText: {
+        marginVertical: 4
+    },
+
+    headerText: {
         color: "#000",
         fontSize: 21,
         fontWeight: "600",
@@ -108,7 +98,7 @@ export const styles = StyleSheet.create({
         marginLeft: 15
     },
 
-    modalContainer: {
+    contentContainer: {
         paddingHorizontal: 4,
 
         display: "flex",
@@ -118,7 +108,7 @@ export const styles = StyleSheet.create({
 
     eventImage: {
         width: "100%",
-        height: "35%",
+        height: 250,
 
         marginBottom: 15
     },
@@ -127,6 +117,12 @@ export const styles = StyleSheet.create({
         borderRadius: 15,
         height: "100%",
         width: "100%",
+
+        resizeMode: "stretch"
+    },
+    
+    contentInfo:{
+        marginVertical: 15
     },
 
     dateEvent: {
@@ -207,18 +203,21 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         width: "100%",
-        height: "30%",
+        height: 150,
+
+        marginTop: 20
     },
 
     interactiveButton: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
 
         backgroundColor: "#F8670E",
 
         width: "35%",
-        height: "70%",
+        height: "100%",
 
         borderRadius: 20
     },
@@ -226,7 +225,16 @@ export const styles = StyleSheet.create({
     interactiveText: {
         color: "#FFF",
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
+
+        textAlign: "center"
+    },
+
+    iconContainer:{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
     },
 
     iGoContainer: {
@@ -251,12 +259,4 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "600"
     },
-
-    button: {
-        display: "flex",
-        flexDirection: "row",
-
-        paddingHorizontal: 12,
-        marginVertical: 2
-    }
 })

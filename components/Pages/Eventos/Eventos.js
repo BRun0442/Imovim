@@ -147,48 +147,47 @@ export default function Eventos({ navigation }) {
 
             <Modalize ref={modalizeEvents}>
                 {eventId != currentEvent ? (
-                      <View>
-                                <Text>Loading...</Text>
-                              </View>
+                    <View>
+                        <Text>Loading...</Text>
+                    </View>
                 ) : (
-                    
-                <View>
 
-                    <View style={styles.content}>
+                    <View>
 
-                        <View style={styles.modal}>
+                        <ScrollView>
 
-                            <View style={styles.headerModal}>
-                                <TouchableOpacity style={styles.button}>
-                                    <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
-                                    <Text style={styles.headerModalText}>{name}</Text>
-                                </TouchableOpacity>
-                            </View>
+                            <View style={styles.content}>
 
-                            <View style={styles.modalContainer}>
-
-                                <View style={styles.eventImage}>
-                                    <Image style={styles.image} source={{ uri: image }} />
+                                <View style={styles.header}>
+                                    <TouchableOpacity style={styles.button}>
+                                        <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
+                                        <Text style={styles.headerText}>{name}</Text>
+                                    </TouchableOpacity>
                                 </View>
 
-                                <View style={styles.modalInfo}>
+                                <View style={styles.contentContainer}>
 
-                                    <View style={styles.dateEvent}>
-                                        <Text style={styles.dateTitle}>Data: </Text>
-                                        <Text style={styles.date}>{date}</Text>
+                                    <View style={styles.eventImage}>
+                                        <Image style={styles.image} source={{ uri: image }} />
                                     </View>
 
-                                    <View style={styles.hourEvent}>
-                                        <Text style={styles.hourTitle}>Horário: </Text>
-                                        <Text style={styles.hour}>{hour}</Text>
-                                    </View>
+                                    <View style={styles.contentInfo}>
 
-                                    <View style={styles.locationEvent}>
-                                        <Text style={styles.locationTitle}>Local: </Text>
-                                        <Text style={styles.location}>{location}</Text>
-                                    </View>
+                                        <View style={styles.dateEvent}>
+                                            <Text style={styles.dateTitle}>Data: </Text>
+                                            <Text style={styles.date}>{date}</Text>
+                                        </View>
 
-                                    <ScrollView>
+                                        <View style={styles.hourEvent}>
+                                            <Text style={styles.hourTitle}>Horário: </Text>
+                                            <Text style={styles.hour}>{hour}</Text>
+                                        </View>
+
+                                        <View style={styles.locationEvent}>
+                                            <Text style={styles.locationTitle}>Local: </Text>
+                                            <Text style={styles.location}>{location}</Text>
+                                        </View>
+
                                         <View style={styles.descritpionEvent}>
 
                                             <Text style={styles.description}>
@@ -196,54 +195,54 @@ export default function Eventos({ navigation }) {
                                                 {description}
                                             </Text>
                                         </View>
-                                    </ScrollView>
 
-                                </View>
+                                    </View>
 
-                                <View style={styles.interactiveButtonContainer}>
+                                    <View style={styles.interactiveButtonContainer}>
 
-                                    <TouchableOpacity onPress={() => {
-                                        goToEvent(id, eventId)
-                                            .then(() => {
-                                                console.log('testeeee');
-                                                getEspecificData(eventId)})
-                                    }} style={styles.interactiveButton}>
+                                        <TouchableOpacity onPress={() => {
+                                            goToEvent(id, eventId)
+                                                .then(() => {
+                                                    console.log('testeeee');
+                                                    getEspecificData(eventId)
+                                                })
+                                        }} style={styles.interactiveButton}>
 
-                                        <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
-                                        <Text style={styles.interactiveText}>Eu vou!</Text>
+                                            <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
+                                            <Text style={styles.interactiveText}>Eu vou!</Text>
 
-                                        <View style={styles.iGoContainer}>
-                                            <Text style={styles.iGo}>{participants}</Text>
-                                        </View>
+                                            <View style={styles.iGoContainer}>
+                                                <Text style={styles.iGo}>{participants}</Text>
+                                            </View>
 
-                                    </TouchableOpacity>
+                                        </TouchableOpacity>
 
-                                    <TouchableOpacity onPress={() => {
-                                        saveEvent(id, eventId)
-                                            .then(() => {
-                                                console.log('testeeee');
-                                                getEspecificData(eventId)})
-                                    }} style={styles.interactiveButton}>
-                                        {
-                                            userSaved ? (
-                                                <View>
-                                                    <Feather name="check-circle" size={60} color="purple" />
-                                                    <Text style={styles.interactiveText}>Salvo</Text>
-                                                </View>
-                                            )
-                                                :
-                                                <View>
-                                                    <Ionicons name="add-circle-outline" size={70} color="#FFF" />
-                                                    <Text style={styles.interactiveText}>Salvar</Text>
-                                                </View>
-                                        }
-                                    </TouchableOpacity>
+                                        <TouchableOpacity onPress={() => {
+                                            saveEvent(id, eventId)
+                                                .then(() => {
+                                                    console.log('testeeee');
+                                                    getEspecificData(eventId)
+                                                })
+                                        }} style={styles.interactiveButton}>
+                                            {
+                                                userSaved ? (
+                                                    <View style={styles.iconContainer}>
+                                                        <Feather name="check-circle" size={60} color="#8B04A2" />
+                                                        <Text style={styles.interactiveText}>Salvo</Text>
+                                                    </View>
+                                                )
+                                                    :
+                                                    <View style={styles.iconContainer}>
+                                                        <Ionicons name="add-circle-outline" size={85} color="#FFF" />
+                                                        <Text style={styles.interactiveText}>Salvar</Text>
+                                                    </View>
+                                            }
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
+                        </ScrollView>
                     </View>
-
-                </View>
                 )}
             </Modalize>
 
