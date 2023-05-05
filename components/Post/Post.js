@@ -63,13 +63,13 @@ export default function Post(props) {
 
         </View>
 
-        <TouchableOpacity onPress={()=> props.goToReportScreen()}>
+        <TouchableOpacity onPress={() => props.goToReportScreen()}>
           <Text style={styles.complaint}>!</Text>
         </TouchableOpacity>
 
       </View>
 
-      <TouchableOpacity onPress={() => props.goToSeePostScreen()}>
+      <TouchableOpacity activeOpacity={.8} onPress={() => props.goToSeePostScreen()}>
         <RenderImage
           style=
           {
@@ -86,17 +86,20 @@ export default function Post(props) {
 
       <View style={styles.postInteraction}>
         <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
-          <AntDesign name="like1" size={24} color={props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
+          <AntDesign name="like1" size={28} color={props.userLikedPost == 0 ? "#FFF" : "#FF6709"} />
           <Text style={styles.interactionQuantity}>{props.likes}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
-          <Ionicons name="chatbubble" size={24} color="#FFF" />
+          <Ionicons name="chatbubble" size={28} color="#FFF" />
           <Text style={styles.interactionQuantity}>{props.comments}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.postInteractionImage}>
-          <FontAwesome name="share" size={24} color="#FFF" />
+        <TouchableOpacity
+          onPress={ () => alert("Implementações Futuras!")}
+          style={styles.postInteractionImage}
+        >
+          <FontAwesome name="share" size={28} color="#FFF" />
           <Text style={styles.interactionQuantity}>{props.updated}</Text>
         </TouchableOpacity>
       </View>

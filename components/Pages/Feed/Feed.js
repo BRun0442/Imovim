@@ -58,7 +58,7 @@ export default function Feed({ navigation }) {
   }, [isFocused])
 
   return (
-    <SafeAreaView>
+    <View>
       <StatusBar />
       <Header navigation={navigation} />
       <FlatList
@@ -122,6 +122,6 @@ export default function Feed({ navigation }) {
           </View>
         }
       />
-    </SafeAreaView>
+    </View>
   );
 }
