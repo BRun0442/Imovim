@@ -273,9 +273,11 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                     </Modal>
                   </View>
 
-                  <TouchableOpacity onPress={() => handleClick()}>
-                    <Ionicons name="chatbubble" size={30} color="#F8670E" />
-                  </TouchableOpacity>
+                  {friendShipExists === 0 ? (
+                    <TouchableOpacity onPress={() => handleClick()}>
+                      <Ionicons name="chatbubble" size={30} color="#F8670E" />
+                    </TouchableOpacity>
+                  ) : null}
                 </View>
               </View>
             </View>
