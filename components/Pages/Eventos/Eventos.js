@@ -13,6 +13,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Modalize } from "react-native-modalize";
 
@@ -86,6 +87,15 @@ export default function Eventos({ navigation }) {
                 <Header navigation={navigation} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Eventos</Text>
+
+                    <TouchableOpacity
+                        onPress={() => { navigation.navigate('Criar Evento') }}
+                        style={styles.createEventButton}
+                    >
+                        <MaterialCommunityIcons name="calendar-plus" size={30} color="#F8670E" />
+                        <Text style={styles.createEventButtonText}>Criar Evento</Text>
+                    </TouchableOpacity>
+
                 </View>
 
                 <View style={styles.eventTag}>

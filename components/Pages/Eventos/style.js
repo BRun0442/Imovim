@@ -14,8 +14,7 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
 
-        paddingStart: 10,
-        paddingEnd: 10,
+        paddingHorizontal: 15,
 
         marginTop: 20,
     },
@@ -23,6 +22,17 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: "600"
+    },
+
+    createEventButton:{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+    },
+
+    createEventButtonText:{
+        fontSize: 14,
+        fontWeight: "500"
     },
 
     eventTag: {

@@ -110,4 +110,34 @@ export const styles = StyleSheet.create({
   button: {
     padding: 2,
   },
+
+  notificationTypes:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  
+    width: "100%",
+
+    marginVertical: 15
+},
+
+notificationTypesButton:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+    width: 150,
+    height: 50,
+
+    backgroundColor: "#D9D9D9",
+
+    borderRadius: 50
+},
+
+notificationTypesText:{
+    fontSize: 18,
+    fontWeight: "bold"
+},
+
 });

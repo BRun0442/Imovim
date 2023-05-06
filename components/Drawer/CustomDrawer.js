@@ -12,6 +12,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '../../contexts/auth.js';
 import { AccountDataContext } from '../../contexts/accountData.js';
+import { FontAwesome } from '@expo/vector-icons'; 
+
 
 export default function CustomDrawer({ navigation }, props) {
     const { setLogin, id, setProfilePicture, setUsername, profileUpdated } = useContext(AuthContext);
@@ -102,11 +104,18 @@ export default function CustomDrawer({ navigation }, props) {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.items}
+                        onPress={() => { navigation.navigate('Criar Post') }}
+                    >
+                        <FontAwesome name="edit" size={26} color="#FFF" />
+                        <Text style={styles.itemText}>Criar Post</Text>
+                    </TouchableOpacity>
+
+                    {/* <TouchableOpacity style={styles.items}
                         onPress={() => { navigation.navigate('Configurações') }}
                     >
                         <MaterialIcons name="settings" size={24} color="#FFF" />
                         <Text style={styles.itemText}>Configurações</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
             </View>
 
