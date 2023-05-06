@@ -118,7 +118,9 @@ export const styles = StyleSheet.create({
   
     width: "100%",
 
-    marginVertical: 15
+    backgroundColor: "#FFF",
+
+    marginBottom: 15
 },
 
 notificationTypesButton:{

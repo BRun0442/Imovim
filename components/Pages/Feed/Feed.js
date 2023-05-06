@@ -60,7 +60,7 @@ export default function Feed({ navigation }) {
   }, [isFocused])
 
   return (
-    <View>
+    <View style={{backgroundColor: "#FFF"}}>
       <StatusBar />
       <Header navigation={navigation} />
       <FlatList
@@ -106,38 +106,40 @@ export default function Feed({ navigation }) {
         }
         ListHeaderComponent=
         {
-          <View style={styles.notificationTypes}>
-            <TouchableOpacity
-              onPress={()=> setGlobalPosts(true)}
-              style={styles.notificationTypesButton}
-            >
-              <Text style={styles.notificationTypesText}>Global</Text>
-            </TouchableOpacity>
+          <View>
+            <View style={styles.TopBarContainer}>
+              <View style={styles.photoContainer}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
+                  <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={()=> setGlobalPosts(false)}
-              style={styles.notificationTypesButton}
-            >
-              <Text style={styles.notificationTypesText}>Amigos</Text>
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
+                  <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
+                  <FontAwesome5 name="edit" size={24} color="#FFF" />
+                </TouchableOpacity>
+              </View>
+              <Toast config={toastConfig} />
+            </View>
+
+            <View style={styles.notificationTypes}>
+              <TouchableOpacity
+                onPress={() => setGlobalPosts(true)}
+                style={styles.notificationTypesButton}
+              >
+                <Text style={styles.notificationTypesText}>Global</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => setGlobalPosts(false)}
+                style={styles.notificationTypesButton}
+              >
+                <Text style={styles.notificationTypesText}>Amigos</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-
-          // <View style={styles.TopBarContainer}>
-          //   <View style={styles.photoContainer}>
-          //     <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
-          //       <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
-          //     </TouchableOpacity>
-
-          //     <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
-          //       <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
-          //     </TouchableOpacity>
-
-          //     <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
-          //       <FontAwesome5 name="edit" size={24} color="#FFF" />
-          //     </TouchableOpacity>
-          //   </View>
-          //   <Toast config={toastConfig} />
-          // </View>
         }
       />
     </View>

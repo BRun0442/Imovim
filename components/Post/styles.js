@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
   },
 
   postContainer: {
+    paddingVertical: 15,
+
+    backgroundColor: "#F1F1F1"
+  },
+
+  post: {
     width: "100%",
 
     borderTopWidth: 1,
@@ -16,12 +22,11 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#FFF",
 
-    marginBottom: 15,
     paddingVertical: 15,
     paddingHorizontal: 15
   },
 
-  singlePostContainer:{
+  singlePostContainer: {
     width: "100%",
 
     borderTopWidth: 1,
@@ -35,7 +40,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
 
-  userInfoContainer:{
+  userInfoContainer: {
     width: "100%",
 
     display: "flex",
@@ -45,7 +50,7 @@ export const styles = StyleSheet.create({
 
     marginVertical: 10
   },
-  
+
   profileContainer: {
     display: "flex",
     alignItems: "center",
@@ -56,7 +61,7 @@ export const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 16
   },
-  
+
   postDate: {
     fontWeight: "300",
     fontSize: 15
