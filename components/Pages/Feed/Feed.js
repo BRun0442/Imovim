@@ -18,11 +18,12 @@ import { AntDesign } from '@expo/vector-icons';
 import api from "../../../services/api";
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
-import axios from "axios";
+import { getFriendPosts } from "../../../services/feed";
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const [posts, setPosts] = useState();
+  const [friendPosts, setFriendPosts] = useState()
   const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext);
   const [postAmmount, setPostAmmount] = useState(5);
   let isLoading;
@@ -42,6 +43,11 @@ export default function Feed({ navigation }) {
     isLoading = false;
   }
 
+  async function handleFriendPosts() {
+    const data = await getFriendPosts(id)
+    .then((res) => setFriendPosts(res))
+  }
+
   const handlePostsLoading = async () => {
     setPostAmmount(postAmmount + 5)
     try {
@@ -53,10 +59,11 @@ export default function Feed({ navigation }) {
     }
   }
 
-  const [globalPosts, setGlobalPosts] = useState(false)
+  const [globalPosts, setGlobalPosts] = useState(true)
 
   useEffect(() => {
     getFeed();
+    handleFriendPosts()
   }, [isFocused])
 
   return (
@@ -64,7 +71,7 @@ export default function Feed({ navigation }) {
       <StatusBar />
       <Header navigation={navigation} />
       <FlatList
-        data={posts}
+        data={globalPosts ? posts : friendPosts}
 
         renderItem={({ item }) =>
           <Post
@@ -87,7 +94,7 @@ export default function Feed({ navigation }) {
             }}
             likePost={async () => {
               await likePost(id, item.id);
-              getFeed()
+              {globalPosts ? getFeed() : handleFriendPosts()}
             }}
 
             {...item}
@@ -133,7 +140,10 @@ export default function Feed({ navigation }) {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={() => setGlobalPosts(false)}
+                onPress={() => {
+                  // handleFriendPosts()
+                  setGlobalPosts(false)
+                }}
                 style={styles.notificationTypesButton}
               >
                 <Text style={styles.notificationTypesText}>Amigos</Text>
