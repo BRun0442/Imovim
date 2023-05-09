@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: "10%",
 
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
 
     title: {
@@ -25,7 +25,6 @@ export const styles = StyleSheet.create({
     optionsContainer:{
         borderColor: "#D9D9D9",
         borderTopWidth: 3,
-        borderBottomWidth: 3
     },
 
     optionsButton:{
@@ -37,10 +36,19 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         paddingHorizontal: 15,
+
+        borderColor: "#D9D9D9",
+        borderBottomWidth: 3
     },
 
     optionsText:{
         fontSize: 16,
         marginLeft: 15,
+    },
+
+    iconBlock:{
+        position: "absolute",
+        bottom: 0,
+        right: 0
     }
 })

@@ -4,8 +4,10 @@ import Header from "../../Header/Header";
 import { styles } from "./style";
 
 import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
-export default function Configuracoes({navigation}) {
+export default function Configuracoes({ navigation }) {
     return (
         <View style={styles.container}>
             <Header navigation={navigation} />
@@ -14,16 +16,26 @@ export default function Configuracoes({navigation}) {
                 <Text style={styles.title}>Configurações</Text>
             </View>
 
-            <ScrollView style={{paddingHorizontal: 10}}>
+            <ScrollView style={{ paddingHorizontal: 10 }}>
 
                 <View style={styles.optionsContainer}>
-                    <TouchableOpacity 
-                    style={styles.optionsButton}
-                    onPress={()=> navigation.navigate("Validação Para Redefinir Senha")}
+
+                    {/* <TouchableOpacity
+                        style={styles.optionsButton}
+                        onPress={() => navigation.navigate("Validação Para Redefinir Senha")}
                     >
-                        <FontAwesome5 name="lock" size={24} color="black" />
-                        <Text style={styles.optionsText} >Redefinir senha</Text>
+                        <FontAwesome5 name="lock" size={25} color="#000" />
+                        <Text style={styles.optionsText}>Redefinir senha</Text>
+                    </TouchableOpacity> */}
+
+                    <TouchableOpacity
+                        style={styles.optionsButton}
+                        onPress={() => navigation.navigate("Usuários Bloqueados")}
+                    >
+                        <FontAwesome5 name="user-times" size={25} color="#000" />
+                        <Text style={styles.optionsText}>Usuários Bloqueados</Text>
                     </TouchableOpacity>
+
                 </View>
 
             </ScrollView>

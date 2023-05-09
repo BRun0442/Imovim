@@ -26,7 +26,8 @@ import Denuncia from "../Pages/Denuncia/Denuncia"
 import Configuracoes from "../Pages/Configuracoes/Configuracoes";
 import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
-import RedefinirValidacao from "../Pages/RedefinirSenha/RedefinirValidacao"
+import RedefinirValidacao from "../Pages/RedefinirSenha/RedefinirValidacao";
+import UsersBlocks from "../Pages/UsersBlocks/UsersBlocks";
 
 import CustomDrawer from "./CustomDrawer";
 import Map from "../Pages/Map/Map"
@@ -76,6 +77,7 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Validação Para Redefinir Senha" component={RedefinirValidacao} options={{ headerShown: false, }} />
       <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />   
       <Drawer.Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />  
+      <Drawer.Screen name="Usuários Bloqueados" component={UsersBlocks} options={{ headerShown: false, }} />  
     </Drawer.Navigator>
   );
 }
