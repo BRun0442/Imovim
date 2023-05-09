@@ -134,7 +134,7 @@ export default function Feed({ navigation }) {
             <View style={styles.notificationTypes}>
               <TouchableOpacity
                 onPress={() => setGlobalPosts(true)}
-                style={[styles.notificationTypesButton, globalPosts ? {backgroundColor: "#808080",} : {backgroundColor: "#D9D9D9"}]}
+                style={[styles.notificationTypesButton, globalPosts ? {backgroundColor: "#D9D9D9",} : {backgroundColor: "#F1F1F1"}]}
               >
                 <Text style={styles.notificationTypesText}>Global</Text>
               </TouchableOpacity>
@@ -144,7 +144,7 @@ export default function Feed({ navigation }) {
                   // handleFriendPosts()
                   setGlobalPosts(false)
                 }}
-                style={[styles.notificationTypesButton, globalPosts ? {backgroundColor: "#D9D9D9",} : {backgroundColor: "#808080"}]}
+                style={[styles.notificationTypesButton, globalPosts ? {backgroundColor: "#F1F1F1",} : {backgroundColor: "#D9D9D9"}]}
               >
                 <Text style={styles.notificationTypesText}>Amigos</Text>
               </TouchableOpacity>

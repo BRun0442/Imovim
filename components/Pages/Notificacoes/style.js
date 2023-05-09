@@ -43,8 +43,6 @@ export const styles = StyleSheet.create({
         width: 150,
         height: 50,
 
-        backgroundColor: "#F1F1F1",
-
         borderRadius: 50
     },
 

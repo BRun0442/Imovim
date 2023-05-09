@@ -78,16 +78,17 @@ export default function Notificacoes({ navigation }) {
             </View>
 
             <View style={styles.notificationTypes}>
+                
                 <TouchableOpacity
                     onPress={() => setChangeComponent(true)}
-                    style={styles.notificationTypesButton}
+                    style={[styles.notificationTypesButton, changeComponent ? {backgroundColor: "#D9D9D9"}: {backgroundColor: "#F1F1F1"}]}
                 >
                     <Text style={styles.notificationTypesText}>Solicitações</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     onPress={() => setChangeComponent(false)}
-                    style={styles.notificationTypesButton}
+                    style={[styles.notificationTypesButton, changeComponent ? {backgroundColor: "#F1F1F1"}: {backgroundColor: "#D9D9D9"}]}
                 >
                     <Text style={styles.notificationTypesText}>Publicações</Text>
                 </TouchableOpacity>

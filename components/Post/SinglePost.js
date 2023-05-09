@@ -66,9 +66,9 @@ export default function SinglePost(props) {
 
         </View>
 
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <Text style={styles.complaint}>!</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </View>
 
