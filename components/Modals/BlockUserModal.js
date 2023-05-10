@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
+import api from '../../services/api';
 
-export default function BlockUserModal({ handleClose, name }, props) {
+export default function BlockUserModal({ handleClose, name, blocked_user_id, user_id, changeBlock, navigation }, props) {
   const [changeText, setChangeText] = useState(false) // sla
-  const [changeBlock, setChangeBlock] = useState(false) // sla dnv
+  // const [changeBlock, setChangeBlock] = useState(false) // sla dnv
+
+  const blockUser = async (user_id, blocked_user_id) => {
+    const data = { user_id, blocked_user_id }
+    await api.post(`/block/block-user`, data)
+    .then((res) => {
+      navigation.navigate('Página Inicial')
+      console.log(res.data.msg);
+    })
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -35,7 +45,7 @@ export default function BlockUserModal({ handleClose, name }, props) {
             {changeText ?
               (
                 < View style={styles.blockAlert}>
-                  <Text style={styles.blockUserAlertText}>Ao confirmar, o usuário será automaticamente removido da sua lista de amigos</Text>
+                  <Text style={styles.blockUserAlertText}>Ao confirmar, o usuário será bloqueado</Text>
                   <Text style={styles.blockUserAlertText}>Tem certeza?</Text>
                 </View>
               )
@@ -44,7 +54,7 @@ export default function BlockUserModal({ handleClose, name }, props) {
 
               (
                 < View style={styles.blockAlert}>
-                  <Text style={styles.blockUserAlertText}>Ao confirmar, o usuário será desbloqueado.</Text>
+                  <Text style={styles.blockUserAlertText}>Ao confirmar, o usuário será desbloqueado</Text>
                   <Text style={styles.blockUserAlertText}>Tem certeza?</Text>
                 </View>
               )
@@ -54,7 +64,9 @@ export default function BlockUserModal({ handleClose, name }, props) {
           </View>
 
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              blockUser(user_id, blocked_user_id)
+            }}>
               <Text style={styles.button1}>
                 Sim
               </Text>
