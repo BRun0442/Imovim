@@ -5,13 +5,13 @@ import { styles } from './style.js'
 import { Entypo } from '@expo/vector-icons';
 import ProfileImage from ".././ProfileImage/ProfileImage"
 
-export default function UserBlock() {
+export default function UserBlock({ nickname, profileImage }) {
   return (
     <View style={styles.container}>
 
       <View style={styles.userInfo}>
-        <ProfileImage />
-        <Text style={styles.name}>User Name</Text>
+        <ProfileImage profileImage={profileImage} />
+        <Text style={styles.name}>{nickname}</Text>
       </View>
 
       <View>
