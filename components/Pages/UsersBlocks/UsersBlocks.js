@@ -7,7 +7,7 @@ import api from '../../../services/api.js'
 import { AuthContext } from '../../../contexts/auth'
 import BlockUserModal from '../../Modals/BlockUserModal'
 
-export default function UsersBlocks() {
+export default function UsersBlocks({ navigation }) {
   const [usersBlocked, setUsersBlocked] = useState(null)
   const { id } = useContext(AuthContext)
 
@@ -50,7 +50,7 @@ export default function UsersBlocks() {
         <ScrollView style={styles.scroll}>
           {usersBlocked.map((user, index) => {
             return (
-              <UserBlock key={index} getUsersBlocked={getUsersBlocked} nickname={user.nickname} profileImage={user.profileImage} />
+              <UserBlock key={index} getUsersBlocked={getUsersBlocked} nickname={user.nickname} profileImage={user.profileImage} blocked_user_id={user.blocked_user_id} navigation={navigation} />
             )
           })}
         </ScrollView>

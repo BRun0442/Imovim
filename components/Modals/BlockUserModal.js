@@ -11,7 +11,7 @@ export default function BlockUserModal({ handleClose, name, blocked_user_id, use
     const data = { user_id, blocked_user_id }
     await api.post(`/block/block-user`, data)
     .then((res) => {
-      navigation.navigate('Página Inicial')
+      { changeBlock ? navigation.navigate('Página Inicial') : null }
       console.log(res.data.msg);
     })
   }
