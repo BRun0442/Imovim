@@ -8,7 +8,7 @@ export default function SolicitationNewFriend(props) {
     const { id } = useContext(AuthContext)
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container}>
             <View style={styles.userInfo}>
                 <TouchableOpacity onPress={() => props.navigateToProfile(props.friend_id)} style={styles.iconCam}>
                     <Image style={styles.iconCam} source={{ uri: props.profileImage }} />
@@ -20,7 +20,6 @@ export default function SolicitationNewFriend(props) {
                     </TouchableOpacity>
                     <Text>{props.city}</Text>
                     <Text>{props.numberComumSports} esporte em comum</Text>
-                    {/* se for só um esporte renderiza ESPORTE, se forem dois ou mais ESPORTESSS */}
                 </View>
             </View>
 
@@ -34,6 +33,6 @@ export default function SolicitationNewFriend(props) {
                 </TouchableOpacity>
             </View>
 
-        </View>
+        </TouchableOpacity>
     )
 }

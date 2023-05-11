@@ -154,7 +154,13 @@ export default function VerPost({ navigation }) {
                 <ScrollView contentContainerStyle={styles.containerLikes}>
                     {likeList.map((like, index) => {
                         return (
-                            <UsersLikePost key={index} goToProfile={goToProfile} user_id={like.user_id} profileImage={like.profileImage} name={like.nickname} />
+                            <UsersLikePost
+                                key={index}
+                                goToProfile={goToProfile}
+                                user_id={like.user_id}
+                                profileImage={like.profileImage}
+                                name={like.nickname}
+                            />
                         )
                     })}
                 </ScrollView>

@@ -23,7 +23,7 @@ export default function Notificacoes({ navigation }) {
 
     const navigateToProfile = (user_id) => {
         setAnotherUser_id(user_id)
-        navigation.navigate('Outros Perfis') 
+        navigation.navigate('Outros Perfis')
     }
 
     const getData = async () => {
@@ -51,8 +51,8 @@ export default function Notificacoes({ navigation }) {
                 // setUpdateScreen(Date.now())
                 showToastSuccess(`${res.data.msg}!`, "")
                 alert('Amizade aceita')
-                })
-        }
+            })
+    }
 
 
     useEffect(() => {
@@ -60,7 +60,7 @@ export default function Notificacoes({ navigation }) {
         getData()
     }, [updateScreen])
 
-    if(!solicitations) {
+    if (!solicitations) {
         return (
             <View>
                 <Text>Loading...</Text>
@@ -78,17 +78,17 @@ export default function Notificacoes({ navigation }) {
             </View>
 
             <View style={styles.notificationTypes}>
-                
+
                 <TouchableOpacity
                     onPress={() => setChangeComponent(true)}
-                    style={[styles.notificationTypesButton, changeComponent ? {backgroundColor: "#D9D9D9"}: {backgroundColor: "#F1F1F1"}]}
+                    style={[styles.notificationTypesButton, changeComponent ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
                 >
                     <Text style={styles.notificationTypesText}>Solicitações</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     onPress={() => setChangeComponent(false)}
-                    style={[styles.notificationTypesButton, changeComponent ? {backgroundColor: "#F1F1F1"}: {backgroundColor: "#D9D9D9"}]}
+                    style={[styles.notificationTypesButton, changeComponent ? { backgroundColor: "#F1F1F1" } : { backgroundColor: "#D9D9D9" }]}
                 >
                     <Text style={styles.notificationTypesText}>Publicações</Text>
                 </TouchableOpacity>
@@ -101,19 +101,20 @@ export default function Notificacoes({ navigation }) {
 
                         {solicitations.map((solicitation, index) => {
                             return (
-                                <SolicitationNewFriend key={index} 
-                                    profileImage={solicitation.profileImage} 
-                                    name={solicitation.nickname} 
-                                    city={solicitation.localization} 
-                                    numberComumSports={solicitation.sportsInCommon} 
+                                <SolicitationNewFriend key={index}
+                                    profileImage={solicitation.profileImage}
+                                    name={solicitation.nickname}
+                                    city={solicitation.localization}
+                                    numberComumSports={solicitation.sportsInCommon}
                                     friend_id={solicitation.friend1}
                                     navigateToProfile={navigateToProfile}
                                     acceptSolicitation={acceptSolicitation}
                                     resignSolicitation={resignSolicitation}
+                                    navigation={navigation}
                                 />
                             )
                         })}
-                       
+
                     </ScrollView>
 
                     :
@@ -121,7 +122,15 @@ export default function Notificacoes({ navigation }) {
                     <ScrollView style={styles.notifications}>
                         {notifications.map((notification, index) => {
                             return (
-                                <Notification user_id={notification.user_id} navigateToProfile={navigateToProfile} created_at={notification.created_at} profileImage={notification.profileImage} text={notification.text} />
+                                <Notification
+                                    postId={notification.postId}
+                                    user_id={notification.user_id}
+                                    navigateToProfile={navigateToProfile}
+                                    created_at={notification.created_at}
+                                    profileImage={notification.profileImage}
+                                    text={notification.text}
+                                    navigation={navigation}
+                                />
                             )
                         })}
 
