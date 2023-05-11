@@ -3,7 +3,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { Entypo } from '@expo/vector-icons';
 import api from '../../services/api';
 
-export default function BlockUserModal({ handleClose, name, blocked_user_id, user_id, changeBlock, navigation }, props) {
+export default function BlockUserModal({ handleClose, name, blocked_user_id, user_id, changeBlock, getUsersBlocked, navigation }, props) {
   const [changeText, setChangeText] = useState(false) // sla
   // const [changeBlock, setChangeBlock] = useState(false) // sla dnv
 
@@ -66,6 +66,8 @@ export default function BlockUserModal({ handleClose, name, blocked_user_id, use
           <View style={styles.buttonsContainer}>
             <TouchableOpacity onPress={() => {
               blockUser(user_id, blocked_user_id)
+              getUsersBlocked()
+              handleClose()
             }}>
               <Text style={styles.button1}>
                 Sim

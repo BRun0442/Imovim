@@ -14,7 +14,7 @@ export default function Pesquisa({ navigation }) {
     const [searchedUsers, setSearchUsers] = useState([])
 
     const getUsers = async () => {
-        const data = await getAllUsers()
+        const data = await getAllUsers(id)
         setUsers(data)
         console.log(data)
         return data

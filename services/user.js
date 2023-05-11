@@ -21,9 +21,9 @@ export async function getAnotherUserData(id, userSeeingId)
   }
 }
 
-export async function getAllUsers() {
+export async function getAllUsers(user_id) {
   try{
-    const users = await api.get('/user/search-user')
+    const users = await api.get(`/user/search-user/${user_id}`)
     return users.data
   } catch (error) {
     console.log(error)

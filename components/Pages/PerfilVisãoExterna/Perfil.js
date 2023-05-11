@@ -275,6 +275,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                         changeBlock={true}
                         name={name}
                         navigation={navigation}
+                        getUsersBlocked={() => console.log('gambiarra do tiago')}
                       />
                     </Modal>
                   </View>
