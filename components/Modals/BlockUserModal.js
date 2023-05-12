@@ -66,7 +66,7 @@ export default function BlockUserModal({ handleClose, name, blocked_user_id, use
           <View style={styles.buttonsContainer}>
             <TouchableOpacity onPress={() => {
               blockUser(user_id, blocked_user_id)
-              getUsersBlocked()
+              getUsersBlocked(user_id)
               handleClose()
             }}>
               <Text style={styles.button1}>

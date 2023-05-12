@@ -50,7 +50,7 @@ export default function UsersBlocks({ navigation }) {
         <ScrollView style={styles.scroll}>
           {usersBlocked.map((user, index) => {
             return (
-              <UserBlock key={index} getUsersBlocked={getUsersBlocked} nickname={user.nickname} profileImage={user.profileImage} blocked_user_id={user.blocked_user_id} navigation={navigation} />
+              <UserBlock key={index} getUsersBlocked={getUsersBlocked} nickname={user.nickname} profileImage={user.profileImage} blocked_user_id={user.user_id} navigation={navigation} />
             )
           })}
         </ScrollView>
