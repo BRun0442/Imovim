@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 
 import * as Location from "expo-location";
 
@@ -9,6 +9,7 @@ import Header from "../../Header/Header";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
+  const [marker, setMarker] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -26,10 +27,17 @@ export default function Map() {
 
   console.log(location);
 
+  const handleNewMarker = (coordinate) => {
+    setMarker([...marker, coordinate])
+  }
+
+  console.log(marker);
+
   return (
     <View style={styles.container}>
       <Header />
       <MapView
+        onPress={(e) => handleNewMarker(e.nativeEvent.coordinate)}
         style={styles.map}
         initialRegion={{
           latitude: 37.42597730214824,
@@ -40,7 +48,13 @@ export default function Map() {
         showsUserLocation={true}
         loadingEnabled
         mapType="mutedStandard"
-      />
+      >
+        {marker.length > 0 && (
+          marker.map((m) => {
+            return <Marker coordinate={m} key={Math.random().toString()} />
+          })
+        )}
+      </MapView>
     </View>
   );
 };
