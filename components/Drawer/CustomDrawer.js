@@ -110,12 +110,12 @@ export default function CustomDrawer({ navigation }, props) {
                         <Text style={styles.itemText}>Criar Post</Text>
                     </TouchableOpacity>
 
-                    {/* <TouchableOpacity style={styles.items}
+                    <TouchableOpacity style={styles.items}
                         onPress={() => { navigation.navigate('Configurações') }}
                     >
                         <MaterialIcons name="settings" size={24} color="#FFF" />
                         <Text style={styles.itemText}>Configurações</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                 </View>
             </View>
 

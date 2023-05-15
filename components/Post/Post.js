@@ -64,13 +64,13 @@ export default function Post(props) {
 
           </View>
 
-          <TouchableOpacity onPress={() => props.goToReportScreen()}>
+          {/* <TouchableOpacity onPress={() => props.goToReportScreen()}>
             <Text style={styles.complaint}>!</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
         </View>
 
-        <TouchableOpacity activeOpacity={.8} onPress={() => props.goToSeePostScreen()}>
+        <TouchableOpacity activeOpacity={.5} onPress={() => props.goToSeePostScreen()}>
           <RenderImage
             style=
             {

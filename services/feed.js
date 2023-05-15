@@ -12,4 +12,13 @@ async function feedManager(ammount, id)
   }
 }
 
+export async function getFriendPosts(user_id) {
+  try {
+    const res = await api.get(`/post/get-posts-of-friends/${user_id}`)
+    return res.data
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export default feedManager;

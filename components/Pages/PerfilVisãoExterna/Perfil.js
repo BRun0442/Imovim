@@ -26,8 +26,10 @@ import { AccountDataContext } from "../../../contexts/accountData";
 import Toast from "react-native-toast-message";
 import { toastConfig } from "../../Toast/toastConfig";
 import { showToastSuccess } from "../../Toast/Toast";
+import api from "../../../services/api";
 
 import BlockUserModal from "../../Modals/BlockUserModal";
+import { log } from "react-native-reanimated";
 
 export default function PerfilVisãoExterna({ navigation }, props) {
   const { reloadChats, setReloadChats } = useContext(AuthContext);
@@ -151,7 +153,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
       data={posts}
       renderItem={({ item }) => {
         return (
-          <View>
+          <View key={item.id}>
             <Post
               goToReportScreen={() => navigation.navigate("Denuncia")}
               goToCommentScreen={() => {
@@ -268,7 +270,12 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                     >
                       <BlockUserModal
                         handleClose={handleModalVisible}
+                        blocked_user_id={currentUser}
+                        user_id={id}
+                        changeBlock={true}
                         name={name}
+                        navigation={navigation}
+                        getUsersBlocked={() => console.log('gambiarra do tiago')}
                       />
                     </Modal>
                   </View>
@@ -294,9 +301,10 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
           <View style={styles.tagsView}>
             <ScrollView horizontal={true} style={{ paddingHorizontal: 8 }}>
-              {sportsPracticed.map((sport) => {
+              {sportsPracticed.map((sport, index) => {
                 return (
                   <View
+                    key={index}
                     style={[
                       styles.addFavoriteSports,
                       { backgroundColor: sport.sport_color },

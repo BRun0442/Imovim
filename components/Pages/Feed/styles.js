@@ -132,8 +132,6 @@ notificationTypesButton:{
     width: 150,
     height: 50,
 
-    backgroundColor: "#D9D9D9",
-
     borderRadius: 50
 },
 

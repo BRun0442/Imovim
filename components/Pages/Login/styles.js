@@ -53,10 +53,10 @@ export const styles = StyleSheet.create({
   },
 
   form: {
-    width: "100%",
+    width: 95 * width,
+    height: 85 * height,
     
-    display: "flex",
-    // justifyContent: "center",
+    alignSelf: "center",
 
     borderRadius: 25,
     backgroundColor: "#640c74",
