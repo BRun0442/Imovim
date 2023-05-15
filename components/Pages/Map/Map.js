@@ -51,7 +51,15 @@ export default function Map() {
       >
         {marker.length > 0 && (
           marker.map((m) => {
-            return <Marker coordinate={m} key={Math.random().toString()} />
+            return (
+              <Marker
+                coordinate={m}
+                key={Math.random().toString()}
+                pinColor="##F8670E"
+                // title="Local do evento"
+                // description="Local do evento"
+              />
+            )
           })
         )}
       </MapView>
