@@ -153,7 +153,7 @@ export default function MarcarEventos({ navigation }, props) {
                             />
                             <TouchableOpacity
                                 style={styles.iconInput}
-                            onPress={() => navigation.navigate("Mapa")}
+                                onPress={() => navigation.navigate("Mapa")}
                             >
                                 <Entypo name="location" size={22} color="#F8670E" />
                             </TouchableOpacity>

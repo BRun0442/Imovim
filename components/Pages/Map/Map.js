@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import MapView, { Marker } from "react-native-maps";
 
 import * as Location from "expo-location";
 
 import Header from "../../Header/Header";
+import { Entypo } from '@expo/vector-icons';
 
 export default function Map() {
   const [location, setLocation] = useState(null);
@@ -36,14 +37,23 @@ export default function Map() {
   return (
     <View style={styles.container}>
       <Header />
+
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Mapas</Text>
+
+        <TouchableOpacity>
+          <Entypo name="save" size={35} color="#F8670E" />
+        </TouchableOpacity>
+      </View>
+
       <MapView
         onPress={(e) => handleNewMarker(e.nativeEvent.coordinate)}
         style={styles.map}
         initialRegion={{
-          latitude: 37.42597730214824,
-          longitude: -122.0856026405,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitude: -23.641265730271293,
+          longitude: -46.83605662739835,
+          latitudeDelta: 0.0005,
+          longitudeDelta: 0.005,
         }}
         showsUserLocation={true}
         loadingEnabled
@@ -55,15 +65,17 @@ export default function Map() {
               <Marker
                 coordinate={m}
                 key={Math.random().toString()}
-                pinColor="##F8670E"
-                // title="Local do evento"
-                // description="Local do evento"
+                pinColor="#F8670E"
+              // title="Local do evento"
+              // description="Local do evento"
               />
             )
           })
         )}
       </MapView>
+
     </View>
+
   );
 };
 
@@ -71,8 +83,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
+  titleContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+
+    width: "100%",
+    height: "7%",
+
+    paddingHorizontal: 15,
+
+    backgroundColor: "#FFF"
+
+  },
+
+  title: {
+    fontSize: 18,
+    fontWeight: "600"
+  },
+
   map: {
     width: '100%',
-    height: '95%',
+    height: '87%',
   },
 });
