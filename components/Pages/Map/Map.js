@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import MapView, { Marker } from "react-native-maps";
+import { AuthContext } from "../../../contexts/auth";
 
 import * as Location from "expo-location";
 
@@ -10,7 +11,7 @@ import { Entypo } from '@expo/vector-icons';
 
 export default function Map() {
   const [location, setLocation] = useState(null);
-  const [marker, setMarker] = useState([]);
+  const { marker, setMarker } = useContext(AuthContext)
 
   useEffect(() => {
     (async () => {
@@ -29,7 +30,7 @@ export default function Map() {
   console.log(location);
 
   const handleNewMarker = (coordinate) => {
-    setMarker([...marker, coordinate])
+    setMarker([coordinate])
   }
 
   console.log(marker);

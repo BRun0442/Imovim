@@ -10,7 +10,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
     container: {
         width: "100%",
-        height: "130%"
+        // height: "130%"
     },
 
     iconContainer: {

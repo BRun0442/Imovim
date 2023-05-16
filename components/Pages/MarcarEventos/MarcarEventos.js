@@ -12,7 +12,7 @@ import * as MediaLibrary from "expo-media-library";
 import { Image } from "react-native";
 
 export default function MarcarEventos({ navigation }, props) {
-    const { id } = useContext(AuthContext);
+    const { id, marker } = useContext(AuthContext);
     const [name, setName] = useState()
     const [localization, setLocalization] = useState()
     const [description, setDescription] = useState()
@@ -63,13 +63,14 @@ export default function MarcarEventos({ navigation }, props) {
         }
     }
     const handleSubmit = async () => {
+        console.log(marker);
         if (!image) {
             alert("Insira uma imagem no evento!")
         } else {
             console.log(id, name, localization, description, day, month, year, hour, minute)
             const eventDate = `${year}/${month}/${day}`
             const eventHour = `${hour}:${minute}`
-            await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage)
+            await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage, marker)
         }
     }
 

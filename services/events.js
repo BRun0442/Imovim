@@ -3,7 +3,7 @@ import { firebaseConfig, storage } from "../firebase/config.js";
 import { uploadBytes, getDownloadURL, ref, getStorage } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 
-export async function createEvent(user_id, event_name, event_date, event_hour, localization, description, image, setImage) {
+export async function createEvent(user_id, event_name, event_date, event_hour, localization, description, image, setImage, marker) {
   if(image)
   {
     let imageRef;
@@ -16,7 +16,7 @@ export async function createEvent(user_id, event_name, event_date, event_hour, l
     .then(() => {
       getDownloadURL(imageRef)
         .then(async (url) => {
-          await sendDataToApi(user_id, event_name, event_date, event_hour, localization, description, url)  
+          await sendDataToApi(user_id, event_name, event_date, event_hour, localization, description, url, marker)  
           .then(res => console.log(res))
           console.log('url:', url)
           url = ''
@@ -32,13 +32,13 @@ export async function createEvent(user_id, event_name, event_date, event_hour, l
     });
   }else{
     imageRef = null;
-    sendDataToApi(user_id, event_name, event_date, event_hour, localization, description, image)
+    sendDataToApi(user_id, event_name, event_date, event_hour, localization, description, image, marker)
     setImage(null)  
     return;
   }
 }
 
-export async function sendDataToApi(user_id, event_name, event_date, event_hour, localization, description, photo)
+export async function sendDataToApi(user_id, event_name, event_date, event_hour, localization, description, photo, marker)
 {
   try {
     const response = await api.post("/event/create-event", {
@@ -48,7 +48,8 @@ export async function sendDataToApi(user_id, event_name, event_date, event_hour,
       event_hour: event_hour, 
       localization: localization, 
       description: description, 
-      photo: photo
+      photo: photo,
+      marker: marker
     })
     
     alert(response.data.msg)
