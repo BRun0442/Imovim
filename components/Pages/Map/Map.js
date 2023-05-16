@@ -43,7 +43,7 @@ export default function Map() {
         <Text style={styles.title}>Mapas</Text>
 
         <TouchableOpacity>
-          <Entypo name="save" size={35} color="#F8670E" />
+          <Entypo name="save" size={40} color="#F8670E" />
         </TouchableOpacity>
       </View>
 
@@ -54,7 +54,7 @@ export default function Map() {
           latitude: -23.641265730271293,
           longitude: -46.83605662739835,
           latitudeDelta: 0.0005,
-          longitudeDelta: 0.005,
+          longitudeDelta: 0.0005,
         }}
         showsUserLocation={true}
         loadingEnabled

@@ -45,7 +45,7 @@ export default function Feed({ navigation }) {
 
   async function handleFriendPosts() {
     const data = await getFriendPosts(id)
-    .then((res) => setFriendPosts(res))
+      .then((res) => setFriendPosts(res))
   }
 
   const handlePostsLoading = async () => {
@@ -67,7 +67,7 @@ export default function Feed({ navigation }) {
   }, [isFocused])
 
   return (
-    <View style={{backgroundColor: "#FFF"}}>
+    <View style={{ backgroundColor: "#FFF" }}>
       <StatusBar />
       <Header navigation={navigation} />
       <FlatList
@@ -94,7 +94,7 @@ export default function Feed({ navigation }) {
             }}
             likePost={async () => {
               await likePost(id, item.id);
-              {globalPosts ? getFeed() : handleFriendPosts()}
+              { globalPosts ? getFeed() : handleFriendPosts() }
             }}
 
             {...item}
@@ -128,13 +128,12 @@ export default function Feed({ navigation }) {
                   <FontAwesome5 name="edit" size={24} color="#FFF" />
                 </TouchableOpacity>
               </View>
-              <Toast config={toastConfig} />
             </View>
 
             <View style={styles.notificationTypes}>
               <TouchableOpacity
                 onPress={() => setGlobalPosts(true)}
-                style={[styles.notificationTypesButton, globalPosts ? {backgroundColor: "#D9D9D9",} : {backgroundColor: "#F1F1F1"}]}
+                style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#D9D9D9", } : { backgroundColor: "#F1F1F1" }]}
               >
                 <Text style={styles.notificationTypesText}>Global</Text>
               </TouchableOpacity>
@@ -144,7 +143,7 @@ export default function Feed({ navigation }) {
                   // handleFriendPosts()
                   setGlobalPosts(false)
                 }}
-                style={[styles.notificationTypesButton, globalPosts ? {backgroundColor: "#F1F1F1",} : {backgroundColor: "#D9D9D9"}]}
+                style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
               >
                 <Text style={styles.notificationTypesText}>Amigos</Text>
               </TouchableOpacity>
@@ -152,6 +151,7 @@ export default function Feed({ navigation }) {
           </View>
         }
       />
+      <Toast config={toastConfig} />
     </View>
   );
 }

@@ -2,6 +2,9 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     eventCard: {
+        width: 360,
+        height: 260,
+
         display: "flex",
         flexDirection: "column",
 
@@ -19,15 +22,17 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         paddingHorizontal: 10,
+        marginVertical: 5,
 
         width: 350,
         height: 40
     },
 
     title: {
-        marginLeft: 5,
         fontWeight: "bold",
-        fontSize: 15
+        fontSize: 15,
+
+        marginLeft: 15,
     },
 
     image: {
@@ -35,10 +40,12 @@ export const styles = StyleSheet.create({
     },
 
     describeContainer: {
+        display: "flex",
+        justifyContent: "center",
+        
         paddingHorizontal: 5,
 
-        height: 60,
-        minHeight: 50,
+        height: 50,
     },
 
     describe: {

@@ -151,11 +151,11 @@ export default function ChatGroup({ navigation }) {
                         />
                       </Modal>
 
-                      <View style={styles.lineButtons} />
+                      {/* <View style={styles.lineButtons} /> */}
 
-                      <TouchableOpacity onPress={() => setVisibleComplaintModal(true)}>
+                      {/* <TouchableOpacity onPress={() => setVisibleComplaintModal(true)}>
                         <Text style={styles.textButton}>Denunciar</Text>
-                      </TouchableOpacity>
+                      </TouchableOpacity> */}
 
                       <Modal
                         visible={visibleComplaintModal}

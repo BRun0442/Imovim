@@ -158,18 +158,11 @@ export default function Chat({ navigation }) {
                         <Text style={styles.textButton}>Bloquear</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.lineButtons} />
+                      {/* <View style={styles.lineButtons} />
 
                       <TouchableOpacity>
                         <Text style={styles.textButton}>Denunciar</Text>
-                      </TouchableOpacity>
-
-                      <View style={styles.lineButtons} />
-
-                      <TouchableOpacity>
-                        <Text style={styles.textButton}>Denunciar</Text>
-                      </TouchableOpacity>
-
+                      </TouchableOpacity> */}                      
                     </View>
 
                     <TouchableOpacity style={styles.closeIcon} onPress={() => setVisible(false)}>

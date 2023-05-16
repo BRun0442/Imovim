@@ -161,98 +161,91 @@ export default function Eventos({ navigation }) {
                         <Text>Loading...</Text>
                     </View>
                 ) : (
+                    <ScrollView style={styles.content}>
 
-                    <View>
+                        <View style={styles.header}>
+                            <TouchableOpacity style={styles.button}>
+                                <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
+                                <Text style={styles.headerText}>{name}</Text>
+                            </TouchableOpacity>
+                        </View>
 
-                        <ScrollView>
+                        <View style={styles.contentContainer}>
 
-                            <View style={styles.content}>
-
-                                <View style={styles.header}>
-                                    <TouchableOpacity style={styles.button}>
-                                        <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
-                                        <Text style={styles.headerText}>{name}</Text>
-                                    </TouchableOpacity>
-                                </View>
-
-                                <View style={styles.contentContainer}>
-
-                                    <View style={styles.eventImage}>
-                                        <Image style={styles.image} source={{ uri: image }} />
-                                    </View>
-
-                                    <View style={styles.contentInfo}>
-
-                                        <View style={styles.dateEvent}>
-                                            <Text style={styles.dateTitle}>Data: </Text>
-                                            <Text style={styles.date}>{date}</Text>
-                                        </View>
-
-                                        <View style={styles.hourEvent}>
-                                            <Text style={styles.hourTitle}>Horário: </Text>
-                                            <Text style={styles.hour}>{hour}</Text>
-                                        </View>
-
-                                        <View style={styles.locationEvent}>
-                                            <Text style={styles.locationTitle}>Local: </Text>
-                                            <Text style={styles.location}>{location}</Text>
-                                        </View>
-
-                                        <View style={styles.descritpionEvent}>
-
-                                            <Text style={styles.description}>
-                                                <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
-                                                {description}
-                                            </Text>
-                                        </View>
-
-                                    </View>
-
-                                    <View style={styles.interactiveButtonContainer}>
-
-                                        <TouchableOpacity onPress={() => {
-                                            goToEvent(id, eventId)
-                                                .then(() => {
-                                                    console.log('testeeee');
-                                                    getEspecificData(eventId)
-                                                })
-                                        }} style={styles.interactiveButton}>
-
-                                            <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
-                                            <Text style={styles.interactiveText}>Eu vou!</Text>
-
-                                            <View style={styles.iGoContainer}>
-                                                <Text style={styles.iGo}>{participants}</Text>
-                                            </View>
-
-                                        </TouchableOpacity>
-
-                                        <TouchableOpacity onPress={() => {
-                                            saveEvent(id, eventId)
-                                                .then(() => {
-                                                    console.log('testeeee');
-                                                    getEspecificData(eventId)
-                                                })
-                                        }} style={styles.interactiveButton}>
-                                            {
-                                                userSaved ? (
-                                                    <View style={styles.iconContainer}>
-                                                        <Feather name="check-circle" size={60} color="#8B04A2" />
-                                                        <Text style={styles.interactiveText}>Salvo</Text>
-                                                    </View>
-                                                )
-                                                    :
-                                                    <View style={styles.iconContainer}>
-                                                        <Ionicons name="add-circle-outline" size={85} color="#FFF" />
-                                                        <Text style={styles.interactiveText}>Salvar</Text>
-                                                    </View>
-                                            }
-                                        </TouchableOpacity>
-                                    </View>
-                                </View>
+                            <View style={styles.eventImage}>
+                                <Image style={styles.image} source={{ uri: image }} />
                             </View>
-                        </ScrollView>
-                    </View>
+
+                            <View style={styles.contentInfo}>
+
+                                <View style={styles.dateEvent}>
+                                    <Text style={styles.dateTitle}>Data: </Text>
+                                    <Text style={styles.date}>{date}</Text>
+                                </View>
+
+                                <View style={styles.hourEvent}>
+                                    <Text style={styles.hourTitle}>Horário: </Text>
+                                    <Text style={styles.hour}>{hour}</Text>
+                                </View>
+
+                                <View style={styles.locationEvent}>
+                                    <Text style={styles.locationTitle}>Local: </Text>
+                                    <Text style={styles.location}>{location}</Text>
+                                </View>
+
+                                <View style={styles.descritpionEvent}>
+
+                                    <Text style={styles.description}>
+                                        <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
+                                        {description}
+                                    </Text>
+                                </View>
+
+                            </View>
+
+                            <View style={styles.interactiveButtonContainer}>
+
+                                <TouchableOpacity onPress={() => {
+                                    goToEvent(id, eventId)
+                                        .then(() => {
+                                            console.log('testeeee');
+                                            getEspecificData(eventId)
+                                        })
+                                }} style={styles.interactiveButton}>
+
+                                    <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
+                                    <Text style={styles.interactiveText}>Eu vou!</Text>
+
+                                    <View style={styles.iGoContainer}>
+                                        <Text style={styles.iGo}>{participants}</Text>
+                                    </View>
+
+                                </TouchableOpacity>
+
+                                <TouchableOpacity onPress={() => {
+                                    saveEvent(id, eventId)
+                                        .then(() => {
+                                            console.log('testeeee');
+                                            getEspecificData(eventId)
+                                        })
+                                }} style={styles.interactiveButton}>
+                                    {
+                                        userSaved ? (
+                                            <View style={styles.iconContainer}>
+                                                <Feather name="check-circle" size={60} color="#8B04A2" />
+                                                <Text style={styles.interactiveText}>Salvo</Text>
+                                            </View>
+                                        )
+                                            :
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="add-circle-outline" size={85} color="#FFF" />
+                                                <Text style={styles.interactiveText}>Salvar</Text>
+                                            </View>
+                                    }
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </ScrollView>
                 )}
             </Modalize>
 
