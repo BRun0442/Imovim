@@ -9,7 +9,7 @@ import * as Location from "expo-location";
 import Header from "../../Header/Header";
 import { Entypo } from '@expo/vector-icons';
 
-export default function Map() {
+export default function Map( {navigation} ) {
   const [location, setLocation] = useState(null);
   const { marker, setMarker } = useContext(AuthContext)
 
@@ -37,7 +37,8 @@ export default function Map() {
 
   return (
     <View style={styles.container}>
-      <Header />
+
+      <Header navigation={navigation} />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Mapas</Text>
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "7%",
 
-    paddingHorizontal: 15,
+    paddingHorizontal: 13,
 
     backgroundColor: "#FFF"
 

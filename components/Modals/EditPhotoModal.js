@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Foundation } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function EditPhotoModal({ handleClose, deletePost }) {
     return (
@@ -15,14 +15,14 @@ export default function EditPhotoModal({ handleClose, deletePost }) {
                 <View style={styles.content}>
                     <View style={styles.buttons}>
                         <TouchableOpacity style={styles.button}>
-                            <Foundation name="pencil" size={24} color="#FFF" />
+                            <Foundation name="pencil" size={27} color="#FFF" />
                             <Text style={styles.textButton}>Editar legenda</Text>
                         </TouchableOpacity>
 
-                        <View style={styles.line}></View>
+                        <View style={styles.line} />
 
                         <TouchableOpacity onPress={() => deletePost()} style={styles.button}>
-                            <Ionicons name="trash-bin" size={24} color="#FFF" />
+                            <MaterialIcons name="delete" size={30} color="#FFF" />
                             <Text style={styles.textButton}>Excluir foto</Text>
                         </TouchableOpacity>
                     </View>
@@ -52,28 +52,27 @@ const styles = StyleSheet.create({
     },
 
     closedButtonTop: {
-        height: "80%",
+        height: "65%",
         zIndex: 9,
     },
 
     closedButtonBottom: {
-        height: "10%",
+        height: "25%",
         zIndex: 9,
     },
-
+    
     closedButtonLeft: {
-        width: "27.5%",
+        width: "25%",
         height: "100%",
     },
 
     closedButtonRight: {
-        width: "27.5%",
+        width: "25%",
         height: "100%",
     },
 
-
     content: {
-        width: "45%",
+        width: "50%",
         height: "10%",
 
         display: "flex",
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
 
         backgroundColor: "#FF7926",
 
-        width: 200,
+        width: "100%",
         height: 100,
 
         borderRadius: 20,
@@ -99,9 +98,9 @@ const styles = StyleSheet.create({
     button: {
         display: "flex",
         flexDirection: "row",
+        alignItems: "center",
 
         paddingHorizontal: 12,
-        marginVertical: 2
     },
 
     textButton: {
@@ -109,7 +108,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "600",
 
-        paddingLeft: 10
+        marginLeft: 15
     },
 
     line: {
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 2,
 
-        marginVertical: 5
+        marginVertical: 6
     }
 
 })

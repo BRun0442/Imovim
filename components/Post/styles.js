@@ -45,10 +45,10 @@ export const styles = StyleSheet.create({
 
     display: "flex",
     justifyContent: "space-between",
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
 
-    marginVertical: 10
+    marginVertical: 15
   },
 
   profileContainer: {

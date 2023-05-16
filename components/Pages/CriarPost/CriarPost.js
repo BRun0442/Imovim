@@ -28,6 +28,7 @@ export default function CriarPost({ navigation }) {
   const [galleryPermission, setGalleryPermission] = useState(null);
   const [height, setHeight] = useState()
   const [width, setWidth] = useState();
+  const [captionLength, setCaptionLength] = useState(0)
   // const [type, setType] = useState(CameraType.back);
   // const [cameraPermission, setCameraPermission] = useState(null);
   // const [camera, setCamera] = useState(null);
@@ -77,22 +78,20 @@ export default function CriarPost({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar />
+
       <Header navigation={navigation} />
 
       <View style={styles.photoContainer}>
-        <View style={{ alignSelf: 'center' }}>
-          <FontAwesome5 name="edit" size={24} color="#FFF" />
-        </View>
+        <FontAwesome5 name="edit" size={24} color="#FFF" />
       </View>
 
       <View style={styles.postContainer}>
+
         <View style={styles.postProfile}>
           <ProfileImage profileImage={profilePicture} />
-          <View style={styles.profileContainer}>
-            <Text style={styles.profileName}>{username}</Text>
-          </View>
+          <Text style={styles.profileName}>{username}</Text>
         </View>
+
         <View>
           {image ? (
             <Image style={{ width: '100%', height: 200, resizeMode: "stretch" }} source={{ uri: image }} />
@@ -115,14 +114,20 @@ export default function CriarPost({ navigation }) {
             textAlign='center'
             placeholder='Fale sobre uma aventura aqui!'
             placeholderTextColor={"#7B7B7B"}
-            maxLength={400}
-            onChangeText={value => setCaption(value)}
+            maxLength={100}
+            onChangeText={(value) => {
+              setCaption(value)
+              setCaptionLength(value.length)
+            }}
           />
+
+          <Text style={styles.captionLengthText}>{captionLength} / 100</Text>
+
         </View>
       </View>
 
-      <View style={styles.buttons}>
-        <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.button}>
+      <View style={styles.optionsContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Camera')} style={styles.option}>
           <Entypo name="camera" size={26} color={'#FFF'} />
           <Text style={styles.buttonText}>Câmera</Text>
         </TouchableOpacity>
@@ -133,7 +138,7 @@ export default function CriarPost({ navigation }) {
           } else {
             galeryPermisionFunction();
           }
-        }} style={styles.button}>
+        }} style={styles.option}>
           <MaterialIcons name="add-photo-alternate" size={30} color="#FFF" />
           <Text style={styles.buttonText}>Adicionar foto | Imagem</Text>
         </TouchableOpacity>
@@ -151,6 +156,8 @@ export default function CriarPost({ navigation }) {
         navigation.navigate('Página Inicial')
       }}
       />
+
+      <StatusBar />
 
     </ScrollView>
   );

@@ -1,18 +1,23 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView, KeyboardAvoidingView } from "react-native";
+import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Image } from "react-native";
 import { styles } from "./style"
+
 import Header from "../../Header/Header";
 import ProfileImage from "../../ProfileImage/ProfileImage";
-import { AuthContext } from "../../../contexts/auth";
+
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Entypo } from "@expo/vector-icons";
-import { createEvent } from "../../../services/events";
+
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
-import { Image } from "react-native";
+
+import { AuthContext } from "../../../contexts/auth";
+import { createEvent } from "../../../services/events";
 
 export default function MarcarEventos({ navigation }, props) {
     const { id, marker } = useContext(AuthContext);
+    const { profilePicture, username } = useContext(AuthContext);
+
     const [name, setName] = useState()
     const [localization, setLocalization] = useState()
     const [description, setDescription] = useState()
@@ -22,11 +27,9 @@ export default function MarcarEventos({ navigation }, props) {
     const [year, setYear] = useState()
     const [hour, setHour] = useState()
     const [minute, setMinute] = useState()
-    const [galleryPermission, setGalleryPermission] = useState(null);
-
     const [descriptionLength, setDescriptionLength] = useState(0)
 
-    const { profilePicture, username } = useContext(AuthContext);
+    const [galleryPermission, setGalleryPermission] = useState(null);
 
     useEffect(() => {
         // CameraPermisionFunction();
@@ -80,19 +83,12 @@ export default function MarcarEventos({ navigation }, props) {
             <Header navigation={navigation} />
 
             <View style={styles.iconContainer}>
-                <TouchableOpacity>
-                    <MaterialCommunityIcons name="calendar" color={"#fff"} size={26} />
-                </TouchableOpacity>
+                <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
             </View>
 
             <View style={styles.postContainer}>
-                <View style={styles.postProfile}>
-                    <ProfileImage profileImage={profilePicture} />
-
-                    <View style={styles.profileContainer}>
-                        <Text style={styles.profileName}>{username}</Text>
-                    </View>
-                </View>
+                <ProfileImage profileImage={profilePicture} />
+                <Text style={styles.profileName}>{username}</Text>
             </View>
 
             <View style={styles.form}>
@@ -143,6 +139,8 @@ export default function MarcarEventos({ navigation }, props) {
                             keyboardType="numeric"
                         />
 
+                        <View style={styles.invisbleInput} />
+
                     </View>
 
                     <Text style={styles.formText}>Local</Text>
@@ -164,7 +162,7 @@ export default function MarcarEventos({ navigation }, props) {
                     <Text style={styles.formText}>Descrição</Text>
                     <View style={styles.nameInputs}>
                         <TextInput style={styles.inputType3}
-                            maxLength={100}
+                            maxLength={200}
                             onChangeText={(text) => {
                                 setDescription(text)
                                 setDescriptionLength(text.length)
@@ -173,7 +171,7 @@ export default function MarcarEventos({ navigation }, props) {
                             multiline={true}
                         />
 
-                        <Text style={styles.descriptionLengthText}>{descriptionLength} / 100</Text>
+                        <Text style={styles.descriptionLengthText}>{descriptionLength} / 200</Text>
 
                     </View>
                 </KeyboardAvoidingView>

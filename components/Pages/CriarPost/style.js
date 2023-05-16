@@ -8,37 +8,65 @@ const height = ScreenHeight / 100; // altura em porcentagem
 const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
 
-    backgroundColor: '#FFF', 
+    backgroundColor: '#FFF',
   },
 
   photoContainer: {
-    height: 55,
     width: 200,
-    borderRadius: 30,
-    backgroundColor: "#FF6709",
+    height: 55,
+
+    display: "flex",
+    alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    marginTop: "5%",
-    marginBottom: "3%",
+
+    paddingHorizontal: 25,
+    marginTop: 25,
+
+    borderRadius: 30,
+
+    backgroundColor: "#FF6709",
   },
 
-  buttons: {
+  input: {
+    borderBottomWidth: 2,
+    borderBottomColor: "#D9D9D9",
+
+    fontSize: 20,
+    width: "100%",
+
+    fontWeight: "400",
+
+    marginVertical: 15,
+
+    padding: 5
+  },
+
+  captionLengthText: {
+    fontSize: 16,
+    fontWeight: "400",
+    alignSelf: "flex-end",
+
+    paddingHorizontal: 5
+  },
+
+  optionsContainer: {
     display: "flex",
     justifyContent: "center",
 
-    marginBottom: "5%",    
+    marginVertical: 35,
+
     paddingHorizontal: 20,
 
-    marginTop: 40
   },
 
-  button: {
+  option: {
     width: "100%",
     height: 45,
-    
+
     marginBottom: 15,
 
     borderRadius: 20,
@@ -60,21 +88,28 @@ export const styles = StyleSheet.create({
   },
 
   postContainer: {
-    alignSelf: "center",
     width: "100%",
+    alignSelf: "center",
 
     paddingHorizontal: 10
   },
 
   postProfile: {
-    height: 48,
-    flexWrap: "wrap",
-    justifyContent: "center",
-    marginBottom: "3%",
+    width: "100%",
+    height: 50,
+
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+    paddingHorizontal: 5,
+
+    marginTop: 10,
+    marginBottom: 25
   },
 
   postImage: {
-    height: 400, 
+    height: 400,
     width: 350,
     alignSelf: "center",
 
@@ -88,19 +123,19 @@ export const styles = StyleSheet.create({
     marginLeft: 12
   },
 
-  emptyPhoto:{
-    width: "100%", 
-    height: 200, 
+  emptyPhoto: {
+    width: "100%",
+    height: 200,
 
-    display: "flex", 
-    justifyContent: "center", 
-    alignItems: "center", 
-    
-    backgroundColor: "#C6C4C4", 
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#C6C4C4",
     marginVertical: 20
   },
 
-  emptyPhotoText:{
+  emptyPhotoText: {
     fontSize: 21,
     color: "#FFF",
     fontWeight: "600"
@@ -120,17 +155,4 @@ export const styles = StyleSheet.create({
     textAlign: "center"
   },
 
-  input: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#D9D9D9",
-
-    fontSize: 18,
-    width: "100%",
-
-    fontWeight: "400",
-    
-    marginTop: 10,
-
-    padding: 5
-  }
 })

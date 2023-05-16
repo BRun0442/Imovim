@@ -9,8 +9,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
     container: {
-        width: "100%",
-        // height: "130%"
+        width: "100%"
     },
 
     iconContainer: {
@@ -22,50 +21,65 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
 
-
         paddingHorizontal: 25,
-        padding: 5,
-        marginTop: 18,
+        marginTop: 25,
 
         borderRadius: 30,
 
         backgroundColor: "#FF6709",
-    },
-
-    button: {
-        height: 55,
-        width: 200,
-
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        alignSelf: "center",
-
-        borderRadius: 30,
-
-        backgroundColor: "#FF6709",
-
-        marginTop: "5%",
-        marginBottom: "15%",
     },
 
     postContainer: {
-        alignSelf: "center",
-        width: "90%",
+        width: "100%",
         height: 50,
-        marginBottom: "2%",
+
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+
+        paddingHorizontal: 15,
+
+        marginTop: 10,
+        marginBottom: 25
     },
 
-    postProfile: {
-        height: 50,
-        flexWrap: "wrap",
+    form: {
+        width: "100%",
+        
+        paddingHorizontal: 15,
+    },
+
+    formText: {
+        fontWeight: "500",
+        fontSize: 18
+    },
+
+    dataInputs: {
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "row",
+
+        marginBottom: 15,
+        marginTop: 15
+    },
+
+    nameInputs: {
+        marginVertical: 15,
+    },
+    
+    horaInputs: {
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "row",
+
+        marginVertical: 15,
+    },
+
+    locationInput: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
         justifyContent: "center",
-    },
-
-    postImage: {
-        height: 1000,
-        // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
-        resizeMode: "contain",
     },
 
     profileName: {
@@ -76,18 +90,6 @@ export const styles = StyleSheet.create({
 
     postDate: {
         fontWeight: "300",
-    },
-
-
-    form: {
-        width: "100%",
-        
-        paddingHorizontal: 20,
-    },
-
-    formText: {
-        fontWeight: "500",
-        fontSize: 18
     },
 
     inputType1: {
@@ -122,9 +124,14 @@ export const styles = StyleSheet.create({
         fontWeight: "400"
     },
 
+    invisbleInput:{
+        width: "30%",
+        height: 50,
+    },
+
     inputType3: {
         width: "100%",
-        height: 50,
+        height: 100,
 
         display: "flex",
         justifyContent: "flex-start",
@@ -146,7 +153,7 @@ export const styles = StyleSheet.create({
 
     inputType4: {
         width: "90%",
-        height: 25,
+        height: 45,
 
         display: "flex",
         justifyContent: "flex-start",
@@ -158,7 +165,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 15,
 
         fontSize: 18,
-        fontWeight: "400"
+        fontWeight: "400",
     },
 
     iconInput: {
@@ -194,42 +201,8 @@ export const styles = StyleSheet.create({
         marginTop: 15
     },
 
-    nameInputs: {
-        marginBottom: 15,
-        marginTop: 15
-    },
-
-    dataInputs: {
-        display: "flex",
-        justifyContent: "space-between",
-        flexDirection: "row",
-
-        marginBottom: 15,
-        marginTop: 15
-    },
-
-    horaInputs: {
-        display: "flex",
-        justifyContent: "space-around",
-        flexDirection: "row",
-
-        marginBottom: 15,
-        marginTop: 15
-    },
-
-    locationInput: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-
-        marginBottom: 15,
-        marginTop: 15
-    },
-
     borderLocationInput: {
         borderColor: "#A512BD",
-
         borderWidth: 2,
 
         borderRadius: 20,
@@ -246,8 +219,27 @@ export const styles = StyleSheet.create({
     descriptionLengthText: {
         fontSize: 15,
         fontWeight: "400",
-        alignSelf: "flex-end"
-    }
+        alignSelf: "flex-end",
 
+        paddingHorizontal: 10,
+        marginTop: 10
+    },
+
+    button: {
+        width: 200,
+        height: 55,
+
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "center",
+
+        borderRadius: 20,
+
+        backgroundColor: "#FF6709",
+
+        marginTop: "5%",
+        marginBottom: "15%",
+    }
 })
 
