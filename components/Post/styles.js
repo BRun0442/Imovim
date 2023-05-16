@@ -48,7 +48,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
 
-    marginVertical: 15
+    marginVertical: 15,
+    paddingHorizontal: 15
   },
 
   profileContainer: {
@@ -94,6 +95,8 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
+
+    zIndex: 0
   },
 
   interactionQuantity: {
@@ -108,4 +111,63 @@ export const styles = StyleSheet.create({
     minWidth: 22,
     textAlign: "center",
   },
+
+  editPhotoOptions: {
+    width: 230,
+    height: 110,
+    
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    
+    borderRadius: 20,
+
+    backgroundColor: "#FF7926",
+
+    position: "absolute",
+    right: 0,
+
+    zIndex: 1
+  },
+
+  options: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-start",
+  },
+
+  option: {
+    width: 180,
+
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+    paddingHorizontal: 12,
+  },
+
+  textButton: {
+    color: "#FFF",
+    fontSize: 20,
+    fontWeight: "600",
+
+    marginLeft: 15
+  },
+
+  closeIcon:{
+    width: 40,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  line: {
+    backgroundColor: "#983A00",
+    width: "100%",
+    height: 2,
+
+    marginVertical: 6
+  }
+
 });
