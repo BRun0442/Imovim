@@ -68,7 +68,7 @@ export const styles = StyleSheet.create({
     },
 
     content: {
-        paddingHorizontal: 10,
+        paddingHorizontal: 5,
         paddingVertical: 20,
 
         backgroundColor: "#FFF"
@@ -115,7 +115,7 @@ export const styles = StyleSheet.create({
 
     eventImage: {
         width: "100%",
-        height: 250,
+        height: 300,
 
         marginBottom: 15
     },
@@ -188,19 +188,42 @@ export const styles = StyleSheet.create({
 
     locationEvent: {
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
 
-        marginVertical: 5
+        marginVertical: 5,
     },
 
     locationTitle: {
+        width: "100%",
+
         marginLeft: 15,
         color: "#CB5106",
         fontSize: 20
     },
 
+    locationDataContainer:{
+        width: "100%",
+
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+
+        paddingHorizontal: 15,
+    },
+
+    locationData:{
+        width: "90%",
+
+        paddingRight: 5
+    },
+
+    iconMapContainer:{
+        width: "10%"
+    },
+
     location: {
-        fontSize: 20
+        color: "#000",
+        fontSize: 20,
     },
 
     interactiveButtonContainer: {
@@ -223,8 +246,8 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#F8670E",
 
-        width: "35%",
-        height: "100%",
+        width: 150,
+        height: 150,
 
         borderRadius: 20
     },

@@ -114,7 +114,7 @@ export default function Feed({ navigation }) {
         ListHeaderComponent=
         {
           <View>
-            <View style={styles.TopBarContainer}>
+            {/* <View style={styles.TopBarContainer}>
               <View style={styles.photoContainer}>
                 <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
                   <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
@@ -128,7 +128,7 @@ export default function Feed({ navigation }) {
                   <FontAwesome5 name="edit" size={24} color="#FFF" />
                 </TouchableOpacity>
               </View>
-            </View>
+            </View> */}
 
             <View style={styles.notificationTypes}>
               <TouchableOpacity

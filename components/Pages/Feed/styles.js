@@ -120,7 +120,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#FFF",
 
-    marginBottom: 15
+    marginVertical: 15
 },
 
 notificationTypesButton:{

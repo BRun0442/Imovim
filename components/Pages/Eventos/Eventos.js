@@ -190,7 +190,16 @@ export default function Eventos({ navigation }) {
 
                                 <View style={styles.locationEvent}>
                                     <Text style={styles.locationTitle}>Local: </Text>
-                                    <Text style={styles.location}>{location}</Text>
+
+                                    <View style={styles.locationDataContainer}>
+                                        <View style={styles.locationData}>
+                                            <Text style={styles.location}>{location}</Text>
+                                        </View>
+                                        <TouchableOpacity style={styles.iconMapContainer}>
+                                            <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
+                                        </TouchableOpacity>
+                                    </View>
+
                                 </View>
 
                                 <View style={styles.descritpionEvent}>
