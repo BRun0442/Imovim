@@ -11,7 +11,7 @@ import { Entypo } from '@expo/vector-icons';
 
 export default function Map( {navigation} ) {
   const [location, setLocation] = useState(null);
-  const { marker, setMarker } = useContext(AuthContext)
+  const { marker, setMarker, alterMapPermission } = useContext(AuthContext)
 
   useEffect(() => {
     (async () => {
@@ -30,7 +30,9 @@ export default function Map( {navigation} ) {
   console.log(location);
 
   const handleNewMarker = (coordinate) => {
-    setMarker([coordinate])
+    if (alterMapPermission) {
+      setMarker([coordinate])
+    }
   }
 
   console.log(marker);
@@ -43,7 +45,9 @@ export default function Map( {navigation} ) {
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Mapas</Text>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+          navigation.navigate('Criar Evento')
+        }}>
           <Entypo name="save" size={40} color="#F8670E" />
         </TouchableOpacity>
       </View>
@@ -52,8 +56,8 @@ export default function Map( {navigation} ) {
         onPress={(e) => handleNewMarker(e.nativeEvent.coordinate)}
         style={styles.map}
         initialRegion={{
-          latitude: -23.641265730271293,
-          longitude: -46.83605662739835,
+          latitude: marker[0].latitude || -23.641265730271293,
+          longitude: marker[0].longitude || -46.83605662739835,
           latitudeDelta: 0.0005,
           longitudeDelta: 0.0005,
         }}

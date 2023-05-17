@@ -18,7 +18,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Modalize } from "react-native-modalize";
 
 export default function Eventos({ navigation }) {
-    const { id } = useContext(AuthContext)
+    const { id, setMarker, setAlterMapPermission } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
     const getData = async () => {
         const data = await getAllEvents(id)
@@ -35,6 +35,8 @@ export default function Eventos({ navigation }) {
     const [location, setLocation] = useState()
     const [description, setDescription] = useState()
     const [eventId, setEventId] = useState(null)
+    const [latitude, setLatitude] = useState(null)
+    const [longitude, setLongitude] = useState(null)
 
     const getEspecificData = async (event_id) => {
         await getEvent(id, event_id)
@@ -49,6 +51,8 @@ export default function Eventos({ navigation }) {
                 setHour(event[0].event_hour)
                 setLocation(event[0].localization)
                 setDescription(event[0].description)
+                setLatitude(event[0].latitude)
+                setLongitude(event[0].longitude)
             })
     }
 
@@ -57,6 +61,12 @@ export default function Eventos({ navigation }) {
     const onOpenEvents = () => {
         modalizeEvents.current?.open();
     };
+
+    const handleMap = () => {
+        setAlterMapPermission(false)
+        setMarker([{latitude, longitude}])
+        navigation.navigate('Mapa')
+    }
 
     useEffect(() => {
         getData()
@@ -195,7 +205,7 @@ export default function Eventos({ navigation }) {
                                         <View style={styles.locationData}>
                                             <Text style={styles.location}>{location}</Text>
                                         </View>
-                                        <TouchableOpacity style={styles.iconMapContainer}>
+                                        <TouchableOpacity style={styles.iconMapContainer} onPress={() => handleMap()}>
                                             <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
                                         </TouchableOpacity>
                                     </View>

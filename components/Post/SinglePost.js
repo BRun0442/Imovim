@@ -19,10 +19,11 @@ export default function SinglePost(props) {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(0);
-  const { id, currentPost, setAnotherUser_id } = useContext(AuthContext)
+  const { id, currentPost, setAnotherUser_id, anotherUser_id } = useContext(AuthContext)
 
   const [visibleModal, setVisibleModal] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [dotVisible, setDotVisible] = useState(false)
 
   async function getImagesSize() {
     // Use the width and height props to optimize
@@ -48,6 +49,12 @@ export default function SinglePost(props) {
   useEffect(() => {
     // if image is empty it doesnt call function
     props.image && getImagesSize();
+    if (props.user_id == id) {
+      setDotVisible(true);
+    } 
+    else{
+      setDotVisible(false);
+    }
   }, [currentPost])
 
   return (
@@ -72,50 +79,55 @@ export default function SinglePost(props) {
           </View>
 
         </View>
+        {dotVisible && (
 
-        {
-          visible === false ? (
-            <TouchableOpacity
-              onPress={() => setVisible(true)}
-            // onPress={() => setVisibleModal(true)}
-            >
-              <AntDesign name="ellipsis1" size={22} color="000" />
-            </TouchableOpacity>
-          )
-
-            :
-
-            (
-              <View style={styles.editPhotoOptions} >
-
-                <View style={styles.options}>
-                  <TouchableOpacity
-                    style={styles.option}
-                    onPress={() => {
-                      setVisibleModal(true)
-                      setVisible(false)
-                    }
-                    }
-                  >
-                    <Foundation name="pencil" size={27} color="#FFF" />
-                    <Text style={styles.textButton}>Editar legenda</Text>
-                  </TouchableOpacity>
-
-                  <View style={styles.line} />
-
-                  <TouchableOpacity onPress={() => deletePost()} style={styles.option}>
-                    <MaterialIcons name="delete" size={30} color="#FFF" />
-                    <Text style={styles.textButton}>Excluir foto</Text>
-                  </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity style={styles.closeIcon} onPress={() => setVisible(false)}>
-                  <Ionicons name="close" size={30} color="#FFF" />
+          <View>
+            {
+              visible === false ? (
+                <TouchableOpacity
+                  onPress={() => setVisible(true)}
+                // onPress={() => setVisibleModal(true)}
+                >
+                  <AntDesign name="ellipsis1" size={22} color="000" />
                 </TouchableOpacity>
+              )
 
-              </View>
-            )
-        }
+                :
+
+                (
+                  <View style={styles.editPhotoOptions} >
+
+                    <View style={styles.options}>
+                      <TouchableOpacity
+                        style={styles.option}
+                        onPress={() => {
+                          setVisibleModal(true)
+                          setVisible(false)
+                        }
+                        }
+                      >
+                        <Foundation name="pencil" size={27} color="#FFF" />
+                        <Text style={styles.textButton}>Editar legenda</Text>
+                      </TouchableOpacity>
+
+                      <View style={styles.line} />
+
+                      <TouchableOpacity onPress={() => deletePost()} style={styles.option}>
+                        <MaterialIcons name="delete" size={30} color="#FFF" />
+                        <Text style={styles.textButton}>Excluir foto</Text>
+                      </TouchableOpacity>
+                    </View>
+
+                    <TouchableOpacity style={styles.closeIcon} onPress={() => setVisible(false)}>
+                      <Ionicons name="close" size={30} color="#FFF" />
+                    </TouchableOpacity>
+
+                  </View>
+                )
+            }
+
+          </View>
+        )}
 
         <Modal
           visible={visibleModal}

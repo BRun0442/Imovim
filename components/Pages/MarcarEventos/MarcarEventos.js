@@ -15,7 +15,7 @@ import { AuthContext } from "../../../contexts/auth";
 import { createEvent } from "../../../services/events";
 
 export default function MarcarEventos({ navigation }, props) {
-    const { id, marker } = useContext(AuthContext);
+    const { id, marker, setAlterMapPermission } = useContext(AuthContext);
     const { profilePicture, username } = useContext(AuthContext);
 
     const [name, setName] = useState()
@@ -152,7 +152,10 @@ export default function MarcarEventos({ navigation }, props) {
                             />
                             <TouchableOpacity
                                 style={styles.iconInput}
-                                onPress={() => navigation.navigate("Mapa")}
+                                onPress={() => {
+                                    setAlterMapPermission(true)
+                                    navigation.navigate("Mapa")
+                                }}
                             >
                                 <Entypo name="location" size={22} color="#F8670E" />
                             </TouchableOpacity>

@@ -3,6 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
+  const [alterMapPermission, setAlterMapPermission] = useState(true)
   const [marker, setMarker] = useState([]);
   const [groupId, setGroupId] = useState(null)
   const [securityCode, setSecurityCode] = useState([])
@@ -52,6 +53,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        alterMapPermission, 
+        setAlterMapPermission,
         marker, 
         setMarker,
         groupDescription,
