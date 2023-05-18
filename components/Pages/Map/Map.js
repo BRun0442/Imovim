@@ -56,8 +56,8 @@ export default function Map( {navigation} ) {
         onPress={(e) => handleNewMarker(e.nativeEvent.coordinate)}
         style={styles.map}
         initialRegion={{
-          latitude: marker[0].latitude || -23.641265730271293,
-          longitude: marker[0].longitude || -46.83605662739835,
+          latitude: -23.641265730271293,
+          longitude: -46.83605662739835,
           latitudeDelta: 0.0005,
           longitudeDelta: 0.0005,
         }}
