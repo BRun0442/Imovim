@@ -1,32 +1,31 @@
-import React, { useEffect, useState, useContext } from "react";
-import { View, Text, TouchableOpacity, StatusBar, Alert, SafeAreaView } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
+import React, { useEffect, useState, useContext, useCallback } from "react";
+import { View, Text, TouchableOpacity, StatusBar, Alert, SafeAreaView, RefreshControl } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
-import { defaultStyle } from "../../../assets/style/style";
+
 import Header from "../../Header/Header.js";
 import Post from "../../Post/Post.js";
+import Toast from 'react-native-toast-message'
+import PTRView from "react-native-pull-to-refresh";
+
+import { useIsFocused } from "@react-navigation/native";
 import feedManager from "../../../services/feed";
 import likePost from '../../../services/post';
-import { AuthContext } from '../../../contexts/auth.js';
+
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import ProfileImage from "../../ProfileImage/ProfileImage";
-import { FlatList } from "react-native-gesture-handler";
-import { Feather } from '@expo/vector-icons';
+import { AuthContext } from '../../../contexts/auth.js';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
-import { AntDesign } from '@expo/vector-icons';
-import api from "../../../services/api";
-import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
 import { getFriendPosts } from "../../../services/feed";
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
+  const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext);
+
   const [posts, setPosts] = useState();
   const [friendPosts, setFriendPosts] = useState()
-  const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext);
   const [postAmmount, setPostAmmount] = useState(5);
-  let isLoading;
 
   //Refresh page when change the route
   const isFocused = useIsFocused();
@@ -66,16 +65,75 @@ export default function Feed({ navigation }) {
     handleFriendPosts()
   }, [isFocused])
 
+  const handleRefresh = () => {
+    return new Promise((resolve) => {
+      setTimeout(async () => {
+        await getFeed();
+        await handleFriendPosts()
+        resolve()
+      }, 2000)
+    });
+  }
+
   return (
-    <View style={{ backgroundColor: "#FFF" }}>
+    <PTRView onRefresh={handleRefresh} style={{ backgroundColor: "#FFF" }}>
+
       <StatusBar />
+
       <Header navigation={navigation} />
-      <FlatList
+
+      <View>
+
+        <View style={styles.TopBarContainer}>
+
+          <View style={styles.photoContainer}>
+
+            <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
+              <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
+              <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
+              <FontAwesome5 name="edit" size={24} color="#FFF" />
+            </TouchableOpacity>
+
+          </View>
+
+        </View>
+
+        <View style={styles.notificationTypes}>
+          <TouchableOpacity
+            onPress={() => setGlobalPosts(true)}
+            style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#D9D9D9", } : { backgroundColor: "#F1F1F1" }]}
+          >
+            <Text style={styles.notificationTypesText}>Global</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => {
+              // handleFriendPosts()
+              setGlobalPosts(false)
+            }}
+            style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
+          >
+            <Text style={styles.notificationTypesText}>Amigos</Text>
+          </TouchableOpacity>
+
+        </View>
+
+      </View>
+
+      <FlashList
         data={globalPosts ? posts : friendPosts}
 
         renderItem={({ item }) =>
+
           <Post
             goToReportScreen={() => navigation.navigate("Denuncia")}
+
             goToProfile={() => {
               if (item.user_id != id) {
                 setAnotherUser_id(item.user_id)
@@ -84,14 +142,17 @@ export default function Feed({ navigation }) {
                 navigation.navigate('Meu Perfil')
               }
             }}
+
             goToCommentScreen={() => {
               setPostFocusedId(item.id)
               navigation.navigate('Comentarios')
             }}
+
             goToSeePostScreen={() => {
               setCurrentPost(item.id)
               navigation.navigate('Ver Post')
             }}
+
             likePost={async () => {
               await likePost(id, item.id);
               { globalPosts ? getFeed() : handleFriendPosts() }
@@ -103,55 +164,10 @@ export default function Feed({ navigation }) {
         onEndReached={() => handlePostsLoading()}
         maxToRenderPerBatch={5}
         initialNumToRender={5}
-        onRefresh={getFeed}
-        refreshing={isLoading}
         keyExtractor={item => item.id}
-        ListFooterComponent={
-          <View style={{ height: 80, display: 'flex', width: '100%', alignItems: "center", justifyContent: "center" }}>
-            <Text>Loading...</Text>
-          </View>
-        }
-        ListHeaderComponent=
-        {
-          <View>
-            <View style={styles.TopBarContainer}>
-              <View style={styles.photoContainer}>
-                <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
-                  <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
-                </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
-                  <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
-                  <FontAwesome5 name="edit" size={24} color="#FFF" />
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <View style={styles.notificationTypes}>
-              <TouchableOpacity
-                onPress={() => setGlobalPosts(true)}
-                style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#D9D9D9", } : { backgroundColor: "#F1F1F1" }]}
-              >
-                <Text style={styles.notificationTypesText}>Global</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={() => {
-                  // handleFriendPosts()
-                  setGlobalPosts(false)
-                }}
-                style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
-              >
-                <Text style={styles.notificationTypesText}>Amigos</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        }
       />
       <Toast config={toastConfig} />
-    </View>
+    </PTRView >
   );
 }

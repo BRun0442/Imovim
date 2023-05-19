@@ -2,6 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import { View, Text, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView, FlatList } from "react-native";
 import { styles } from "./style.js";
 
+import PTRView from "react-native-pull-to-refresh";
+import { FlashList } from "@shopify/flash-list";
+
 import { Foundation } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
@@ -55,6 +58,15 @@ export default function PerfilVisãoInterna({ navigation }, props) {
     getData()
   }, [profileUpdated])
 
+  const handleRefresh = () => {
+    return new Promise((resolve) => {
+      setTimeout(async () => {
+        await getData();
+        resolve()
+      }, 2000)
+    });
+  }
+
   if (!loaded) {
     return (
       <View>
@@ -64,7 +76,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   }
 
   return (
-    <SafeAreaView>
+    <PTRView onRefresh={handleRefresh}>
       <FlatList
         data={posts}
         renderItem={({ item }) => (
@@ -258,6 +270,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         }
       />
       < StatusBar />
-    </SafeAreaView >
+    </PTRView >
   );
 }
