@@ -76,7 +76,10 @@ export default function Feed({ navigation }) {
   }
 
   return (
-    <PTRView onRefresh={handleRefresh} style={{ backgroundColor: "#FFF" }}>
+    <PTRView
+      onRefresh={handleRefresh}
+      style={styles.container}
+    >
 
       <StatusBar />
 
@@ -86,7 +89,7 @@ export default function Feed({ navigation }) {
 
         <View style={styles.TopBarContainer}>
 
-          <View style={styles.photoContainer}>
+          <View style={styles.topBar}>
 
             <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
               <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
@@ -104,23 +107,28 @@ export default function Feed({ navigation }) {
 
         </View>
 
-        <View style={styles.notificationTypes}>
-          <TouchableOpacity
-            onPress={() => setGlobalPosts(true)}
-            style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#D9D9D9", } : { backgroundColor: "#F1F1F1" }]}
-          >
-            <Text style={styles.notificationTypesText}>Global</Text>
-          </TouchableOpacity>
+        <View style={styles.optionPost}>
 
-          <TouchableOpacity
-            onPress={() => {
-              // handleFriendPosts()
-              setGlobalPosts(false)
-            }}
-            style={[styles.notificationTypesButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
-          >
-            <Text style={styles.notificationTypesText}>Amigos</Text>
-          </TouchableOpacity>
+          <View style={[styles.buttonGlobal, globalPosts ? { backgroundColor: "#F1F1F1" } : { backgroundColor: "#FFF" }]}>
+            <TouchableOpacity
+              onPress={() => setGlobalPosts(true)}
+              style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
+            >
+              <Text style={styles.optionPostButtonText}>Global</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={[styles.buttonFriends, globalPosts ? { backgroundColor: "#FFF" } : { backgroundColor: "#F1F1F1" }]}>
+            <TouchableOpacity
+              onPress={() => {
+                // handleFriendPosts()
+                setGlobalPosts(false)
+              }}
+              style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
+            >
+              <Text style={styles.optionPostButtonText}>Amigos</Text>
+            </TouchableOpacity>
+          </View>
 
         </View>
 

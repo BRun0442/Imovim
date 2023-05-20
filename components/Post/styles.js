@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
 
   postContainer: {
-    paddingVertical: 15,
+    paddingVertical: 20,
 
     backgroundColor: "#F1F1F1"
   },
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
 
     marginVertical: 15,
-    paddingHorizontal: 15
+    // paddingHorizontal: 15
   },
 
   profileContainer: {

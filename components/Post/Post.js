@@ -42,6 +42,7 @@ export default function Post(props) {
 
   return (
     <View style={styles.postContainer}>
+      
       <View style={styles.post}>
 
         <View style={styles.userInfoContainer}>

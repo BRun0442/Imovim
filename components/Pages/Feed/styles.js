@@ -7,6 +7,10 @@ const height = ScreenHeight / 100; // altura em porcentagem
 const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FFF"
+  },
+
   textBox: {
     display: "flex",
     flexWrap: "wrap",
@@ -49,7 +53,7 @@ export const styles = StyleSheet.create({
     paddingBottom: '3%',
 
     // Verificar se faz efeito
-    position: 'relative', 
+    position: 'relative',
   },
 
   containerExit: {
@@ -66,7 +70,7 @@ export const styles = StyleSheet.create({
   },
 
   profileImage: {
-    width: 48, 
+    width: 48,
     height: 48,
     marginRight: '10%',
     marginBottom: '3%',
@@ -81,49 +85,76 @@ export const styles = StyleSheet.create({
 
     //Alinha horizontalmente
     alignSelf: 'center',
-    
+
     fontSize: 50,
     color: '#FF6709',
     zIndex: 1,
   },
 
   TopBarContainer: {
-    backgroundColor: 'white',
+    width: "100%",
+    height: 90,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#FFF",
   },
 
-  photoContainer: {
-    flexWrap: 'wrap',
-    height: 55,
+  topBar: {
     width: 200,
-    padding: 5,
+    height: 55,
+
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+
     paddingHorizontal: 25,
+
     borderRadius: 30,
+
     backgroundColor: '#FF6709',
-    justifyContent: 'center',
-    alignContent: 'space-around',
-    // alignContent: 'center',
-    alignSelf: 'center',
-    marginTop: '5%',
-    marginBottom: '5%',
   },
 
   button: {
     padding: 2,
   },
 
-  notificationTypes:{
+  optionPost: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
-  
+    alignItems: "center",
+    justifyContent: "space-between",
+
     width: "100%",
+    height: 80,
 
-    backgroundColor: "#FFF",
+    backgroundColor: "#F1F1F1",
 
-    marginVertical: 15
-},
+    marginTop: 15,
+  },
 
-notificationTypesButton:{
+  buttonGlobal: {
+    width: "50%",
+    height: 90,
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  buttonFriends: {
+    width: "50%",
+    height: 90,
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  optionPostButton: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -133,11 +164,11 @@ notificationTypesButton:{
     height: 50,
 
     borderRadius: 50
-},
+  },
 
-notificationTypesText:{
+  optionPostButtonText: {
     fontSize: 18,
     fontWeight: "bold"
-},
+  },
 
 });
