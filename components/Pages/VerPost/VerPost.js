@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { AuthContext } from "../../../contexts/auth";
-import { View, Text, TouchableOpacity, ScrollView } from "react-native"
+import { View, Text, TouchableOpacity, ScrollView, Vibration } from "react-native"
 import Header from "../../Header/Header";
 import { styles } from './styles'
 import axios from "axios";
@@ -102,7 +102,10 @@ export default function VerPost({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.iconContainer}
-                    onLongPress={() => onOpenLike()}
+                    onLongPress={() => {
+                        onOpenLike()
+                        Vibration.vibrate(50)
+                    }}
                 >
                     <AntDesign name="like1" size={35} color="#FFF" />
                     <View style={styles.interactionQuantityContainer}>
@@ -167,6 +170,6 @@ export default function VerPost({ navigation }) {
 
             </Modalize>
 
-        </View>
+        </View >
     )
 }

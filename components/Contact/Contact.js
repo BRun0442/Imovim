@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { View, Text, TouchableOpacity, Image, Modal } from 'react-native'
+import { View, Text, TouchableOpacity, Image, Modal, Vibration } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { styles } from './style'
 import { AuthContext } from "../../contexts/auth";
@@ -34,6 +34,7 @@ export default function Contact({ navigation, description, friend_id, getChats, 
 
             onLongPress={() => {
                 setVisibleModal(true)
+                Vibration.vibrate(100)
             }}
 
             style={styles.messageContainer}
