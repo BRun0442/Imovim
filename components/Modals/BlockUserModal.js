@@ -20,11 +20,13 @@ export default function BlockUserModal({ handleClose, name, blocked_user_id, use
     <SafeAreaView style={styles.container}>
 
       <View style={styles.modal}>
+        
         <View style={styles.content}>
+
           <View style={styles.blockUserContainer}>
 
             <View style={styles.blockNameUser}>
-              <Entypo name="block" size={30} color="#FFF" />
+              <Entypo name="block" size={28} color="#FFF" />
 
               {
                 changeBlock ? (
@@ -60,10 +62,10 @@ export default function BlockUserModal({ handleClose, name, blocked_user_id, use
               )
             }
 
-
           </View>
 
           <View style={styles.buttonsContainer}>
+
             <TouchableOpacity onPress={() => {
               blockUser(user_id, blocked_user_id)
               getUsersBlocked(user_id)
@@ -79,10 +81,13 @@ export default function BlockUserModal({ handleClose, name, blocked_user_id, use
                 Não
               </Text>
             </TouchableOpacity>
+
           </View>
 
         </View>
+
       </View>
+
     </SafeAreaView >
   );
 }
@@ -100,11 +105,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+
+    paddingHorizontal: 5
   },
 
   content: {
-    width: "90%",
-    height: "25%",
+    width: "100%",
+    height: 240,
 
     display: "flex",
     justifyContent: "center",
@@ -113,8 +120,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8670E",
 
     borderRadius: 30,
-
-    paddingHorizontal: 15
   },
 
   blockUserContainer: {
@@ -128,21 +133,25 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
 
-    marginBottom: 10
+    flexWrap: "wrap",
+
+    marginVertical: 5
   },
 
   blockUserText: {
     color: "#FFF",
     fontWeight: "400",
-    fontSize: 22,
+    fontSize: 20,
 
-    marginLeft: 10
+    marginLeft: 5
   },
 
   blockUserAlertText: {
     color: "#FFF",
     fontWeight: "400",
-    fontSize: 22,
+    fontSize: 20,
+
+    marginVertical: 2
   },
 
   exitGroupUserName: {
@@ -150,28 +159,28 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 22,
 
-    marginLeft: 10
+    marginLeft: 5
   },
 
   blockAlert: {
     display: "flex",
     justifyContent: "flex-start",
-
-    marginBottom: 10
   },
 
   buttonsContainer: {
-    width: "50%",
+    width: "100%",
 
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
   },
 
   button1: {
     color: "#FFF",
     fontSize: 25,
+
+    marginHorizontal: 15
   },
 
   button2: {
@@ -180,6 +189,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#AF1A1A",
 
     padding: 10,
-    borderRadius: 15
+    borderRadius: 15,
+
+    marginHorizontal: 15
   },
 })

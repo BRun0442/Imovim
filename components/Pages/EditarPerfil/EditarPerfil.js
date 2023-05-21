@@ -108,7 +108,7 @@ function EditarPerfil({ navigation }) {
                 </TouchableOpacity>
             </View>
 
-            <View style={{paddingHorizontal: 15}} >
+            <View style={{paddingHorizontal: 10, marginBottom: 15}} >
                 <View style={styles.editProfileContainer}>
 
                     <View style={styles.editProfileTitleContainer}>

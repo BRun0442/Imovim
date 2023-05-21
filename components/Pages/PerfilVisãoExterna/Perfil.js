@@ -1,35 +1,24 @@
 import React, { useEffect, useState, useContext } from "react";
-import {
-  View,
-  Text,
-  Image,
-  StatusBar,
-  Alert,
-  TouchableOpacity,
-  SafeAreaView,
-  Modal,
-  FlatList,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, StatusBar, Alert, TouchableOpacity, SafeAreaView, Modal, FlatList, ScrollView, } from "react-native";
 import { styles } from "./style";
+
+import Header from "../../Header/Header.js";
 import Post from "../../Post/Post";
+import Toast from "react-native-toast-message";
+import BlockUserModal from "../../Modals/BlockUserModal";
+
 import axios from "axios";
-import { Foundation } from "@expo/vector-icons";
+import likePost from "../../../services/post";
+
+import { toastConfig } from "../../Toast/toastConfig";
+import { getAnotherUserData } from "../../../services/user";
+import { AccountDataContext } from "../../../contexts/accountData";
+import { showToastSuccess } from "../../Toast/Toast";
+
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { getAnotherUserData } from "../../../services/user";
-import Header from "../../Header/Header.js";
 import { AuthContext } from "../../../contexts/auth";
-import likePost from "../../../services/post";
-import { AccountDataContext } from "../../../contexts/accountData";
-import Toast from "react-native-toast-message";
-import { toastConfig } from "../../Toast/toastConfig";
-import { showToastSuccess } from "../../Toast/Toast";
-import api from "../../../services/api";
-
-import BlockUserModal from "../../Modals/BlockUserModal";
-import { log } from "react-native-reanimated";
 
 export default function PerfilVisãoExterna({ navigation }, props) {
   const { reloadChats, setReloadChats } = useContext(AuthContext);
@@ -179,7 +168,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         </View>
       }
       ListHeaderComponent={
-        <SafeAreaView>
+        <View>
           <Header navigation={navigation} />
 
           <Image style={styles.background} source={{ uri: backgroundImage }} />
@@ -296,11 +285,12 @@ export default function PerfilVisãoExterna({ navigation }, props) {
               </View>
             </View>
           </View>
-          
+
           <View style={styles.border} />
 
           <View style={styles.tagsView}>
-            <ScrollView horizontal={true} style={{ paddingHorizontal: 8 }}>
+
+            <ScrollView horizontal={true} style={{ paddingHorizontal: 5 }}>
               {sportsPracticed.map((sport, index) => {
                 return (
                   <View
@@ -317,12 +307,13 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                 );
               })}
             </ScrollView>
+
           </View>
 
           <View style={styles.line} />
 
           <Toast config={toastConfig} />
-        </SafeAreaView>
+        </View>
       }
     />
   );

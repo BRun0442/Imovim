@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
 
-    paddingHorizontal: 20
+    paddingHorizontal: 10
   },
 
   iconCam: {

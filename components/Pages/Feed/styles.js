@@ -35,59 +35,59 @@ export const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    marginTop: '10%',
+    marginTop: "10%",
   },
 
   title: {
-    color: 'white',
+    color: "white",
     fontSize: 5,
   },
 
   containerProfile: {
-    backgroundColor: '#A512BD',
-    width: '100%',
-    height: '40%',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    paddingRight: '5%',
-    paddingBottom: '3%',
+    backgroundColor: "#A512BD",
+    width: "100%",
+    height: "40%",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    paddingRight: "5%",
+    paddingBottom: "3%",
 
     // Verificar se faz efeito
-    position: 'relative',
+    position: "relative",
   },
 
   containerExit: {
-    backgroundColor: '#1E90FF',
-    width: '100%',
-    height: '15%',
-    justifyContent: 'center',
+    backgroundColor: "#1E90FF",
+    width: "100%",
+    height: "15%",
+    justifyContent: "center",
   },
 
   smallText: {
-    color: 'white',
+    color: "white",
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
   },
 
   profileImage: {
     width: 48,
     height: 48,
-    marginRight: '10%',
-    marginBottom: '3%',
+    marginRight: "10%",
+    marginBottom: "3%",
     borderRadius: 24,
   },
 
   logo: {
-    position: 'absolute',
+    position: "absolute",
 
     // Alinha verticalmente
-    justifyContent: 'center',
+    justifyContent: "center",
 
     //Alinha horizontalmente
-    alignSelf: 'center',
+    alignSelf: "center",
 
     fontSize: 50,
-    color: '#FF6709',
+    color: "#FF6709",
     zIndex: 1,
   },
 
@@ -115,7 +115,7 @@ export const styles = StyleSheet.create({
 
     borderRadius: 30,
 
-    backgroundColor: '#FF6709',
+    backgroundColor: "#FF6709",
   },
 
   button: {
@@ -163,12 +163,27 @@ export const styles = StyleSheet.create({
     width: 150,
     height: 50,
 
-    borderRadius: 50
+    borderRadius: 25
   },
 
   optionPostButtonText: {
     fontSize: 18,
     fontWeight: "bold"
   },
+
+  loadingContainer: {
+    width: "100%",
+    height: 250,
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  loading: {
+    fontSize: 16,
+    
+    marginBottom: 15
+  }
 
 });

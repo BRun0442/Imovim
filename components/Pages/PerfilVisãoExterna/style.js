@@ -8,7 +8,6 @@ const height = ScreenHeight / 100; // altura em porcentagem
 const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
-
   background: {
     width: "100%",
     height: 180,
@@ -24,7 +23,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
 
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
 
   iconCam: {

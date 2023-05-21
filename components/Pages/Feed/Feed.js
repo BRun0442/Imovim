@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import { View, Text, TouchableOpacity, StatusBar, Alert, SafeAreaView, RefreshControl } from "react-native";
+import { View, Text, TouchableOpacity, StatusBar, Alert, RefreshControl, ActivityIndicator } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
 
@@ -175,6 +175,12 @@ export default function Feed({ navigation }) {
         keyExtractor={item => item.id}
 
       />
+
+      {/* <View style={styles.loadingContainer}>
+        <Text style={styles.loading} >Loading...</Text>
+        <ActivityIndicator animating={true} size={20} color={"#FF6709"} />
+      </View> */}
+
       <Toast config={toastConfig} />
     </PTRView >
   );
