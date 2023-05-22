@@ -9,7 +9,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
     container: {
-        width: "100%"
+        backgroundColor: "#FFF",
     },
 
     iconContainer: {
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 15,
 
-        marginTop: 10,
+        marginTop: 25,
         marginBottom: 25
     },
 
@@ -196,9 +196,12 @@ export const styles = StyleSheet.create({
         borderRadius: 20
     },
 
+    bannerContainer:{
+        // marginTop: 30
+    },
+
     banner: {
-        marginBottom: 15,
-        marginTop: 15
+        marginVertical: 15,
     },
 
     borderLocationInput: {
@@ -222,7 +225,7 @@ export const styles = StyleSheet.create({
         alignSelf: "flex-end",
 
         paddingHorizontal: 10,
-        marginTop: 10
+        marginVertical: 10
     },
 
     button: {
@@ -238,8 +241,7 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#FF6709",
 
-        marginTop: "5%",
-        marginBottom: "15%",
+        marginBottom: 20
     }
 })
 

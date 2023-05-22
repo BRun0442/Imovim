@@ -7,12 +7,10 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
 
-        width: "90%",
-        height: 35,
+        width: "100%",
 
-        margin: 10,
-        marginHorizontal: 15,
-        paddingLeft: 10,
+        marginBottom: 10,
+        padding: 8,
 
         backgroundColor: "#FFF",
         borderRadius: 15

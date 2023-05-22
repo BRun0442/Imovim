@@ -7,6 +7,8 @@ import TagName from '../../VerMaisTags/VerMaisTags';
 import Photo from '../../Photo/Photo';
 import TagEvent from '../../VerMaisEventos/VerMaisEventos';
 
+import { Feather } from '@expo/vector-icons'; 
+
 import { AuthContext } from '../../../contexts/auth.js';
 import { getSportsPracticed as getSportsData } from '../../../services/sports'
 import { getMyEvents } from '../../../services/events';
@@ -46,13 +48,14 @@ export default function TelaVerMais({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <Header navigation={navigation} />
+    <ScrollView style={styles.container}>
+      <Header navigation={navigation} />
 
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Ver mais</Text>
-        </View>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Ver mais</Text>
+      </View>
+
+      <View style={{ paddingHorizontal: 10 }}>
 
         <View style={styles.containerTags}>
           <Text style={styles.titleTags}>Tags</Text>
@@ -61,7 +64,11 @@ export default function TelaVerMais({ navigation }) {
             {sportsPracticed.map((i, index) => {
               console.log(i);
               return (
-                <TagName key={index} sport_color={i.sport_color} sport_name={i.sport_name} />
+                <TagName
+                  key={index}
+                  sport_color={i.sport_color}
+                  sport_name={i.sport_name}
+                />
               )
             })}
           </View>
@@ -75,7 +82,7 @@ export default function TelaVerMais({ navigation }) {
             <TouchableOpacity
               onPress={() => { navigation.navigate('Fotos') }}
             >
-              <Text style={styles.seeMorePhotos}>...</Text>
+              <Feather name="more-horizontal" size={22} color="#F8670E" />
             </TouchableOpacity>
           </View>
 
@@ -100,20 +107,23 @@ export default function TelaVerMais({ navigation }) {
             <TouchableOpacity
               onPress={() => { navigation.navigate('Meus Eventos') }}
             >
-              <Text style={styles.seeMoreEvents}>...</Text>
+              <Feather name="more-horizontal" size={22} color="#F8670E" />
             </TouchableOpacity>
           </View>
 
           <View style={styles.events}>
             {myEvents.map((event, index) => {
               return (
-                <TagEvent key={index} nameEvent={event.event_name} />
+                <TagEvent
+                  key={index}
+                  nameEvent={event.event_name} />
               )
             })}
           </View>
         </View>
 
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+
+    </ScrollView>
   )
 }

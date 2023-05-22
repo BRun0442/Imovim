@@ -11,86 +11,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFF"
   },
 
-  textBox: {
-    display: "flex",
-    flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "85%",
-    marginLeft: 25,
-    marginTop: 20,
-  },
-
-  input: {
-    color: "white",
-    borderBottomWidth: 2,
-    borderBottomColor: "white",
-    fontSize: 20,
-    fontWeight: "400",
-    paddingBottom: 6,
-    marginTop: 35,
-    alignSelf: "center",
-    flexGrow: 1,
-    marginHorizontal: 5,
-  },
-
-  buttonContainer: {
-    marginTop: "10%",
-  },
-
-  title: {
-    color: "white",
-    fontSize: 5,
-  },
-
-  containerProfile: {
-    backgroundColor: "#A512BD",
-    width: "100%",
-    height: "40%",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    paddingRight: "5%",
-    paddingBottom: "3%",
-
-    // Verificar se faz efeito
-    position: "relative",
-  },
-
-  containerExit: {
-    backgroundColor: "#1E90FF",
-    width: "100%",
-    height: "15%",
-    justifyContent: "center",
-  },
-
-  smallText: {
-    color: "white",
-    fontSize: 20,
-    textAlign: "center",
-  },
-
-  profileImage: {
-    width: 48,
-    height: 48,
-    marginRight: "10%",
-    marginBottom: "3%",
-    borderRadius: 24,
-  },
-
-  logo: {
-    position: "absolute",
-
-    // Alinha verticalmente
-    justifyContent: "center",
-
-    //Alinha horizontalmente
-    alignSelf: "center",
-
-    fontSize: 50,
-    color: "#FF6709",
-    zIndex: 1,
-  },
-
   TopBarContainer: {
     width: "100%",
     height: 90,
@@ -131,14 +51,14 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: 80,
 
-    backgroundColor: "#F1F1F1",
+    backgroundColor: "#FFF",
 
     marginTop: 15,
   },
 
   buttonGlobal: {
     width: "50%",
-    height: 90,
+    height: 80,
 
     display: "flex",
     alignItems: "center",
@@ -147,7 +67,7 @@ export const styles = StyleSheet.create({
 
   buttonFriends: {
     width: "50%",
-    height: 90,
+    height: 80,
 
     display: "flex",
     alignItems: "center",

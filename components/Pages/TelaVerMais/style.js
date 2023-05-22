@@ -9,7 +9,6 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
   container: {
-    height: "100%",
     backgroundColor: "#FFF",
   },
 
@@ -26,34 +25,40 @@ export const styles = StyleSheet.create({
   },
 
   containerTags: {
-    backgroundColor: "#F1F1F1",
-    marginHorizontal: 15,
-    borderRadius: 15,
-    paddingBottom: 15,
+    width: "100%",
 
-    marginHorizontal: 20,
-    marginBottom: 15,
+    borderRadius: 15,
+
+    marginBottom: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+
+    backgroundColor: "#F1F1F1",
   },
 
   titleTags: {
     fontSize: 20,
-    margin: 10
+    marginVertical: 5
   },
 
   tags: {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "space-around",
     flexDirection: "row",
+    
     flexWrap: "wrap"
   },
 
   containerPhotos: {
-    backgroundColor: "#F1F1F1",
-    marginHorizontal: 15,
-    borderRadius: 15,
-    paddingBottom: 15,
+    width: "100%",
 
-    marginBottom: 15
+    borderRadius: 15,
+
+    marginBottom: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+
+    backgroundColor: "#F1F1F1",
   },
 
   containerPhotoTitle: {
@@ -61,14 +66,11 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-
-    marginHorizontal: 20,
-    margin: 10
   },
 
   titlePhotos: {
     fontSize: 20,
-    margin: 10
+    marginBottom: 5
   },
 
   seeMorePhotos: {
@@ -81,36 +83,42 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginHorizontal: 15
   },
 
   containerEvents: {
-    backgroundColor: "#F1F1F1",
-    marginHorizontal: 15,
-    borderRadius: 15,
-    paddingBottom: 15,
+    width: "100%",
 
-    marginBottom: 15
+    borderRadius: 15,
+
+    marginBottom: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+
+    backgroundColor: "#F1F1F1",
   },
 
   containerEventsTitle: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
 
-    marginHorizontal: 20,
-    margin: 10
+    alignItems: "center",
+
+    justifyContent: "space-between",
   },
 
   titleEvents: {
     fontSize: 20,
+
+    marginTop: 5,
+    marginBottom: 15
   },
 
   seeMoreEvents: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#F8670E"
+    color: "#F8670E",
+
+    backgroundColor: "red"
   },
 
   events: {

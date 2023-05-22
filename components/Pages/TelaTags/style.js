@@ -13,20 +13,24 @@ export const styles = StyleSheet.create({
     height: "100%",
   },
 
-  containerTitle: {
+  titleContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
 
+    width: "100%",
+    height: "10%",
+
     paddingHorizontal: 10,
 
-    width: "100%",
-    height: "8%"
+    backgroundColor: "#FFF"
+
   },
 
   title: {
-    fontSize: 20,
+    fontSize: 18,
+    fontWeight: "600"
   },
 
   containerTags: {
@@ -34,21 +38,22 @@ export const styles = StyleSheet.create({
 
     paddingHorizontal: 8,
     paddingVertical: 15,
-
-    marginVertical: 15,
   },
 
   tags: {
+    width: "100%",
     height: "100%",
-    backgroundColor: "#F1F1F1",
-    borderRadius: 15,
 
+    borderRadius: 15,
+    
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
+    // justifyContent: "center",
     flexWrap: "wrap",
 
-    paddingVertical: 30
+    paddingVertical: 30,
+
+    backgroundColor: "#F1F1F1",
   },
 })
 

@@ -78,7 +78,7 @@ export default function MarcarEventos({ navigation }, props) {
     }
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -92,9 +92,9 @@ export default function MarcarEventos({ navigation }, props) {
             </View>
 
             <View style={styles.form}>
-                <KeyboardAvoidingView behavior={"height"} >
+                <KeyboardAvoidingView behavior={"padding"} >
 
-                    <Text style={styles.formText}>Nome</Text>
+                    <Text style={styles.formText}>Nome do Evento</Text>
                     <View style={styles.nameInputs}>
                         <TextInput style={styles.inputType1}
                             onChangeText={(text) => setName(text)}
@@ -175,45 +175,50 @@ export default function MarcarEventos({ navigation }, props) {
                         />
 
                         <Text style={styles.descriptionLengthText}>{descriptionLength} / 200</Text>
+                    </View>
+
+                    <View style={styles.bannerContainer}>
+
+                        <Text style={styles.formText}>Foto</Text>
+
+                        <View style={styles.banner}>
+                            <TouchableOpacity
+
+                                onPress={() => pickImage()}
+
+                                style={styles.editProfileIconContainerBanner}>
+
+                                {!image && (
+
+                                    <View style={styles.editBanner}>
+                                        <Entypo name="camera" size={22} color="#FFF" />
+                                    </View>
+
+                                )}
+
+                                {image && (
+                                    <Image
+                                        style=
+                                        {
+                                            {
+                                                width: "95%",
+                                                height: 150,
+                                            }
+                                        }
+                                        source={{ uri: image }}
+                                    />
+                                )}
+                            </TouchableOpacity>
+                        </View>
 
                     </View>
+
+                    <TouchableOpacity onPress={() => handleSubmit()} style={styles.button}>
+                        <Text style={styles.text}>Criar Evento</Text>
+                    </TouchableOpacity>
+
                 </KeyboardAvoidingView>
 
-                <Text style={styles.formText}>Foto</Text>
-
-                <View style={styles.banner}>
-                    <TouchableOpacity
-
-                        onPress={() => pickImage()}
-
-                        style={styles.editProfileIconContainerBanner}>
-
-                        {!image && (
-
-                            <View style={styles.editBanner}>
-                                <Entypo name="camera" size={22} color="#FFF" />
-                            </View>
-
-                        )}
-
-                        {image && (
-                            <Image
-                                style=
-                                {
-                                    {
-                                        width: "95%",
-                                        height: 150,
-                                    }
-                                }
-                                source={{ uri: image }}
-                            />
-                        )}
-                    </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity onPress={() => handleSubmit()} style={styles.button}>
-                    <Text style={styles.text}>Criar Evento</Text>
-                </TouchableOpacity>
             </View>
 
             <StatusBar />

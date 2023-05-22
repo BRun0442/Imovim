@@ -7,15 +7,15 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
 
-        width: '35%',
-        height: 40,
+        marginVertical: 5,
 
-        margin: 8,
-        paddingStart: 8,
+
+        paddingVertical: 8,
+        paddingHorizontal: 15,
 
         backgroundColor: "#565353",
 
-        borderRadius: 15
+        borderRadius: 20
     },
 
     text:{

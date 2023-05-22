@@ -15,6 +15,8 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       justifyContent: "center",
       alignSelf: 'center',
+
+      marginBottom: 50
     },
 
     buttonText: {

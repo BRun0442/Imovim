@@ -141,13 +141,9 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
                 <View style={styles.data}>
 
-                  <Text style={styles.name}>
-                    {name}
-                  </Text>
+                  <Text style={styles.name}>{name}</Text>
 
-                  <Text style={styles.location}>
-                    {location}
-                  </Text>
+                  <Text style={styles.location}>{location}</Text>
 
                 </View>
 
@@ -187,7 +183,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                   </TouchableOpacity>
                 ) : (
                   <ScrollView horizontal={true}
-                    style={{ paddingHorizontal: 8 }}
+                    // style={{ paddingHorizontal: 8 }}
                   >
 
                     {sportsPracticed.map((sport, index) => {

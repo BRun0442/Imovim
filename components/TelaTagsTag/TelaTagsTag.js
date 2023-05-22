@@ -50,7 +50,7 @@ export default function VerMaisTags(props) {
       onPress={() => handleSubmit(id, props.sport_id)}
       style={[styles.tag, handleButtonColor()]}
     >
-      <Text style={styles.text}>#{props.nameEsportTag}</Text>
+      <Text style={styles.text}># {props.nameEsportTag}</Text>
     </TouchableOpacity>
   );
 }
