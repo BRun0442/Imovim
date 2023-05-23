@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, SafeAreaView, KeyboardAvoidingView } from 'react-native';
 import { styles } from './style'
 import Header from '../../Header/Header'
-import Button from '../../Button/Button';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -94,7 +93,7 @@ export default function CriarPost({ navigation }) {
 
         <View>
           {image ? (
-            <Image style={{ width: '100%', height: 200, resizeMode: "stretch" }} source={{ uri: image }} />
+            <Image style={{ width: '100%', height: 300, resizeMode: "stretch" }} source={{ uri: image }} />
           ) : (
             <TouchableOpacity onPress={() => {
               if (galleryPermission == true) {
@@ -143,19 +142,16 @@ export default function CriarPost({ navigation }) {
           <Text style={styles.buttonText}>Adicionar foto | Imagem</Text>
         </TouchableOpacity>
 
-        {/* <TouchableOpacity style={styles.button}>
-            <MaterialIcons name="place" size={28} color={'#FFF'} />
-            <Text style={styles.buttonText}>Localização</Text>
-          </TouchableOpacity> */}
       </View>
 
-      <Button buttonText='Criar Post' pressFunction={async () => {
-        await CreatePost(image, id, caption, setImage)
+      <TouchableOpacity style={styles.submitButton} onPress={() => {
+        CreatePost(image, id, caption, setImage)
         const randomNumber = Math.random()
         setProfileUpdated(randomNumber)
         navigation.navigate('Página Inicial')
-      }}
-      />
+      }}>
+        <Text style={styles.submitText}>Criar Post</Text>
+      </TouchableOpacity>
 
       <StatusBar />
 

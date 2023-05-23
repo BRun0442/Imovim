@@ -18,6 +18,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
 import { toastConfig } from '../../Toast/toastConfig';
 import { getFriendPosts } from "../../../services/feed";
+import { FlatList } from "react-native-gesture-handler";
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
@@ -134,7 +135,7 @@ export default function Feed({ navigation }) {
 
       </View>
 
-      <FlashList
+      <FlatList
         data={globalPosts ? posts : friendPosts}
 
         renderItem={({ item }) =>

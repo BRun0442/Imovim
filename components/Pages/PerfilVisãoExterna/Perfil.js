@@ -22,7 +22,7 @@ import { AuthContext } from "../../../contexts/auth";
 
 export default function PerfilVisãoExterna({ navigation }, props) {
   const { reloadChats, setReloadChats } = useContext(AuthContext);
-  const { id } = useContext(AuthContext);
+  const { id, setCurrentPost } = useContext(AuthContext);
   const { setPostFocusedId } = useContext(AccountDataContext);
   const [changeIcon, setChangeIcon] = useState(false);
 
@@ -144,6 +144,10 @@ export default function PerfilVisãoExterna({ navigation }, props) {
         return (
           <View key={item.id}>
             <Post
+              goToSeePostScreen={() => {
+                setCurrentPost(item.id)
+                navigation.navigate('Ver Post')
+              }}
               goToReportScreen={() => navigation.navigate("Denuncia")}
               goToCommentScreen={() => {
                 setPostFocusedId(item.id);

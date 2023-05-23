@@ -7,11 +7,18 @@ import MessagesModal from "../Modals/MessagesModal";
 
 import IconExitGroup from '../Modals/IconExitGroup'
 import { Entypo } from '@expo/vector-icons';
+import api from "../../services/api";
 
 export default function Contact({ navigation, description, friend_id, getChats, name, room_id, friend_photo, room_photo, room_type, room_name }) {
-    const { groupDescription, setGroupDescription, setChatFocusedId, setChatProfileImage, setFriend_id, setChatNickname, setMessageList } = useContext(AuthContext)
+    const { setChatMembers, groupDescription, setGroupDescription, setChatFocusedId, setChatProfileImage, setFriend_id, setChatNickname, setMessageList } = useContext(AuthContext)
 
     const [visibleModal, setVisibleModal] = useState(false)
+
+    const getChatMembers = async () => {
+        const results = await api.get(`/chat/get-group-members/${room_id}`)
+        console.log(results.data);
+        setChatMembers(results.data)
+    }
 
     return (
         <TouchableOpacity
@@ -28,7 +35,10 @@ export default function Contact({ navigation, description, friend_id, getChats, 
                 else {
                     setChatProfileImage(room_photo)
                     setChatNickname(room_name)
-                    navigation.navigate('Chat Grupo')
+                    getChatMembers()
+                    .then(() => {
+                        navigation.navigate('Chat Grupo')
+                    })
                 }
             }}
 

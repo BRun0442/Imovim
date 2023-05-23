@@ -23,7 +23,7 @@ import { getAnotherUserData } from "../../../services/user";
 
 export default function PerfilVisãoInterna({ navigation }, props) {
   const { setPostFocusedId } = useContext(AccountDataContext);
-  const { profilePicture, sportsPracticed, setSportsPracticed, id, posts, setPosts, profileUpdated, setProfileUpdated } = useContext(AuthContext);
+  const { profilePicture, setCurrentPost, sportsPracticed, setSportsPracticed, id, posts, setPosts, profileUpdated, setProfileUpdated } = useContext(AuthContext);
   const [loaded, setLoaded] = useState(false)
   const [visible, setVisible] = useState(false);
   const [accountData, setAccountData] = useState()
@@ -81,6 +81,10 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         data={posts}
         renderItem={({ item }) => (
           <Post
+            goToSeePostScreen={() => {
+              setCurrentPost(item.id)
+              navigation.navigate('Ver Post')
+            }}
             goToReportScreen={() => null}
             goToProfile={goToProfile}
             goToCommentScreen={() => {

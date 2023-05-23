@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image, StatusBar, SafeAreaView } from 'react-native';
 import { styles } from './styles';
-import Button from '../../Button/Button.js';
 
 export default function Home({ navigation }) {
   return (

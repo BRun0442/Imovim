@@ -85,6 +85,25 @@ export const styles = StyleSheet.create({
     marginLeft: "3%"
   },
 
+  submitButton: {
+    backgroundColor: "#FF6709",
+    width: 175,
+    height: 50,
+    
+    borderRadius: 20,
+    justifyContent: "center",
+    alignSelf: 'center',
+
+    marginBottom: 50
+  },
+
+  submitText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20,
+    fontWeight: '500',
+  },
+
   postContainer: {
     width: "100%",
     alignSelf: "center",

@@ -21,7 +21,7 @@ import GroupMessage from "../../GroupMessage/GroupMessage"
 
 export default function ChatGroup({ navigation }) {
   const flatlistRef = useRef(null);
-  const { id, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
+  const { id, setChatMembers, chatMembers, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
   const [chatAvailable, setChatAvailable] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -74,7 +74,14 @@ export default function ChatGroup({ navigation }) {
     flatlistRef.current?.scrollToEnd();
   };
 
+  const getChatMembers = async () => {
+    const results = await api.get(`/chat/get-group-members/${room_id}`)
+    console.log(results.data);
+    setChatMembers(results.data)
+}
+
   useEffect(() => {
+    getChatMembers()
     joinRoom();
     scrollToBottom()
   }, [chatFocusedId]);
@@ -83,7 +90,19 @@ export default function ChatGroup({ navigation }) {
     const getMessage = async () => {
       await socket.on("receive_message", (data) => {
         console.log(data);
-        setMessageList((list) => [...list, data]);
+        const finalData = data.map((msg) => {
+          chatMembers.forEach((member) => {
+            if(member.user_id == data.author_id) {
+              console.log(member.nickname, member.profileImage);
+              return {
+                ...msg,
+                nickname: member.nickname,
+                profileImage: member.profileImage
+              }
+            }
+          });
+        })
+        setMessageList((list) => [...list, finalData]);
         retrieveMessages()
         scrollToBottom()
       });
@@ -206,7 +225,7 @@ export default function ChatGroup({ navigation }) {
                       style={[styles.messages, { alignItems: "flex-start" }]}
                     >
                       {/* <FriendMessage friendMessage={item.message} /> */}
-                      <GroupMessage hour={item.time} message={item.message} user={item.author_id} />
+                      <GroupMessage hour={item.time} message={item.message} user={item.nickname} />
                     </View>
                   )}
                 </View>
