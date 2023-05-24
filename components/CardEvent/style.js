@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     eventCard: {
-        width: 360,
-        height: 260,
+        width: "100%",
+        height: 275,
 
         display: "flex",
         flexDirection: "column",

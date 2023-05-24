@@ -5,7 +5,8 @@ import ProfileImage from "../ProfileImage/ProfileImage";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+
 import CardEvents from "../CardEvent/CardEvent";
 
 let screenWidth = Dimensions.get("window").width / 100; // screen width
@@ -30,28 +31,30 @@ export default function PostEvent(props) {
     props.photo && getImagesSize();
   })
 
+  const [iGo, setIGo] = useState(0)
+  const [saveEvent, setSaveEvent] = useState(false)
+
   return (
-    <View style={styles.postBackground}>
-      <View style={styles.postContainer}>
+    <View style={styles.postContainer}>
 
-        <View style={styles.postProfile}>
-          <ProfileImage profileImage={props.profileImage} />
+      <View style={styles.postProfile}>
 
-          <View style={styles.profileContainer}>
+        <ProfileImage profileImage={props.profileImage} />
 
-            <View style={styles.profilePost}>
-              <Text style={styles.profileName}>{props.nickname}</Text>
-              <Text style={styles.newEvent}>criou um evento!</Text>
-            </View>
-            <Text style={styles.postDate}>{props.created_at}</Text>
+        <View style={styles.profileContainer}>
+
+          <View style={styles.profilePost}>
+            <Text style={styles.profileName}>{props.nickname}</Text>
+            <Text style={styles.newEvent}>criou um evento!</Text>
           </View>
 
+          <Text style={styles.postDate}>{props.created_at}</Text>
 
         </View>
 
-        <View>
-          <Text style={styles.descriptionEvent}>{props.eventDescription}</Text>
-        </View>
+      </View>
+
+      <View style={{ paddingHorizontal: 10 }}>
 
         <CardEvents
           eventName={props.event_name}
@@ -59,42 +62,47 @@ export default function PostEvent(props) {
           describeEvent={props.description}
         />
 
-        <Image
-          style=
-          {
-            [
-              styles.postImage,
-              props.image ?
-                aspectRatio >= 1 ?
-                  { height: (90 * screenWidth / aspectRatio) }
-                  : { height: 450 }
-                : { height: 0 }
-            ]
-          }
-          source={
-            props.photo ? { uri: props.photo } : ''
-          }
-        />
-
-        <Text style={styles.postDescription}>{props.description}</Text>
-
-        <View style={styles.postInteraction}>
-          <TouchableOpacity style={styles.postInteractionImage}>
-            <AntDesign name="like1" size={24} color="white" />
-            <Text style={styles.interactionQuantity}>{props.likes}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.postInteractionImage}>
-            <Ionicons name="chatbubble" size={24} color="white" />
-            <Text style={styles.interactionQuantity}>{props.comments}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.postInteractionImage}>
-            <FontAwesome name="share" size={24} color="white" />
-            <Text style={styles.interactionQuantity}>{props.updated}</Text>
-          </TouchableOpacity>
-        </View>
       </View>
+
+      <View style={styles.interactiveButtonContainer}>
+
+        <TouchableOpacity
+          style={styles.interactiveButton}
+          onPress={() => setIGo(iGo + 1)}
+        >
+
+          <AntDesign name="like1" size={50} color={"#FFF"} />
+          <Text style={styles.interactiveText}>Eu vou!</Text>
+
+          <View style={styles.iGoContainer}>
+            <Text style={styles.iGo}>{iGo}</Text>
+          </View>
+
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.interactiveButton}
+          onPress={() => setSaveEvent(!saveEvent)}
+        >
+
+          {saveEvent ? (
+            <View style={styles.iconContainer}>
+              <Feather name="check-circle" size={55} color="#8B04A2" />
+              <Text style={styles.interactiveText}>Salvo</Text>
+            </View>
+          )
+            :
+            (
+              <View style={styles.iconContainer}>
+                <Ionicons name="add-circle-outline" size={75} color="#FFF" />
+                <Text style={styles.interactiveText}>Salvar</Text>
+              </View>
+            )
+          }
+
+        </TouchableOpacity>
+      </View>
+
     </View>
   )
 }

@@ -1,116 +1,151 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    postBackground: {
-      alignSelf: 'center',
-      marginBottom: '2%',
-      width: '100%',
-      backgroundColor: 'white',
+  postContainer: {
+    width: '100%',
+    backgroundColor: '#FFF',
 
-      borderBottomWidth: 1,
-      borderTopWidth: 1,
-      borderColor: '#E98AF9',
-    },
+    borderTopWidth: 1,
+    borderColor: '#E98AF9',
 
-    postContainer: {
-      alignSelf: 'center',
-      paddingTop: 10,
-      paddingBottom: 10,
-      width: '90%',
-      backgroundColor: 'white',
-    },
+    paddingVertical: 20,
+    marginBottom: 10
+  },
 
-    postProfile: {
-      height: 48,
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      marginBottom: '3%',
-    },
+  postProfile: {
+    width: "100%",
+    height: 50,
 
-    postImage: {
-      width: '100%',
-      alignSelf: 'center',
-      // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
-      resizeMode: 'contain',
-    },
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
 
-    postDescription: {
-      marginTop: '2%',
-      fontWeight: '500',
-    },
-    
-    postInteraction: {
-      width: 250,
-      flexWrap: 'wrap',
-      flexDirection: 'row',
-      justifyContent: 'space-evenly',
-      alignSelf: 'center',
-      marginTop: 5,
-    },
-    
-    postInteractionImage: {
-      height: 40,
-      width: 40,
-      backgroundColor: '#A512BD',
-      borderRadius: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+    paddingHorizontal: 10
+  },
 
-    profileImage: {
-      height: 50,
-      width: 50,
-      resizeMode: 'stretch',
-    },
+  profileContainer: {
+    marginLeft: 10
+  },
 
-    profileName: {
-      fontWeight: '500',
-      marginRight: 10
-    },
+  profilePost: {
+    display: "flex",
+    flexDirection: "row",
+  },
 
-    newEvent:{
-      color: "#F8670E",
-      fontWeight: "bold",
-      fontSize: 15
-    },
+  profileName: {
+    fontSize: 15,
+    fontWeight: '500',
+    marginRight: 5
+  },
 
-    postDate: {
-      fontWeight: '300',
-    },
+  newEvent: {
+    color: "#F8670E",
+    fontWeight: "bold",
+    fontSize: 15
+  },
 
-    profileContainer: {
-      flexDirection: 'column',
-      marginLeft: '2%',
-    },
+  postImage: {
+    width: '100%',
+    alignSelf: 'center',
+    // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
+    resizeMode: 'contain',
+  },
 
-    profilePost: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center"
+  postDescription: {
+    marginTop: '2%',
+    fontWeight: '500',
+  },
 
-    },
+  postInteraction: {
+    width: 250,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignSelf: 'center',
+    marginTop: 5,
+  },
 
-    descriptionEvent:{
-      color: "#000",
+  postInteractionImage: {
+    height: 40,
+    width: 40,
+    backgroundColor: '#A512BD',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    },
+  profileImage: {
+    height: 50,
+    width: 50,
+    resizeMode: 'stretch',
+  },
 
-    interactionQuantity: {
-      position: 'absolute',
-      color: 'black',
-      fontWeight: '400',
-      top: 25,
-      left: -5,
-      backgroundColor: '#DCDCDC',
-      borderRadius: 10,
-      minHeight: 20,
-      minWidth: 20,
-      textAlign: 'center',
-    },
+  postDate: {
+    fontWeight: '300',
+  },
 
-    line: {
-      width: '100%',
-      height: 1,
-      backgroundColor: '#FF1493',
+  descriptionEvent: {
+    color: "#000"
+  },
+
+  interactiveButtonContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+
+    marginTop: 15
+  },
+
+  interactiveButton: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+
+    backgroundColor: "#F8670E",
+
+    width: 120,
+    height: 120,
+
+    borderRadius: 15
+  },
+
+  interactiveText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold",
+
+    textAlign: "center"
+  },
+
+  iconContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+
+  iGoContainer: {
+    width: 30,
+    height: 30,
+
+    borderRadius: 100,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    position: "absolute",
+    top: 10,
+    right: 10,
+
+    backgroundColor: "#D9D9D9"
+  },
+
+  iGo: {
+    color: "#000",
+    fontSize: 18,
+    fontWeight: "600"
   },
 });
