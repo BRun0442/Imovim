@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView, Modal } from "react-native";
+import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView, Modal, Vibration } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import Header from "../../Header/Header";
 import { styles } from "./style"
@@ -7,6 +7,8 @@ import { FontAwesome } from "@expo/vector-icons";
 
 import FriendMessage from "../../FriendMessage/FriendMessage";
 import MyMessage from "../../MyMessage/MyMessage";
+import DeleteMessage from "../../Modals/DeleteMessage";
+
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth";
@@ -28,6 +30,7 @@ export default function ChatGroup({ navigation }) {
   const [visible, setVisible] = useState(false);
   const [visibleComplaintModal, setVisibleComplaintModal] = useState(false)
   const [visibleExitGroupModal, setVisibleExitGroupModal] = useState(false)
+  const [visibleDeleteMessage, setVisibleDeleteMessage] = useState(false)
 
   const socket = io.connect("https://imovim-chat.onrender.com");
 
@@ -135,9 +138,9 @@ export default function ChatGroup({ navigation }) {
                         <Text style={styles.textButton}>Dados do grupo</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.lineButtons}></View>
+                      <View style={styles.lineButtons} />
 
-                      <TouchableOpacity onPress={()=> setVisibleExitGroupModal(true)}>
+                      <TouchableOpacity onPress={() => setVisibleExitGroupModal(true)}>
                         <Text style={styles.textButton}>Sair do grupo</Text>
                       </TouchableOpacity>
 
@@ -188,18 +191,42 @@ export default function ChatGroup({ navigation }) {
             </View>
 
             <View style={styles.line} />
+
             <FlatList
               style={{ height: "60%" }}
               ref={flatlistRef}
               data={messageList} // change to message list
               renderItem={({ item }) =>
+
                 <View key={item._id}>
                   {item.author_id == id ? (
                     <View
                       style={[styles.messages, { alignItems: "flex-end" }]}
                     >
                       <View style={{ width: "100%" }} />
-                      <MyMessage myMessage={item.message} />
+
+                      <TouchableOpacity
+                        activeOpacity={1}
+                        onLongPress={
+                          () => {
+                            setVisibleDeleteMessage(true)
+                            Vibration.vibrate(100)
+                          }
+                        }
+
+                      >
+                        <MyMessage myMessage={item.message} />
+                      </TouchableOpacity>
+
+                      <Modal
+                        visible={visibleDeleteMessage}
+                        transparent={true}
+                        onRequestClose={() => setVisibleDeleteMessage(false)}
+                      >
+                        <DeleteMessage handleClose={() => setVisibleDeleteMessage(false)} />
+                      </Modal>
+
+
                     </View>
                   ) : (
                     <View

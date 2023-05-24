@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
+import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView, Modal, Vibration } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import Header from "../../Header/Header";
 import { styles } from "./style";
 import { FontAwesome } from "@expo/vector-icons";
 
-import FriendMessage from "../../FriendMessage/FriendMessage";
+import Header from "../../Header/Header";
+import DeleteMessage from "../../Modals/DeleteMessage";
 import MyMessage from "../../MyMessage/MyMessage";
+import FriendMessage from "../../FriendMessage/FriendMessage";
+
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth";
@@ -24,6 +26,7 @@ export default function Chat({ navigation }) {
   const [isFriendOnline, setIsFriendOnline] = useState(false)
 
   const [visible, setVisible] = useState(false);
+  const [visibleDeleteMessage, setVisibleDeleteMessage] = useState(false)
 
   const socket = io.connect("https://imovim-chat.onrender.com");
 
@@ -162,7 +165,7 @@ export default function Chat({ navigation }) {
 
                       <TouchableOpacity>
                         <Text style={styles.textButton}>Denunciar</Text>
-                      </TouchableOpacity> */}                      
+                      </TouchableOpacity> */}
                     </View>
 
                     <TouchableOpacity style={styles.closeIcon} onPress={() => setVisible(false)}>
@@ -194,7 +197,28 @@ export default function Chat({ navigation }) {
                       style={[styles.messages, { alignItems: "flex-end" }]}
                     >
                       <View style={{ width: "100%" }} />
-                      <MyMessage myMessage={item.message} />
+
+                      <TouchableOpacity
+                        activeOpacity={1}
+                        onLongPress={
+                          () => {
+                            setVisibleDeleteMessage(true)
+                            Vibration.vibrate(100)
+                          }
+                        }
+
+                      >
+                        <MyMessage myMessage={item.message} />
+                      </TouchableOpacity>
+
+                      <Modal
+                        visible={visibleDeleteMessage}
+                        transparent={true}
+                        onRequestClose={() => setVisibleDeleteMessage(false)}
+                      >
+                        <DeleteMessage handleClose={() => setVisibleDeleteMessage(false)} />
+                      </Modal>
+
                     </View>
                   ) : (
                     <View
