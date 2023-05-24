@@ -1,5 +1,6 @@
 import Toast, { BaseToast, ErrorToast } from "react-native-toast-message";
 import { View, Text, StyleSheet } from "react-native";
+import { Feather } from '@expo/vector-icons';
 
 export const toastConfig = {
 
@@ -33,6 +34,13 @@ export const toastConfig = {
     <View style={styles.toastSucess}>
       <Text style={styles.toastSucessText}>{text1}</Text>
     </View>
+  ),
+
+  imovimCopy: ({ text1, props }) => (
+    <View style={styles.toastCopyContainer}>
+      <Feather name="check" size={28} color="#00c001" />
+      <Text style={styles.toastCopy}>{text1}</Text>
+    </View>
   )
 };
 
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "95%",
-    height: 60,
+    height: 50,
 
     marginTop: -35,
 
@@ -79,5 +87,27 @@ const styles = StyleSheet.create({
   toastErrorText: {
     fontSize: 20,
     fontWeight: "400"
+  },
+
+  toastCopyContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+
+    width: "90%",
+    height: 50,
+
+    marginTop: -500,
+
+    backgroundColor: "#FFF",
+    borderRadius: 15,
+  },
+
+  toastCopy: {
+    fontSize: 20,
+    fontWeight: "400",
+
+    marginLeft: 10
   }
 })

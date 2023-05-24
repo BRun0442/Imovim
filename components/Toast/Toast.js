@@ -1,6 +1,6 @@
 import Toast from 'react-native-toast-message'
 
-export const showToastSuccess = (text1, text2) => {
+export const showToastSuccess = (text1, text2, ) => {
   Toast.show({
     type: "imovimSuccess", // tipo da mensagem
     text1: text1, // titulo
@@ -8,6 +8,16 @@ export const showToastSuccess = (text1, text2) => {
     autoHide: true, // ocultar automaticamente ou não
     visibilityTime: 1500, // tempo de exibição do toasty
     position: 'top', // de onde a mensagem vai aparecer
+  })
+}
+
+export const showToastBottom = (text1, direction) => {
+  Toast.show({
+    type: "imovimCopy", // tipo da mensagem
+    text1: text1, // titulo
+    autoHide: true, // ocultar automaticamente ou não
+    visibilityTime: 1500, // tempo de exibição do toasty
+    position: direction, // de onde a mensagem vai aparecer
   })
 }
 

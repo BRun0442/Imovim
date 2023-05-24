@@ -21,6 +21,7 @@
     "axios": "^1.2.0",
     "expo": "~46.0.16",
     "expo-camera": "~12.5.0",
+    "expo-clipboard": "^4.1.2",
     "expo-image-picker": "~13.3.1",
     "expo-linear-gradient": "~11.4.0",
     "expo-location": "~14.3.0",

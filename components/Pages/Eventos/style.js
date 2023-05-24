@@ -24,13 +24,13 @@ export const styles = StyleSheet.create({
         fontWeight: "600"
     },
 
-    createEventButton:{
+    createEventButton: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
     },
 
-    createEventButtonText:{
+    createEventButtonText: {
         fontSize: 14,
         fontWeight: "500"
     },
@@ -86,10 +86,10 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 15,
         padding: 10,
-        
+
         marginBottom: 15
     },
-    
+
     button: {
         display: "flex",
         flexDirection: "row",
@@ -127,8 +127,8 @@ export const styles = StyleSheet.create({
 
         resizeMode: "stretch"
     },
-    
-    contentInfo:{
+
+    contentInfo: {
         marginVertical: 15
     },
 
@@ -201,7 +201,7 @@ export const styles = StyleSheet.create({
         fontSize: 20
     },
 
-    locationDataContainer:{
+    locationDataContainer: {
         width: "100%",
 
         display: "flex",
@@ -211,14 +211,47 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
 
-    locationData:{
-        width: "90%",
+    containerButtons: {
+        width: "100%",
 
-        paddingRight: 5
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+
+        marginVertical: 5
     },
 
-    iconMapContainer:{
-        width: "10%"
+    buttonMap: {
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+
+        marginHorizontal: 5,
+        padding: 15,
+
+        backgroundColor: "#F1F1F1",
+
+        borderRadius: 10
+    },
+
+    buttonCopy: {
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+
+        marginHorizontal: 5,
+        padding: 15,
+
+        backgroundColor: "#F1F1F1",
+
+        borderRadius: 10
+    },
+
+    locationData: {
+        width: "100%",
+
+        marginVertical: 5
     },
 
     location: {
@@ -231,11 +264,6 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-
-        width: "100%",
-        height: 150,
-
-        marginTop: 20
     },
 
     interactiveButton: {
@@ -246,21 +274,21 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#F8670E",
 
-        width: 150,
-        height: 150,
+        width: 120,
+        height: 120,
 
-        borderRadius: 20
+        borderRadius: 15
     },
 
     interactiveText: {
         color: "#FFF",
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "bold",
 
         textAlign: "center"
     },
 
-    iconContainer:{
+    iconContainer: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

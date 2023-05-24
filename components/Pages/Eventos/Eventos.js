@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image } from "react-native";
-import Header from "../../Header/Header";
 import { styles } from "./style"
+
+import Header from "../../Header/Header";
+import Toast from 'react-native-toast-message'
 import CardEvents from "../../CardEvent/CardEvent";
+
 import { getAllEvents } from "../../../services/events";
 import { AuthContext } from "../../../contexts/auth";
 import { getEvent } from '../../../services/events';
@@ -16,6 +19,10 @@ import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Modalize } from "react-native-modalize";
+import { toastConfig } from '../../Toast/toastConfig';
+import { showToastBottom } from '../../Toast/Toast';
+
+import * as Clipboard from 'expo-clipboard';
 
 export default function Eventos({ navigation }) {
     const { id, setMarker, setAlterMapPermission } = useContext(AuthContext)
@@ -37,6 +44,10 @@ export default function Eventos({ navigation }) {
     const [eventId, setEventId] = useState(null)
     const [latitude, setLatitude] = useState(null)
     const [longitude, setLongitude] = useState(null)
+
+    const copyToClipboard = async () => {
+        await Clipboard.setStringAsync(location);
+    };
 
     const getEspecificData = async (event_id) => {
         await getEvent(id, event_id)
@@ -64,7 +75,7 @@ export default function Eventos({ navigation }) {
 
     const handleMap = () => {
         setAlterMapPermission(false)
-        setMarker([{latitude, longitude}])
+        setMarker([{ latitude, longitude }])
         navigation.navigate('Mapa')
     }
 
@@ -83,13 +94,6 @@ export default function Eventos({ navigation }) {
             </View>
         )
     }
-    // if (eventId != currentEvent) {
-    //     return (
-    //         <View>
-    //             <Text>Loading...</Text>
-    //         </View>
-    //     )
-    // }
 
     return (
         <View style={styles.container}>
@@ -202,12 +206,33 @@ export default function Eventos({ navigation }) {
                                     <Text style={styles.locationTitle}>Local: </Text>
 
                                     <View style={styles.locationDataContainer}>
+
                                         <View style={styles.locationData}>
                                             <Text style={styles.location}>{location}</Text>
                                         </View>
-                                        <TouchableOpacity style={styles.iconMapContainer} onPress={() => handleMap()}>
+                                    </View>
+
+                                    <View style={styles.containerButtons}>
+
+                                        <TouchableOpacity
+                                            style={styles.buttonMap}
+                                            onPress={() => handleMap()}
+                                        >
                                             <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
+                                            <Text>Ver a localização</Text>
                                         </TouchableOpacity>
+
+                                        <TouchableOpacity
+                                            style={styles.buttonCopy}
+                                            onPress={() => {
+                                                copyToClipboard()
+                                                showToastBottom('Copiado com sucesso!', 'bottom')
+                                            }}
+                                        >
+                                            <FontAwesome5 name="copy" size={30} color="#F8670E" />
+                                            <Text>Copiar a localização</Text>
+                                        </TouchableOpacity>
+
                                     </View>
 
                                 </View>
@@ -232,7 +257,7 @@ export default function Eventos({ navigation }) {
                                         })
                                 }} style={styles.interactiveButton}>
 
-                                    <AntDesign name="like1" size={60} color={userGoes ? "purple" : "#FFF"} />
+                                    <AntDesign name="like1" size={50} color={userGoes ? "purple" : "#FFF"} />
                                     <Text style={styles.interactiveText}>Eu vou!</Text>
 
                                     <View style={styles.iGoContainer}>
@@ -251,13 +276,13 @@ export default function Eventos({ navigation }) {
                                     {
                                         userSaved ? (
                                             <View style={styles.iconContainer}>
-                                                <Feather name="check-circle" size={60} color="#8B04A2" />
+                                                <Feather name="check-circle" size={55} color="#8B04A2" />
                                                 <Text style={styles.interactiveText}>Salvo</Text>
                                             </View>
                                         )
                                             :
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="add-circle-outline" size={85} color="#FFF" />
+                                                <Ionicons name="add-circle-outline" size={75} color="#FFF" />
                                                 <Text style={styles.interactiveText}>Salvar</Text>
                                             </View>
                                     }
@@ -266,8 +291,8 @@ export default function Eventos({ navigation }) {
                         </View>
                     </ScrollView>
                 )}
+                <Toast config={toastConfig} />
             </Modalize>
-
         </View>
     )
 }
