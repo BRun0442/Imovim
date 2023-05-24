@@ -51,6 +51,7 @@ export default function MeusEventos({ navigation }) {
                             return (
                                 <CardEvents
                                     key={index}
+                                    width={320}
                                     event_id={event.id}
                                     eventName={event.event_name}
                                     eventImage={event.photo}
@@ -72,6 +73,7 @@ export default function MeusEventos({ navigation }) {
                             return (
                                 <CardEvents
                                     key={index}
+                                    width={320}
                                     event_id={event.id}
                                     eventName={event.event_name}
                                     eventImage={event.photo}

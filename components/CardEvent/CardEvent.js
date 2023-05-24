@@ -5,7 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function CardEvents(props) {
     return (
-        <View style={styles.eventCard}>
+        <View style={[styles.eventCard, {width: props.width}]}>
             
             <View style={styles.titleContainer}>
                 <FontAwesome5 name="calendar-plus" size={20} color="#F8670E" />

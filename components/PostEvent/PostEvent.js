@@ -57,52 +57,13 @@ export default function PostEvent(props) {
       <View style={{ paddingHorizontal: 10 }}>
 
         <CardEvents
+          width={"100%"}
           eventName={props.event_name}
           eventImage={props.photo}
           describeEvent={props.description}
         />
 
       </View>
-
-      <View style={styles.interactiveButtonContainer}>
-
-        <TouchableOpacity
-          style={styles.interactiveButton}
-          onPress={() => setIGo(iGo + 1)}
-        >
-
-          <AntDesign name="like1" size={50} color={"#FFF"} />
-          <Text style={styles.interactiveText}>Eu vou!</Text>
-
-          <View style={styles.iGoContainer}>
-            <Text style={styles.iGo}>{iGo}</Text>
-          </View>
-
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.interactiveButton}
-          onPress={() => setSaveEvent(!saveEvent)}
-        >
-
-          {saveEvent ? (
-            <View style={styles.iconContainer}>
-              <Feather name="check-circle" size={55} color="#8B04A2" />
-              <Text style={styles.interactiveText}>Salvo</Text>
-            </View>
-          )
-            :
-            (
-              <View style={styles.iconContainer}>
-                <Ionicons name="add-circle-outline" size={75} color="#FFF" />
-                <Text style={styles.interactiveText}>Salvar</Text>
-              </View>
-            )
-          }
-
-        </TouchableOpacity>
-      </View>
-
     </View>
   )
 }

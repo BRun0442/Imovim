@@ -129,6 +129,7 @@ export default function Eventos({ navigation }) {
                                 }}>
                                     <CardEvents
                                         key={id}
+                                        width={320}
                                         event_id={item.id}
                                         eventName={item.event_name}
                                         eventImage={item.photo}
@@ -154,12 +155,14 @@ export default function Eventos({ navigation }) {
                 <View style={styles.containerEventsNearYou}>
                     <ScrollView horizontal={true}>
                         <CardEvents
+                            width={320}
                             eventName="Evento de PowerLifting"
                             eventImage="https://portalcorreio.com.br/portalcorreio/arquivos/2022/09/dc89df116679d18dc8739c7ce18d8f44.jpg"
                             describeEvent="O evento acontecerá no box da rua 22"
                         />
 
                         <CardEvents
+                            width={320}
                             eventName="Corrida no parque"
                             eventImage="https://blog.bodytech.com.br/wp-content/uploads/2022/03/shutterstock_776440840-scaled.jpg"
                             describeEvent="Corrida e Caminhada no parque"
