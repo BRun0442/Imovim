@@ -4,6 +4,7 @@ import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
 
 import Header from "../../Header/Header.js";
+import PostEvent from "../../PostEvent/PostEvent";
 import Post from "../../Post/Post.js";
 import Toast from 'react-native-toast-message'
 import PTRView from "react-native-pull-to-refresh";
@@ -76,6 +77,14 @@ export default function Feed({ navigation }) {
     });
   }
 
+  if (!posts || !friendPosts) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
+
   return (
     <PTRView
       onRefresh={handleRefresh}
@@ -139,37 +148,45 @@ export default function Feed({ navigation }) {
         data={globalPosts ? posts : friendPosts}
 
         renderItem={({ item }) =>
+              <View>
+                { item.post_type == 'post' ? (
+                <Post
+                  goToReportScreen={() => navigation.navigate("Denuncia")}
+      
+                  goToProfile={() => {
+                    if (item.user_id != id) {
+                      setAnotherUser_id(item.user_id)
+                      navigation.navigate('Outros Perfis')
+                    } else {
+                      navigation.navigate('Meu Perfil')
+                    }
+                  }}
+      
+                  goToCommentScreen={() => {
+                    setPostFocusedId(item.id)
+                    navigation.navigate('Comentarios')
+                  }}
+      
+                  goToSeePostScreen={() => {
+                    setCurrentPost(item.id)
+                    navigation.navigate('Ver Post')
+                  }}
+      
+                  likePost={async () => {
+                    await likePost(id, item.id);
+                    { globalPosts ? getFeed() : handleFriendPosts() }
+                  }}
+      
+                  {...item}
+                />
 
-          <Post
-            goToReportScreen={() => navigation.navigate("Denuncia")}
-
-            goToProfile={() => {
-              if (item.user_id != id) {
-                setAnotherUser_id(item.user_id)
-                navigation.navigate('Outros Perfis')
-              } else {
-                navigation.navigate('Meu Perfil')
-              }
-            }}
-
-            goToCommentScreen={() => {
-              setPostFocusedId(item.id)
-              navigation.navigate('Comentarios')
-            }}
-
-            goToSeePostScreen={() => {
-              setCurrentPost(item.id)
-              navigation.navigate('Ver Post')
-            }}
-
-            likePost={async () => {
-              await likePost(id, item.id);
-              { globalPosts ? getFeed() : handleFriendPosts() }
-            }}
-
-            {...item}
-          />}
-
+                ) : (
+                  <PostEvent 
+                    {...item}  
+                  />
+                ) }
+              </View>
+        }
         onEndReached={() => handlePostsLoading()}
         maxToRenderPerBatch={5}
         initialNumToRender={5}

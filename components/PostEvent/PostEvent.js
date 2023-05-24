@@ -27,7 +27,7 @@ export default function PostEvent(props) {
 
   useEffect(() => {
     // if image is empty it doesnt call function
-    props.image && getImagesSize();
+    props.photo && getImagesSize();
   })
 
   return (
@@ -54,9 +54,9 @@ export default function PostEvent(props) {
         </View>
 
         <CardEvents
-          eventName="Corrida no parque"
-          eventImage="https://blog.bodytech.com.br/wp-content/uploads/2022/03/shutterstock_776440840-scaled.jpg"
-          describeEvent="Corrida e Caminhada no parque"
+          eventName={props.event_name}
+          eventImage={props.photo}
+          describeEvent={props.description}
         />
 
         <Image
@@ -72,19 +72,19 @@ export default function PostEvent(props) {
             ]
           }
           source={
-            props.image ? { uri: props.image } : ''
+            props.photo ? { uri: props.photo } : ''
           }
         />
 
-        <Text style={styles.postDescription}>{props.caption}</Text>
+        <Text style={styles.postDescription}>{props.description}</Text>
 
         <View style={styles.postInteraction}>
-          <TouchableOpacity onPress={props.likePost} style={styles.postInteractionImage}>
+          <TouchableOpacity style={styles.postInteractionImage}>
             <AntDesign name="like1" size={24} color="white" />
             <Text style={styles.interactionQuantity}>{props.likes}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => props.goToCommentScreen()} style={styles.postInteractionImage}>
+          <TouchableOpacity style={styles.postInteractionImage}>
             <Ionicons name="chatbubble" size={24} color="white" />
             <Text style={styles.interactionQuantity}>{props.comments}</Text>
           </TouchableOpacity>
