@@ -74,14 +74,8 @@ export default function ChatGroup({ navigation }) {
     flatlistRef.current?.scrollToEnd();
   };
 
-  const getChatMembers = async () => {
-    const results = await api.get(`/chat/get-group-members/${room_id}`)
-    console.log(results.data);
-    setChatMembers(results.data)
-}
 
   useEffect(() => {
-    getChatMembers()
     joinRoom();
     scrollToBottom()
   }, [chatFocusedId]);
@@ -90,19 +84,7 @@ export default function ChatGroup({ navigation }) {
     const getMessage = async () => {
       await socket.on("receive_message", (data) => {
         console.log(data);
-        const finalData = data.map((msg) => {
-          chatMembers.forEach((member) => {
-            if(member.user_id == data.author_id) {
-              console.log(member.nickname, member.profileImage);
-              return {
-                ...msg,
-                nickname: member.nickname,
-                profileImage: member.profileImage
-              }
-            }
-          });
-        })
-        setMessageList((list) => [...list, finalData]);
+        setMessageList((list) => [...list, data]);
         retrieveMessages()
         scrollToBottom()
       });
@@ -225,7 +207,7 @@ export default function ChatGroup({ navigation }) {
                       style={[styles.messages, { alignItems: "flex-start" }]}
                     >
                       {/* <FriendMessage friendMessage={item.message} /> */}
-                      <GroupMessage hour={item.time} message={item.message} user={item.nickname} />
+                      <GroupMessage profileImage={item.profileImage} hour={item.time} message={item.message} user={item.nickname} />
                     </View>
                   )}
                 </View>

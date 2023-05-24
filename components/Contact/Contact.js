@@ -14,12 +14,6 @@ export default function Contact({ navigation, description, friend_id, getChats, 
 
     const [visibleModal, setVisibleModal] = useState(false)
 
-    const getChatMembers = async () => {
-        const results = await api.get(`/chat/get-group-members/${room_id}`)
-        console.log(results.data);
-        setChatMembers(results.data)
-    }
-
     return (
         <TouchableOpacity
             onPress={() => {
@@ -35,10 +29,7 @@ export default function Contact({ navigation, description, friend_id, getChats, 
                 else {
                     setChatProfileImage(room_photo)
                     setChatNickname(room_name)
-                    getChatMembers()
-                    .then(() => {
-                        navigation.navigate('Chat Grupo')
-                    })
+                    navigation.navigate('Chat Grupo')
                 }
             }}
 

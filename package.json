@@ -17,6 +17,7 @@
     "@react-navigation/native": "^6.1.4",
     "@react-navigation/native-stack": "^6.9.7",
     "@react-navigation/stack": "^6.3.2",
+    "@shopify/flash-list": "^1.4.3",
     "axios": "^1.2.0",
     "expo": "~46.0.16",
     "expo-camera": "~12.5.0",
