@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Image } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Clipboard, Image } from "react-native";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
@@ -22,7 +22,7 @@ import { Modalize } from "react-native-modalize";
 import { toastConfig } from '../../Toast/toastConfig';
 import { showToastBottom } from '../../Toast/Toast';
 
-import * as Clipboard from 'expo-clipboard';
+// import * as Clipboard from 'expo-clipboard';
 
 export default function Eventos({ navigation }) {
     const { id, setMarker, setAlterMapPermission } = useContext(AuthContext)
@@ -46,7 +46,7 @@ export default function Eventos({ navigation }) {
     const [longitude, setLongitude] = useState(null)
 
     const copyToClipboard = async () => {
-        await Clipboard.setStringAsync(location);
+        await Clipboard.setString(location);
     };
 
     const getEspecificData = async (event_id) => {
