@@ -8,7 +8,8 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF"
+    backgroundColor: "#FFF",
+    flex: 1
   },
 
   TopBarContainer: {

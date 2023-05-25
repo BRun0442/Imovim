@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, ScrollView, Modal } from 'react-native'
+import { View, Text, ScrollView, Modal, RefreshControl } from 'react-native'
 import Header from '../../Header/Header'
 import { styles } from './style.js'
 import UserBlock from '../../UserBlock/UserBlock'
@@ -9,6 +9,7 @@ import BlockUserModal from '../../Modals/BlockUserModal'
 
 export default function UsersBlocks({ navigation }) {
   const [usersBlocked, setUsersBlocked] = useState(null)
+  const [refreshing, setRefreshing] = useState(false);
   const { id } = useContext(AuthContext)
 
   const getUsersBlocked = async (user_id) => {
@@ -23,6 +24,13 @@ export default function UsersBlocks({ navigation }) {
   const getData = async () => {
     const data = getUsersBlocked(id)
     setUsersBlocked(await data)
+  }
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+      setTimeout(async () => {
+        setRefreshing(false);
+      }, 2000)
   }
 
   useEffect(() => {
@@ -47,7 +55,11 @@ export default function UsersBlocks({ navigation }) {
       </View>
 
       <View style={styles.containerScroll} >
-        <ScrollView style={styles.scroll}>
+        <ScrollView style={styles.scroll}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+          }
+        >
           {usersBlocked.map((user, index) => {
             return (
               <UserBlock key={index} getUsersBlocked={getUsersBlocked} nickname={user.nickname} profileImage={user.profileImage} blocked_user_id={user.user_id} navigation={navigation} />

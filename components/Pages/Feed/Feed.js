@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import { View, Text, TouchableOpacity, StatusBar, Alert, RefreshControl, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, StatusBar, RefreshControl, Alert, ActivityIndicator } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
 
@@ -19,12 +19,11 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
 import { toastConfig } from '../../Toast/toastConfig';
 import { getFriendPosts } from "../../../services/feed";
-import { FlatList } from "react-native-gesture-handler";
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
   const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext);
-
+  const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState();
   const [friendPosts, setFriendPosts] = useState()
   const [postAmmount, setPostAmmount] = useState(5);
@@ -60,6 +59,12 @@ export default function Feed({ navigation }) {
     }
   }
 
+  const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
+    const paddingToBottom = 20;
+    return layoutMeasurement.height + contentOffset.y >=
+      contentSize.height - paddingToBottom;
+  };
+
   const [globalPosts, setGlobalPosts] = useState(true)
 
   useEffect(() => {
@@ -68,13 +73,12 @@ export default function Feed({ navigation }) {
   }, [isFocused])
 
   const handleRefresh = () => {
-    return new Promise((resolve) => {
+    setRefreshing(true);
       setTimeout(async () => {
         await getFeed();
         await handleFriendPosts()
-        resolve()
+        setRefreshing(false);
       }, 2000)
-    });
   }
 
   if (!posts || !friendPosts) {
@@ -86,8 +90,7 @@ export default function Feed({ navigation }) {
   }
 
   return (
-    <PTRView
-      onRefresh={handleRefresh}
+    <View
       style={styles.container}
     >
 
@@ -144,10 +147,61 @@ export default function Feed({ navigation }) {
 
       </View>
 
-      <FlatList
-        data={globalPosts ? posts : friendPosts}
+      <ScrollView
+        onScroll={({nativeEvent}) => {
+          if (isCloseToBottom(nativeEvent)) {
+            handlePostsLoading();
+          }
+        }}
+        scrollEventThrottle={400}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+        }
+      >
+        {globalPosts ? (posts.map((item, index) => {
+          return (
+            <View>
+                { item.post_type == 'post' ? (
+                <Post
+                  goToReportScreen={() => navigation.navigate("Denuncia")}
+      
+                  goToProfile={() => {
+                    if (item.user_id != id) {
+                      setAnotherUser_id(item.user_id)
+                      navigation.navigate('Outros Perfis')
+                    } else {
+                      navigation.navigate('Meu Perfil')
+                    }
+                  }}
+      
+                  goToCommentScreen={() => {
+                    setPostFocusedId(item.id)
+                    navigation.navigate('Comentarios')
+                  }}
+      
+                  goToSeePostScreen={() => {
+                    setCurrentPost(item.id)
+                    navigation.navigate('Ver Post')
+                  }}
+      
+                  likePost={async () => {
+                    await likePost(id, item.id);
+                    { globalPosts ? getFeed() : handleFriendPosts() }
+                  }}
+      
+                  {...item}
+                />
 
-        renderItem={({ item }) =>
+                ) : (
+                  <PostEvent 
+                    {...item}  
+                  />
+                ) }
+              </View>
+          )
+        })) : (
+          friendPosts.map((item, index) => {
+            return (
               <View>
                 { item.post_type == 'post' ? (
                 <Post
@@ -186,13 +240,10 @@ export default function Feed({ navigation }) {
                   />
                 ) }
               </View>
-        }
-        onEndReached={() => handlePostsLoading()}
-        maxToRenderPerBatch={5}
-        initialNumToRender={5}
-        keyExtractor={item => item.id}
-
-      />
+            )
+          })
+        )}
+      </ScrollView>
 
       {/* <View style={styles.loadingContainer}>
         <Text style={styles.loading} >Loading...</Text>
@@ -200,6 +251,6 @@ export default function Feed({ navigation }) {
       </View> */}
 
       <Toast config={toastConfig} />
-    </PTRView >
+    </View >
   );
 }
