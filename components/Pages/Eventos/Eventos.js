@@ -5,6 +5,7 @@ import { styles } from "./style"
 import Header from "../../Header/Header";
 import Toast from 'react-native-toast-message'
 import CardEvents from "../../CardEvent/CardEvent";
+import ProfileImage from "../../ProfileImage/ProfileImage";
 
 import { getAllEvents } from "../../../services/events";
 import { AuthContext } from "../../../contexts/auth";
@@ -35,6 +36,8 @@ export default function Eventos({ navigation }) {
     const [participants, setParticipants] = useState()
     const [userGoes, setUserGoes] = useState()
     const [userSaved, setUserSaved] = useState()
+    const [author, setAuthor] = useState()
+    const [profileImage, setProfileImage] = useState()
     const [name, setName] = useState()
     const [image, setImage] = useState()
     const [date, setDate] = useState()
@@ -56,6 +59,8 @@ export default function Eventos({ navigation }) {
                 setParticipants(event[0].participants)
                 setUserGoes(event[0].userGoesToEvent)
                 setUserSaved(event[0].userSavedEvent)
+                setAuthor(event[0].nickname)
+                setProfileImage(event[0].profileImage)
                 setName(event[0].event_name)
                 setImage(event[0].photo)
                 setDate(event[0].event_date)
@@ -188,6 +193,11 @@ export default function Eventos({ navigation }) {
                         </View>
 
                         <View style={styles.contentContainer}>
+
+                            <View>
+                                <ProfileImage profileImage={profileImage} />
+                                <Text>Criado por: {author}</Text>
+                            </View>
 
                             <View style={styles.eventImage}>
                                 <Image style={styles.image} source={{ uri: image }} />
