@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import { View, Text, ScrollView, TouchableOpacity, StatusBar, RefreshControl, Alert, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, FlatList, TouchableOpacity, StatusBar, RefreshControl, Alert, ActivityIndicator } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
 
@@ -147,61 +147,12 @@ export default function Feed({ navigation }) {
 
       </View>
 
-      <ScrollView
-        onScroll={({nativeEvent}) => {
-          if (isCloseToBottom(nativeEvent)) {
-            handlePostsLoading();
-          }
-        }}
-        scrollEventThrottle={400}
+      <FlatList
+        data={globalPosts ? posts : friendPosts}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
         }
-      >
-        {globalPosts ? (posts.map((item, index) => {
-          return (
-            <View>
-                { item.post_type == 'post' ? (
-                <Post
-                  goToReportScreen={() => navigation.navigate("Denuncia")}
-      
-                  goToProfile={() => {
-                    if (item.user_id != id) {
-                      setAnotherUser_id(item.user_id)
-                      navigation.navigate('Outros Perfis')
-                    } else {
-                      navigation.navigate('Meu Perfil')
-                    }
-                  }}
-      
-                  goToCommentScreen={() => {
-                    setPostFocusedId(item.id)
-                    navigation.navigate('Comentarios')
-                  }}
-      
-                  goToSeePostScreen={() => {
-                    setCurrentPost(item.id)
-                    navigation.navigate('Ver Post')
-                  }}
-      
-                  likePost={async () => {
-                    await likePost(id, item.id);
-                    { globalPosts ? getFeed() : handleFriendPosts() }
-                  }}
-      
-                  {...item}
-                />
-
-                ) : (
-                  <PostEvent 
-                    {...item}  
-                  />
-                ) }
-              </View>
-          )
-        })) : (
-          friendPosts.map((item, index) => {
-            return (
+        renderItem={({ item }) =>
               <View>
                 { item.post_type == 'post' ? (
                 <Post
@@ -240,10 +191,15 @@ export default function Feed({ navigation }) {
                   />
                 ) }
               </View>
-            )
-          })
-        )}
-      </ScrollView>
+        }
+        onEndReached={() => handlePostsLoading()}
+        maxToRenderPerBatch={5}
+        initialNumToRender={5}
+        keyExtractor={item => item.id}
+        onRefresh={() => getFeed()}
+        refreshing={refreshing}
+      />
+
 
       {/* <View style={styles.loadingContainer}>
         <Text style={styles.loading} >Loading...</Text>
