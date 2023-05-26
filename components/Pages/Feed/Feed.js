@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
-import { View, Text, ScrollView, FlatList, TouchableOpacity, StatusBar, RefreshControl, Alert, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, FlatList, TouchableOpacity, ActivityIndicator, StatusBar, RefreshControl, Alert } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
 
@@ -78,7 +78,7 @@ export default function Feed({ navigation }) {
         await getFeed();
         await handleFriendPosts()
         setRefreshing(false);
-      }, 2000)
+      }, 1)
   }
 
   if (!posts || !friendPosts) {
@@ -93,7 +93,12 @@ export default function Feed({ navigation }) {
     <View
       style={styles.container}
     >
+      
 
+      <FlatList
+        ListHeaderComponent={
+          <View>
+            {refreshing ? <ActivityIndicator style={{height: '100%'}} /> : null}
       <StatusBar />
 
       <Header navigation={navigation} />
@@ -146,8 +151,8 @@ export default function Feed({ navigation }) {
         </View>
 
       </View>
-
-      <FlatList
+          </View>
+        }
         data={globalPosts ? posts : friendPosts}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />

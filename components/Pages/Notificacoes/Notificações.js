@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { SafeAreaView, View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { SafeAreaView, FlatList, View, Text, TouchableOpacity, RefreshControl, ScrollView } from 'react-native'
 import { AuthContext } from "../../../contexts/auth";
 import { getPostNotifications } from "../../../services/notifications";
 import { styles } from './style'
@@ -20,6 +20,7 @@ export default function Notificacoes({ navigation }) {
     const [notifications, setNotifications] = useState(null)
     const [changeComponent, setChangeComponent] = useState(true)
     const [updateScreen, setUpdateScreen] = useState(0)
+    const [refreshing, setRefreshing] = useState(false);
 
     const navigateToProfile = (user_id) => {
         setAnotherUser_id(user_id)
@@ -54,6 +55,13 @@ export default function Notificacoes({ navigation }) {
             })
     }
 
+    const handleRefresh = () => {
+        setRefreshing(true);
+          setTimeout(async () => {
+            await getData();
+            setRefreshing(false);
+          }, 1)
+      }
 
     useEffect(() => {
 
@@ -97,44 +105,57 @@ export default function Notificacoes({ navigation }) {
             {
                 changeComponent === true ?
 
-                    <ScrollView style={styles.notifications}>
-
-                        {solicitations.map((solicitation, index) => {
-                            return (
-                                <SolicitationNewFriend key={index}
-                                    profileImage={solicitation.profileImage}
-                                    name={solicitation.nickname}
-                                    city={solicitation.localization}
-                                    numberComumSports={solicitation.sportsInCommon}
-                                    friend_id={solicitation.friend1}
-                                    navigateToProfile={navigateToProfile}
-                                    acceptSolicitation={acceptSolicitation}
-                                    resignSolicitation={resignSolicitation}
-                                    navigation={navigation}
-                                />
-                            )
-                        })}
-
-                    </ScrollView>
+                    <FlatList style={styles.notifications}
+                        data={solicitations}
+                        ListEmptyComponent={<View><Text>Nenhuma solicitação</Text></View>}
+                        keyExtractor={item => item.id}
+                        refreshControl={
+                            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+                        }
+                        maxToRenderPerBatch={5}
+                        initialNumToRender={5}
+                        onRefresh={() => getFeed()}
+                        refreshing={refreshing}
+                        renderItem={({ item }) => 
+                            <SolicitationNewFriend
+                                profileImage={item.profileImage}
+                                name={item.nickname}
+                                city={item.localization}
+                                numberComumSports={item.sportsInCommon}
+                                friend_id={item.friend1}
+                                navigateToProfile={navigateToProfile}
+                                acceptSolicitation={acceptSolicitation}
+                                resignSolicitation={resignSolicitation}
+                                navigation={navigation}
+                            />
+                    }
+                    />
 
                     :
 
-                    <ScrollView style={styles.notifications}>
-                        {notifications.map((notification, index) => {
-                            return (
-                                <Notification
-                                    postId={notification.postId}
-                                    user_id={notification.user_id}
-                                    navigateToProfile={navigateToProfile}
-                                    created_at={notification.created_at}
-                                    profileImage={notification.profileImage}
-                                    text={notification.text}
-                                    navigation={navigation}
-                                />
-                            )
-                        })}
-
-                    </ScrollView>
+                    <FlatList style={styles.notifications}
+                        data={notifications}
+                        ListEmptyComponent={<View><Text>Nenhuma notificação</Text></View>}
+                        refreshControl={
+                            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+                        }
+                        maxToRenderPerBatch={5}
+                        initialNumToRender={5}
+                        onRefresh={() => getFeed()}
+                        refreshing={refreshing}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) => 
+                            <Notification
+                                postId={item.postId}
+                                user_id={item.user_id}
+                                navigateToProfile={navigateToProfile}
+                                created_at={item.created_at}
+                                profileImage={item.profileImage}
+                                text={item.text}
+                                navigation={navigation}
+                            />
+                    }
+                    />
             }
 
             <Toast config={toastConfig} />

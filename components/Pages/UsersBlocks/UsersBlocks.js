@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, ScrollView, Modal, RefreshControl } from 'react-native'
+import { View, Text, ScrollView, Modal, RefreshControl, FlatList } from 'react-native'
 import Header from '../../Header/Header'
 import { styles } from './style.js'
 import UserBlock from '../../UserBlock/UserBlock'
@@ -21,14 +21,10 @@ export default function UsersBlocks({ navigation }) {
       })
   }
 
-  const getData = async () => {
-    const data = getUsersBlocked(id)
-    setUsersBlocked(await data)
-  }
-
   const handleRefresh = () => {
     setRefreshing(true);
       setTimeout(async () => {
+        getUsersBlocked(id)
         setRefreshing(false);
       }, 2000)
   }
@@ -48,24 +44,24 @@ export default function UsersBlocks({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Header />
+      <Header navigation={navigation} />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Usuários Bloqueados</Text>
       </View>
 
       <View style={styles.containerScroll} >
-        <ScrollView style={styles.scroll}
+        <FlatList style={styles.scroll}
+          data={usersBlocked}
+          keyExtractor={item => item.id}
+          ListEmptyComponent={<View><Text>Nenhum usuário bloqueado</Text></View>}
+          renderItem={({ item }) => 
+          <UserBlock getUsersBlocked={getUsersBlocked} nickname={item.nickname} profileImage={item.profileImage} blocked_user_id={item.user_id} navigation={navigation} />
+        }
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
           }
-        >
-          {usersBlocked.map((user, index) => {
-            return (
-              <UserBlock key={index} getUsersBlocked={getUsersBlocked} nickname={user.nickname} profileImage={user.profileImage} blocked_user_id={user.user_id} navigation={navigation} />
-            )
-          })}
-        </ScrollView>
+        />
       </View>
     </View>
   )

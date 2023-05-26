@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView, FlatList } from "react-native";
+import { View, Text, RefreshControl, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView, FlatList } from "react-native";
 import { styles } from "./style.js";
 
 import PTRView from "react-native-pull-to-refresh";
@@ -27,6 +27,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   const [loaded, setLoaded] = useState(false)
   const [visible, setVisible] = useState(false);
   const [accountData, setAccountData] = useState()
+  const [refreshing, setRefreshing] = useState(false);
 
   const [profileImage, setProfileImage] = useState()
   const [backgroundImage, setBackgroundImage] = useState()
@@ -59,12 +60,11 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   }, [profileUpdated])
 
   const handleRefresh = () => {
-    return new Promise((resolve) => {
+    setRefreshing(true);
       setTimeout(async () => {
         await getData();
-        resolve()
-      }, 2000)
-    });
+        setRefreshing(false);
+      }, 1)
   }
 
   if (!loaded) {
@@ -76,9 +76,12 @@ export default function PerfilVisãoInterna({ navigation }, props) {
   }
 
   return (
-    <PTRView onRefresh={handleRefresh}>
+    <View>
       <FlatList
         data={posts}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+        }
         renderItem={({ item }) => (
           <Post
             goToSeePostScreen={() => {
@@ -101,8 +104,8 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         keyExtractor={(item) => item.id}
         maxToRenderPerBatch={5}
         initialNumToRender={5}
-        //   onRefresh={getFeed}
-        //   refreshing={isLoading}
+        onRefresh={() => getData()}
+        refreshing={refreshing}
         ListHeaderComponent={
           <View>
 
@@ -270,6 +273,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
         }
       />
       < StatusBar />
-    </PTRView >
+    </View >
   );
 }
