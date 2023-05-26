@@ -28,6 +28,7 @@ import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
 import RedefinirValidacao from "../Pages/RedefinirSenha/RedefinirValidacao";
 import UsersBlocks from "../Pages/UsersBlocks/UsersBlocks";
+import EditarGrupo from "../Pages/EditarGrupo/EditarGrupo";
 
 import CustomDrawer from "./CustomDrawer";
 import Map from "../Pages/Map/Map"
@@ -37,15 +38,15 @@ import RedefinirSenha from "../Pages/RedefinirSenha/RedefinirSenha";
 const Drawer = createDrawerNavigator();
 
 export default function DrawerRoutes() {
-  const { accountData } = useContext(AccountDataContext); 
+  const { accountData } = useContext(AccountDataContext);
 
   return (
-    <Drawer.Navigator 
-      drawerContent={props => 
-        <CustomDrawer {...props} accountData={accountData}/>
-      } 
+    <Drawer.Navigator
+      drawerContent={props =>
+        <CustomDrawer {...props} accountData={accountData} />
+      }
 
-      backBehavior = "history"
+      backBehavior="history"
       initialRouteName="Feed"
     >
       <Drawer.Screen name="Página Inicial" component={Feed} options={{ headerShown: false, }} />
@@ -75,9 +76,10 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Denuncia" component={Denuncia} options={{ headerShown: false, }} />
       <Drawer.Screen name="Configurações" component={Configuracoes} options={{ headerShown: false, }} />
       <Drawer.Screen name="Validação Para Redefinir Senha" component={RedefinirValidacao} options={{ headerShown: false, }} />
-      <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />   
-      <Drawer.Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />  
-      <Drawer.Screen name="Usuários Bloqueados" component={UsersBlocks} options={{ headerShown: false, }} />  
+      <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Usuários Bloqueados" component={UsersBlocks} options={{ headerShown: false, }} />
+      <Drawer.Screen name="Editar Grupo" component={EditarGrupo} options={{ headerShown: false, }} />
     </Drawer.Navigator>
   );
 }

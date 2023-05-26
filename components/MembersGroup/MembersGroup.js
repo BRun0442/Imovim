@@ -3,8 +3,6 @@ import { SafeAreaView, View, Text, ScrollView, Image, TouchableOpacity, Modal } 
 import { styles } from './style';
 
 import { MaterialIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 
 import IconRemoveGroup from '../Modals/IconRemoveGroup';
 
@@ -36,9 +34,6 @@ export default function DadosGrupo(props) {
           />
         </Modal>
 
-        <TouchableOpacity>
-          <Ionicons name="chatbubble" size={30} color="#FF7926" />
-        </TouchableOpacity>
       </View>
     </View>
   )

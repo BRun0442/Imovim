@@ -2,13 +2,11 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#FFF",
   },
 
   titleContainer: {
     width: "100%",
-    height: "5%",
 
     display: "flex",
     justifyContent: "space-between",
@@ -23,26 +21,28 @@ export const styles = StyleSheet.create({
     fontWeight: "600"
   },
 
-  addNewMember:{
-      width: 50,
-      height: 50,
+  addNewMember: {
+    width: 50,
+    height: 50,
 
-      padding: 10,
+    padding: 10,
 
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
 
-      backgroundColor: "#F1F1F1",
+    backgroundColor: "#F1F1F1",
 
-      borderRadius: 50,
+    borderRadius: 50,
   },
 
-  addNewMemberText:{
+  addNewMemberText: {
     fontSize: 16
   },
 
   dataGroup: {
+    width: "100%",
+
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -50,11 +50,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#F1F1F1",
 
-    width: "100%",
-    height: "20%",
-
-    paddingHorizontal: 25,
-    paddingVertical: 15,
+    padding: 15,
 
     borderRadius: 20,
 
@@ -66,14 +62,18 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    width: 130,
-    height: 130,
+    width: 125,
+    height: 125,
 
     borderRadius: 100,
 
     backgroundColor: "#FFF",
 
-    marginRight: 10
+    marginRight: 15
+  },
+
+  groupNameText:{
+    fontSize: 20
   },
 
   groupName: {
@@ -97,10 +97,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
-    height: "10%",
 
-    paddingHorizontal: 25,
-    paddingVertical: 15,
+    padding: 20,
 
     borderRadius: 20,
 
@@ -125,7 +123,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F1F1F1",
 
     width: "100%",
-    height: "40%",
 
     paddingHorizontal: 15,
     paddingVertical: 5,
@@ -134,18 +131,14 @@ export const styles = StyleSheet.create({
   },
 
   titleContainerMembers: {
-    height: "10%",
-
-    marginVertical: 15
+    padding: 10
   },
-
+  
   titleMembers: {
     fontSize: 22,
-    fontWeight: "600"
-  },
+    fontWeight: "600",
 
-  memberListView: {
-    // height: "80%"
+    marginVertical: 5,
   },
 
   closedButtonContainer: {
@@ -170,7 +163,7 @@ export const styles = StyleSheet.create({
 
     borderRadius: 30,
 
-    marginBottom: 50
+    marginVertical: 25
   },
 
   textButton: {

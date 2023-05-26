@@ -33,6 +33,7 @@ export default function DadosGrupo({ navigation }, props) {
 
   return (
     <ScrollView style={styles.container}>
+
       <Header navigation={navigation} />
 
       <View style={{ paddingHorizontal: 15 }}>
@@ -57,8 +58,8 @@ export default function DadosGrupo({ navigation }, props) {
           </View>
 
           <View>
-            <Text>Nome: </Text>
-            <Text style={styles.groupName}>{props.groupName}</Text>
+            <Text style={styles.groupNameText}>Nome do Grupo: </Text>
+            <Text style={styles.groupName}>{chatNickname}</Text>
           </View>
 
           <TouchableOpacity style={styles.icon}>
@@ -88,7 +89,7 @@ export default function DadosGrupo({ navigation }, props) {
 
           <Foundation name="pencil" size={24} color="#000"
             style={styles.icon}
-          // onPress={() => navigation.navigate('Editar Grupo')}
+            onPress={() => navigation.navigate('Editar Grupo')}
           />
 
         </View>
@@ -99,11 +100,10 @@ export default function DadosGrupo({ navigation }, props) {
             <Text style={styles.titleMembers}>Participantes</Text>
           </View>
 
-          <View style={styles.memberListView}>
+          <View style={{ paddingVertical: 10 }}>
 
             <FlatList
               data={groupMembers}
-              style={{ height: "100%" }}
               renderItem={({ item }) =>
                 <View>
                   <MembersGroup memberName={item.nickname} profileImage={item.profileImage} />
