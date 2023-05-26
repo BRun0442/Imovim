@@ -113,6 +113,25 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
 
+    authorEvent: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+
+        marginBottom: 15
+    },
+
+    authorTitle: {
+        fontSize: 16,
+
+        marginLeft: 8
+    },
+
+    author: {
+        fontSize: 16,
+        fontWeight: "600",
+    },
+
     eventImage: {
         width: "100%",
         height: 300,

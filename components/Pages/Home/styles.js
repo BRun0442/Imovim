@@ -56,6 +56,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     paddingHorizontal: 15,
+    marginBottom: 10
   },
 
   text: {

@@ -7,18 +7,39 @@ export const styles = StyleSheet.create({
   },
 
   titleContainer: {
-    display: "flex",
-    justifyContent: "center",
-
+    width: "100%",
     height: "5%",
 
-    marginTop: 25,
-    marginBottom: 20,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+
+    marginVertical: 25,
   },
 
   title: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "600"
+  },
+
+  addNewMember:{
+      width: 50,
+      height: 50,
+
+      padding: 10,
+
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+
+      backgroundColor: "#F1F1F1",
+
+      borderRadius: 50,
+  },
+
+  addNewMemberText:{
+    fontSize: 16
   },
 
   dataGroup: {
@@ -52,7 +73,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#FFF",
 
-    marginRight: 15
+    marginRight: 10
   },
 
   groupName: {
@@ -124,7 +145,7 @@ export const styles = StyleSheet.create({
   },
 
   memberListView: {
-    height: "80%"
+    // height: "80%"
   },
 
   closedButtonContainer: {
@@ -133,7 +154,8 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "10%"
+
+    marginVertical: 15
   },
 
   closedButton: {
@@ -147,6 +169,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#DB3232",
 
     borderRadius: 30,
+
+    marginBottom: 50
   },
 
   textButton: {

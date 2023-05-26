@@ -194,9 +194,10 @@ export default function Eventos({ navigation }) {
 
                         <View style={styles.contentContainer}>
 
-                            <View>
+                            <View style={styles.authorEvent}>
                                 <ProfileImage profileImage={profileImage} />
-                                <Text>Criado por: {author}</Text>
+                                <Text style={styles.authorTitle}>Criado por: </Text>
+                                <Text style={styles.author}>{author}</Text>
                             </View>
 
                             <View style={styles.eventImage}>
