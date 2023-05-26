@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
 
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center"
   },
 
   modal: {

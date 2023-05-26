@@ -5,7 +5,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function IconRemoveGroup({ handleClose }) {
+export default function IconRemoveGroup({ handleClose, memberName }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.modal}>
@@ -15,7 +15,7 @@ export default function IconRemoveGroup({ handleClose }) {
             <TouchableOpacity onPress={handleClose}>
               <AntDesign name="closecircle" size={30} color="#FFF" />
             </TouchableOpacity>
-            <Text style={styles.exitGroupText}>Deseja remover "Nome Grupo"</Text>
+            <Text style={styles.exitGroupText}>Deseja remover {memberName} ?</Text>
           </View>
 
           <View style={styles.buttons}>
@@ -50,16 +50,18 @@ const styles = StyleSheet.create({
 
   modal: {
     width: "100%",
-    height: "15%",
+    height: 160,
 
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+
+    paddingHorizontal: 15
   },
 
   content: {
-    width: "95%",
+    width: "100%",
     height: "100%",
 
     display: "flex",
@@ -87,7 +89,9 @@ const styles = StyleSheet.create({
     fontSize: 23,
     color: "#FFF",
 
-    marginLeft: 10
+    marginLeft: 10,
+
+    marginVertical: 5
   },
 
   buttons: {

@@ -41,9 +41,11 @@ export default function DadosGrupo({ navigation }, props) {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Dados do grupo</Text>
 
-          <View style={styles.addNewMember}>
+          <TouchableOpacity
+            // onPress={() => navigation.navigate('Adicionar Participante')}
+            style={styles.addNewMember}>
             <MaterialIcons name="group-add" size={30} color="#FF7926" />
-          </View>
+          </TouchableOpacity>
 
         </View>
 
@@ -106,7 +108,7 @@ export default function DadosGrupo({ navigation }, props) {
               data={groupMembers}
               renderItem={({ item }) =>
                 <View>
-                  <MembersGroup memberName={item.nickname} profileImage={item.profileImage} />
+                  <MembersGroup chatNickname={chatNickname} memberName={item.nickname} profileImage={item.profileImage} />
                 </View>
               }
             />
