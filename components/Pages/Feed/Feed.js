@@ -37,41 +37,41 @@ export default function Feed({ navigation }) {
   const [friendPosts, setFriendPosts] = useState()
   const [postAmmount, setPostAmmount] = useState(5);
 
-    const [currentEvent, setCurrentEvent] = useState()
-    const [participants, setParticipants] = useState()
-    const [userGoes, setUserGoes] = useState()
-    const [userSaved, setUserSaved] = useState()
-    const [author, setAuthor] = useState()
-    const [profileImage, setProfileImage] = useState()
-    const [name, setName] = useState()
-    const [image, setImage] = useState()
-    const [date, setDate] = useState()
-    const [hour, setHour] = useState()
-    const [location, setLocation] = useState()
-    const [description, setDescription] = useState()
-    const [eventId, setEventId] = useState(null)
-    const [latitude, setLatitude] = useState(null)
-    const [longitude, setLongitude] = useState(null)
+  const [currentEvent, setCurrentEvent] = useState()
+  const [participants, setParticipants] = useState()
+  const [userGoes, setUserGoes] = useState()
+  const [userSaved, setUserSaved] = useState()
+  const [author, setAuthor] = useState()
+  const [profileImage, setProfileImage] = useState()
+  const [name, setName] = useState()
+  const [image, setImage] = useState()
+  const [date, setDate] = useState()
+  const [hour, setHour] = useState()
+  const [location, setLocation] = useState()
+  const [description, setDescription] = useState()
+  const [eventId, setEventId] = useState(null)
+  const [latitude, setLatitude] = useState(null)
+  const [longitude, setLongitude] = useState(null)
 
   const getEspecificData = async (event_id) => {
     await getEvent(id, event_id)
-        .then((event) => {
-            setCurrentEvent(event[0].id);
-            setParticipants(event[0].participants)
-            setUserGoes(event[0].userGoesToEvent)
-            setUserSaved(event[0].userSavedEvent)
-            setAuthor(event[0].nickname)
-            setProfileImage(event[0].profileImage)
-            setName(event[0].event_name)
-            setImage(event[0].photo)
-            setDate(event[0].event_date)
-            setHour(event[0].event_hour)
-            setLocation(event[0].localization)
-            setDescription(event[0].description)
-            setLatitude(event[0].latitude)
-            setLongitude(event[0].longitude)
-        })
-}
+      .then((event) => {
+        setCurrentEvent(event[0].id);
+        setParticipants(event[0].participants)
+        setUserGoes(event[0].userGoesToEvent)
+        setUserSaved(event[0].userSavedEvent)
+        setAuthor(event[0].nickname)
+        setProfileImage(event[0].profileImage)
+        setName(event[0].event_name)
+        setImage(event[0].photo)
+        setDate(event[0].event_date)
+        setHour(event[0].event_hour)
+        setLocation(event[0].localization)
+        setDescription(event[0].description)
+        setLatitude(event[0].latitude)
+        setLongitude(event[0].longitude)
+      })
+  }
 
   //Refresh page when change the route
   const isFocused = useIsFocused();
@@ -268,133 +268,136 @@ export default function Feed({ navigation }) {
       </View> */}
 
       <Modalize ref={modalizeEvents}>
-        {/* {currentEvent == eventId ? ( */}
+        {currentEvent == eventId ? (
 
-        <ScrollView style={styles.content}>
-      
-          <View style={styles.header}>
-            <TouchableOpacity style={styles.button}>
-              <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
-              <Text style={styles.headerText}>{name}</Text>
-            </TouchableOpacity>
-          </View>
+          <ScrollView style={styles.content}>
 
-          <View style={styles.contentContainer}>
-
-            <View style={styles.authorEvent}>
-              <ProfileImage profileImage={profileImage} />
-              <Text style={styles.authorTitle}>Criado por: </Text>
-              <Text style={styles.author}>{author}</Text>
+            <View style={styles.header}>
+              <TouchableOpacity style={styles.button}>
+                <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
+                <Text style={styles.headerText}>{name}</Text>
+              </TouchableOpacity>
             </View>
 
-            <View style={styles.eventImage}>
-              <Image style={styles.image} source={{ uri: image }} />
-            </View>
+            <View style={styles.contentContainer}>
 
-            <View style={styles.contentInfo}>
-
-              <View style={styles.dateEvent}>
-                <Text style={styles.dateTitle}>Data: </Text>
-                <Text style={styles.date}>{date}</Text>
+              <View style={styles.authorEvent}>
+                <ProfileImage profileImage={profileImage} />
+                <Text style={styles.authorTitle}>Criado por: </Text>
+                <Text style={styles.author}>{author}</Text>
               </View>
 
-              <View style={styles.hourEvent}>
-                <Text style={styles.hourTitle}>Horário: </Text>
-                <Text style={styles.hour}>{hour}</Text>
+              <View style={styles.eventImage}>
+                <Image style={styles.image} source={{ uri: image }} />
               </View>
 
-              <View style={styles.locationEvent}>
-                <Text style={styles.locationTitle}>Local: </Text>
+              <View style={styles.contentInfo}>
 
-                <View style={styles.locationDataContainer}>
+                <View style={styles.dateEvent}>
+                  <Text style={styles.dateTitle}>Data: </Text>
+                  <Text style={styles.date}>{date}</Text>
+                </View>
 
-                  <View style={styles.locationData}>
-                    <Text style={styles.location}>{location}</Text>
+                <View style={styles.hourEvent}>
+                  <Text style={styles.hourTitle}>Horário: </Text>
+                  <Text style={styles.hour}>{hour}</Text>
+                </View>
+
+                <View style={styles.locationEvent}>
+                  <Text style={styles.locationTitle}>Local: </Text>
+
+                  <View style={styles.locationDataContainer}>
+
+                    <View style={styles.locationData}>
+                      <Text style={styles.location}>{location}</Text>
+                    </View>
                   </View>
+
+                  <View style={styles.containerButtons}>
+
+                    <TouchableOpacity
+                      style={styles.buttonMap}
+                      onPress={() => handleMap()}
+                    >
+                      <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
+                      <Text>Ver a localização</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      style={styles.buttonCopy}
+                      onPress={() => {
+                        copyToClipboard()
+                        showToastBottom('Copiado com sucesso!', 'bottom')
+                      }}
+                    >
+                      <FontAwesome5 name="copy" size={30} color="#F8670E" />
+                      <Text>Copiar a localização</Text>
+                    </TouchableOpacity>
+
+                  </View>
+
                 </View>
 
-                <View style={styles.containerButtons}>
+                <View style={styles.descritpionEvent}>
 
-                  <TouchableOpacity
-                    style={styles.buttonMap}
-                    onPress={() => handleMap()}
-                  >
-                    <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
-                    <Text>Ver a localização</Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={styles.buttonCopy}
-                    onPress={() => {
-                      copyToClipboard()
-                      showToastBottom('Copiado com sucesso!', 'bottom')
-                    }}
-                  >
-                    <FontAwesome5 name="copy" size={30} color="#F8670E" />
-                    <Text>Copiar a localização</Text>
-                  </TouchableOpacity>
-
+                  <Text style={styles.description}>
+                    <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
+                    {description}
+                  </Text>
                 </View>
 
               </View>
 
-              <View style={styles.descritpionEvent}>
+              <View style={styles.interactiveButtonContainer}>
 
-                <Text style={styles.description}>
-                  <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
-                  {description}
-                </Text>
+                <TouchableOpacity onPress={() => {
+                  goToEvent(id, eventId)
+                    .then(() => {
+                      console.log('testeeee');
+                      getEspecificData(eventId)
+                    })
+                }} style={styles.interactiveButton}>
+
+                  <AntDesign name="like1" size={50} color={userGoes ? "purple" : "#FFF"} />
+                  <Text style={styles.interactiveText}>Eu vou!</Text>
+
+                  <View style={styles.iGoContainer}>
+                    <Text style={styles.iGo}>{participants}</Text>
+                  </View>
+
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => {
+                  saveEvent(id, eventId)
+                    .then(() => {
+                      console.log('testeeee');
+                      getEspecificData(eventId)
+                    })
+                }} style={styles.interactiveButton}>
+                  {
+                    userSaved ? (
+                      <View style={styles.iconContainer}>
+                        <Feather name="check-circle" size={55} color="#8B04A2" />
+                        <Text style={styles.interactiveText}>Salvo</Text>
+                      </View>
+                    )
+                      :
+                      <View style={styles.iconContainer}>
+                        <Ionicons name="add-circle-outline" size={75} color="#FFF" />
+                        <Text style={styles.interactiveText}>Salvar</Text>
+                      </View>
+                  }
+                </TouchableOpacity>
               </View>
-
             </View>
-
-            <View style={styles.interactiveButtonContainer}>
-
-              <TouchableOpacity onPress={() => {
-                goToEvent(id, eventId)
-                  .then(() => {
-                    console.log('testeeee');
-                    getEspecificData(eventId)
-                  })
-              }} style={styles.interactiveButton}>
-
-                <AntDesign name="like1" size={50} color={userGoes ? "purple" : "#FFF"} />
-                <Text style={styles.interactiveText}>Eu vou!</Text>
-
-                <View style={styles.iGoContainer}>
-                  <Text style={styles.iGo}>{participants}</Text>
-                </View>
-
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={() => {
-                saveEvent(id, eventId)
-                  .then(() => {
-                    console.log('testeeee');
-                    getEspecificData(eventId)
-                  })
-              }} style={styles.interactiveButton}>
-                {
-                  userSaved ? (
-                    <View style={styles.iconContainer}>
-                      <Feather name="check-circle" size={55} color="#8B04A2" />
-                      <Text style={styles.interactiveText}>Salvo</Text>
-                    </View>
-                  )
-                    :
-                    <View style={styles.iconContainer}>
-                      <Ionicons name="add-circle-outline" size={75} color="#FFF" />
-                      <Text style={styles.interactiveText}>Salvar</Text>
-                    </View>
-                }
-              </TouchableOpacity>
+          </ScrollView>
+        ) :
+          (
+            <View style={{ height: 800, alignItems: "center", justifyContent: "center" }}>
+              <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 20 }} >Loading...</Text>
+              <ActivityIndicator animating={true} size={35} color={"#FF6709"} />
             </View>
-          </View>
-        </ScrollView>
-        {/* ):
-        (
-          <View><Text>Loading...</Text></View>
-        )} */}
+          )}
       </Modalize>
 
       <Toast config={toastConfig} />
