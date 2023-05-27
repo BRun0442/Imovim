@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback, useRef } from "react";
-import { View, Text, ScrollView, FlatList, TouchableOpacity, ActivityIndicator, StatusBar, RefreshControl, Alert } from "react-native";
+import { View, Text, ScrollView, FlatList, Image, TouchableOpacity, ActivityIndicator, StatusBar, RefreshControl, Alert } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
 
@@ -9,6 +9,7 @@ import Post from "../../Post/Post.js";
 import Toast from 'react-native-toast-message'
 import PTRView from "react-native-pull-to-refresh";
 import { Modalize } from "react-native-modalize";
+import ProfileImage from "../../ProfileImage/ProfileImage";
 
 import { useIsFocused } from "@react-navigation/native";
 import feedManager from "../../../services/feed";
@@ -20,6 +21,13 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { AccountDataContext } from "../../../contexts/accountData";
 import { toastConfig } from '../../Toast/toastConfig';
 import { getFriendPosts } from "../../../services/feed";
+import { getEvent } from '../../../services/events';
+import { goToEvent } from '../../../services/events';
+import { saveEvent } from '../../../services/events';
+
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
@@ -28,6 +36,42 @@ export default function Feed({ navigation }) {
   const [posts, setPosts] = useState();
   const [friendPosts, setFriendPosts] = useState()
   const [postAmmount, setPostAmmount] = useState(5);
+
+    const [currentEvent, setCurrentEvent] = useState()
+    const [participants, setParticipants] = useState()
+    const [userGoes, setUserGoes] = useState()
+    const [userSaved, setUserSaved] = useState()
+    const [author, setAuthor] = useState()
+    const [profileImage, setProfileImage] = useState()
+    const [name, setName] = useState()
+    const [image, setImage] = useState()
+    const [date, setDate] = useState()
+    const [hour, setHour] = useState()
+    const [location, setLocation] = useState()
+    const [description, setDescription] = useState()
+    const [eventId, setEventId] = useState(null)
+    const [latitude, setLatitude] = useState(null)
+    const [longitude, setLongitude] = useState(null)
+
+  const getEspecificData = async (event_id) => {
+    await getEvent(id, event_id)
+        .then((event) => {
+            setCurrentEvent(event[0].id);
+            setParticipants(event[0].participants)
+            setUserGoes(event[0].userGoesToEvent)
+            setUserSaved(event[0].userSavedEvent)
+            setAuthor(event[0].nickname)
+            setProfileImage(event[0].profileImage)
+            setName(event[0].event_name)
+            setImage(event[0].photo)
+            setDate(event[0].event_date)
+            setHour(event[0].event_hour)
+            setLocation(event[0].localization)
+            setDescription(event[0].description)
+            setLatitude(event[0].latitude)
+            setLongitude(event[0].longitude)
+        })
+}
 
   //Refresh page when change the route
   const isFocused = useIsFocused();
@@ -196,7 +240,11 @@ export default function Feed({ navigation }) {
             ) : (
 
               <TouchableOpacity
-                onPress={() => onOpenEvents()}
+                onPress={() => {
+                  setEventId(item.id)
+                  getEspecificData(item.id)
+                  onOpenEvents()
+                }}
                 activeOpacity={0.7}
               >
                 <PostEvent
@@ -220,8 +268,10 @@ export default function Feed({ navigation }) {
       </View> */}
 
       <Modalize ref={modalizeEvents}>
-        <ScrollView style={styles.content}>
+        {/* {currentEvent == eventId ? ( */}
 
+        <ScrollView style={styles.content}>
+      
           <View style={styles.header}>
             <TouchableOpacity style={styles.button}>
               <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
@@ -341,6 +391,10 @@ export default function Feed({ navigation }) {
             </View>
           </View>
         </ScrollView>
+        {/* ):
+        (
+          <View><Text>Loading...</Text></View>
+        )} */}
       </Modalize>
 
       <Toast config={toastConfig} />
