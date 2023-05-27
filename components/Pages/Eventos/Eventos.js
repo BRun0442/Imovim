@@ -305,8 +305,8 @@ export default function Eventos({ navigation }) {
                         </View>
                     </ScrollView>
                 )}
-                <Toast config={toastConfig} />
             </Modalize>
+            <Toast config={toastConfig} />
         </View>
     )
 }

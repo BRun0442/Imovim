@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  background: {
+    width: '100%',
+    backgroundColor: '#F1F1F1',
+
+    paddingVertical: 15
+  },
+
   postContainer: {
     width: '100%',
     backgroundColor: '#FFF',
@@ -8,8 +15,7 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#E98AF9',
 
-    paddingVertical: 20,
-    marginBottom: 10
+    paddingVertical: 15
   },
 
   postProfile: {
@@ -49,29 +55,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     // Imagens de proporções diferentes mantem a proporção e se adequam ao container!
     resizeMode: 'contain',
-  },
-
-  postDescription: {
-    marginTop: '2%',
-    fontWeight: '500',
-  },
-
-  postInteraction: {
-    width: 250,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignSelf: 'center',
-    marginTop: 5,
-  },
-
-  postInteractionImage: {
-    height: 40,
-    width: 40,
-    backgroundColor: '#A512BD',
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   profileImage: {

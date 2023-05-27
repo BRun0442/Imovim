@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useCallback } from "react";
+import React, { useEffect, useState, useContext, useCallback, useRef } from "react";
 import { View, Text, ScrollView, FlatList, TouchableOpacity, ActivityIndicator, StatusBar, RefreshControl, Alert } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { styles } from "./styles";
@@ -8,6 +8,7 @@ import PostEvent from "../../PostEvent/PostEvent";
 import Post from "../../Post/Post.js";
 import Toast from 'react-native-toast-message'
 import PTRView from "react-native-pull-to-refresh";
+import { Modalize } from "react-native-modalize";
 
 import { useIsFocused } from "@react-navigation/native";
 import feedManager from "../../../services/feed";
@@ -59,11 +60,17 @@ export default function Feed({ navigation }) {
     }
   }
 
-  const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
-    const paddingToBottom = 20;
-    return layoutMeasurement.height + contentOffset.y >=
-      contentSize.height - paddingToBottom;
+  const modalizeEvents = useRef(null);
+
+  const onOpenEvents = () => {
+    modalizeEvents.current?.open();
   };
+
+  // const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
+  //   const paddingToBottom = 20;
+  //   return layoutMeasurement.height + contentOffset.y >=
+  //     contentSize.height - paddingToBottom;
+  // };
 
   const [globalPosts, setGlobalPosts] = useState(true)
 
@@ -74,11 +81,11 @@ export default function Feed({ navigation }) {
 
   const handleRefresh = () => {
     setRefreshing(true);
-      setTimeout(async () => {
-        await getFeed();
-        await handleFriendPosts()
-        setRefreshing(false);
-      }, 1)
+    setTimeout(async () => {
+      await getFeed();
+      await handleFriendPosts()
+      setRefreshing(false);
+    }, 1)
   }
 
   if (!posts || !friendPosts) {
@@ -90,67 +97,63 @@ export default function Feed({ navigation }) {
   }
 
   return (
-    <View
-      style={styles.container}
-    >
-      
+    <View style={styles.container}>
 
       <FlatList
         ListHeaderComponent={
           <View>
-            {refreshing ? <ActivityIndicator style={{height: '100%'}} /> : null}
-      <StatusBar />
+            <StatusBar />
 
-      <Header navigation={navigation} />
+            <Header navigation={navigation} />
 
-      <View>
+            <View>
 
-        <View style={styles.TopBarContainer}>
+              <View style={styles.TopBarContainer}>
 
-          <View style={styles.topBar}>
+                <View style={styles.topBar}>
 
-            <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
-              <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
-            </TouchableOpacity>
+                  <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
+                    <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
+                  </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
-              <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
-            </TouchableOpacity>
+                  <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} styles={styles.button}>
+                    <MaterialCommunityIcons name="camera" color={"#FFF"} size={26} />
+                  </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
-              <FontAwesome5 name="edit" size={24} color="#FFF" />
-            </TouchableOpacity>
+                  <TouchableOpacity onPress={() => { navigation.navigate('Criar Post') }} styles={styles.button}>
+                    <FontAwesome5 name="edit" size={24} color="#FFF" />
+                  </TouchableOpacity>
 
-          </View>
+                </View>
 
-        </View>
+              </View>
 
-        <View style={styles.optionPost}>
+              <View style={styles.optionPost}>
 
-          <View style={[styles.buttonGlobal, globalPosts ? { backgroundColor: "#F1F1F1" } : { backgroundColor: "#FFF" }]}>
-            <TouchableOpacity
-              onPress={() => setGlobalPosts(true)}
-              style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
-            >
-              <Text style={styles.optionPostButtonText}>Global</Text>
-            </TouchableOpacity>
-          </View>
+                <View style={[styles.buttonGlobal, globalPosts ? { backgroundColor: "#F1F1F1" } : { backgroundColor: "#FFF" }]}>
+                  <TouchableOpacity
+                    onPress={() => setGlobalPosts(true)}
+                    style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
+                  >
+                    <Text style={styles.optionPostButtonText}>Global</Text>
+                  </TouchableOpacity>
+                </View>
 
-          <View style={[styles.buttonFriends, globalPosts ? { backgroundColor: "#FFF" } : { backgroundColor: "#F1F1F1" }]}>
-            <TouchableOpacity
-              onPress={() => {
-                // handleFriendPosts()
-                setGlobalPosts(false)
-              }}
-              style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
-            >
-              <Text style={styles.optionPostButtonText}>Amigos</Text>
-            </TouchableOpacity>
-          </View>
+                <View style={[styles.buttonFriends, globalPosts ? { backgroundColor: "#FFF" } : { backgroundColor: "#F1F1F1" }]}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      // handleFriendPosts()
+                      setGlobalPosts(false)
+                    }}
+                    style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
+                  >
+                    <Text style={styles.optionPostButtonText}>Amigos</Text>
+                  </TouchableOpacity>
+                </View>
 
-        </View>
+              </View>
 
-      </View>
+            </View>
           </View>
         }
         data={globalPosts ? posts : friendPosts}
@@ -158,44 +161,50 @@ export default function Feed({ navigation }) {
           <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
         }
         renderItem={({ item }) =>
-              <View>
-                { item.post_type == 'post' ? (
-                <Post
-                  goToReportScreen={() => navigation.navigate("Denuncia")}
-      
-                  goToProfile={() => {
-                    if (item.user_id != id) {
-                      setAnotherUser_id(item.user_id)
-                      navigation.navigate('Outros Perfis')
-                    } else {
-                      navigation.navigate('Meu Perfil')
-                    }
-                  }}
-      
-                  goToCommentScreen={() => {
-                    setPostFocusedId(item.id)
-                    navigation.navigate('Comentarios')
-                  }}
-      
-                  goToSeePostScreen={() => {
-                    setCurrentPost(item.id)
-                    navigation.navigate('Ver Post')
-                  }}
-      
-                  likePost={async () => {
-                    await likePost(id, item.id);
-                    { globalPosts ? getFeed() : handleFriendPosts() }
-                  }}
-      
+          <View>
+            {item.post_type == 'post' ? (
+              <Post
+                goToReportScreen={() => navigation.navigate("Denuncia")}
+
+                goToProfile={() => {
+                  if (item.user_id != id) {
+                    setAnotherUser_id(item.user_id)
+                    navigation.navigate('Outros Perfis')
+                  } else {
+                    navigation.navigate('Meu Perfil')
+                  }
+                }}
+
+                goToCommentScreen={() => {
+                  setPostFocusedId(item.id)
+                  navigation.navigate('Comentarios')
+                }}
+
+                goToSeePostScreen={() => {
+                  setCurrentPost(item.id)
+                  navigation.navigate('Ver Post')
+                }}
+
+                likePost={async () => {
+                  await likePost(id, item.id);
+                  { globalPosts ? getFeed() : handleFriendPosts() }
+                }}
+
+                {...item}
+              />
+
+            ) : (
+
+              <TouchableOpacity
+                onPress={() => onOpenEvents()}
+                activeOpacity={0.7}
+              >
+                <PostEvent
                   {...item}
                 />
-
-                ) : (
-                  <PostEvent 
-                    {...item}  
-                  />
-                ) }
-              </View>
+              </TouchableOpacity>
+            )}
+          </View>
         }
         onEndReached={() => handlePostsLoading()}
         maxToRenderPerBatch={5}
@@ -205,11 +214,134 @@ export default function Feed({ navigation }) {
         refreshing={refreshing}
       />
 
-
       {/* <View style={styles.loadingContainer}>
         <Text style={styles.loading} >Loading...</Text>
         <ActivityIndicator animating={true} size={20} color={"#FF6709"} />
       </View> */}
+
+      <Modalize ref={modalizeEvents}>
+        <ScrollView style={styles.content}>
+
+          <View style={styles.header}>
+            <TouchableOpacity style={styles.button}>
+              <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
+              <Text style={styles.headerText}>{name}</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.contentContainer}>
+
+            <View style={styles.authorEvent}>
+              <ProfileImage profileImage={profileImage} />
+              <Text style={styles.authorTitle}>Criado por: </Text>
+              <Text style={styles.author}>{author}</Text>
+            </View>
+
+            <View style={styles.eventImage}>
+              <Image style={styles.image} source={{ uri: image }} />
+            </View>
+
+            <View style={styles.contentInfo}>
+
+              <View style={styles.dateEvent}>
+                <Text style={styles.dateTitle}>Data: </Text>
+                <Text style={styles.date}>{date}</Text>
+              </View>
+
+              <View style={styles.hourEvent}>
+                <Text style={styles.hourTitle}>Horário: </Text>
+                <Text style={styles.hour}>{hour}</Text>
+              </View>
+
+              <View style={styles.locationEvent}>
+                <Text style={styles.locationTitle}>Local: </Text>
+
+                <View style={styles.locationDataContainer}>
+
+                  <View style={styles.locationData}>
+                    <Text style={styles.location}>{location}</Text>
+                  </View>
+                </View>
+
+                <View style={styles.containerButtons}>
+
+                  <TouchableOpacity
+                    style={styles.buttonMap}
+                    onPress={() => handleMap()}
+                  >
+                    <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
+                    <Text>Ver a localização</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={styles.buttonCopy}
+                    onPress={() => {
+                      copyToClipboard()
+                      showToastBottom('Copiado com sucesso!', 'bottom')
+                    }}
+                  >
+                    <FontAwesome5 name="copy" size={30} color="#F8670E" />
+                    <Text>Copiar a localização</Text>
+                  </TouchableOpacity>
+
+                </View>
+
+              </View>
+
+              <View style={styles.descritpionEvent}>
+
+                <Text style={styles.description}>
+                  <Text style={styles.descriptionTitle}>Descrição do Evento: </Text>
+                  {description}
+                </Text>
+              </View>
+
+            </View>
+
+            <View style={styles.interactiveButtonContainer}>
+
+              <TouchableOpacity onPress={() => {
+                goToEvent(id, eventId)
+                  .then(() => {
+                    console.log('testeeee');
+                    getEspecificData(eventId)
+                  })
+              }} style={styles.interactiveButton}>
+
+                <AntDesign name="like1" size={50} color={userGoes ? "purple" : "#FFF"} />
+                <Text style={styles.interactiveText}>Eu vou!</Text>
+
+                <View style={styles.iGoContainer}>
+                  <Text style={styles.iGo}>{participants}</Text>
+                </View>
+
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => {
+                saveEvent(id, eventId)
+                  .then(() => {
+                    console.log('testeeee');
+                    getEspecificData(eventId)
+                  })
+              }} style={styles.interactiveButton}>
+                {
+                  userSaved ? (
+                    <View style={styles.iconContainer}>
+                      <Feather name="check-circle" size={55} color="#8B04A2" />
+                      <Text style={styles.interactiveText}>Salvo</Text>
+                    </View>
+                  )
+                    :
+                    <View style={styles.iconContainer}>
+                      <Ionicons name="add-circle-outline" size={75} color="#FFF" />
+                      <Text style={styles.interactiveText}>Salvar</Text>
+                    </View>
+                }
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+      </Modalize>
 
       <Toast config={toastConfig} />
     </View >

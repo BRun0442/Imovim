@@ -71,7 +71,7 @@ export default function Post(props) {
 
         </View>
 
-        <TouchableOpacity activeOpacity={.5} onPress={() => props.goToSeePostScreen()}>
+        <TouchableOpacity activeOpacity={0.7} onPress={() => props.goToSeePostScreen()}>
           <RenderImage
             style=
             {

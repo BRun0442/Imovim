@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
 
     borderRadius: 25,
-    backgroundColor: "#640c74",
+    backgroundColor: "rgba(0,0,0,0.3)",
 
     paddingHorizontal: 15,
   },

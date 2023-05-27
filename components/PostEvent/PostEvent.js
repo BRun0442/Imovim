@@ -3,13 +3,7 @@ import { Text, View, TouchableOpacity, Image, Dimensions } from "react-native";
 import { styles } from "./style";
 import ProfileImage from "../ProfileImage/ProfileImage";
 
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { Feather } from '@expo/vector-icons';
-
 import CardEvents from "../CardEvent/CardEvent";
-
-let screenWidth = Dimensions.get("window").width / 100; // screen width
 
 export default function PostEvent(props) {
   const [width, setWidth] = useState(0);
@@ -35,34 +29,36 @@ export default function PostEvent(props) {
   const [saveEvent, setSaveEvent] = useState(false)
 
   return (
-    <View style={styles.postContainer}>
+    <View style={styles.background}>
+      <View style={styles.postContainer}>
 
-      <View style={styles.postProfile}>
+        <View style={styles.postProfile}>
 
-        <ProfileImage profileImage={props.profileImage} />
+          <ProfileImage profileImage={props.profileImage} />
 
-        <View style={styles.profileContainer}>
+          <View style={styles.profileContainer}>
 
-          <View style={styles.profilePost}>
-            <Text style={styles.profileName}>{props.nickname}</Text>
-            <Text style={styles.newEvent}>criou um evento!</Text>
+            <View style={styles.profilePost}>
+              <Text style={styles.profileName}>{props.nickname}</Text>
+              <Text style={styles.newEvent}>criou um evento!</Text>
+            </View>
+
+            <Text style={styles.postDate}>{props.created_at}</Text>
+
           </View>
-
-          <Text style={styles.postDate}>{props.created_at}</Text>
 
         </View>
 
-      </View>
+        <View style={{ paddingHorizontal: 10 }}>
 
-      <View style={{ paddingHorizontal: 10 }}>
+          <CardEvents
+            width={"100%"}
+            eventName={props.event_name}
+            eventImage={props.photo}
+            describeEvent={props.description}
+          />
 
-        <CardEvents
-          width={"100%"}
-          eventName={props.event_name}
-          eventImage={props.photo}
-          describeEvent={props.description}
-        />
-
+        </View>
       </View>
     </View>
   )
