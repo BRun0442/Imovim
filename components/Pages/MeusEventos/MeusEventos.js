@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Clipboard, Image } from "react-native";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
 import CardEvents from "../../CardEvent/CardEvent";
+import Toast from 'react-native-toast-message'
+import ProfileImage from "../../ProfileImage/ProfileImage";
 import { Modalize } from "react-native-modalize";
 
 import { AntDesign } from '@expo/vector-icons';
@@ -11,9 +13,47 @@ import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth";
 import { getSavedEvents } from "../../../services/events";
 
+
+import { getAllEvents } from "../../../services/events";
+import { getEvent } from '../../../services/events';
+import { goToEvent } from '../../../services/events';
+import { saveEvent } from '../../../services/events';
+
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+import { showToastBottom } from '../../Toast/Toast';
+
 export default function MeusEventos({ navigation }) {
-    const { myEvents, setMyEvents, id } = useContext(AuthContext)
+    const { myEvents, setMyEvents, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
     const [savedEvents, setSavedEvents] = useState(null)
+    const [currentEvent, setCurrentEvent] = useState()
+    const [participants, setParticipants] = useState()
+    const [userGoes, setUserGoes] = useState()
+    const [userSaved, setUserSaved] = useState()
+    const [author, setAuthor] = useState()
+    const [profileImage, setProfileImage] = useState()
+    const [name, setName] = useState()
+    const [image, setImage] = useState()
+    const [date, setDate] = useState()
+    const [hour, setHour] = useState()
+    const [location, setLocation] = useState()
+    const [description, setDescription] = useState()
+    const [eventId, setEventId] = useState(null)
+    const [latitude, setLatitude] = useState(null)
+    const [longitude, setLongitude] = useState(null)
+
+    const copyToClipboard = async () => {
+        await Clipboard.setString(location);
+    };
+
+    const handleMap = () => {
+        setAlterMapPermission(false)
+        setMarker([{ latitude, longitude }])
+        navigation.navigate('Mapa')
+    }
 
     const getData = async () => {
         await getSavedEvents(id)
@@ -22,9 +62,31 @@ export default function MeusEventos({ navigation }) {
             })
     }
 
+    const getEspecificData = async (event_id) => {
+        await getEvent(id, event_id)
+            .then((event) => {
+                setCurrentEvent(event[0].id);
+                setParticipants(event[0].participants)
+                setUserGoes(event[0].userGoesToEvent)
+                setUserSaved(event[0].userSavedEvent)
+                setAuthor(event[0].nickname)
+                setProfileImage(event[0].profileImage)
+                setName(event[0].event_name)
+                setImage(event[0].photo)
+                setDate(event[0].event_date)
+                setHour(event[0].event_hour)
+                setLocation(event[0].localization)
+                setDescription(event[0].description)
+                setLatitude(event[0].latitude)
+                setLongitude(event[0].longitude)
+            })
+    }
+
     const modalizeEvents = useRef(null);
 
-    const onOpenEvents = () => {
+    const onOpenEvents = (currentId) => {
+        getEspecificData(currentId)
+        setEventId(currentId)
         modalizeEvents.current?.open();
     };
 
@@ -58,7 +120,7 @@ export default function MeusEventos({ navigation }) {
                     <ScrollView horizontal={true}>
                         {myEvents.map((event, index) => {
                             return (
-                                <TouchableOpacity onPress={() => onOpenEvents()}>
+                                <TouchableOpacity onPress={() => onOpenEvents(event.id)}>
                                     <CardEvents
                                         key={index}
                                         width={320}
@@ -82,7 +144,7 @@ export default function MeusEventos({ navigation }) {
                     <ScrollView horizontal={true}>
                         {savedEvents.map((event, index) => {
                             return (
-                                <TouchableOpacity onPress={() => onOpenEvents()}>
+                                <TouchableOpacity onPress={() => onOpenEvents(event.id)}>
                                     <CardEvents
                                         key={index}
                                         width={320}
