@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     paddingHorizontal: 15,
-    marginBottom: 10
+    marginBottom: 25
   },
 
   text: {
@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     fontSize: 26,
     textAlign: "center",
 
-    marginVertical: 15
+    marginVertical: 5
   },
 
   button: {
@@ -76,7 +76,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
 
-    marginBottom: 25,
+    marginBottom: 10,
   },
 
   transparentButton: {

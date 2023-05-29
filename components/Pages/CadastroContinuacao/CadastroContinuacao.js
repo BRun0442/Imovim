@@ -20,7 +20,7 @@ export default function Cadastro({ navigation }) {
   const [visiblePassword2, setVisiblePassword2] = useState(true)
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView style={styles.container}>
       <StatusBar />
 
       <View style={styles.titleContainer}>
@@ -151,13 +151,6 @@ export default function Cadastro({ navigation }) {
           </View>
 
         </View>
-
-        <View style={styles.radioContainer} >
-          <View style={styles.radioOrange} />
-          <View style={styles.radioOrange} />
-          <View style={styles.radio} />
-        </View>
-
       </View>
 
 

@@ -9,10 +9,10 @@ const width = ScreenWidth / 100; // largura em porcentagem
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "120%",
+    height: "100%",
     backgroundColor: "#A512BD",
 
-    paddingHorizontal: 10
+    paddingHorizontal: 8
   },
 
   basketBall: {
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
     // justifyContent: "center",
 
     borderRadius: 25,
-    backgroundColor: "#640c74",
+    backgroundColor: "rgba(0,0,0,0.3)",
 
     paddingHorizontal: 15,
   },
@@ -163,7 +163,8 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     width: "100%",
 
-    marginVertical: 50
+    marginTop: 25,
+    marginBottom: 50
   },
 
   button: {
