@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     messageContainer: {
-        marginBottom: 8
+        marginBottom: 8,
     },
-
+    
     NewMessageContainer: {
         display: "flex",
         alignItems: "center",
@@ -13,11 +13,11 @@ export const styles = StyleSheet.create({
 
         width: "100%",
         height: 100,
-
+        
         backgroundColor: "#F1F1F1",
         borderRadius: 15,
-
-        paddingHorizontal: 15
+        
+        paddingHorizontal: 15,
     },
 
     camContainer: {

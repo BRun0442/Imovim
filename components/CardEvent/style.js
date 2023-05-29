@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#F6F6F6",
 
-        borderRadius: 8
+        borderRadius: 8,
     },
 
     titleContainer: {

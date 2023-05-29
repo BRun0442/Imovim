@@ -12,12 +12,9 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
 
-        marginTop: 25,
-        marginBottom: 20,
+        marginVertical: 20,
 
         paddingHorizontal: 20,
-
-        height: "5%"
     },
 
     title: {
@@ -37,10 +34,11 @@ export const styles = StyleSheet.create({
 
         borderRadius: 15,
 
-        height: "90%",
+        height: "85%",
 
-        marginBottom: 15
+        marginBottom: 15,
 
+        elevation: 5,
     },
 
     searchContainer: {
@@ -49,10 +47,8 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        marginTop: 15,
+        marginVertical: 15,
         paddingHorizontal: 5,
-
-        height: "10%",
     },
 
     icon: {
@@ -61,14 +57,14 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         backgroundColor: "#FFF",
-        width: "11%",
+        width: "10%",
         height: 45,
     },
 
     searchInput: {
         backgroundColor: "#FFF",
-        height: 45,
         width: "90%",
+        height: 45,
 
         paddingHorizontal: 15,
     },

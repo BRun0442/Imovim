@@ -15,6 +15,8 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 15,
     marginVertical: 10,
+
+    elevation: 3,
   },
 
   comentProfile: {

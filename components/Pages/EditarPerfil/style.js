@@ -33,6 +33,8 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
 
         paddingVertical: 15,
+
+        elevation: 5,
     },
 
     editProfileTitleContainer: {

@@ -111,15 +111,17 @@ export default function Eventos({ navigation }) {
                         onPress={() => { navigation.navigate('Criar Evento') }}
                         style={styles.createEventButton}
                     >
-                        <MaterialCommunityIcons name="calendar-plus" size={30} color="#F8670E" />
+                        <MaterialCommunityIcons name="calendar-plus" size={28} color="#F8670E" />
                         <Text style={styles.createEventButtonText}>Criar Evento</Text>
                     </TouchableOpacity>
 
                 </View>
 
-                <View style={styles.eventTag}>
-                    <Text style={styles.eventText}>Eventos populares</Text>
-                    <AntDesign name="right" size={20} color="black" />
+                <View style={styles.eventTagContainer}>
+                    <View style={styles.eventTag}>
+                        <Text style={styles.eventText}>Eventos populares</Text>
+                        <AntDesign name="right" size={20} color="black" />
+                    </View>
                 </View>
 
 
@@ -152,9 +154,11 @@ export default function Eventos({ navigation }) {
                     </ScrollView>
                 </View>
 
-                <View style={styles.eventTag}>
-                    <Text style={styles.eventText}>Eventos perto de você</Text>
-                    <AntDesign name="right" size={20} color="black" />
+                <View style={styles.eventTagContainer}>
+                    <View style={styles.eventTag}>
+                        <Text style={styles.eventText}>Eventos perto de você</Text>
+                        <AntDesign name="right" size={20} color="black" />
+                    </View>
                 </View>
 
                 <View style={styles.containerEventsNearYou}>

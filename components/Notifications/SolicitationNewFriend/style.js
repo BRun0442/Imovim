@@ -18,6 +18,8 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
 
     borderRadius: 30,
+
+    elevation: 5,
   },
 
   userInfo: {

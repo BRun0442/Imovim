@@ -20,7 +20,7 @@ export default function Fotos({ navigation }) {
     }, [changePosts])
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -28,7 +28,7 @@ export default function Fotos({ navigation }) {
                 <Text style={styles.title}>Fotos</Text>
             </View>
 
-            <View style={{ marginHorizontal: 10, backgroundColor: "#F1F1F1" }}>
+            <View style={{ marginHorizontal: 10, backgroundColor: "#F1F1F1", elevation: 5, borderRadius: 15 }}>
                 <FlatList 
                     numColumns={3}
                     data={posts}
@@ -39,6 +39,6 @@ export default function Fotos({ navigation }) {
                     }
                 />
             </View>
-        </SafeAreaView >
+        </View >
     )
 }

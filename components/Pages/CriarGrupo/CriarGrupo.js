@@ -14,36 +14,36 @@ export default function CriarGrupo({ navigation }) {
     const [chatName, setChatName] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState(null);
-  const [galleryPermission, setGalleryPermission] = useState(null);
+    const [galleryPermission, setGalleryPermission] = useState(null);
 
     const galeryPermisionFunction = async () => {
         const galleryPermissions = await MediaLibrary.requestPermissionsAsync();
         setGalleryPermission(galleryPermissions.granted);
-      };
-    
-    
-      const pickImage = async () => {
+    };
+
+
+    const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.Images,
-          allowsEditing: true,
-          //   aspect: [1, 1],
-          //   quality: 1,
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            //   aspect: [1, 1],
+            //   quality: 1,
         });
-    
+
         if (!result.cancelled) {
-          setImage(result.uri);
+            setImage(result.uri);
         }
-      };
+    };
 
     const handleSubmit = async () => {
         await handleCreateGroup(image, chatName, description, id, setGroupId)
-        .then(() => {
-            navigation.navigate("Adicionar Participantes")
-        })
+            .then(() => {
+                navigation.navigate("Adicionar Participantes")
+            })
     }
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -82,13 +82,13 @@ export default function CriarGrupo({ navigation }) {
                                 onPress={() => {
                                     if (galleryPermission == true) {
                                         pickImage();
-                                      } else {
+                                    } else {
                                         galeryPermisionFunction();
-                                      }
+                                    }
                                 }}
                                 style={styles.editProfileIconContainerBanner}
                             >
-                                { image ? (
+                                {image ? (
                                     <Image source={{ uri: image }} style={styles.editBanner} />
                                 ) : (
                                     <View style={styles.editBanner}>
@@ -100,9 +100,9 @@ export default function CriarGrupo({ navigation }) {
                         </View>
                     </View>
 
-                    <TouchableOpacity 
-                    style={styles.button}
-                    onPress={ () => handleSubmit() }
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => handleSubmit()}
                     >
                         <Text style={styles.text}>Criar Grupo</Text>
                     </TouchableOpacity>
@@ -111,6 +111,6 @@ export default function CriarGrupo({ navigation }) {
             </ScrollView>
 
             <StatusBar />
-        </SafeAreaView>
+        </View>
     );
 }

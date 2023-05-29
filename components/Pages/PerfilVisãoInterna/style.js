@@ -41,7 +41,9 @@ export const styles = StyleSheet.create({
     borderColor: "#FFF",
     borderWidth: 3,
 
-    marginTop: -60
+    marginTop: -60,
+
+    elevation: 5,
   },
 
   iconPencil: {

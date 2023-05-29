@@ -45,16 +45,19 @@ export default function Pesquisa({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <Header navigation={navigation} />
-            <View style={styles.searchContainer}>
-                <View style={styles.icon}>
-                    <Entypo name="magnifying-glass" size={25} color="#FF7926" />
+
+            <View style={{paddingHorizontal: 8, marginBottom: 15}}>
+                <View style={styles.searchContainer}>
+                    <View style={styles.icon}>
+                        <Entypo name="magnifying-glass" size={25} color="#FF7926" />
+                    </View>
+                    <TextInput value={inputText} onChangeText={async (text) => {
+                        setInputText(text)
+                        await searchUser(text)
+                    }} style={styles.searchInput} placeholder='Pesquise por amigos...' />
                 </View>
-                <TextInput value={inputText} onChangeText={async (text) => {
-                    setInputText(text)
-                    await searchUser(text)
-                }} style={styles.searchInput} placeholder='Pesquise por amigos...' />
             </View>
 
             {/* <View style={styles.tags}>
@@ -77,6 +80,6 @@ export default function Pesquisa({ navigation }) {
                 </View>
             </ScrollView>
 
-        </SafeAreaView>
+        </View>
     )
 }

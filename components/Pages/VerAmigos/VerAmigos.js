@@ -40,7 +40,7 @@ export default function VerAmigos({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <Header navigation={navigation} />
             
             <View style={styles.titleContainer}>
@@ -64,6 +64,6 @@ export default function VerAmigos({ navigation }) {
                 </ScrollView>
             </View>
 
-        </SafeAreaView>
+        </View>
     )
 }

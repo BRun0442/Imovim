@@ -15,7 +15,12 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 15,
         marginTop: 15,
 
-        height: "10%",
+        width: "100%",
+        height: 50,
+
+        backgroundColor: "#FFF",
+
+        borderRadius: 15
     },
 
     icon: {
@@ -25,13 +30,13 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#FFF",
         width: "10%",
-        height: 60,
+        height: 50,
     },
 
     searchInput: {
         backgroundColor: "#FFF",
         width: "90%",
-        height: 60,
+        height: 50,
 
         paddingHorizontal: 15,
     },
@@ -72,6 +77,6 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 20,
 
-        borderRadius: 25
+        borderRadius: 25,
     },
 })

@@ -35,8 +35,17 @@ export const styles = StyleSheet.create({
         fontWeight: "500"
     },
 
+    eventTagContainer:{
+        width: "100%",
+
+        display: "flex",
+        alignItems: "center",
+
+        paddingHorizontal: 10
+    },
+
     eventTag: {
-        width: "95%",
+        width: "100%",
         height: 50,
 
         display: "flex",
@@ -50,7 +59,9 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 15,
         marginHorizontal: 10,
-        marginTop: 20
+        marginTop: 20,
+
+        elevation: 5,
     },
 
     eventText: {

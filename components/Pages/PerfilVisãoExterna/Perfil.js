@@ -247,10 +247,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
                   </TouchableOpacity>
 
                   <TouchableOpacity onPress={() => setVisibleModal(true)}>
-                    <Entypo
-                      name="block"
-                      size={29}
-                      color="#F8670E"
+                    <Entypo name="block" size={29} color="#F8670E"
                       style={{ marginLeft: 8, marginRight: 8 }}
                     />
                   </TouchableOpacity>

@@ -57,11 +57,11 @@ export default function Notificacoes({ navigation }) {
 
     const handleRefresh = () => {
         setRefreshing(true);
-          setTimeout(async () => {
+        setTimeout(async () => {
             await getData();
             setRefreshing(false);
-          }, 1)
-      }
+        }, 1)
+    }
 
     useEffect(() => {
 
@@ -77,7 +77,7 @@ export default function Notificacoes({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -107,7 +107,11 @@ export default function Notificacoes({ navigation }) {
 
                     <FlatList style={styles.notifications}
                         data={solicitations}
-                        ListEmptyComponent={<View><Text>Nenhuma solicitação</Text></View>}
+                        ListEmptyComponent={
+                            <View style={{ width: "100%", height: 400, display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <Text style={{ fontSize: 16 }}>Nenhuma solicitação</Text>
+                            </View>
+                        }
                         keyExtractor={item => item.id}
                         refreshControl={
                             <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
@@ -116,7 +120,7 @@ export default function Notificacoes({ navigation }) {
                         initialNumToRender={5}
                         onRefresh={() => getFeed()}
                         refreshing={refreshing}
-                        renderItem={({ item }) => 
+                        renderItem={({ item }) =>
                             <SolicitationNewFriend
                                 profileImage={item.profileImage}
                                 name={item.nickname}
@@ -128,7 +132,7 @@ export default function Notificacoes({ navigation }) {
                                 resignSolicitation={resignSolicitation}
                                 navigation={navigation}
                             />
-                    }
+                        }
                     />
 
                     :
@@ -144,7 +148,7 @@ export default function Notificacoes({ navigation }) {
                         onRefresh={() => getFeed()}
                         refreshing={refreshing}
                         keyExtractor={item => item.id}
-                        renderItem={({ item }) => 
+                        renderItem={({ item }) =>
                             <Notification
                                 postId={item.postId}
                                 user_id={item.user_id}
@@ -154,11 +158,11 @@ export default function Notificacoes({ navigation }) {
                                 text={item.text}
                                 navigation={navigation}
                             />
-                    }
+                        }
                     />
             }
 
             <Toast config={toastConfig} />
-        </SafeAreaView>
+        </View>
     )
 }

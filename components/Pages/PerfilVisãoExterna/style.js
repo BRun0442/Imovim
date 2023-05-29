@@ -40,7 +40,9 @@ export const styles = StyleSheet.create({
     borderColor: "#FFF",
     borderWidth: 3,
 
-    marginTop: -80
+    marginTop: -80,
+
+    elevation: 5,
   },
 
   profileImage: {

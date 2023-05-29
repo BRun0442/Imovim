@@ -31,52 +31,53 @@ export default function Chat({ navigation }) {
   }
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <Header navigation={navigation} />
+    <View style={styles.container}>
+      <Header navigation={navigation} />
 
-        <View style={{ paddingHorizontal: 20 }}>
+      <View style={styles.topBarContainer}>
+        <View style={styles.topBar}>
+          <Ionicons name="chatbubble" size={30} color="#A512BD" />
+          <Text style={styles.topBarText}>Chat</Text>
+        </View>
+      </View>
 
-          <View style={styles.topBar}>
-            <Ionicons name="chatbubble" size={30} color="#A512BD" />
-            <Text style={styles.topBarText}>Chat</Text>
+      <View style={{ paddingHorizontal: 10 }}>
+
+        <View style={styles.searchContainer}>
+          <View style={styles.iconContainer}>
+            <Entypo name="magnifying-glass" size={25} color="#A512BD" />
           </View>
 
-          <View style={styles.searchContainer}>
-            <View style={styles.iconContainer}>
-              <Entypo name="magnifying-glass" size={25} color="#A512BD" />
+          <TextInput style={styles.searchInput} placeholder='Pesquisar conversas' />
+
+          <TouchableOpacity onPress={() => navigation.navigate('Criar Grupo')}>
+            <View style={styles.addGroupIcon}>
+              <MaterialIcons name="group-add" size={30} color="#A512BD" />
             </View>
-
-            <TextInput style={styles.searchInput} placeholder='Pesquisar conversas' />
-
-            <TouchableOpacity onPress={()=> navigation.navigate('Criar Grupo')}>
-              <View style={styles.addGroupIcon}>
-                <MaterialIcons name="group-add" size={30} color="#A512BD" />
-              </View>
-            </TouchableOpacity>
-          </View>
-
+          </TouchableOpacity>
         </View>
 
-        <ScrollView style={{ paddingHorizontal: 20, marginBottom: 20 }}>
-          {chats.map((chat, index) => {
-            return (
-              <Contact key={index}
-                getChats={getChats}
-                name={chat.friend}
-                description={chat.description}
-                friend_id={chat.friend_id}
-                room_id={chat.room_id}
-                friend_photo={chat.friendPhoto}
-                room_photo={chat.roomPhoto}
-                room_type={chat.room_type}
-                room_name={chat.room_name}
-                navigation={navigation} />
-            )
-          })}
-        </ScrollView>
-
       </View>
-    </SafeAreaView>
+
+      <ScrollView style={{ paddingHorizontal: 10, marginBottom: 20 }}>
+        {chats.map((chat, index) => {
+          return (
+            <Contact
+              key={index}
+              getChats={getChats}
+              name={chat.friend}
+              description={chat.description}
+              friend_id={chat.friend_id}
+              room_id={chat.room_id}
+              friend_photo={chat.friendPhoto}
+              room_photo={chat.roomPhoto}
+              room_type={chat.room_type}
+              room_name={chat.room_name}
+              navigation={navigation} />
+          )
+        })}
+      </ScrollView>
+
+    </View>
   )
 }

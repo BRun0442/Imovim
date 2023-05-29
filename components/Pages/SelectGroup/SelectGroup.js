@@ -26,13 +26,13 @@ export default function SelectGroup({ navigation }) {
                 selectedUsers.slice(index)
             }
         });
-        
+
         console.log(selectedUsers, groupId);
         await addUsersToTheGroup(selectedUsers, groupId)
-        .then(() => {
-            setReloadChats(reloadChats + 1);
-            navigation.navigate('Mensagens')
-        })
+            .then(() => {
+                setReloadChats(reloadChats + 1);
+                navigation.navigate('Mensagens')
+            })
     }
 
     const getUsers = async () => {
@@ -103,7 +103,7 @@ export default function SelectGroup({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -121,7 +121,7 @@ export default function SelectGroup({ navigation }) {
                 </TouchableOpacity>
             </View>
 
-            <View style={{paddingHorizontal: 10}}>
+            <View style={{ paddingHorizontal: 10 }}>
                 <View style={styles.searchPeople}>
                     <View style={styles.searchContainer}>
 
@@ -144,13 +144,20 @@ export default function SelectGroup({ navigation }) {
 
                             {searchedUsers.map((user, index) => {
                                 return (
-                                    <UserSelected user_id={user.user_id} handleSelect={handleSelect} selected={user.selected} profileImage={user.profileImage} navigation={navigation} key={index} nickname={user.nickname} />
+                                    <UserSelected
+                                        user_id={user.user_id}
+                                        handleSelect={handleSelect}
+                                        selected={user.selected}
+                                        profileImage={user.profileImage}
+                                        navigation={navigation}
+                                        key={index}
+                                        nickname={user.nickname} />
                                 )
                             })}
                         </View>
                     </ScrollView>
                 </View>
             </View>
-        </SafeAreaView>
+        </View>
     )
 }

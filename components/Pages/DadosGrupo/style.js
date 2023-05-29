@@ -54,7 +54,9 @@ export const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    marginBottom: 25
+    marginBottom: 25,
+
+    elevation: 5,
   },
 
   photoGroup: {
@@ -102,7 +104,9 @@ export const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    marginBottom: 20
+    marginBottom: 20,
+
+    elevation: 5,
   },
 
   describeTitle: {
@@ -128,6 +132,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
 
     borderRadius: 20,
+
+    elevation: 5,
   },
 
   titleContainerMembers: {

@@ -393,7 +393,7 @@ export default function Feed({ navigation }) {
           </ScrollView>
         ) :
           (
-            <View style={{ height: 800, alignItems: "center", justifyContent: "center" }}>
+            <View style={{ height: 600, alignItems: "center", justifyContent: "center" }}>
               <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 20 }} >Loading...</Text>
               <ActivityIndicator animating={true} size={35} color={"#FF6709"} />
             </View>

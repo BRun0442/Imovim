@@ -7,8 +7,7 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
 
-        marginVertical: 5,
-
+        margin: 5,
 
         paddingVertical: 8,
         paddingHorizontal: 15,

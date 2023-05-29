@@ -28,10 +28,12 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
 
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
         marginHorizontal: 20,
 
         borderRadius: 20,
+
+        elevation: 4,
 
         backgroundColor: "#F1F1F1"
     },
@@ -71,7 +73,6 @@ export const styles = StyleSheet.create({
     },
 
     results: {
-        paddingHorizontal: 15,
         backgroundColor: "#F1F1F1",
 
         marginVertical: 10

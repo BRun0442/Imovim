@@ -34,6 +34,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
 
     backgroundColor: "#F1F1F1",
+
+    elevation: 4,
   },
 
   titleTags: {
@@ -43,10 +45,10 @@ export const styles = StyleSheet.create({
 
   tags: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     flexDirection: "row",
     
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
 
   containerPhotos: {
@@ -59,6 +61,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
 
     backgroundColor: "#F1F1F1",
+
+    elevation: 4,
   },
 
   containerPhotoTitle: {
@@ -95,6 +99,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
 
     backgroundColor: "#F1F1F1",
+
+    elevation: 2,
   },
 
   containerEventsTitle: {

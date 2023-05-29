@@ -52,8 +52,7 @@ function Comentarios({ navigation }, props) {
     )
   }
   return (
-    <SafeAreaView style={styles.container}>
-
+    <View style={styles.container}>
 
       <Header navigation={navigation} />
 
@@ -102,17 +101,19 @@ function Comentarios({ navigation }, props) {
 
 
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
-        <View style={styles.writeComentContainer}>
-          <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
+        <View style={{paddingHorizontal: 10}}>
+          <View style={styles.writeComentContainer}>
+            <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
 
-          <TouchableOpacity onPress={() => sendComment(commentText, id, postFocusedId, setCommentText, setComments)} style={styles.buttonSendComment}>
-            <AntDesign name="arrowright" size={24} color="#FFF" />
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => sendComment(commentText, id, postFocusedId, setCommentText, setComments)} style={styles.buttonSendComment}>
+              <AntDesign name="arrowright" size={24} color="#FFF" />
+            </TouchableOpacity>
 
+          </View>
         </View>
       </KeyboardAvoidingView>
       <StatusBar />
-    </SafeAreaView>
+    </View>
   );
 }
 

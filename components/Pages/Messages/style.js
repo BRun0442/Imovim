@@ -8,12 +8,20 @@ export const styles = StyleSheet.create({
         backgroundColor: "#FFF"
     },
 
+    topBarContainer:{
+        display: "flex",
+        alignItems: "center",
+
+        paddingHorizontal: 25, 
+    },
+
     topBar: {
+        width: "100%",
+
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-
 
         backgroundColor: "#F8670E",
         marginHorizontal: 15,
@@ -44,6 +52,10 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 2,
 
         height: 80,
+
+        borderRadius: 15,
+
+        elevation: 4,
     },
 
     iconContainer: {

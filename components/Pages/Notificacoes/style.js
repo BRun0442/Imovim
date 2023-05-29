@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
     notifications:{
         width: "100%",
 
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
         paddingVertical: 20,
 
         marginVertical: 20
