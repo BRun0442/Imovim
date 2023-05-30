@@ -4,10 +4,17 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { updateComment, deleteComment } from "../../services/comment";
 import { AuthContext } from "../../contexts/auth";
+import api from "../../services/api";
 
-export default function EditCaptionModal({handleClose, comment_id, coment, getComments}) {
+export default function EditCaptionModal({handleClose, post_id, getComments, caption}) {
     const { id } = useContext(AuthContext)
-    const [comment, setComment] = useState(coment)
+    const [inputText, setInputText] = useState(caption)
+
+    const updateCaption = async () => {
+        const data = { user_id: id, post_id: post_id, caption: inputText }
+        const res = await api.put('post/update-caption', data)
+        console.log(res);
+    }
 
     return (
         <View style={styles.container}>
@@ -22,15 +29,15 @@ export default function EditCaptionModal({handleClose, comment_id, coment, getCo
 
                 <View style={styles.inputContainer}>
                     <TextInput
-                        value={comment}
-                        onChangeText={(text) => setComment(text)}
+                        value={inputText}
+                        onChangeText={(text) => setInputText(text)}
                         placeholder="Digite a nova legenda..."
                         placeholderTextColor={"#FFF"}
                         multiline={true}
                         style={styles.input}
                         />
                     <TouchableOpacity onPress={() => {
-                        updateComment(comment, id, comment_id)
+                        updateCaption()
                         .then(() => {
                             getComments()
                             handleClose()

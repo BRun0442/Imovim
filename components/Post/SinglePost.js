@@ -134,7 +134,7 @@ export default function SinglePost(props) {
           transparent={true}
           onRequestClose={() => setVisibleModal(false)}
         >
-          <EditCaptionModal handleClose={() => setVisibleModal(false)} />
+          <EditCaptionModal post_id={props.id} caption={props.caption} handleClose={() => setVisibleModal(false)} />
         </Modal>
 
         {/* <Modal
