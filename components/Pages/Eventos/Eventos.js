@@ -294,13 +294,13 @@ export default function Eventos({ navigation }) {
                                     {
                                         userSaved ? (
                                             <View style={styles.iconContainer}>
-                                                <Feather name="check-circle" size={55} color="#8B04A2" />
+                                                <Feather name="check-circle" size={60} color="#8B04A2" />
                                                 <Text style={styles.interactiveText}>Salvo</Text>
                                             </View>
                                         )
                                             :
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="add-circle-outline" size={75} color="#FFF" />
+                                                <Feather name="plus-circle" size={65} color="#FFF" />
                                                 <Text style={styles.interactiveText}>Salvar</Text>
                                             </View>
                                     }

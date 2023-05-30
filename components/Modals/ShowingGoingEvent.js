@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
+import IGoInEvent from '../IGoInEvent/IGoInEvent';
 
 import { AntDesign } from '@expo/vector-icons';
 
@@ -9,11 +10,10 @@ export default function ShowingGoingEvent({ handleClose, chatNickname }) {
   return (
     <View style={styles.container}>
 
-
       <View style={styles.modal}>
 
         <View style={styles.content}>
-          
+
           <View style={styles.goEventContainer}>
             <TouchableOpacity onPress={handleClose}>
               <AntDesign name="closecircle" size={30} color="#FFF" />
@@ -22,7 +22,7 @@ export default function ShowingGoingEvent({ handleClose, chatNickname }) {
           </View>
 
           <ScrollView>
-
+            <IGoInEvent name="Tiago" />
           </ScrollView>
 
         </View>
@@ -35,10 +35,6 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center"
   },
 
   modal: {
@@ -59,7 +55,6 @@ const styles = StyleSheet.create({
 
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
 
     backgroundColor: "#D9D9D9",
 
@@ -85,60 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 23,
     color: "#FFF",
 
-    marginLeft: 20
-  },
-
-  buttons: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    flexDirection: "row",
-
-    width: "50%",
-
-    borderRadius: 20,
-  },
-
-  textButton1: {
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#FFF"
-  },
-
-  textButton2: {
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#FFF",
-
-    backgroundColor: "#CB5106",
-
-    padding: 10,
-
-    borderRadius: 15
-  },
-
-  button: {
-    display: "flex",
-    flexDirection: "row",
-
-    paddingHorizontal: 12,
-    marginVertical: 2
-  },
-
-  textButton: {
-    color: "#FFF",
-    fontSize: 20,
-    fontWeight: "600",
-
-    paddingLeft: 10
-  },
-
-  line: {
-    backgroundColor: "#983A00",
-    width: "100%",
-    height: 2,
-
-    marginVertical: 5
+    marginLeft: 20,
+    marginBottom: 15
   }
-
 })

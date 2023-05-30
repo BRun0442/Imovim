@@ -22,8 +22,8 @@ import { saveEvent } from '../../../services/events';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { showToastBottom } from '../../Toast/Toast';
 
@@ -183,7 +183,8 @@ export default function MeusEventos({ navigation }) {
                             </TouchableOpacity>
 
                             <TouchableOpacity style={styles.editButton}>
-                                <Foundation name="pencil" size={24} color="black" />
+                                <Foundation style={{marginHorizontal: 5}} name="pencil" size={25} color="#000" />
+                                <MaterialIcons name="delete" size={25} color="#000" />
                             </TouchableOpacity>
                         </View>
 
@@ -300,13 +301,13 @@ export default function MeusEventos({ navigation }) {
                                     {
                                         userSaved ? (
                                             <View style={styles.iconContainer}>
-                                                <Feather name="check-circle" size={55} color="#8B04A2" />
+                                                <Feather name="check-circle" size={60} color="#8B04A2" />
                                                 <Text style={styles.interactiveText}>Salvo</Text>
                                             </View>
                                         )
                                             :
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="add-circle-outline" size={75} color="#FFF" />
+                                                <Feather name="plus-circle" size={65} color="#FFF" />
                                                 <Text style={styles.interactiveText}>Salvar</Text>
                                             </View>
                                     }

@@ -83,6 +83,7 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#FFF",
         width: "100%",
+        height: 50,
 
         borderTopEndRadius: 15,
         borderTopStartRadius: 15,
@@ -96,8 +97,6 @@ export const styles = StyleSheet.create({
     button: {
         display: "flex",
         flexDirection: "row",
-
-        marginVertical: 4
     },
     
     headerText: {
@@ -106,6 +105,11 @@ export const styles = StyleSheet.create({
         fontWeight: "600",
 
         marginLeft: 15
+    },
+
+    editButton:{
+        display: "flex",
+        flexDirection: "row",
     },
 
     contentContainer: {
@@ -302,17 +306,15 @@ export const styles = StyleSheet.create({
         borderRadius: 15
     },
 
+    iconContainer:{
+        display: "flex",
+        alignItems: "center"
+    },
+
     interactiveText: {
         color: "#FFF",
         fontSize: 18,
         fontWeight: "bold",
-    },
-
-    iconContainer: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
     },
 
     iGoContainer: {
