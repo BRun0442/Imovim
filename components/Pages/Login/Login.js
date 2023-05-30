@@ -98,6 +98,10 @@ export default function Login({ navigation }) {
 
             </View>
 
+            <TouchableOpacity onPress={()=> navigation.navigate("Recuperar Senha 1")}>
+              <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+            </TouchableOpacity>
+
           </View>
 
         </KeyboardAvoidingView>

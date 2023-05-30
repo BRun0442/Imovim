@@ -1,5 +1,7 @@
 import react, { useContext } from "react";
+
 import { createDrawerNavigator, DrawerContentScrollView } from "@react-navigation/drawer";
+
 import Feed from "../Pages/Feed/Feed";
 import Perfil from "../Pages/PerfilVisãoInterna/Perfil"
 import Eventos from "../Pages/Eventos/Eventos";
@@ -26,14 +28,12 @@ import Denuncia from "../Pages/Denuncia/Denuncia"
 import Configuracoes from "../Pages/Configuracoes/Configuracoes";
 import SelectGroup from "../Pages/SelectGroup/SelectGroup";
 import DadosGrupo from "../Pages/DadosGrupo/DadosGrupo";
-import RedefinirValidacao from "../Pages/RedefinirSenha/RedefinirValidacao";
 import UsersBlocks from "../Pages/UsersBlocks/UsersBlocks";
 import EditarGrupo from "../Pages/EditarGrupo/EditarGrupo";
 
 import CustomDrawer from "./CustomDrawer";
 import Map from "../Pages/Map/Map"
 import { AccountDataContext } from "../../contexts/accountData";
-import RedefinirSenha from "../Pages/RedefinirSenha/RedefinirSenha";
 
 const Drawer = createDrawerNavigator();
 
@@ -76,7 +76,6 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Denuncia" component={Denuncia} options={{ headerShown: false, }} />
       <Drawer.Screen name="Configurações" component={Configuracoes} options={{ headerShown: false, }} />
       <Drawer.Screen name="Validação Para Redefinir Senha" component={RedefinirValidacao} options={{ headerShown: false, }} />
-      <Drawer.Screen name="Redefinir Senha" component={RedefinirSenha} options={{ headerShown: false, }} />
       <Drawer.Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
       <Drawer.Screen name="Usuários Bloqueados" component={UsersBlocks} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Grupo" component={EditarGrupo} options={{ headerShown: false, }} />

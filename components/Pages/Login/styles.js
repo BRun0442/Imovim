@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
   form: {
     width: 95 * width,
     height: 85 * height,
-    
+
     alignSelf: "center",
 
     borderRadius: 25,
@@ -130,15 +130,21 @@ export const styles = StyleSheet.create({
     marginVertical: 20
   },
 
-  iconInput:{
+  iconInput: {
     position: "absolute",
     right: 8,
     top: 25,
   },
 
+  forgotPassword: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "600"
+  },
+
   buttonContainer: {
     width: "100%",
-    
+
     marginVertical: 50
   },
 
@@ -186,7 +192,7 @@ export const styles = StyleSheet.create({
     marginLeft: 10
   },
 
-  radioContainer:{
+  radioContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -194,18 +200,18 @@ export const styles = StyleSheet.create({
     marginVertical: 50
   },
 
-  radio:{
-      width: 15,
-      height: 15,
+  radio: {
+    width: 15,
+    height: 15,
 
-      backgroundColor: "#D9D9D9",
+    backgroundColor: "#D9D9D9",
 
-      borderRadius: 20,
+    borderRadius: 20,
 
-      marginHorizontal: 15
+    marginHorizontal: 15
   },
 
-  radioOrange:{
+  radioOrange: {
     width: 15,
     height: 15,
 
