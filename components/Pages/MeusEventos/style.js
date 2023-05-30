@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
+    container: {
+        width: "100%",
+        height: "100%",
+
+        backgroundColor: "#FFF"
+    },
+
     titleContainer: {
         display: "flex",
         flexDirection: "row",
@@ -18,8 +25,17 @@ export const styles = StyleSheet.create({
         fontWeight: "600"
     },
 
+    eventTagContainer: {
+        width: "100%",
+
+        display: "flex",
+        alignItems: "center",
+
+        paddingHorizontal: 10
+    },
+
     eventTag: {
-        width: "95%",
+        width: "100%",
         height: 50,
 
         display: "flex",
@@ -33,7 +49,9 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 15,
         marginHorizontal: 10,
-        marginTop: 20
+        marginTop: 20,
+
+        elevation: 4
     },
 
     eventText: {
@@ -59,7 +77,9 @@ export const styles = StyleSheet.create({
 
     header: {
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",        
 
         backgroundColor: "#FFF",
         width: "100%",
@@ -79,7 +99,7 @@ export const styles = StyleSheet.create({
 
         marginVertical: 4
     },
-
+    
     headerText: {
         color: "#000",
         fontSize: 21,

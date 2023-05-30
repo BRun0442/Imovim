@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Clipboard, Image } from "react-native";
+import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Clipboard, Image, Modal } from "react-native";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
 import CardEvents from "../../CardEvent/CardEvent";
 import Toast from 'react-native-toast-message'
 import ProfileImage from "../../ProfileImage/ProfileImage";
+import ShowingGoingEvent from "../../Modals/ShowingGoingEvent";
 import { Modalize } from "react-native-modalize";
 
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth";
 import { getSavedEvents } from "../../../services/events";
-
 
 import { getAllEvents } from "../../../services/events";
 import { getEvent } from '../../../services/events';
@@ -23,6 +23,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
 
 import { showToastBottom } from '../../Toast/Toast';
 
@@ -61,6 +62,8 @@ export default function MeusEventos({ navigation }) {
                 setSavedEvents(events)
             })
     }
+
+    const [visible, setVisible] = useState(false)
 
     const getEspecificData = async (event_id) => {
         await getEvent(id, event_id)
@@ -103,18 +106,20 @@ export default function MeusEventos({ navigation }) {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             <ScrollView>
                 <Header navigation={navigation} />
+
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Meus Eventos</Text>
                 </View>
 
-                <View style={styles.eventTag}>
-                    <Text style={styles.eventText}>Eventos criados</Text>
-                    <Entypo name="chevron-small-down" size={24} color="#000" />
+                <View style={styles.eventTagContainer}>
+                    <View style={styles.eventTag}>
+                        <Text style={styles.eventText}>Eventos criados</Text>
+                        <Entypo name="chevron-small-down" size={24} color="#000" />
+                    </View>
                 </View>
-
 
                 <View style={styles.containerEventsPopular}>
                     <ScrollView horizontal={true}>
@@ -135,9 +140,11 @@ export default function MeusEventos({ navigation }) {
                     </ScrollView>
                 </View>
 
-                <View style={styles.eventTag}>
-                    <Text style={styles.eventText}>Eventos Salvos</Text>
-                    <Entypo name="chevron-small-down" size={24} color="#000" />
+                <View style={styles.eventTagContainer}>
+                    <View style={styles.eventTag}>
+                        <Text style={styles.eventText}>Eventos Salvos</Text>
+                        <Entypo name="chevron-small-down" size={24} color="#000" />
+                    </View>
                 </View>
 
                 <View style={styles.containerEventsNearYou}>
@@ -173,6 +180,10 @@ export default function MeusEventos({ navigation }) {
                             <TouchableOpacity style={styles.button}>
                                 <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
                                 <Text style={styles.headerText}>{name}</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={styles.editButton}>
+                                <Foundation name="pencil" size={24} color="black" />
                             </TouchableOpacity>
                         </View>
 
@@ -253,7 +264,11 @@ export default function MeusEventos({ navigation }) {
                                             console.log('testeeee');
                                             getEspecificData(eventId)
                                         })
-                                }} style={styles.interactiveButton}>
+                                }} style={styles.interactiveButton}
+
+                                    onLongPress={() => setVisible(true)}
+
+                                >
 
                                     <AntDesign name="like1" size={50} color={userGoes ? "purple" : "#FFF"} />
                                     <Text style={styles.interactiveText}>Eu vou!</Text>
@@ -261,6 +276,17 @@ export default function MeusEventos({ navigation }) {
                                     <View style={styles.iGoContainer}>
                                         <Text style={styles.iGo}>{participants}</Text>
                                     </View>
+
+                                    <Modal
+                                        visible={visible}
+                                        transparent={true}
+                                        onRequestClose={() => setVisible(false)}
+                                    >
+
+                                        <ShowingGoingEvent
+                                            handleClose={() => setVisible(false)}
+                                        />
+                                    </Modal>
 
                                 </TouchableOpacity>
 
