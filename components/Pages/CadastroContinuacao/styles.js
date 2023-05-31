@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#A512BD",
 
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
+    paddingVertical: 20
   },
 
   basketBall: {
@@ -40,7 +41,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    marginVertical: 20
+    marginBottom: 20
   },
 
   title: {
@@ -139,8 +140,7 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     width: "100%",
     
-    marginTop: 25,
-    marginBottom: 100
+    marginVertical: 50
   },
 
   button: {
@@ -167,7 +167,9 @@ export const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+
+    marginBottom: 40
   },
 
   text1: {

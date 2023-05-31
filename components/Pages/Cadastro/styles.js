@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#A512BD",
 
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
+    paddingVertical: 20
   },
 
   basketBall: {
@@ -40,7 +41,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    marginVertical: 20
+    marginBottom: 20
   },
 
   title: {
@@ -54,7 +55,7 @@ export const styles = StyleSheet.create({
 
   form: {
     width: "100%",
-    
+
     display: "flex",
     // justifyContent: "center",
 
@@ -132,7 +133,7 @@ export const styles = StyleSheet.create({
 
   buttonContainer: {
     width: "100%",
-    
+
     marginTop: 25,
     marginBottom: 60
   },
@@ -161,7 +162,9 @@ export const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+
+    marginBottom: 30
   },
 
   text1: {
@@ -178,7 +181,7 @@ export const styles = StyleSheet.create({
     marginLeft: 10
   },
 
-  radioContainer:{
+  radioContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -186,18 +189,18 @@ export const styles = StyleSheet.create({
     marginVertical: 50
   },
 
-  radio:{
-      width: 15,
-      height: 15,
+  radio: {
+    width: 15,
+    height: 15,
 
-      backgroundColor: "#D9D9D9",
+    backgroundColor: "#D9D9D9",
 
-      borderRadius: 20,
+    borderRadius: 20,
 
-      marginHorizontal: 15
+    marginHorizontal: 15
   },
 
-  radioOrange:{
+  radioOrange: {
     width: 15,
     height: 15,
 

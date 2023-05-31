@@ -198,4 +198,43 @@ export const styles = StyleSheet.create({
     marginVertical: 25,
   },
 
+  iconInput: {
+    position: "absolute",
+    right: 8,
+    top: 25,
+  },
+
+  redefineInput: {
+    width: "100%",
+    height: 50,
+
+    color: "#FFF",
+
+    borderBottomWidth: 3,
+    borderBottomColor: "#FFF",
+    fontSize: 20,
+    fontWeight: "400",
+
+    padding: 5,
+    marginVertical: 20
+  },
+
+  titleTextContainer: {
+    width: "100%",
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    marginVertical: 50
+  },
+
+  titleText: {
+    fontSize: 20,
+
+    fontWeight: "bold",
+
+    color: "#FFF",
+    fontWeight: "700",
+  }
 });

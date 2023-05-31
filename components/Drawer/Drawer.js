@@ -75,7 +75,6 @@ export default function DrawerRoutes() {
       <Drawer.Screen name="Mapa" component={Map} options={{ headerShown: false, }} />
       <Drawer.Screen name="Denuncia" component={Denuncia} options={{ headerShown: false, }} />
       <Drawer.Screen name="Configurações" component={Configuracoes} options={{ headerShown: false, }} />
-      <Drawer.Screen name="Validação Para Redefinir Senha" component={RedefinirValidacao} options={{ headerShown: false, }} />
       <Drawer.Screen name="Chat Grupo" component={ChatGroup} options={{ headerShown: false, }} />
       <Drawer.Screen name="Usuários Bloqueados" component={UsersBlocks} options={{ headerShown: false, }} />
       <Drawer.Screen name="Editar Grupo" component={EditarGrupo} options={{ headerShown: false, }} />
