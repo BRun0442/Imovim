@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, StatusBar } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+
+import Header from "../../Header/Header";
 
 import MapView, { Marker } from "react-native-maps";
 import { AuthContext } from "../../../contexts/auth";
-
 import * as Location from "expo-location";
 
-import Header from "../../Header/Header";
 import { Entypo } from '@expo/vector-icons';
 
 export default function Map( {navigation} ) {
@@ -79,7 +79,6 @@ export default function Map( {navigation} ) {
           })
         )}
       </MapView>
-      <StatusBar barStyle={'light-content'} />
     </View>
 
   );

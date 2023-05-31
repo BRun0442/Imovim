@@ -1,11 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, RefreshControl, StatusBar, Image, TouchableOpacity, ScrollView, SafeAreaView, FlatList } from "react-native";
+import { View, Text, RefreshControl, Image, TouchableOpacity, ScrollView, SafeAreaView, FlatList } from "react-native";
 import { styles } from "./style.js";
 
-import PTRView from "react-native-pull-to-refresh";
-import { FlashList } from "@shopify/flash-list";
-
-import { Foundation } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -14,7 +10,6 @@ import { AntDesign } from "@expo/vector-icons";
 import Header from "../../Header/Header";
 import Post from "../../Post/Post";
 import likePost from "../../../services/post";
-// import { getUserData } from '../../../services/user'
 
 import { AuthContext } from "../../../contexts/auth";
 import { AccountDataContext } from "../../../contexts/accountData";
@@ -272,7 +267,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
           </View>
         }
       />
-      <StatusBar barStyle={'light-content'} />
     </View >
   );
 }

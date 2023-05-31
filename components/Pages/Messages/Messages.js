@@ -1,13 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Text, View, TextInput, StatusBar, ScrollView, TouchableOpacity } from 'react-native';
-import Header from '../../Header/Header.js';
+import { Text, View, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './style.js'
+
+import Header from '../../Header/Header.js';
 import Contact from '../../Contact/Contact.js';
+
+import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AuthContext } from '../../../contexts/auth.js';
-import axios from 'axios';
 
 export default function Chat({ navigation }) {
   const { id, chats, setChats, reloadChats } = useContext(AuthContext)
@@ -77,7 +79,6 @@ export default function Chat({ navigation }) {
           )
         })}
       </ScrollView>
-      <StatusBar barStyle={'light-content'} />
     </View>
   )
 }

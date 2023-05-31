@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, Image } from "react-native";
 import { styles } from "./style"
+
 import Header from "../../Header/Header";
-import { Entypo } from "@expo/vector-icons";
-import { Image } from "react-native";
+
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
+
+import { Entypo } from "@expo/vector-icons";
+
 import { handleCreateGroup } from "../../../services/chat";
 import { AuthContext } from "../../../contexts/auth";
 
@@ -109,8 +112,6 @@ export default function CriarGrupo({ navigation }) {
 
                 </View>
             </ScrollView>
-
-            <StatusBar barStyle={'light-content'} />
         </View>
     );
 }

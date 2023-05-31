@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar, KeyboardAvoidingView } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView } from "react-native";
 
-import { CreateUserContext } from "../../../contexts/createUser";
-import { useContext } from "react";
+import Comentario from '../../Comentario/Comentario';
 import Header from "../../Header/Header"
 
-import { defaultStyle } from "../../../assets/style/style";
 import { styles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { Entypo } from '@expo/vector-icons';
-import { FontAwesome } from "@expo/vector-icons";
-import Comentario from '../../Comentario/Comentario';
-import axios from "axios";
+
 import { AccountDataContext } from "../../../contexts/accountData";
 import { AuthContext } from "../../../contexts/auth";
-
+import { useContext } from "react";
 import { getComments, sendComment } from "../../../services/comment";
 
 function Comentarios({ navigation }, props) {
@@ -56,31 +50,6 @@ function Comentarios({ navigation }, props) {
 
       <Header navigation={navigation} />
 
-      {/* <View style={styles.header}>
-
-          <View style={styles.likeAndComentsContainer}>
-
-            <TouchableOpacity style={styles.button}>
-              <AntDesign name="like1" size={24} color="white" style={{ marginRight: 15 }} />
-              <Text style={styles.buttonText}>{props.likeQuantity}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button}>
-              <Ionicons name="chatbubble" size={24} color="white" />
-              <Text style={styles.buttonText}>{props.comentQuantity}</Text>
-            </TouchableOpacity>
-
-          </View>
-          
-          <View style={styles.shareContainer}>
-            <TouchableOpacity style={styles.button}>
-              <FontAwesome name="share" size={24} color="white" />
-              <Text style={styles.buttonText}>{props.shareQuantity}</Text>
-            </TouchableOpacity>
-          </View>
-
-        </View> */}
-
       <ScrollView style={styles.comentsContainer}>
         {comments.map((item, index) => {
           return (
@@ -112,7 +81,6 @@ function Comentarios({ navigation }, props) {
           </View>
         </View>
       </KeyboardAvoidingView>
-      <StatusBar barStyle={'light-content'} />
     </View>
   );
 }

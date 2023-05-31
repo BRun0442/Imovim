@@ -1,15 +1,19 @@
 import React, { useState, useContext } from 'react';
-import { Text, View, Image, TextInput, StatusBar, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
+
+import Toast from 'react-native-toast-message'
+
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
+
 import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
 import { AccountDataContext } from '../../../contexts/accountData';
 import { showToastError, showToastSuccess } from '../../Toast/Toast';
-import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
 import * as SecureStore from 'expo-secure-store';
+
 import { Entypo } from '@expo/vector-icons';
 
 async function save(key, value) {
@@ -128,8 +132,7 @@ export default function Login({ navigation }) {
 
         </View>
       </View>
-      <Toast config={toastConfig} />
-      <StatusBar barStyle={'light-content'} />
+      
     </ScrollView >
   );
 }

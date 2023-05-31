@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Image, } from "react-native";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Image, } from "react-native";
 import { styles } from "./style";
 
 import Header from "../../Header/Header";
@@ -272,7 +272,6 @@ export default function MarcarEventos({ navigation }, props) {
         </KeyboardAvoidingView>
       </View>
 
-      <StatusBar barStyle={'light-content'} />
     </ScrollView>
   );
 }

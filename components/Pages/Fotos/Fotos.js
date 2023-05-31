@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, FlatList, StatusBar } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
+import { styles } from './style'
+
 import Header from '../../Header/Header'
 import Photo from "../../Photo/Photo";
-import { styles } from './style'
-import { AuthContext } from "../../../contexts/auth";
+
 import axios from "axios";
+import { AuthContext } from "../../../contexts/auth";
 
 export default function Fotos({ navigation }) {
     const { id, changePosts } = useContext(AuthContext)
@@ -39,7 +41,6 @@ export default function Fotos({ navigation }) {
                     }
                 />
             </View>
-            <StatusBar barStyle={'light-content'} />
         </View >
     )
 }

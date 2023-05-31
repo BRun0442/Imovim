@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Image, View, Text, StatusBar, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Modal, Vibration } from "react-native";
+import { Image, View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Modal, Vibration } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { styles } from "./style";
-import { FontAwesome } from "@expo/vector-icons";
 
 import Header from "../../Header/Header";
 import DeleteMessage from "../../Modals/DeleteMessage";
@@ -251,7 +250,6 @@ export default function Chat({ navigation }) {
           </View>
         </View>
       </KeyboardAvoidingView>
-      <StatusBar barStyle={'light-content'} />
     </View>
   );
 }

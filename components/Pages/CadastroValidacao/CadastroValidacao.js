@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
+
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
+
 import { CreateUserContext } from '../../../contexts/createUser';
 import CreateUser from '../../../services/createUser';
 import { AuthContext } from '../../../contexts/auth';

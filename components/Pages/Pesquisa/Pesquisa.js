@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { View, Text, TextInput, ScrollView, StatusBar } from 'react-native'
+import { View, Text, TextInput, ScrollView } from 'react-native'
 import { styles } from './style.js'
+
 import Header from '../../Header/Header'
-import { Entypo } from '@expo/vector-icons';
-import { getAllUsers } from '../../../services/user.js'
 import ResultSearch from '../../ResultSearch/ResultSearch'
+
+import { Entypo } from '@expo/vector-icons';
+
+import { getAllUsers } from '../../../services/user.js'
 import { AuthContext } from '../../../contexts/auth.js'
 
 export default function Pesquisa({ navigation }) {
@@ -79,7 +82,6 @@ export default function Pesquisa({ navigation }) {
                     })}
                 </View>
             </ScrollView>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

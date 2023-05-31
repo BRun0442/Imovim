@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TextInput, StatusBar, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, TextInput, ScrollView, TouchableOpacity } from "react-native";
 import { styles } from "./style"
+
 import Header from "../../Header/Header";
+
 import { Entypo } from "@expo/vector-icons";
-import { Image } from "react-native";
 
 export default function CriarGrupo({ navigation }) {
     return (
@@ -62,7 +63,7 @@ export default function CriarGrupo({ navigation }) {
             </ScrollView>
 
             <StatusBar />
-            <StatusBar barStyle={'light-content'} />
+            
         </View>
     );
 }

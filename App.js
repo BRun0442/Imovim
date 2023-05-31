@@ -1,23 +1,27 @@
 import React from 'react'
+import { StatusBar } from 'react-native'
+
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, Text, View } from 'react-native';
+
 import AuthProvider from './contexts/auth';
 import CreateUserProvider from './contexts/createUser';
 import CreateAccountDataContext from './contexts/accountData';
+
 import Routes from './routes';
+
 import Toast from 'react-native-toast-message'
 import { toastConfig } from './components/Toast/toastConfig';
 
 // eas build -p android --profile preview
 
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
       <CreateUserProvider>
         <AuthProvider>
           <CreateAccountDataContext>
             <Routes />
+            <StatusBar backgroundColor="#000" barStyle={'light-content'} />
             <Toast config={toastConfig} />
           </CreateAccountDataContext>
         </AuthProvider>
@@ -25,5 +29,3 @@ function App() {
     </NavigationContainer>
   )
 }
-
-export default App;

@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import Header from '../../Header/Header';
 
-import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { styles } from './style'
 
@@ -82,7 +81,7 @@ export default function ComplaintModal() {
         </View>
 
       </View>
-      <StatusBar barStyle={'light-content'} />
+      
     </View >
   );
 }

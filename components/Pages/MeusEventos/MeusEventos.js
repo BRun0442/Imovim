@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { View, Text, ScrollView, StatusBar, TouchableOpacity, Clipboard, Image, Modal } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Clipboard, Image, Modal } from "react-native";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
 import CardEvents from "../../CardEvent/CardEvent";
-import Toast from 'react-native-toast-message'
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import ShowingGoingEvent from "../../Modals/ShowingGoingEvent";
 import { Modalize } from "react-native-modalize";
@@ -14,13 +13,11 @@ import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth";
 import { getSavedEvents } from "../../../services/events";
 
-import { getAllEvents } from "../../../services/events";
 import { getEvent } from '../../../services/events';
 import { goToEvent } from '../../../services/events';
 import { saveEvent } from '../../../services/events';
 
 import { FontAwesome5 } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -326,7 +323,6 @@ export default function MeusEventos({ navigation }) {
                     </ScrollView>
                 )}
             </Modalize>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

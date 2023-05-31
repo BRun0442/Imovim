@@ -1,11 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { Text, View, Image, TextInput, StatusBar, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
 
-import ValidateData from '../../../services/login.js';
-
 import { AuthContext } from '../../../contexts/auth.js';
-import { AccountDataContext } from '../../../contexts/accountData';
 import { showToastError, showToastSuccess } from '../../Toast/Toast';
 
 import Toast from 'react-native-toast-message'
@@ -138,8 +135,7 @@ export default function RecuperarSenha3({ navigation }) {
 
         </View>
       </View>
-      <Toast config={toastConfig} />
-      <StatusBar barStyle={'light-content'} />
+      
     </ScrollView >
   );
 }

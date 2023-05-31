@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Image, View, Text, StatusBar, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Modal, Vibration } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import Header from "../../Header/Header";
 import { styles } from "./style"
-import { FontAwesome } from "@expo/vector-icons";
 
-import FriendMessage from "../../FriendMessage/FriendMessage";
+import Header from "../../Header/Header";
 import MyMessage from "../../MyMessage/MyMessage";
 import DeleteMessage from "../../Modals/DeleteMessage";
+import ExitGroup from "../../Modals/IconExitGroup"
+import ComplaintGroup from "../../Modals/ComplaintGroup";
+import GroupMessage from "../../GroupMessage/GroupMessage"
 
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
@@ -16,10 +17,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { io } from "socket.io-client";
 import axios from "axios";
-
-import ExitGroup from "../../Modals/IconExitGroup"
-import ComplaintGroup from "../../Modals/ComplaintGroup";
-import GroupMessage from "../../GroupMessage/GroupMessage"
 
 export default function ChatGroup({ navigation }) {
   const flatlistRef = useRef(null);
@@ -260,7 +257,6 @@ export default function ChatGroup({ navigation }) {
           </View>
         </View>
       </KeyboardAvoidingView>
-      <StatusBar barStyle={'light-content'} />
     </View>
   );
 }

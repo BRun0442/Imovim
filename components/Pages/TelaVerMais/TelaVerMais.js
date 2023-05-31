@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, StatusBar } from 'react-native'
-import Header from '../../Header/Header';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from './style'
 
+import Header from '../../Header/Header';
 import TagName from '../../VerMaisTags/VerMaisTags';
 import Photo from '../../Photo/Photo';
 import TagEvent from '../../VerMaisEventos/VerMaisEventos';
@@ -15,9 +15,6 @@ import { getMyEvents } from '../../../services/events';
 
 export default function TelaVerMais({ navigation }) {
   const { id, changePosts, posts, sportsPracticed, setSportsPracticed, myEvents, setMyEvents } = useContext(AuthContext)
-
-  // const [sportsPracticed, setSportsPracticed] = useState(null)
-  // const [posts, setPosts] = useState(null)
 
   const getSportsPracticed = async () => {
     if (!sportsPracticed) {
@@ -123,7 +120,6 @@ export default function TelaVerMais({ navigation }) {
         </View>
 
       </View>
-      <StatusBar barStyle={'light-content'} />
     </ScrollView>
   )
 }

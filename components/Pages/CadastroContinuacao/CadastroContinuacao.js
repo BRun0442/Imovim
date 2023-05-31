@@ -1,20 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
+
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
+
 import { CreateUserContext } from '../../../contexts/createUser';
 import { sendMail } from '../../../services/sendMail';
-import { Entypo } from '@expo/vector-icons';
 import { AuthContext } from '../../../contexts/auth';
+
+import { Entypo } from '@expo/vector-icons';
 
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
   const { securityCode, setSecurityCode } = useContext(AuthContext)
-  const goToLoginScreen = () => {
-    navigation.navigate('Login');
-  }
 
   const [visiblePassword1, setVisiblePassword1] = useState(true)
   const [visiblePassword2, setVisiblePassword2] = useState(true)
@@ -151,8 +150,6 @@ export default function Cadastro({ navigation }) {
 
         </View>
       </View>
-
-      <StatusBar barStyle={'light-content'} />
 
     </ScrollView >
   );

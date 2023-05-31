@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image, StatusBar } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { styles } from './styles';
 
 export default function Home({ navigation }) {
@@ -50,7 +50,6 @@ export default function Home({ navigation }) {
         </View>
 
       </View>
-      <StatusBar barStyle={'light-content'} />
     </View>
   );
 }

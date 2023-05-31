@@ -1,16 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, SafeAreaView, KeyboardAvoidingView } from 'react-native';
+import { View, Image, Text, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import { styles } from './style'
+
 import Header from '../../Header/Header'
+import ProfileImage from '../../ProfileImage/ProfileImage';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-import ProfileImage from '../../ProfileImage/ProfileImage';
 import { AccountDataContext } from "../../../contexts/accountData";
-import getUserData from "../../../services/user";
 import { AuthContext } from '../../../contexts/auth';
 import { useIsFocused } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker";
@@ -152,8 +152,6 @@ export default function CriarPost({ navigation }) {
       }}>
         <Text style={styles.submitText}>Criar Post</Text>
       </TouchableOpacity>
-
-      <StatusBar barStyle={'light-content'} />
 
     </ScrollView>
   );

@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
-import { View, Text, StatusBar, TouchableOpacity, Image, Alert, TextInput, ScrollView, SafeAreaView, KeyboardAvoidingView } from "react-native";
-import Header from "../../Header/Header";
+import { View, Text, TouchableOpacity, Image, Alert, TextInput, ScrollView, KeyboardAvoidingView } from "react-native";
 import { styles } from "./style.js"
+
+import Header from "../../Header/Header";
+
 import { Entypo } from "@expo/vector-icons";
+
+import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
-import axios from "axios";
 import { AuthContext } from "../../../contexts/auth";
 import { updateProfile } from "../../../services/profile";
 import { AccountDataContext } from "../../../contexts/accountData";
-import getUserData from "../../../services/user";
 import { validateCity } from "../../../services/getCities";
 
-function EditarPerfil({ navigation }) {
+export default function EditarPerfil({ navigation }) {
     const { id, setProfilePicture, profileUpdated, setProfileUpdated } = useContext(AuthContext)
     const { setAccountData } = useContext(AccountDataContext);
     const [image, setImage] = useState(null);
@@ -211,9 +213,6 @@ function EditarPerfil({ navigation }) {
                 </View>
             </View>
 
-            <StatusBar barStyle={'light-content'} />
         </ScrollView>
     )
 }
-
-export default EditarPerfil;

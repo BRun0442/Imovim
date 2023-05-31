@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, ScrollView, Modal, RefreshControl, FlatList, StatusBar } from 'react-native'
-import Header from '../../Header/Header'
+import { View, Text, RefreshControl, FlatList } from 'react-native'
 import { styles } from './style.js'
+
+import Header from '../../Header/Header'
 import UserBlock from '../../UserBlock/UserBlock'
+
 import api from '../../../services/api.js'
 import { AuthContext } from '../../../contexts/auth'
-import BlockUserModal from '../../Modals/BlockUserModal'
 
 export default function UsersBlocks({ navigation }) {
   const [usersBlocked, setUsersBlocked] = useState(null)
@@ -63,7 +64,6 @@ export default function UsersBlocks({ navigation }) {
           }
         />
       </View>
-      <StatusBar barStyle={'light-content'} />
     </View>
   )
 }

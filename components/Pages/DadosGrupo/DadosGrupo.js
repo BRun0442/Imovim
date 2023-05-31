@@ -1,17 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity, StatusBar } from 'react-native';
-import Header from '../../Header/Header';
+import { View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity } from 'react-native';
 import { styles } from './style';
+
+import Header from '../../Header/Header';
+import MembersGroup from "../../MembersGroup/MembersGroup"
+import IconRemoveGroup from "../../Modals/IconExitGroup"
+
+import api from '../../../services/api';
 import { AuthContext } from '../../../contexts/auth';
 
 import { MaterialIcons } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import api from '../../../services/api';
-
-import MembersGroup from "../../MembersGroup/MembersGroup"
-import IconRemoveGroup from "../../Modals/IconExitGroup"
 
 export default function DadosGrupo({ navigation }, props) {
   const { id, groupDescription, setGroupDescription, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
@@ -128,7 +127,7 @@ export default function DadosGrupo({ navigation }, props) {
         </View>
 
       </View>
-      <StatusBar barStyle={'light-content'} />
+      
     </ScrollView >
   )
 }

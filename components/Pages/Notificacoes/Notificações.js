@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { StatusBar, FlatList, View, Text, TouchableOpacity, RefreshControl } from 'react-native'
+import { FlatList, View, Text, TouchableOpacity, RefreshControl } from 'react-native'
+import { styles } from './style'
+
 import { AuthContext } from "../../../contexts/auth";
 import { getPostNotifications } from "../../../services/notifications";
-import { styles } from './style'
+import Toast from 'react-native-toast-message'
 
 import Header from '../../Header/Header'
 import Notification from "../../Notifications/NotificationLike/NotificationLike";
@@ -10,7 +12,6 @@ import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/Sol
 
 import { getSolicitations } from "../../../services/notifications";
 import axios from "axios";
-import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
 import { showToastSuccess } from '../../Toast/Toast';
 
@@ -162,8 +163,6 @@ export default function Notificacoes({ navigation }) {
                     />
             }
 
-            <Toast config={toastConfig} />
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

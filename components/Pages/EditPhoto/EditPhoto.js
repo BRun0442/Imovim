@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Text, View, TouchableOpacity, Image, Dimensions, Modal, StatusBar } from "react-native";
+import { Text, View, TouchableOpacity, Image, Dimensions, Modal } from "react-native";
 import { styles } from "./style";
+
+import Header from "../../Header/Header";
+import EditPhotoModal from "../../Modals/EditPhotoModal";
 import ProfileImage from "../../ProfileImage/ProfileImage";
-import RenderImage from "../../RenderImage/RenderImage";
+
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+
 import axios from "axios";
-import Header from "../../Header/Header";
-import EditPhotoModal from "../../Modals/EditPhotoModal";
-import { AccountDataContext } from "../../../contexts/accountData";
-let screenWidth = Dimensions.get("window").width / 100; // screen width
-import { AuthContext } from "../../../contexts/auth";
 import likePost from "../../../services/post";
+import { AccountDataContext } from "../../../contexts/accountData";
+import { AuthContext } from "../../../contexts/auth";
+
+let screenWidth = Dimensions.get("window").width / 100; // screen width
 
 export default function EditPhoto({ navigation }, props) {
     const { profilePicture, username } = useContext(AuthContext);
@@ -64,6 +67,7 @@ export default function EditPhoto({ navigation }, props) {
                 : { height: 0 }
         ]
     }
+    
     const getPost = async () => {
         const result = await axios.post(`https://imovim-api.cyclic.app/post/get-post`, { post_id: postFocusedId, user_id: id })
         setPostImage(result.data[0].image)
@@ -153,7 +157,6 @@ export default function EditPhoto({ navigation }, props) {
                     </View>
                 </View>
             </View>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

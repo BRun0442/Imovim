@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
+
 import { sendMail } from '../../../services/sendMail';
 import { AuthContext } from '../../../contexts/auth';
 
@@ -77,8 +77,6 @@ export default function RecuperarSenha({ navigation }) {
         </View>
 
       </View>
-
-      <StatusBar barStyle={'light-content'} />
 
     </ScrollView >
   );

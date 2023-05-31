@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, TouchableOpacity, ScrollView, Vibration, StatusBar } from "react-native"
+import { View, Text, TouchableOpacity, ScrollView, Vibration } from "react-native"
 import { Modalize } from "react-native-modalize";
 import { styles } from './styles'
 
@@ -169,7 +169,6 @@ export default function VerPost({ navigation }) {
                 </ScrollView>
 
             </Modalize>
-            <StatusBar barStyle={'light-content'} />
         </View >
     )
 }

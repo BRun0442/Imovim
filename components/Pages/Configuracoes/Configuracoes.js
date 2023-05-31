@@ -1,11 +1,9 @@
 import React from "react";
-import { View, Text, TouchableOpacity, ScrollView, StatusBar } from "react-native"
+import { View, Text, TouchableOpacity, ScrollView } from "react-native"
 import Header from "../../Header/Header";
 import { styles } from "./style";
 
 import { FontAwesome5 } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
 
 export default function Configuracoes({ navigation }) {
     return (
@@ -31,7 +29,6 @@ export default function Configuracoes({ navigation }) {
                 </View>
 
             </ScrollView>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

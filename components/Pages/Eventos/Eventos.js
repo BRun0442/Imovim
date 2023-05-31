@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, ScrollView, TouchableOpacity, Clipboard, Image, StatusBar } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Clipboard, Image } from "react-native";
+import { Modalize } from "react-native-modalize";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
@@ -14,12 +15,10 @@ import { goToEvent } from '../../../services/events';
 import { saveEvent } from '../../../services/events';
 
 import { FontAwesome5 } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { Modalize } from "react-native-modalize";
 import { toastConfig } from '../../Toast/toastConfig';
 import { showToastBottom } from '../../Toast/Toast';
 
@@ -313,8 +312,6 @@ export default function Eventos({ navigation }) {
                     </ScrollView>
                 )}
             </Modalize>
-            <Toast config={toastConfig} />
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

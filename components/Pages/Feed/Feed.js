@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useContext, useCallback, useRef } from "react";
-import { View, Text, ScrollView, FlatList, Image, TouchableOpacity, ActivityIndicator, StatusBar, RefreshControl, Alert } from "react-native";
-import { FlashList } from "@shopify/flash-list";
+import { View, Text, ScrollView, FlatList, Image, TouchableOpacity, ActivityIndicator, RefreshControl, Alert } from "react-native";
 import { styles } from "./styles";
 
 import Header from "../../Header/Header.js";
 import PostEvent from "../../PostEvent/PostEvent";
 import Post from "../../Post/Post.js";
 import Toast from 'react-native-toast-message'
-import PTRView from "react-native-pull-to-refresh";
 import { Modalize } from "react-native-modalize";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 
@@ -146,7 +144,6 @@ export default function Feed({ navigation }) {
       <FlatList
         ListHeaderComponent={
           <View>
-            <StatusBar />
 
             <Header navigation={navigation} />
 
@@ -156,9 +153,9 @@ export default function Feed({ navigation }) {
 
                 <View style={styles.topBar}>
 
-                  <TouchableOpacity onPress={() => { 
+                  <TouchableOpacity onPress={() => {
                     setUpdatingEvent(false)
-                    navigation.navigate('Criar Evento') 
+                    navigation.navigate('Criar Evento')
                   }} styles={styles.button}>
                     <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
                   </TouchableOpacity>
@@ -402,9 +399,7 @@ export default function Feed({ navigation }) {
             </View>
           )}
       </Modalize>
-
-      <Toast config={toastConfig} />
-      <StatusBar barStyle={'light-content'} />
+      
     </View >
   );
 }

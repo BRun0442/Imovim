@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Touchable, TouchableOpacity, Alert, ScrollView, StatusBar } from "react-native";
-import Header from "../../Header/Header";
+import { View, Text, TouchableOpacity, Alert, ScrollView } from "react-native";
 import { styles } from './style.js'
-import { Entypo } from '@expo/vector-icons';
+
+import Header from "../../Header/Header";
 import VerMaisTags from "../../TelaTagsTag/TelaTagsTag";
+
+import { Entypo } from '@expo/vector-icons';
+
 import { getSports as getSportsData } from "../../../services/sports";
 
-function TelaTags({ navigation }) {
+export default function TelaTags({ navigation }) {
     const [sports, setSports] = useState([])
 
     const getSports = async () => {
@@ -59,9 +62,6 @@ function TelaTags({ navigation }) {
                     })}
                 </View>
             </ScrollView>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }
-
-export default TelaTags;

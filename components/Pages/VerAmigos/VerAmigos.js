@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, TextInput, SafeAreaView, StatusBar } from 'react-native'
-import { ScrollView } from "react-native-gesture-handler";
+import { View, Text, TextInput } from 'react-native'
 import { styles } from './style.js'
+import { ScrollView } from "react-native-gesture-handler";
 
 import Header from "../../Header/Header.js";
 import ResultSearchFriends from "../../ResultSearchFriends/ResultSearchFriends.js";
@@ -66,7 +66,6 @@ export default function VerAmigos({ navigation }) {
                     })}
                 </ScrollView>
             </View>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

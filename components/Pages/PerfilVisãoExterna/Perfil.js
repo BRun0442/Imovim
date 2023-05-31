@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, Image, StatusBar, Alert, TouchableOpacity, SafeAreaView, Modal, FlatList, ScrollView, } from "react-native";
+import { View, Text, Image, Alert, TouchableOpacity, SafeAreaView, Modal, FlatList, ScrollView, } from "react-native";
 import { styles } from "./style";
 
 import Header from "../../Header/Header.js";
@@ -313,8 +313,6 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
           <View style={styles.line} />
 
-          <Toast config={toastConfig} />
-          <StatusBar barStyle={'light-content'} />
         </View>
       }
     />

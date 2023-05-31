@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Image,KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
-
-import { FontAwesome5 } from '@expo/vector-icons';
 
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
@@ -134,7 +132,6 @@ export default function Cadastro({ navigation }) {
         </View>
 
       </View>
-      <StatusBar barStyle={'light-content'} />
     </ScrollView >
   );
 }

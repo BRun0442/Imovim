@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, TextInput, ScrollView, StatusBar, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from './style.js'
+
 import Header from '../../Header/Header'
-import { Entypo } from '@expo/vector-icons';
-import ResultSearch from '../../ResultSearch/ResultSearch';
-import { MaterialIcons } from '@expo/vector-icons';
-import { getAllUsers } from '../../../services/user.js';
-import { AuthContext } from '../../../contexts/auth.js';
 import UserSelected from '../../UserSelected/UserSelected.js';
+
+import { Entypo } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+
+import { getAllUsers } from '../../../services/user.js';
 import { addUsersToTheGroup } from '../../../services/chat.js';
+import { AuthContext } from '../../../contexts/auth.js';
 
 export default function SelectGroup({ navigation }) {
     const { id, groupId, setGroupId, reloadChats, setReloadChats } = useContext(AuthContext)
@@ -158,7 +160,6 @@ export default function SelectGroup({ navigation }) {
                     </ScrollView>
                 </View>
             </View>
-            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }
