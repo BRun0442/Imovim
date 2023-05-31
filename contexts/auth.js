@@ -3,6 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
+  const [recoverEmail, setRecoverEmail] = useState()
   const [chatMembers, setChatMembers] = useState([])
   const [alterMapPermission, setAlterMapPermission] = useState(true)
   const [marker, setMarker] = useState([]);
@@ -56,6 +57,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        recoverEmail, 
+        setRecoverEmail,
         event_id, 
         setEvent_id,
         updatingEvent, 

@@ -10,28 +10,30 @@ import { showToastError, showToastSuccess } from '../../Toast/Toast';
 
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '../../Toast/toastConfig';
-import * as SecureStore from 'expo-secure-store';
-
+import { recoverPassword } from '../../../services/user';
 import { Entypo } from '@expo/vector-icons';
 
-async function save(key, value) {
-  await SecureStore.setItemAsync(key, value);
-}
-
-const handleStorage = async (key, value) => {
-  await save(key, value)
-  // await getValueFor(key)
-}
-
 export default function RecuperarSenha3({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { setLogin } = useContext(AuthContext);
-  const { setId } = useContext(AuthContext);
-  const { setAccountData } = useContext(AccountDataContext);
+  const { recoverEmail } = useContext(AuthContext)
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
 
   const [visiblePassword, setVisiblePassword] = useState(true)
+
+  const handleSubmit = async () => {
+    if (password1.length < 7 || password2.length < 7) {
+      showToastError("As senhas devem ter pelo menos 7 digitos!", '')
+    }
+    else if (password1 == password2) {
+      await recoverPassword(recoverEmail, password1)
+      .then(() => {
+        showToastSuccess("Senha alterada com sucesso!")
+        navigation.navigate("Login")
+      })
+    } else {
+      showToastError("As senhas não coincidem!", '')
+    }
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -57,7 +59,8 @@ export default function RecuperarSenha3({ navigation }) {
             <View>
               <TextInput
                 style={styles.redefineInput}
-                onChangeText={(value) => setPassword(value)}
+                value={password1}
+                onChangeText={(value) => setPassword1(value)}
                 placeholder="Senha"
                 placeholderTextColor={"#FFF"}
                 secureTextEntry={visiblePassword}
@@ -90,7 +93,8 @@ export default function RecuperarSenha3({ navigation }) {
             <View>
               <TextInput
                 style={styles.redefineInput}
-                onChangeText={(value) => setPassword(value)}
+                value={password2}
+                onChangeText={(value) => setPassword2(value)}
                 placeholder="Repetir senha"
                 placeholderTextColor={"#FFF"}
                 secureTextEntry={visiblePassword}
@@ -127,7 +131,7 @@ export default function RecuperarSenha3({ navigation }) {
         <View style={styles.buttonContainer}>
 
           <TouchableOpacity
-            onPress={()=> navigation.navigate("Login")}
+            onPress={() => handleSubmit()}
             style={styles.button}
           >
             <Text style={styles.buttonText}>Confirmar</Text>

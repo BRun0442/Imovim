@@ -21,6 +21,16 @@ export async function getAnotherUserData(id, userSeeingId)
   }
 }
 
+export async function recoverPassword(email, password) {
+  try {
+    const data = { email, password }
+    const response = await api.post(`/auth/recover-password`, data)
+    return response.data
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getAllUsers(user_id) {
   try{
     const users = await api.get(`/user/search-user/${user_id}`)

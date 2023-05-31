@@ -2,8 +2,13 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
+import { sendMail } from '../../../services/sendMail';
+import { AuthContext } from '../../../contexts/auth';
 
 export default function RecuperarSenha({ navigation }) {
+  const { securityCode, setSecurityCode, recoverEmail } = useContext(AuthContext)
+  const [code, setCode] = useState('')
+
   return (
     <ScrollView style={styles.container}>
 
@@ -29,6 +34,7 @@ export default function RecuperarSenha({ navigation }) {
 
               <TextInput
                 onChangeText={(value) => setCode(value)}
+                value={code}
                 style={styles.inputNumber}
                 maxLength={6}
                 keyboardType="numeric"
@@ -41,9 +47,29 @@ export default function RecuperarSenha({ navigation }) {
 
         <View style={styles.buttonContainer}>
 
+        <TouchableOpacity
+            style={styles.button}
+            onPress={async () => {
+              const res = await sendMail(recoverEmail, "Recuperação de senha")
+              const array = securityCode
+              array.push(res)
+              setSecurityCode(array)
+            }
+            }>
+            <Text style={styles.buttonText}>Reenviar código</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.button}
-            onPress={() => { navigation.navigate('Recuperar Senha 3') }
+            onPress={() => { 
+              if (securityCode.includes(parseInt(code))) {
+                // alert('Código de verificação correto!')
+                navigation.navigate('Recuperar Senha 3') 
+              } else {
+                console.log(securityCode.length);
+                alert('Código de verificação incorreto!')
+              }
+            }
             }>
             <Text style={styles.buttonText}>Avançar</Text>
           </TouchableOpacity>

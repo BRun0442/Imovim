@@ -6,6 +6,8 @@ import AuthProvider from './contexts/auth';
 import CreateUserProvider from './contexts/createUser';
 import CreateAccountDataContext from './contexts/accountData';
 import Routes from './routes';
+import Toast from 'react-native-toast-message'
+import { toastConfig } from './components/Toast/toastConfig';
 
 // eas build -p android --profile preview
 
@@ -16,6 +18,7 @@ function App() {
         <AuthProvider>
           <CreateAccountDataContext>
             <Routes />
+            <Toast config={toastConfig} />
           </CreateAccountDataContext>
         </AuthProvider>
       </CreateUserProvider>

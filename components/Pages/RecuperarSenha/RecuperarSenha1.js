@@ -2,8 +2,11 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { styles } from './styles'
+import { AuthContext } from '../../../contexts/auth';
 
 export default function RecuperarSenha({ navigation }) {
+  const { recoverEmail, setRecoverEmail } = useContext(AuthContext)
+
   return (
     <ScrollView style={styles.container}>
 
@@ -27,7 +30,8 @@ export default function RecuperarSenha({ navigation }) {
 
             <TextInput
               style={styles.inputLong}
-              onChangeText={(value) => { setNickname(value) }}
+              value={recoverEmail}
+              onChangeText={(value) => { setRecoverEmail(value) }}
               placeholder="Email"
               placeholderTextColor={"#FFF"}
             />
