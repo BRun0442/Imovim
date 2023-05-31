@@ -26,7 +26,7 @@ import { showToastBottom } from '../../Toast/Toast';
 // import * as Clipboard from 'expo-clipboard';
 
 export default function Eventos({ navigation }) {
-    const { id, setMarker, setAlterMapPermission } = useContext(AuthContext)
+    const { id, setMarker, setAlterMapPermission, setUpdatingEvent } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
     const getData = async () => {
         const data = await getAllEvents(id)
@@ -108,7 +108,10 @@ export default function Eventos({ navigation }) {
                     <Text style={styles.title}>Eventos</Text>
 
                     <TouchableOpacity
-                        onPress={() => { navigation.navigate('Criar Evento') }}
+                        onPress={() => { 
+                            setUpdatingEvent(false)
+                            navigation.navigate('Criar Evento') 
+                        }}
                         style={styles.createEventButton}
                     >
                         <MaterialCommunityIcons name="calendar-plus" size={28} color="#F8670E" />

@@ -83,6 +83,7 @@ export default function VerPost({ navigation }) {
                 return (
                     <View style={styles.imgContainer}>
                         <SinglePost
+                            getPost={getPost}
                             goToProfile={() => {
                                 if (item.user_id != id) {
                                     setAnotherUser_id(item.user_id)

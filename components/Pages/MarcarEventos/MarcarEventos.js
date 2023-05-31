@@ -12,10 +12,12 @@ import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 
 import { AuthContext } from "../../../contexts/auth";
-import { createEvent } from "../../../services/events";
+import { createEvent, getEvent } from "../../../services/events";
+
+
 
 export default function MarcarEventos({ navigation }, props) {
-    const { id, marker, setAlterMapPermission } = useContext(AuthContext);
+    const { id, event_id, updatingEvent, setUpdatingEvent, marker, setAlterMapPermission } = useContext(AuthContext);
     const { profilePicture, username } = useContext(AuthContext);
 
     const [name, setName] = useState()
@@ -76,6 +78,27 @@ export default function MarcarEventos({ navigation }, props) {
             await createEvent(id, name, eventDate, eventHour, localization, description, image, setImage, marker)
         }
     }
+
+    const getEspecificEvent = async () => {
+        await getEvent(id, event_id)
+            .then((event) => {
+                setName(event[0].event_name)
+                setImage(event[0].photo)
+                // setDate(event[0].event_date)
+                setHour(event[0].event_hour)
+                setLocalization(event[0].localization)
+                setDescription(event[0].description)
+                // setLatitude(event[0].latitude)
+                // setLongitude(event[0].longitude)
+            })
+    }
+
+    useEffect(() => {
+        if (updatingEvent) {
+            getEspecificEvent()
+            console.log('okkkk');
+        }
+    }, [event_id])
 
     return (
         <ScrollView style={styles.container}>

@@ -30,6 +30,8 @@ function AuthProvider({ children }) {
   const [profileUpdated, setProfileUpdated] = useState(0)
   const [currentPost, setCurrentPost] = useState(null)
   const [groupDescription, setGroupDescription] = useState('')
+  const [updatingEvent, setUpdatingEvent] = useState(false)
+  const [event_id, setEvent_id] = useState()
 
   async function getUserIsLoggedIn() {
     let result = await SecureStore.getItemAsync('isUserLoggedIn');
@@ -54,6 +56,10 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        event_id, 
+        setEvent_id,
+        updatingEvent, 
+        setUpdatingEvent,
         chatMembers, 
         setChatMembers,
         alterMapPermission, 

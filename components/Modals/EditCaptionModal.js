@@ -6,7 +6,7 @@ import { updateComment, deleteComment } from "../../services/comment";
 import { AuthContext } from "../../contexts/auth";
 import api from "../../services/api";
 
-export default function EditCaptionModal({handleClose, post_id, getComments, caption}) {
+export default function EditCaptionModal({handleClose, post_id, getPost, caption}) {
     const { id } = useContext(AuthContext)
     const [inputText, setInputText] = useState(caption)
 
@@ -39,7 +39,7 @@ export default function EditCaptionModal({handleClose, post_id, getComments, cap
                     <TouchableOpacity onPress={() => {
                         updateCaption()
                         .then(() => {
-                            getComments()
+                            getPost()
                             handleClose()
                         })
                     }} style={styles.inputIcon}>

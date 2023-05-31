@@ -31,7 +31,7 @@ import { Feather } from '@expo/vector-icons';
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
-  const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext);
+  const { id, setAnotherUser_id, setCurrentPost, updatingEvent, setUpdatingEvent } = useContext(AuthContext);
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState();
   const [friendPosts, setFriendPosts] = useState()
@@ -156,7 +156,10 @@ export default function Feed({ navigation }) {
 
                 <View style={styles.topBar}>
 
-                  <TouchableOpacity onPress={() => { navigation.navigate('Criar Evento') }} styles={styles.button}>
+                  <TouchableOpacity onPress={() => { 
+                    setUpdatingEvent(false)
+                    navigation.navigate('Criar Evento') 
+                  }} styles={styles.button}>
                     <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
                   </TouchableOpacity>
 

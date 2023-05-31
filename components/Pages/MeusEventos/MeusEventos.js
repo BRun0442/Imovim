@@ -28,7 +28,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { showToastBottom } from '../../Toast/Toast';
 
 export default function MeusEventos({ navigation }) {
-    const { myEvents, setMyEvents, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
+    const { myEvents, setMyEvents, setUpdatingEvent, setEvent_id, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
     const [savedEvents, setSavedEvents] = useState(null)
     const [currentEvent, setCurrentEvent] = useState()
     const [participants, setParticipants] = useState()
@@ -182,10 +182,19 @@ export default function MeusEventos({ navigation }) {
                                 <Text style={styles.headerText}>{name}</Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.editButton}>
-                                <Foundation style={{marginHorizontal: 5}} name="pencil" size={25} color="#000" />
-                                <MaterialIcons name="delete" size={25} color="#000" />
-                            </TouchableOpacity>
+                            <View style={{ flexDirection: 'row' }}>
+                                <TouchableOpacity onPress={() => {
+                                    setUpdatingEvent(true)
+                                    setEvent_id(currentEvent)
+                                    navigation.navigate('Criar Evento')
+                                }} style={styles.editButton}>
+                                    <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
+                                </TouchableOpacity>
+
+                                <TouchableOpacity style={styles.editButton}>
+                                    <MaterialIcons name="delete" size={25} color="#000" />
+                                </TouchableOpacity>
+                            </View>
                         </View>
 
                         <View style={styles.contentContainer}>
