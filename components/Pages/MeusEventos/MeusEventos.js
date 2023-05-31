@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { View, Text, ScrollView, TouchableOpacity, Clipboard, Image, Modal } from "react-native";
+import { Modalize } from "react-native-modalize";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
 import CardEvents from "../../CardEvent/CardEvent";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import ShowingGoingEvent from "../../Modals/ShowingGoingEvent";
-import { Modalize } from "react-native-modalize";
+import DeleteEventModal from "../../Modals/DeleteEventModal"
 
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -60,7 +61,8 @@ export default function MeusEventos({ navigation }) {
             })
     }
 
-    const [visible, setVisible] = useState(false)
+    const [visibleIgoEvent, setVisibleIgoEvent] = useState(false)
+    const [visibleDelete, setVisibleDelete] = useState(false)
 
     const getEspecificData = async (event_id) => {
         await getEvent(id, event_id)
@@ -188,11 +190,26 @@ export default function MeusEventos({ navigation }) {
                                     <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
                                 </TouchableOpacity>
 
-                                <TouchableOpacity style={styles.editButton}>
+                                <TouchableOpacity
+                                    onPress={() => setVisibleDelete(true)}
+                                    style={styles.editButton}
+                                >
                                     <MaterialIcons name="delete" size={25} color="#000" />
                                 </TouchableOpacity>
                             </View>
                         </View>
+
+                        <Modal
+                            visible={visibleDelete}
+                            transparent={true}
+                            onRequestClose={() => setVisibleDelete(false)}
+                        >
+
+                            <DeleteEventModal
+                                name={name}
+                                handleClose={() => setVisibleDelete(false)}
+                            />
+                        </Modal>
 
                         <View style={styles.contentContainer}>
 
@@ -273,7 +290,7 @@ export default function MeusEventos({ navigation }) {
                                         })
                                 }} style={styles.interactiveButton}
 
-                                    onLongPress={() => setVisible(true)}
+                                    onLongPress={() => setVisibleIgoEvent(true)}
 
                                 >
 
@@ -285,13 +302,13 @@ export default function MeusEventos({ navigation }) {
                                     </View>
 
                                     <Modal
-                                        visible={visible}
+                                        visible={visibleIgoEvent}
                                         transparent={true}
-                                        onRequestClose={() => setVisible(false)}
+                                        onRequestClose={() => setVisibleIgoEvent(false)}
                                     >
 
                                         <ShowingGoingEvent
-                                            handleClose={() => setVisible(false)}
+                                            handleClose={() => setVisibleIgoEvent(false)}
                                         />
                                     </Modal>
 
