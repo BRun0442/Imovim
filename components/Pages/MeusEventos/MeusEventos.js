@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Clipboard, Image, Modal } from "react-native";
+import { View, Text, ScrollView, StatusBar, TouchableOpacity, Clipboard, Image, Modal } from "react-native";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
@@ -326,7 +326,7 @@ export default function MeusEventos({ navigation }) {
                     </ScrollView>
                 )}
             </Modalize>
-
+            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

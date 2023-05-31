@@ -153,7 +153,7 @@ export default function CriarPost({ navigation }) {
         <Text style={styles.submitText}>Criar Post</Text>
       </TouchableOpacity>
 
-      <StatusBar />
+      <StatusBar barStyle={'light-content'} />
 
     </ScrollView>
   );

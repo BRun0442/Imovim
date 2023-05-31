@@ -1,21 +1,20 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { AuthContext } from "../../../contexts/auth";
-import { View, Text, TouchableOpacity, ScrollView, Vibration } from "react-native"
-import Header from "../../Header/Header";
+import { View, Text, TouchableOpacity, ScrollView, Vibration, StatusBar } from "react-native"
+import { Modalize } from "react-native-modalize";
 import { styles } from './styles'
-import axios from "axios";
+
+import Header from "../../Header/Header";
+import SinglePost from "../../Post/SinglePost";
+import Comentario from "../../Comentario/Comentario"
+import UsersLikePost from "../../UsersLikePost/UsersLikePost";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 
-import SinglePost from "../../Post/SinglePost";
-import Comentario from "../../Comentario/Comentario"
-import UsersLikePost from "../../UsersLikePost/UsersLikePost";
-
-import { Modalize } from "react-native-modalize";
+import axios from "axios";
 import { getComments } from "../../../services/comment";
-
+import { AuthContext } from "../../../contexts/auth";
 
 export default function VerPost({ navigation }) {
     const { id, currentPost, setAnotherUser_id } = useContext(AuthContext)
@@ -170,7 +169,7 @@ export default function VerPost({ navigation }) {
                 </ScrollView>
 
             </Modalize>
-
+            <StatusBar barStyle={'light-content'} />
         </View >
     )
 }

@@ -314,6 +314,7 @@ export default function PerfilVisãoExterna({ navigation }, props) {
           <View style={styles.line} />
 
           <Toast config={toastConfig} />
+          <StatusBar barStyle={'light-content'} />
         </View>
       }
     />

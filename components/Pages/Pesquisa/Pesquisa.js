@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { View, Text, TextInput, ScrollView, SafeAreaView } from 'react-native'
+import { View, Text, TextInput, ScrollView, StatusBar } from 'react-native'
 import { styles } from './style.js'
 import Header from '../../Header/Header'
 import { Entypo } from '@expo/vector-icons';
@@ -79,7 +79,7 @@ export default function Pesquisa({ navigation }) {
                     })}
                 </View>
             </ScrollView>
-
+            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

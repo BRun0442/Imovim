@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, SafeAreaView, ScrollView } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { styles } from './styles'
+
+import { FontAwesome5 } from '@expo/vector-icons';
+
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
+
 import { CreateUserContext } from '../../../contexts/createUser';
 
 export default function Cadastro({ navigation }) {
@@ -18,7 +21,6 @@ export default function Cadastro({ navigation }) {
 
   return (
     <ScrollView style={styles.container}>
-      <StatusBar />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Imovim</Text>
@@ -132,6 +134,7 @@ export default function Cadastro({ navigation }) {
         </View>
 
       </View>
+      <StatusBar barStyle={'light-content'} />
     </ScrollView >
   );
 }

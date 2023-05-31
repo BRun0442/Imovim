@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, StatusBar } from 'react-native'
 import Header from '../../Header/Header';
 import { styles } from './style'
 
@@ -123,7 +123,7 @@ export default function TelaVerMais({ navigation }) {
         </View>
 
       </View>
-
+      <StatusBar barStyle={'light-content'} />
     </ScrollView>
   )
 }

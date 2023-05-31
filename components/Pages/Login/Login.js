@@ -33,7 +33,6 @@ export default function Login({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Imovim</Text>
@@ -130,6 +129,7 @@ export default function Login({ navigation }) {
         </View>
       </View>
       <Toast config={toastConfig} />
+      <StatusBar barStyle={'light-content'} />
     </ScrollView >
   );
 }

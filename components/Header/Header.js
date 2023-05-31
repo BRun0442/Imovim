@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Text, View, StatusBar } from "react-native";
+import { Text, View, StatusBar, StatusBarStyle } from "react-native";
 import { AuthContext } from "../../contexts/auth";
 import { styles } from "./styles";
 import { Foundation } from '@expo/vector-icons';
@@ -51,7 +51,7 @@ function Header({ navigation }) {
 
         </View>
       </View>
-      <StatusBar />
+      <StatusBar barStyle={'light-content'} />
     </View>
   );
 }

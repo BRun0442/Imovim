@@ -52,7 +52,7 @@ export default function RecuperarSenha({ navigation }) {
 
       </View>
 
-      <StatusBar />
+      <StatusBar barStyle={'light-content'} />
 
     </ScrollView >
   );

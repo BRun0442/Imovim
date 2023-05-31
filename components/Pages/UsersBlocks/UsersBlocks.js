@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { View, Text, ScrollView, Modal, RefreshControl, FlatList } from 'react-native'
+import { View, Text, ScrollView, Modal, RefreshControl, FlatList, StatusBar } from 'react-native'
 import Header from '../../Header/Header'
 import { styles } from './style.js'
 import UserBlock from '../../UserBlock/UserBlock'
@@ -63,6 +63,7 @@ export default function UsersBlocks({ navigation }) {
           }
         />
       </View>
+      <StatusBar barStyle={'light-content'} />
     </View>
   )
 }

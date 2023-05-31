@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { SafeAreaView, FlatList, View, Text, TouchableOpacity, RefreshControl, ScrollView } from 'react-native'
+import { StatusBar, FlatList, View, Text, TouchableOpacity, RefreshControl } from 'react-native'
 import { AuthContext } from "../../../contexts/auth";
 import { getPostNotifications } from "../../../services/notifications";
 import { styles } from './style'
@@ -163,6 +163,7 @@ export default function Notificacoes({ navigation }) {
             }
 
             <Toast config={toastConfig} />
+            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

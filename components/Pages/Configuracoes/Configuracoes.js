@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, ScrollView } from "react-native"
+import { View, Text, TouchableOpacity, ScrollView, StatusBar } from "react-native"
 import Header from "../../Header/Header";
 import { styles } from "./style";
 
@@ -20,14 +20,6 @@ export default function Configuracoes({ navigation }) {
 
                 <View style={styles.optionsContainer}>
 
-                    {/* <TouchableOpacity
-                        style={styles.optionsButton}
-                        onPress={() => navigation.navigate("Validação Para Redefinir Senha")}
-                    >
-                        <FontAwesome5 name="lock" size={25} color="#000" />
-                        <Text style={styles.optionsText}>Redefinir senha</Text>
-                    </TouchableOpacity> */}
-
                     <TouchableOpacity
                         style={styles.optionsButton}
                         onPress={() => navigation.navigate("Usuários Bloqueados")}
@@ -39,7 +31,7 @@ export default function Configuracoes({ navigation }) {
                 </View>
 
             </ScrollView>
-
+            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

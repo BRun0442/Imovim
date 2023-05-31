@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Text, View, TextInput, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, StatusBar, ScrollView, TouchableOpacity } from 'react-native';
 import Header from '../../Header/Header.js';
 import { styles } from './style.js'
 import Contact from '../../Contact/Contact.js';
@@ -77,7 +77,7 @@ export default function Chat({ navigation }) {
           )
         })}
       </ScrollView>
-
+      <StatusBar barStyle={'light-content'} />
     </View>
   )
 }

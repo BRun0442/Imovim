@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Text, View, TouchableOpacity, Image, Dimensions, Modal, SafeAreaView } from "react-native";
+import { Text, View, TouchableOpacity, Image, Dimensions, Modal, StatusBar } from "react-native";
 import { styles } from "./style";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import RenderImage from "../../RenderImage/RenderImage";
@@ -85,7 +85,7 @@ export default function EditPhoto({ navigation }, props) {
     }, [changePosts])
 
     return (
-        <SafeAreaView>
+        <View>
             <Header navigation={navigation} />
 
             <View style={styles.postBackground}>
@@ -153,6 +153,7 @@ export default function EditPhoto({ navigation }, props) {
                     </View>
                 </View>
             </View>
-        </SafeAreaView>
+            <StatusBar barStyle={'light-content'} />
+        </View>
     )
 }

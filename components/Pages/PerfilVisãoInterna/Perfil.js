@@ -272,7 +272,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
           </View>
         }
       />
-      < StatusBar />
+      <StatusBar barStyle={'light-content'} />
     </View >
   );
 }

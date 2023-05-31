@@ -211,7 +211,7 @@ function EditarPerfil({ navigation }) {
                 </View>
             </View>
 
-            <StatusBar />
+            <StatusBar barStyle={'light-content'} />
         </ScrollView>
     )
 }

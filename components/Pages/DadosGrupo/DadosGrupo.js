@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity, StatusBar } from 'react-native';
 import Header from '../../Header/Header';
 import { styles } from './style';
 import { AuthContext } from '../../../contexts/auth';
@@ -128,6 +128,7 @@ export default function DadosGrupo({ navigation }, props) {
         </View>
 
       </View>
+      <StatusBar barStyle={'light-content'} />
     </ScrollView >
   )
 }

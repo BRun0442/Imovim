@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, TextInput, SafeAreaView } from 'react-native'
-import { styles } from './style.js'
-import Header from "../../Header/Header.js";
-import { MaterialIcons } from '@expo/vector-icons';
+import { View, Text, TextInput, SafeAreaView, StatusBar } from 'react-native'
 import { ScrollView } from "react-native-gesture-handler";
-import api from "../../../services/api.js";
+import { styles } from './style.js'
+
+import Header from "../../Header/Header.js";
 import ResultSearchFriends from "../../ResultSearchFriends/ResultSearchFriends.js";
+
+import { MaterialIcons } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth.js";
+
+import api from "../../../services/api.js";
 
 export default function VerAmigos({ navigation }) {
     const [friends, setFriends] = useState()
@@ -63,7 +66,7 @@ export default function VerAmigos({ navigation }) {
                     })}
                 </ScrollView>
             </View>
-
+            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, ScrollView, SafeAreaView, FlatList } from 'react-native'
+import { View, Text, FlatList, StatusBar } from 'react-native'
 import Header from '../../Header/Header'
 import Photo from "../../Photo/Photo";
 import { styles } from './style'
@@ -39,6 +39,7 @@ export default function Fotos({ navigation }) {
                     }
                 />
             </View>
+            <StatusBar barStyle={'light-content'} />
         </View >
     )
 }

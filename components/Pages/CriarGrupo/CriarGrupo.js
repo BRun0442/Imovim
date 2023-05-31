@@ -110,7 +110,7 @@ export default function CriarGrupo({ navigation }) {
                 </View>
             </ScrollView>
 
-            <StatusBar />
+            <StatusBar barStyle={'light-content'} />
         </View>
     );
 }

@@ -404,6 +404,7 @@ export default function Feed({ navigation }) {
       </Modalize>
 
       <Toast config={toastConfig} />
+      <StatusBar barStyle={'light-content'} />
     </View >
   );
 }

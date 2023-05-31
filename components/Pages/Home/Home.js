@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image, StatusBar, SafeAreaView } from 'react-native';
+import { Text, View, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { styles } from './styles';
 
 export default function Home({ navigation }) {
   return (
-    <SafeAreaView>
+    <View>
       <View style={styles.container}>
 
         <View style={styles.infoContainer}>
@@ -50,7 +50,7 @@ export default function Home({ navigation }) {
         </View>
 
       </View>
-      <StatusBar />
-    </SafeAreaView>
+      <StatusBar barStyle={'light-content'} />
+    </View>
   );
 }

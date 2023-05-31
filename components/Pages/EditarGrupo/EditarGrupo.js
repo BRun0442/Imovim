@@ -7,7 +7,7 @@ import { Image } from "react-native";
 
 export default function CriarGrupo({ navigation }) {
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -62,6 +62,7 @@ export default function CriarGrupo({ navigation }) {
             </ScrollView>
 
             <StatusBar />
-        </SafeAreaView>
+            <StatusBar barStyle={'light-content'} />
+        </View>
     );
 }

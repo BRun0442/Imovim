@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Image, View, Text, ScrollView, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, SafeAreaView, Modal, Vibration } from "react-native";
+import { Image, View, Text, StatusBar, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, Modal, Vibration } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { styles } from "./style";
 import { FontAwesome } from "@expo/vector-icons";
@@ -119,7 +119,7 @@ export default function Chat({ navigation }) {
   }
 
   return (
-    <SafeAreaView>
+    <View>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
@@ -251,6 +251,7 @@ export default function Chat({ navigation }) {
           </View>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+      <StatusBar barStyle={'light-content'} />
+    </View>
   );
 }

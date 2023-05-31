@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar, KeyboardAvoidingView, SafeAreaView } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, Image, ScrollView, StatusBar, KeyboardAvoidingView } from "react-native";
 
 import { CreateUserContext } from "../../../contexts/createUser";
 import { useContext } from "react";
@@ -101,7 +101,7 @@ function Comentarios({ navigation }, props) {
 
 
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
-        <View style={{paddingHorizontal: 10}}>
+        <View style={{ paddingHorizontal: 10 }}>
           <View style={styles.writeComentContainer}>
             <TextInput value={commentText} onChangeText={(text) => setCommentText(text)} placeholder="Escreva um comentário aqui..." style={styles.input} />
 
@@ -112,7 +112,7 @@ function Comentarios({ navigation }, props) {
           </View>
         </View>
       </KeyboardAvoidingView>
-      <StatusBar />
+      <StatusBar barStyle={'light-content'} />
     </View>
   );
 }

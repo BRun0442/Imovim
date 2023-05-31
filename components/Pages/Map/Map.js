@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar } from "react-native";
 
 import MapView, { Marker } from "react-native-maps";
 import { AuthContext } from "../../../contexts/auth";
@@ -79,7 +79,7 @@ export default function Map( {navigation} ) {
           })
         )}
       </MapView>
-
+      <StatusBar barStyle={'light-content'} />
     </View>
 
   );

@@ -37,7 +37,6 @@ export default function RecuperarSenha3({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <StatusBar />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Imovim</Text>
@@ -140,6 +139,7 @@ export default function RecuperarSenha3({ navigation }) {
         </View>
       </View>
       <Toast config={toastConfig} />
+      <StatusBar barStyle={'light-content'} />
     </ScrollView >
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, Clipboard, Image } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Clipboard, Image, StatusBar } from "react-native";
 import { styles } from "./style"
 
 import Header from "../../Header/Header";
@@ -314,6 +314,7 @@ export default function Eventos({ navigation }) {
                 )}
             </Modalize>
             <Toast config={toastConfig} />
+            <StatusBar barStyle={'light-content'} />
         </View>
     )
 }
