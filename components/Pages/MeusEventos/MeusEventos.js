@@ -7,7 +7,8 @@ import Header from "../../Header/Header";
 import CardEvents from "../../CardEvent/CardEvent";
 import ProfileImage from "../../ProfileImage/ProfileImage";
 import ShowingGoingEvent from "../../Modals/ShowingGoingEvent";
-import DeleteEventModal from "../../Modals/DeleteEventModal"
+import DeleteEventModal from "../../Modals/DeleteEventModal";
+import Loading from "../../Loading/Loading";
 
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -100,9 +101,9 @@ export default function MeusEventos({ navigation }) {
 
     if (!savedEvents) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 
@@ -171,9 +172,9 @@ export default function MeusEventos({ navigation }) {
 
             <Modalize ref={modalizeEvents}>
                 {eventId != currentEvent ? (
-                    <View>
-                        <Text>Loading...</Text>
-                    </View>
+                    <Loading
+                        height={600}
+                    />
                 ) : (
                     <ScrollView style={styles.content}>
 

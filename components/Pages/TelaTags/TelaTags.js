@@ -4,6 +4,7 @@ import { styles } from './style.js'
 
 import Header from "../../Header/Header";
 import VerMaisTags from "../../TelaTagsTag/TelaTagsTag";
+import Loading from '../../Loading/Loading'
 
 import { Entypo } from '@expo/vector-icons';
 
@@ -25,9 +26,9 @@ export default function TelaTags({ navigation }) {
 
     if (!sports) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 

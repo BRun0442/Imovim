@@ -7,6 +7,7 @@ import Header from "../../Header/Header";
 import SinglePost from "../../Post/SinglePost";
 import Comentario from "../../Comentario/Comentario"
 import UsersLikePost from "../../UsersLikePost/UsersLikePost";
+import Loading from "../../Loading/Loading";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -68,9 +69,9 @@ export default function VerPost({ navigation }) {
 
     if (!post || postId != currentPost || !likeList || !comments) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 

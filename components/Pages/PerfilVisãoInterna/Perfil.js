@@ -10,6 +10,7 @@ import { AntDesign } from "@expo/vector-icons";
 import Header from "../../Header/Header";
 import Post from "../../Post/Post";
 import likePost from "../../../services/post";
+import Loading from "../../Loading/Loading.js";
 
 import { AuthContext } from "../../../contexts/auth";
 import { AccountDataContext } from "../../../contexts/accountData";
@@ -56,17 +57,17 @@ export default function PerfilVisãoInterna({ navigation }, props) {
 
   const handleRefresh = () => {
     setRefreshing(true);
-      setTimeout(async () => {
-        await getData();
-        setRefreshing(false);
-      }, 1)
+    setTimeout(async () => {
+      await getData();
+      setRefreshing(false);
+    }, 1)
   }
 
   if (!loaded) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
 
@@ -185,7 +186,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                   </TouchableOpacity>
                 ) : (
                   <ScrollView horizontal={true}
-                    // style={{ paddingHorizontal: 8 }}
+                  // style={{ paddingHorizontal: 8 }}
                   >
 
                     {sportsPracticed.map((sport, index) => {

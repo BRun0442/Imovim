@@ -4,6 +4,7 @@ import { styles } from './style.js'
 
 import Header from '../../Header/Header.js';
 import Contact from '../../Contact/Contact.js';
+import Loading from '../../Loading/Loading.js';
 
 import axios from 'axios';
 import { Ionicons } from '@expo/vector-icons';
@@ -26,9 +27,9 @@ export default function Chat({ navigation }) {
 
   if (!chats) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
 

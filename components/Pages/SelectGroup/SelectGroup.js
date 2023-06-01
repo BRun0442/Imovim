@@ -4,6 +4,7 @@ import { styles } from './style.js'
 
 import Header from '../../Header/Header'
 import UserSelected from '../../UserSelected/UserSelected.js';
+import Loading from '../../Loading/Loading'
 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -98,9 +99,9 @@ export default function SelectGroup({ navigation }) {
 
     if (!users) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+            height={"100%"}
+          />
         )
     }
 

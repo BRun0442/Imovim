@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, FlatList, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
 import IGoInEvent from '../IGoInEvent/IGoInEvent';
+import Loading from '../Loading/Loading';
 
 import { AntDesign } from '@expo/vector-icons';
 
@@ -22,9 +23,9 @@ export default function ShowingGoingEvent({ handleClose, event_id }) {
 
   if (!usersWhoGo) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
 
@@ -42,11 +43,11 @@ export default function ShowingGoingEvent({ handleClose, event_id }) {
             <Text style={styles.goEventText}>Pessoas que vão:</Text>
           </View>
 
-          <FlatList 
+          <FlatList
             data={usersWhoGo}
-            renderItem={({ item }) => 
+            renderItem={({ item }) =>
               <IGoInEvent name={item.nickname} profileImage={item.profileImage} />
-          }
+            }
           />
 
         </View>

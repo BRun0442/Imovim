@@ -3,7 +3,8 @@ import { View, Text, TextInput, ScrollView } from 'react-native'
 import { styles } from './style.js'
 
 import Header from '../../Header/Header'
-import ResultSearch from '../../ResultSearch/ResultSearch'
+import ResultSearch from '../../ResultSearch/ResultSearch';
+import Loading from '../../Loading/Loading'
 
 import { Entypo } from '@expo/vector-icons';
 
@@ -41,9 +42,9 @@ export default function Pesquisa({ navigation }) {
 
     if (!users) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 
@@ -51,7 +52,7 @@ export default function Pesquisa({ navigation }) {
         <View style={styles.container}>
             <Header navigation={navigation} />
 
-            <View style={{paddingHorizontal: 8, marginBottom: 15}}>
+            <View style={{ paddingHorizontal: 8, marginBottom: 15 }}>
                 <View style={styles.searchContainer}>
                     <View style={styles.icon}>
                         <Entypo name="magnifying-glass" size={25} color="#FF7926" />

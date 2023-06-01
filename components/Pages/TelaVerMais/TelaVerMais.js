@@ -6,8 +6,9 @@ import Header from '../../Header/Header';
 import TagName from '../../VerMaisTags/VerMaisTags';
 import Photo from '../../Photo/Photo';
 import TagEvent from '../../VerMaisEventos/VerMaisEventos';
+import Loading from '../../Loading/Loading';
 
-import { Feather } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
 
 import { AuthContext } from '../../../contexts/auth.js';
 import { getSportsPracticed as getSportsData } from '../../../services/sports'
@@ -38,9 +39,9 @@ export default function TelaVerMais({ navigation }) {
 
   if (!sportsPracticed || !posts || !myEvents) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
 

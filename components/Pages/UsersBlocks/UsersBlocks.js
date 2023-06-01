@@ -4,6 +4,7 @@ import { styles } from './style.js'
 
 import Header from '../../Header/Header'
 import UserBlock from '../../UserBlock/UserBlock'
+import Loading from '../../Loading/Loading.js'
 
 import api from '../../../services/api.js'
 import { AuthContext } from '../../../contexts/auth'
@@ -24,10 +25,10 @@ export default function UsersBlocks({ navigation }) {
 
   const handleRefresh = () => {
     setRefreshing(true);
-      setTimeout(async () => {
-        getUsersBlocked(id)
-        setRefreshing(false);
-      }, 2000)
+    setTimeout(async () => {
+      getUsersBlocked(id)
+      setRefreshing(false);
+    }, 2000)
   }
 
   useEffect(() => {
@@ -37,9 +38,9 @@ export default function UsersBlocks({ navigation }) {
 
   if (!usersBlocked) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
 
@@ -55,10 +56,14 @@ export default function UsersBlocks({ navigation }) {
         <FlatList style={styles.scroll}
           data={usersBlocked}
           keyExtractor={item => item.id}
-          ListEmptyComponent={<View><Text>Nenhum usuário bloqueado</Text></View>}
-          renderItem={({ item }) => 
-          <UserBlock getUsersBlocked={getUsersBlocked} nickname={item.nickname} profileImage={item.profileImage} blocked_user_id={item.user_id} navigation={navigation} />
-        }
+          ListEmptyComponent={
+            <View style={styles.emptyView}>
+              <Text style={{fontSize: 16, fontWeight: "500"}}>Nenhum usuário bloqueado</Text>
+            </View>
+          }
+          renderItem={({ item }) =>
+            <UserBlock getUsersBlocked={getUsersBlocked} nickname={item.nickname} profileImage={item.profileImage} blocked_user_id={item.user_id} navigation={navigation} />
+          }
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
           }

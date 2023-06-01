@@ -1,18 +1,21 @@
-import React, {useContext, useEffect, useState} from "react";
-import { View, Text, Image } from 'react-native';
-import { TouchableOpacity } from "react-native-gesture-handler";
-import {styles} from './style'
+import React, { useContext, useEffect, useState } from "react";
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { styles } from './style'
+
 import api from "../../services/api";
+
+import Loading from "../Loading/Loading";
 
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
 import * as SecureStore from 'expo-secure-store';
 import { AuthContext } from '../../contexts/auth.js';
 import { AccountDataContext } from '../../contexts/accountData.js';
-import { FontAwesome } from '@expo/vector-icons'; 
 
 
 export default function CustomDrawer({ navigation }, props) {
@@ -36,22 +39,22 @@ export default function CustomDrawer({ navigation }, props) {
     useEffect(() => {
         const handleUserData = async () => {
             await api.get(`/profile/get-profile-img/${id}`)
-            .then(async (result) => {
-                setProfileImage(result.data.profileImage)
-                setNickname(result.data.nickname)
-                setUsername(result.data.nickname)
-                setProfilePicture(result.data.profileImage)
-                setLoaded(true)
-            })
+                .then(async (result) => {
+                    setProfileImage(result.data.profileImage)
+                    setNickname(result.data.nickname)
+                    setUsername(result.data.nickname)
+                    setProfilePicture(result.data.profileImage)
+                    setLoaded(true)
+                })
         }
         handleUserData()
     }, [profileUpdated])
 
     if (!loaded) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 
@@ -79,10 +82,9 @@ export default function CustomDrawer({ navigation }, props) {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.items}
-                        onPress={() => 
-                            { 
-                                navigation.navigate('Meu Perfil', {accountData: accountData}) 
-                            }
+                        onPress={() => {
+                            navigation.navigate('Meu Perfil', { accountData: accountData })
+                        }
                         }
                     >
                         <FontAwesome5 name="user-alt" size={22} color="#FFF" />

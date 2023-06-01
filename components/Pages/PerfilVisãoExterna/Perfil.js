@@ -6,6 +6,7 @@ import Header from "../../Header/Header.js";
 import Post from "../../Post/Post";
 import Toast from "react-native-toast-message";
 import BlockUserModal from "../../Modals/BlockUserModal";
+import Loading from "../../Loading/Loading";
 
 import axios from "axios";
 import likePost from "../../../services/post";
@@ -121,9 +122,9 @@ export default function PerfilVisãoExterna({ navigation }, props) {
 
   if (anotherUser_id !== currentUser || !posts) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     );
   }
 

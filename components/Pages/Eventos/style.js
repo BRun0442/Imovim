@@ -86,11 +86,14 @@ export const styles = StyleSheet.create({
     },
 
     header: {
+        width: "100%",
+        
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: "row",
 
         backgroundColor: "#FFF",
-        width: "100%",
 
         borderTopEndRadius: 15,
         borderTopStartRadius: 15,

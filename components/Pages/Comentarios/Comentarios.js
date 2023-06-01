@@ -3,6 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingVi
 
 import Comentario from '../../Comentario/Comentario';
 import Header from "../../Header/Header"
+import Loading from '../../Loading/Loading'
 
 import { styles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
@@ -33,9 +34,9 @@ function Comentarios({ navigation }, props) {
 
   if (comments === null || currentPost != postFocusedId) {
     return (
-      <View style={styles.loadingContainer}>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
   if (comments === []) {

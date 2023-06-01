@@ -39,9 +39,15 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 5,
 
-
-
     borderRadius: 25
-  }
+  },
+
+  emptyView:{
+    width: "100%", 
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },  
 
 })

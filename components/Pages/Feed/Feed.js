@@ -28,7 +28,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-import Loading from "../../../assets/IMOVIM.gif"
+import Loading from "../../Loading/Loading";
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
@@ -97,7 +97,7 @@ export default function Feed({ navigation }) {
   const handlePostsLoading = async () => {
     setPostAmmount(postAmmount + 5)
     try {
-      if(globalPosts) {
+      if (globalPosts) {
         const feedData = await feedManager(postAmmount, id)
         setPosts(await feedData);
         return feedData
@@ -140,9 +140,9 @@ export default function Feed({ navigation }) {
 
   if (!posts || !friendPosts) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     )
   }
 
@@ -268,11 +268,6 @@ export default function Feed({ navigation }) {
         onRefresh={() => getFeed()}
         refreshing={refreshing}
       />
-
-      {/* <View style={styles.loadingContainer}>
-        <Text style={styles.loading} >Loading...</Text>
-        <ActivityIndicator animating={true} size={20} color={"#FF6709"} />
-      </View> */}
 
       <Modalize ref={modalizeEvents}>
         {currentEvent == eventId ? (
@@ -400,11 +395,9 @@ export default function Feed({ navigation }) {
           </ScrollView>
         ) :
           (
-            <View style={{ height: 600, alignItems: "center", justifyContent: "center" }}>
-              {/* <ActivityIndicator animating={true} size={35} color={"#FF6709"} /> */}
-              <Image  style={{width: 50, height: 50}} source={Loading} />
-              <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 20 }} >Carregando...</Text>
-            </View>
+            <Loading
+              height={600}
+            />
           )}
       </Modalize>
 

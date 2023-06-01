@@ -9,6 +9,7 @@ import Header from "../../Header/Header";
 import Toast from 'react-native-toast-message'
 import CardEvents from "../../CardEvent/CardEvent";
 import ProfileImage from "../../ProfileImage/ProfileImage";
+import Loading from "../../Loading/Loading";
 
 import { getAllEvents } from "../../../services/events";
 import { AuthContext } from "../../../contexts/auth";
@@ -102,9 +103,9 @@ export default function Eventos({ navigation }) {
 
     if (!events) {
         return (
-            <View>
-                <Text>loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 
@@ -116,9 +117,9 @@ export default function Eventos({ navigation }) {
                     <Text style={styles.title}>Eventos</Text>
 
                     <TouchableOpacity
-                        onPress={() => { 
+                        onPress={() => {
                             setUpdatingEvent(false)
-                            navigation.navigate('Criar Evento') 
+                            navigation.navigate('Criar Evento')
                         }}
                         style={styles.createEventButton}
                     >
@@ -194,9 +195,9 @@ export default function Eventos({ navigation }) {
 
             <Modalize ref={modalizeEvents}>
                 {eventId != currentEvent ? (
-                    <View>
-                        <Text>Loading...</Text>
-                    </View>
+                    <Loading
+                        height={600}
+                    />
                 ) : (
                     <ScrollView style={styles.content}>
 

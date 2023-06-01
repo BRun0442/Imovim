@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, Alert, TextInput, ScrollView, Keyb
 import { styles } from "./style.js"
 
 import Header from "../../Header/Header";
+import Loading from "../../Loading/Loading.js";
 
 import { Entypo } from "@expo/vector-icons";
 
@@ -91,13 +92,15 @@ export default function EditarPerfil({ navigation }) {
         }
         getProfileData()
     }, [profileUpdated])
+
     if (!loaded) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
+    
     return (
         <ScrollView contentContainerStyle={styles.container}>
 
@@ -110,7 +113,7 @@ export default function EditarPerfil({ navigation }) {
                 </TouchableOpacity>
             </View>
 
-            <View style={{paddingHorizontal: 10, marginBottom: 15}} >
+            <View style={{ paddingHorizontal: 10, marginBottom: 15 }} >
                 <View style={styles.editProfileContainer}>
 
                     <View style={styles.editProfileTitleContainer}>

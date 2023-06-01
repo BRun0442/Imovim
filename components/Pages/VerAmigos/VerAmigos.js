@@ -5,6 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import Header from "../../Header/Header.js";
 import ResultSearchFriends from "../../ResultSearchFriends/ResultSearchFriends.js";
+import Loading from "../../Loading/Loading.js";
 
 import { MaterialIcons } from '@expo/vector-icons';
 import { AuthContext } from "../../../contexts/auth.js";
@@ -36,16 +37,16 @@ export default function VerAmigos({ navigation }) {
 
     if (!loaded) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 
     return (
         <View style={styles.container}>
             <Header navigation={navigation} />
-            
+
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Amigos</Text>
             </View>

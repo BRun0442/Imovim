@@ -9,6 +9,7 @@ import Toast from 'react-native-toast-message'
 import Header from '../../Header/Header'
 import Notification from "../../Notifications/NotificationLike/NotificationLike";
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
+import Loading from "../../Loading/Loading";
 
 import { getSolicitations } from "../../../services/notifications";
 import axios from "axios";
@@ -19,7 +20,7 @@ export default function Notificacoes({ navigation }) {
     const { id, setAnotherUser_id } = useContext(AuthContext)
     const [solicitations, setSolicitations] = useState(null)
     const [notifications, setNotifications] = useState(null)
-    const [changeComponent, setChangeComponent] = useState(true)
+    const [changeComponent, setChangeComponent] = useState(false)
     const [updateScreen, setUpdateScreen] = useState(0)
     const [refreshing, setRefreshing] = useState(false);
 
@@ -71,9 +72,9 @@ export default function Notificacoes({ navigation }) {
 
     if (!solicitations) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
+            <Loading
+                height={"100%"}
+            />
         )
     }
 
@@ -89,17 +90,17 @@ export default function Notificacoes({ navigation }) {
             <View style={styles.notificationTypes}>
 
                 <TouchableOpacity
-                    onPress={() => setChangeComponent(true)}
-                    style={[styles.notificationTypesButton, changeComponent ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
-                >
-                    <Text style={styles.notificationTypesText}>Solicitações</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
                     onPress={() => setChangeComponent(false)}
                     style={[styles.notificationTypesButton, changeComponent ? { backgroundColor: "#F1F1F1" } : { backgroundColor: "#D9D9D9" }]}
                 >
                     <Text style={styles.notificationTypesText}>Publicações</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={() => setChangeComponent(true)}
+                    style={[styles.notificationTypesButton, changeComponent ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
+                >
+                    <Text style={styles.notificationTypesText}>Solicitações</Text>
                 </TouchableOpacity>
             </View>
 

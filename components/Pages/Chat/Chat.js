@@ -7,6 +7,7 @@ import Header from "../../Header/Header";
 import DeleteMessage from "../../Modals/DeleteMessage";
 import MyMessage from "../../MyMessage/MyMessage";
 import FriendMessage from "../../FriendMessage/FriendMessage";
+import Loading from "../../Loading/Loading";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
@@ -111,9 +112,9 @@ export default function Chat({ navigation }) {
 
   if (!chatAvailable) {
     return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
+      <Loading
+        height={"100%"}
+      />
     );
   }
 
