@@ -309,7 +309,7 @@ export default function Eventos({ navigation }) {
 
                             <View style={styles.interactiveButtonContainer}>
 
-                                <TouchableOpacity onPress={() => {
+                                <TouchableOpacity onLongPress={() => setVisibleIgoEvent(true)} onPress={() => {
                                     goToEvent(id, eventId)
                                         .then(() => {
                                             console.log('testeeee');
@@ -323,6 +323,17 @@ export default function Eventos({ navigation }) {
                                     <View style={styles.iGoContainer}>
                                         <Text style={styles.iGo}>{participants}</Text>
                                     </View>
+
+                                    <Modal
+                    visible={visibleIgoEvent}
+                    transparent={true}
+                    onRequestClose={() => setVisibleIgoEvent(false)}
+                  >
+                    <ShowingGoingEvent
+                      event_id={currentEvent}
+                      handleClose={() => setVisibleIgoEvent(false)}
+                    />
+                  </Modal>
 
                                 </TouchableOpacity>
 
