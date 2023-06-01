@@ -116,7 +116,6 @@ export default function Cadastro({ navigation }) {
         </View>
 
       </View>
-      <StatusBar barStyle={'light-content'} />
     </ScrollView >
   );
 }

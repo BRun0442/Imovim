@@ -128,11 +128,20 @@ export default function Cadastro({ navigation }) {
           <TouchableOpacity
             style={styles.button}
             onPress={async () => {
-              const res = await sendMail(email, "Confirmação de email")
-              const array = securityCode
-              array.push(res)
-              setSecurityCode(array)
-              navigation.navigate('Cadastro Validacao')
+              try{
+                const res = await sendMail(email, "Confirmação de email")
+                const array = securityCode
+                array.push(res)
+                setSecurityCode(array)
+              } catch (err) {
+                console.log('api error!!!');
+                const res = await sendMail(email, "Confirmação de email")
+                const array = securityCode
+                array.push(res)
+                setSecurityCode(array)
+              } finally {
+                navigation.navigate('Cadastro Validacao')
+              }
             }
             }>
             <Text style={styles.buttonText}>Avançar</Text>
