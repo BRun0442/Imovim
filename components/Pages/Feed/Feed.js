@@ -90,16 +90,21 @@ export default function Feed({ navigation }) {
   }
 
   async function handleFriendPosts() {
-    const data = await getFriendPosts(id)
+    const data = await getFriendPosts(id, postAmmount)
       .then((res) => setFriendPosts(res))
   }
 
   const handlePostsLoading = async () => {
     setPostAmmount(postAmmount + 5)
     try {
-      const feedData = await feedManager(postAmmount, id)
-      setPosts(await feedData);
-      return feedData
+      if(globalPosts) {
+        const feedData = await feedManager(postAmmount, id)
+        setPosts(await feedData);
+        return feedData
+      } else {
+        const feedData = await handleFriendPosts()
+        return feedData
+      }
     } catch (error) {
       console.log(error);
     }

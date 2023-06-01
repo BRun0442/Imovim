@@ -12,9 +12,9 @@ async function feedManager(ammount, id)
   }
 }
 
-export async function getFriendPosts(user_id) {
+export async function getFriendPosts(user_id, postAmmount) {
   try {
-    const res = await api.get(`/post/get-posts-of-friends/${user_id}`)
+    const res = await api.get(`/post/get-posts-of-friends/${user_id}/${postAmmount}`)
     return res.data
   } catch (err) {
     console.log(err);
