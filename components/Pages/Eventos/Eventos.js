@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, ScrollView, TouchableOpacity, Clipboard, Image } from "react-native";
+import { View, Text, Modal, ScrollView, TouchableOpacity, Clipboard, Image } from "react-native";
 import { Modalize } from "react-native-modalize";
 import { styles } from "./style"
 
+import ShowingGoingEvent from "../../Modals/ShowingGoingEvent";
+import DeleteEventModal from "../../Modals/DeleteEventModal"
 import Header from "../../Header/Header";
 import Toast from 'react-native-toast-message'
 import CardEvents from "../../CardEvent/CardEvent";
@@ -16,6 +18,8 @@ import { saveEvent } from '../../../services/events';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -25,7 +29,7 @@ import { showToastBottom } from '../../Toast/Toast';
 // import * as Clipboard from 'expo-clipboard';
 
 export default function Eventos({ navigation }) {
-    const { id, setMarker, setAlterMapPermission, setUpdatingEvent } = useContext(AuthContext)
+    const { setUpdatingEvent, setEvent_id, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
     const getData = async () => {
         const data = await getAllEvents(id)
@@ -46,6 +50,10 @@ export default function Eventos({ navigation }) {
     const [eventId, setEventId] = useState(null)
     const [latitude, setLatitude] = useState(null)
     const [longitude, setLongitude] = useState(null)
+    const [authorId, setAuthorId] = useState(null)
+
+    const [visibleIgoEvent, setVisibleIgoEvent] = useState(false)
+    const [visibleDelete, setVisibleDelete] = useState(false)
 
     const copyToClipboard = async () => {
         await Clipboard.setString(location);
@@ -68,6 +76,7 @@ export default function Eventos({ navigation }) {
                 setDescription(event[0].description)
                 setLatitude(event[0].latitude)
                 setLongitude(event[0].longitude)
+                setAuthorId(event[0].user_id)
             })
     }
 
@@ -196,7 +205,37 @@ export default function Eventos({ navigation }) {
                                 <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
                                 <Text style={styles.headerText}>{name}</Text>
                             </TouchableOpacity>
+
+                            {authorId == id &&
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={() => {
+                                        setUpdatingEvent(true)
+                                        setEvent_id(currentEvent)
+                                        navigation.navigate('Criar Evento')
+                                    }} style={styles.editButton}>
+                                        <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity
+                                        onPress={() => setVisibleDelete(true)}
+                                        style={styles.editButton}
+                                    >
+                                        <MaterialIcons name="delete" size={25} color="#000" />
+                                    </TouchableOpacity>
+                                </View>}
                         </View>
+
+                        <Modal
+                            visible={visibleDelete}
+                            transparent={true}
+                            onRequestClose={() => setVisibleDelete(false)}
+                        >
+
+                            <DeleteEventModal
+                                name={name}
+                                handleClose={() => setVisibleDelete(false)}
+                            />
+                        </Modal>
 
                         <View style={styles.contentContainer}>
 

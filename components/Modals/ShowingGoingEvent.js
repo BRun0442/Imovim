@@ -1,12 +1,33 @@
-import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, FlatList, View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
 import IGoInEvent from '../IGoInEvent/IGoInEvent';
 
 import { AntDesign } from '@expo/vector-icons';
 
+import { getUsersWhoGo } from '../../services/events';
 
-export default function ShowingGoingEvent({ handleClose, chatNickname }) {
+
+export default function ShowingGoingEvent({ handleClose, event_id }) {
+  const [usersWhoGo, setUsersWhoGo] = useState(null)
+
+  const handleData = async () => {
+    const data = await getUsersWhoGo(event_id)
+    setUsersWhoGo(data)
+  }
+
+  useEffect(() => {
+    handleData()
+  }, [event_id])
+
+  if (!usersWhoGo) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.container}>
 
@@ -21,9 +42,12 @@ export default function ShowingGoingEvent({ handleClose, chatNickname }) {
             <Text style={styles.goEventText}>Pessoas que vão:</Text>
           </View>
 
-          <ScrollView>
-            <IGoInEvent name="Tiago" />
-          </ScrollView>
+          <FlatList 
+            data={usersWhoGo}
+            renderItem={({ item }) => 
+              <IGoInEvent name={item.nickname} profileImage={item.profileImage} />
+          }
+          />
 
         </View>
       </View>

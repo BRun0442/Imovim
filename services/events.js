@@ -145,6 +145,15 @@ export async function getEvent(user_id, event_id) {
   }
 }
 
+export async function getUsersWhoGo(event_id) {
+  try {
+    const response = await api.get(`/event/get-users-who-go/${event_id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error.data.msg);
+  }
+}
+
 export async function updateEvent(
   user_id,
   event_id,

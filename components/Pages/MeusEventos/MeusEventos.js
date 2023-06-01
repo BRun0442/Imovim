@@ -43,6 +43,7 @@ export default function MeusEventos({ navigation }) {
     const [eventId, setEventId] = useState(null)
     const [latitude, setLatitude] = useState(null)
     const [longitude, setLongitude] = useState(null)
+    const [authorId, setAuthorId] = useState(null)
 
     const copyToClipboard = async () => {
         await Clipboard.setString(location);
@@ -81,6 +82,7 @@ export default function MeusEventos({ navigation }) {
                 setDescription(event[0].description)
                 setLatitude(event[0].latitude)
                 setLongitude(event[0].longitude)
+                setAuthorId(event[0].user_id)
             })
     }
 
@@ -181,22 +183,23 @@ export default function MeusEventos({ navigation }) {
                                 <Text style={styles.headerText}>{name}</Text>
                             </TouchableOpacity>
 
-                            <View style={{ flexDirection: 'row' }}>
-                                <TouchableOpacity onPress={() => {
-                                    setUpdatingEvent(true)
-                                    setEvent_id(currentEvent)
-                                    navigation.navigate('Criar Evento')
-                                }} style={styles.editButton}>
-                                    <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
-                                </TouchableOpacity>
+                            {authorId == id &&
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={() => {
+                                        setUpdatingEvent(true)
+                                        setEvent_id(currentEvent)
+                                        navigation.navigate('Criar Evento')
+                                    }} style={styles.editButton}>
+                                        <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
+                                    </TouchableOpacity>
 
-                                <TouchableOpacity
-                                    onPress={() => setVisibleDelete(true)}
-                                    style={styles.editButton}
-                                >
-                                    <MaterialIcons name="delete" size={25} color="#000" />
-                                </TouchableOpacity>
-                            </View>
+                                    <TouchableOpacity
+                                        onPress={() => setVisibleDelete(true)}
+                                        style={styles.editButton}
+                                    >
+                                        <MaterialIcons name="delete" size={25} color="#000" />
+                                    </TouchableOpacity>
+                                </View>}
                         </View>
 
                         <Modal
@@ -308,6 +311,7 @@ export default function MeusEventos({ navigation }) {
                                     >
 
                                         <ShowingGoingEvent
+                                            event_id={currentEvent}
                                             handleClose={() => setVisibleIgoEvent(false)}
                                         />
                                     </Modal>
