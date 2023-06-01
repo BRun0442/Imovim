@@ -1,9 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-
 import { Ionicons } from '@expo/vector-icons';
-
 
 export default function ComplaintGroup({ handleClose }, props) {
   return (

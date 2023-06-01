@@ -80,6 +80,8 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+
+        paddingHorizontal: 5
     },
 
     profileName: {
@@ -251,6 +253,6 @@ export const styles = StyleSheet.create({
         backgroundColor: "#FF6709",
 
         marginBottom: 20
-    }
+    },
 })
 

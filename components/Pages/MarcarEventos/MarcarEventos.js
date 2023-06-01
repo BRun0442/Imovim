@@ -1,12 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Text, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Image, } from "react-native";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView, Image, Modal } from "react-native";
 import { styles } from "./style";
 
 import Header from "../../Header/Header";
 import ProfileImage from "../../ProfileImage/ProfileImage";
+import Calendario from "../../Modals/Calendar";
 
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Entypo } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
 
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
@@ -39,7 +41,9 @@ export default function MarcarEventos({ navigation }, props) {
   const [galleryPermission, setGalleryPermission] = useState(null);
 
   const [descriptionLength, setDescriptionLength] = useState(0);
-  const [nameEventLength, setNameEventLength] = useState(0)
+  const [nameEventLength, setNameEventLength] = useState(0);
+
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     // CameraPermisionFunction();
@@ -135,7 +139,7 @@ export default function MarcarEventos({ navigation }, props) {
       <Header navigation={navigation} />
 
       <View style={styles.iconContainer}>
-        <MaterialCommunityIcons name="calendar" color={"#FFF"} size={26} />
+        <MaterialCommunityIcons name="calendar" color="#FFF" size={26} />
       </View>
 
       <View style={styles.postContainer}>
@@ -167,7 +171,8 @@ export default function MarcarEventos({ navigation }, props) {
           </View>
 
           <Text style={styles.formText}>Data</Text>
-          <View style={styles.dataInputs}>
+          {/* <View style={styles.dataInputs}>
+
             <TextInput
               style={styles.inputType2}
               onChangeText={(text) => setDay(text)}
@@ -188,7 +193,32 @@ export default function MarcarEventos({ navigation }, props) {
               placeholder="Ano"
               keyboardType="numeric"
             />
+
+          </View> */}
+
+          <View style={styles.borderLocationInput}>
+            <View style={styles.locationInput}>
+              <TextInput style={styles.inputType4} />
+              <TouchableOpacity
+                style={styles.iconInput}
+                onPress={() => setVisible(true)}
+              >
+                {/* <Entypo name="location" size={22} color="#F8670E" /> */}
+                <AntDesign name="calendar" size={26} color="#F8670E" />
+              </TouchableOpacity>
+            </View>
           </View>
+
+
+          <Modal
+            visible={visible}
+            transparent={true}
+            onRequestClose={() => setVisible(false)
+            }
+          >
+            <Calendario handleClose={() => setVisible(false)} />
+
+          </Modal>
 
           <Text style={styles.formText}>Hora</Text>
 
