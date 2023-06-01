@@ -8,13 +8,13 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
-    flex: 1
+    backgroundColor: "#F1F1F1",
+    flex: 1,
   },
 
   TopBarContainer: {
     width: "100%",
-    height: 90,
+    height: 160,
 
     display: "flex",
     justifyContent: "center",
@@ -37,6 +37,37 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
 
     backgroundColor: "#FF6709",
+    
+    marginVertical: 10
+  },
+
+  changePostsContainer: {
+    width: 120,
+    height: 50,
+
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+
+    paddingHorizontal: 25,
+    marginVertical: 5,
+
+    borderRadius: 30,
+
+    backgroundColor: "#E6E6E6",
+  },
+
+  optionPostButton: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+
+    width: 50,
+    height: 50,
+
+    borderRadius: 25
   },
 
   button: {
@@ -55,41 +86,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFF",
 
     marginTop: 15,
-  },
-
-  buttonGlobal: {
-    width: "50%",
-    height: 80,
-
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  buttonFriends: {
-    width: "50%",
-    height: 80,
-
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  optionPostButton: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-
-    width: 150,
-    height: 50,
-
-    borderRadius: 25
-  },
-
-  optionPostButtonText: {
-    fontSize: 18,
-    fontWeight: "bold"
   },
 
   loadingContainer: {

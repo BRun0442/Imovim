@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     },
 
     nameInputs: {
-        marginVertical: 15,
+        marginTop: 15,
     },
     
     horaInputs: {
@@ -226,6 +226,15 @@ export const styles = StyleSheet.create({
 
         paddingHorizontal: 10,
         marginVertical: 10
+    },
+
+    eventNameLengthText: {
+        fontSize: 15,
+        fontWeight: "400",
+        alignSelf: "flex-end",
+
+        paddingHorizontal: 10,
+        marginTop: 10
     },
 
     button: {

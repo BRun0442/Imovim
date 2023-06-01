@@ -26,6 +26,9 @@ import { saveEvent } from '../../../services/events';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+import Loading from "../../../assets/IMOVIM.gif"
 
 export default function Feed({ navigation }) {
   const { setPostFocusedId } = useContext(AccountDataContext)
@@ -170,34 +173,33 @@ export default function Feed({ navigation }) {
 
                 </View>
 
-              </View>
+                <View style={styles.changePostsContainer}>
 
-              <View style={styles.optionPost}>
-
-                <View style={[styles.buttonGlobal, globalPosts ? { backgroundColor: "#F1F1F1" } : { backgroundColor: "#FFF" }]}>
                   <TouchableOpacity
                     onPress={() => setGlobalPosts(true)}
-                    style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#D9D9D9" } : { backgroundColor: "#F1F1F1" }]}
+                    style={styles.optionPostButton}
+                    activeOpacity={0.8}
                   >
-                    <Text style={styles.optionPostButtonText}>Global</Text>
+                    <FontAwesome name="globe" size={globalPosts ? 35 : 22} color={globalPosts ? "#F8670E" : "#A512BD"} />
                   </TouchableOpacity>
-                </View>
 
-                <View style={[styles.buttonFriends, globalPosts ? { backgroundColor: "#FFF" } : { backgroundColor: "#F1F1F1" }]}>
                   <TouchableOpacity
                     onPress={() => {
                       // handleFriendPosts()
                       setGlobalPosts(false)
                     }}
-                    style={[styles.optionPostButton, globalPosts ? { backgroundColor: "#F1F1F1", } : { backgroundColor: "#D9D9D9" }]}
+                    activeOpacity={0.8}
+                    style={styles.optionPostButton}
                   >
-                    <Text style={styles.optionPostButtonText}>Amigos</Text>
+                    <Ionicons name="people" size={globalPosts ? 22 : 35} color={globalPosts ? "#A512BD" : "#F8670E"} />
                   </TouchableOpacity>
+
                 </View>
 
               </View>
 
             </View>
+
           </View>
         }
         data={globalPosts ? posts : friendPosts}
@@ -394,12 +396,13 @@ export default function Feed({ navigation }) {
         ) :
           (
             <View style={{ height: 600, alignItems: "center", justifyContent: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 20 }} >Loading...</Text>
-              <ActivityIndicator animating={true} size={35} color={"#FF6709"} />
+              {/* <ActivityIndicator animating={true} size={35} color={"#FF6709"} /> */}
+              <Image  style={{width: 50, height: 50}} source={Loading} />
+              <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 20 }} >Carregando...</Text>
             </View>
           )}
       </Modalize>
-      
+
     </View >
   );
 }

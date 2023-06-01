@@ -29,7 +29,6 @@ export default function PostEvent(props) {
   const [saveEvent, setSaveEvent] = useState(false)
 
   return (
-    <View style={styles.background}>
       <View style={styles.postContainer}>
 
         <View style={styles.postProfile}>
@@ -60,6 +59,5 @@ export default function PostEvent(props) {
 
         </View>
       </View>
-    </View>
   )
 }

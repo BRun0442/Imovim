@@ -34,10 +34,12 @@ export default function MarcarEventos({ navigation }, props) {
   const [year, setYear] = useState();
   const [hour, setHour] = useState();
   const [minute, setMinute] = useState();
-  const [descriptionLength, setDescriptionLength] = useState(0);
   const [eventId, setEventId] = useState(null);
 
   const [galleryPermission, setGalleryPermission] = useState(null);
+
+  const [descriptionLength, setDescriptionLength] = useState(0);
+  const [nameEventLength, setNameEventLength] = useState(0)
 
   useEffect(() => {
     // CameraPermisionFunction();
@@ -143,14 +145,25 @@ export default function MarcarEventos({ navigation }, props) {
 
       <View style={styles.form}>
         <KeyboardAvoidingView behavior={"padding"}>
+
           <Text style={styles.formText}>Nome do Evento</Text>
+
           <View style={styles.nameInputs}>
             <TextInput
               style={styles.inputType1}
               value={name}
-              onChangeText={(text) => setName(text)}
+              onChangeText={(text) => {
+                setName(text)
+                setNameEventLength(text.length)
+              }}
               keyboardType="default"
+              maxLength={15}
             />
+
+            <Text style={styles.eventNameLengthText}>
+              {nameEventLength} / 15
+            </Text>
+
           </View>
 
           <Text style={styles.formText}>Data</Text>

@@ -9,21 +9,25 @@ export const styles = StyleSheet.create({
   },
 
   postContainer: {
-    paddingVertical: 20,
+    marginBottom: 15,
 
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    
+    elevation: 5,
   },
-
+  
   post: {
     width: "100%",
-
+    
     borderTopWidth: 1,
+    borderBottomWidth: 1,
     borderColor: "#E98AF9",
-
+    
     backgroundColor: "#FFF",
-
+    
     paddingVertical: 15,
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
+
   },
 
   singlePostContainer: {

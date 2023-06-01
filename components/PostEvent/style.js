@@ -1,21 +1,18 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  background: {
-    width: '100%',
-    backgroundColor: '#F1F1F1',
-
-    paddingVertical: 15
-  },
-
   postContainer: {
     width: '100%',
     backgroundColor: '#FFF',
 
     borderTopWidth: 1,
+    borderBottomWidth: 1,
     borderColor: '#E98AF9',
 
-    paddingVertical: 15
+    paddingVertical: 15,
+    marginBottom: 15,
+
+    elevation: 10
   },
 
   postProfile: {
