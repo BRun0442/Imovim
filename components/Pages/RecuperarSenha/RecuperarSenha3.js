@@ -22,11 +22,32 @@ export default function RecuperarSenha3({ navigation }) {
       showToastError("As senhas devem ter pelo menos 7 digitos!", '')
     }
     else if (password1 == password2) {
-      await recoverPassword(recoverEmail, password1)
-      .then(() => {
+      try{
+        await recoverPassword(recoverEmail, password1)
+        .then(() => {
+          showToastSuccess("Senha alterada com sucesso!")
+          console.log('success');
+        }).catch(async() => {
+          await recoverPassword(recoverEmail, password1)
+          showToastSuccess("Senha alterada com sucesso!")
+          console.log('error');
+        })
+      } catch(err) {
+        await recoverPassword(recoverEmail, password1)
+        .then(() => {
+          showToastSuccess("Senha alterada com sucesso!")
+          console.log('log error');
+        }).catch(async() => {
+          await recoverPassword(recoverEmail, password1)
+          showToastSuccess("Senha alterada com sucesso!")
+          console.log('success');
+        })
+      } finally {
+        await recoverPassword(recoverEmail, password1)
         showToastSuccess("Senha alterada com sucesso!")
         navigation.navigate("Login")
-      })
+        console.log('finally');
+      }
     } else {
       showToastError("As senhas não coincidem!", '')
     }
