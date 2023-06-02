@@ -43,7 +43,7 @@ export default function Feed({ navigation }) {
   } = useContext(AuthContext);
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState();
-  const [friendPosts, setFriendPosts] = useState();
+  const [friendPosts, setFriendPosts] = useState([]);
   const [postAmmount, setPostAmmount] = useState(5);
 
   const [currentEvent, setCurrentEvent] = useState();
@@ -148,7 +148,7 @@ export default function Feed({ navigation }) {
     }, 1);
   };
 
-  if (!posts || !friendPosts) {
+  if (!posts) {
     return <Loading height={"100%"} />;
   }
 

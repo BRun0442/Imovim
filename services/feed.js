@@ -9,6 +9,9 @@ async function feedManager(ammount, id)
   } catch (error) {
     console.log(error)
     console.log('errooooooooooooooooooooooooooooooooooooooooo')
+    const response = await api.post(`/post/get-everything`, { postAmmount: ammount, user_id: parseInt(id) })
+    console.log(response.data)
+    return response.data; 
   }
 }
 
