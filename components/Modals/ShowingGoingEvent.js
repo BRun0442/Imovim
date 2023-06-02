@@ -37,10 +37,10 @@ export default function ShowingGoingEvent({ handleClose, event_id }) {
         <View style={styles.content}>
 
           <View style={styles.goEventContainer}>
-            <TouchableOpacity onPress={handleClose}>
-              <AntDesign name="closecircle" size={30} color="#FFF" />
-            </TouchableOpacity>
             <Text style={styles.goEventText}>Pessoas que vão:</Text>
+            <TouchableOpacity style={styles.iconButton} onPress={handleClose}>
+              <AntDesign name="close" size={28} color="#FFF" />
+            </TouchableOpacity>
           </View>
 
           <FlatList
@@ -81,11 +81,11 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
 
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "#A512BD",
 
     borderRadius: 30,
 
-    paddingHorizontal: 15
+    paddingHorizontal: 10
   },
 
   goEventContainer: {
@@ -94,18 +94,22 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
 
     marginVertical: 15,
+    paddingHorizontal: 15,
 
-    marginBottom: 10
+    marginBottom: 25
   },
 
   goEventText: {
     fontWeight: "bold",
     fontSize: 23,
     color: "#FFF",
+  },
 
-    marginLeft: 20,
-    marginBottom: 15
+  iconButton: {
+    position: "absolute",
+    right: 0
   }
 })

@@ -203,7 +203,6 @@ export default function MarcarEventos({ navigation }, props) {
                 style={styles.iconInput}
                 onPress={() => setVisible(true)}
               >
-                {/* <Entypo name="location" size={22} color="#F8670E" /> */}
                 <AntDesign name="calendar" size={26} color="#F8670E" />
               </TouchableOpacity>
             </View>

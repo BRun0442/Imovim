@@ -19,9 +19,13 @@
       "eas": {
         "projectId": "4fe77be1-ec8b-4466-ab8f-8e9827670049"
       }
+    },
+    "splash": {
+      "image": "./assets/IMOVIM.gif",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFF"
     }
   },
-
   "build": {
     "preview": {
       "android": {

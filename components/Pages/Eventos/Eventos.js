@@ -325,15 +325,15 @@ export default function Eventos({ navigation }) {
                                     </View>
 
                                     <Modal
-                    visible={visibleIgoEvent}
-                    transparent={true}
-                    onRequestClose={() => setVisibleIgoEvent(false)}
-                  >
-                    <ShowingGoingEvent
-                      event_id={currentEvent}
-                      handleClose={() => setVisibleIgoEvent(false)}
-                    />
-                  </Modal>
+                                        visible={visibleIgoEvent}
+                                        transparent={true}
+                                        onRequestClose={() => setVisibleIgoEvent(false)}
+                                    >
+                                        <ShowingGoingEvent
+                                            event_id={currentEvent}
+                                            handleClose={() => setVisibleIgoEvent(false)}
+                                        />
+                                    </Modal>
 
                                 </TouchableOpacity>
 
