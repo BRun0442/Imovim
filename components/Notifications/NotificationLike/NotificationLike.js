@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, Touchable } from 'react-native'
 import { styles } from './style'
 import { AuthContext } from '../../../contexts/auth'
 
-export default function NotificationLike({ navigation, navigateToProfile, user_id, profileImage, text, created_at, postId }) {
+export default function NotificationLike({ navigation, navigateToProfile, user_id, profileImage, text, created_at, postId, nickname }) {
     const { id, setAnotherUser_id, setCurrentPost } = useContext(AuthContext)
 
     return (
@@ -26,6 +26,7 @@ export default function NotificationLike({ navigation, navigateToProfile, user_i
             </TouchableOpacity>
 
             <View style={styles.textContainer}>
+                <Text style={styles.textName}>{nickname}</Text>
                 <Text style={styles.textNotifcation}>{text}</Text>
                 <Text style={styles.textTime}>{created_at}</Text>
             </View>

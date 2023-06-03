@@ -46,11 +46,6 @@ export const styles = StyleSheet.create({
     elevation: 5,
   },
 
-  iconPencil: {
-    marginRight: 10,
-    marginTop: 5
-  },
-
   infos: {
     display: "flex",
     justifyContent: "space-between",
@@ -59,7 +54,7 @@ export const styles = StyleSheet.create({
 
     marginVertical: 10,
 
-    paddingHorizontal: 25
+    paddingHorizontal: 20
   },
 
   data: {

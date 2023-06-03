@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   soccerBall: {
     position: "absolute",
     resizeMode: "stretch",
-    bottom: 400,
+    bottom: 100,
     left: -80,
     width: 150,
     height: 150,

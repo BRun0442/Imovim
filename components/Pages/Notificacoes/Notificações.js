@@ -157,6 +157,7 @@ export default function Notificacoes({ navigation }) {
                                 navigateToProfile={navigateToProfile}
                                 created_at={item.created_at}
                                 profileImage={item.profileImage}
+                                nickname={item.nickname}
                                 text={item.text}
                                 navigation={navigation}
                             />

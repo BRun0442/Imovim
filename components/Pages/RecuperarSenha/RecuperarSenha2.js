@@ -48,7 +48,7 @@ export default function RecuperarSenha({ navigation }) {
         <View style={styles.buttonContainer}>
 
         <TouchableOpacity
-            style={styles.button}
+            style={styles.transparentButton}
             onPress={async () => {
               const res = await sendMail(recoverEmail, "Recuperação de senha")
               const array = securityCode

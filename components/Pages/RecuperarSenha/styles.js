@@ -133,19 +133,35 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     width: "100%",
 
-    marginVertical: 80
+    marginVertical: 40,
+    paddingHorizontal: 50,
   },
 
   button: {
     backgroundColor: "#FF6709",
-    width: "60%",
+    width: "100%",
     height: 60,
 
     borderRadius: 15,
     justifyContent: "center",
     alignSelf: "center",
 
-    marginBottom: 25,
+    marginVertical: 10,
+  },
+
+  transparentButton: {
+    width: "100%",
+    height: 60,
+
+    borderBottomWidth: 2,
+    borderColor: "#FF6709",
+    borderWidth: 3,
+
+    borderRadius: 15,
+    justifyContent: "center",
+    alignSelf: "center",
+
+    marginVertical: 10,
   },
 
   buttonText: {

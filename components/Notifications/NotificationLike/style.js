@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: 120,
 
-        paddingHorizontal: 5,
+        paddingHorizontal: 10,
 
         borderRadius: 30,
 
@@ -41,6 +41,11 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",  
         flexWrap: "wrap"
+    },
+
+    textName: {
+        fontSize: 16,
+        fontWeight: "700"
     },
 
     textNotifcation:{

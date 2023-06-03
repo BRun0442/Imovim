@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import loadingImage from "../../assets/loading.gif"
 /* Presentational */
 import { View, Image, Animated, ActivityIndicator, StyleSheet } from "react-native";
+import Loading from '../Loading/Loading'
 
 export default class PlaceholderImage extends Component {
   state = {
@@ -23,7 +24,8 @@ export default class PlaceholderImage extends Component {
       <View
         style={styles.loadContainer}
       >
-        <ActivityIndicator size={50} color={"#FF6709"} />
+        {/* <ActivityIndicator size={50} color={"#FF6709"} /> */}
+        <Loading />
         {/* <Image
           {...this.props}
           style={{ width: "100%", height: 300 }}
@@ -51,6 +53,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "#FFF",
   }
 })

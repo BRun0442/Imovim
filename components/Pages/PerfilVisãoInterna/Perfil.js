@@ -153,7 +153,6 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                 <View>
 
                   <TouchableOpacity
-                    style={styles.iconPencil}
                     onPress={() => {
                       navigation.navigate("Editar Perfil");
                     }}
