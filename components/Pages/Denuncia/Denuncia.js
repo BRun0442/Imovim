@@ -1,14 +1,14 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { styles } from './style'
 
 import Header from '../../Header/Header';
 
-import { Entypo } from '@expo/vector-icons';
-import { styles } from './style'
-
 export default function ComplaintModal() {
+  const [select, setSelect] = useState(false)
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
 
       <Header />
 
@@ -18,71 +18,140 @@ export default function ComplaintModal() {
 
       <View style={styles.content}>
 
-          <View style={styles.optionsComplaint}>
+        <View style={styles.optionsComplaint}>
 
-            <Text style={styles.titleComplaint}>Denuncie publicações que contenham:</Text>
+          <Text style={styles.titleComplaint}>Denuncie publicações que contenham:</Text>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Nudez explícita</Text>
-            </View>
+          <View style={styles.info}>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Ofensas e ameaças</Text>
-            </View>
+            <TouchableOpacity
+              onPress={() => setSelect(true)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Discurso de ódio</Text>
-            </View>
+            <Text style={styles.infoText}>Nudez explícita</Text>
+          </View>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Bullying ou assédio</Text>
-            </View>
+          <View style={styles.info}>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Automutilação</Text>
-            </View>
+            <TouchableOpacity
+              onPress={() => setSelect(true)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Violação da propriedade intelectual</Text>
-            </View>
+            <Text style={styles.infoText}>Ofensas e ameaças</Text>
+          </View>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Venda de produtos ilícitos</Text>
-            </View>
+          <View style={styles.info}>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Golpe ou fraude</Text>
-            </View>
+            <TouchableOpacity
+              onPress={() => setSelect(false)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Informação falsa</Text>
-            </View>
+            <Text style={styles.infoText}>Discurso de ódio</Text>
+          </View>
 
-            <View style={styles.info}>
-              <Entypo name="dot-single" size={24} color="black" />
-              <Text style={styles.infoText}>Spam</Text>
-            </View>
+          <View style={styles.info}>
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
 
-            <View style={styles.buttonView}>
-              <TouchableOpacity style={styles.complaintButton}>
-                <Text style={styles.complaintText}>Denunciar</Text>
-              </TouchableOpacity>
-            </View>
+            <Text style={styles.infoText}>Bullying ou assédio</Text>
+          </View>
+
+          <View style={styles.info}>
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
+
+            <Text style={styles.infoText}>Automutilação</Text>
+          </View>
+
+          <View style={styles.info}>
+
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
+
+            <Text style={styles.infoText}>Violação da propriedade intelectual</Text>
+          </View>
+
+          <View style={styles.info}>
+
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
+
+            <Text style={styles.infoText}>Venda de produtos ilícitos</Text>
+          </View>
+
+          <View style={styles.info}>
+
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
+
+            <Text style={styles.infoText}>Golpe ou fraude</Text>
+          </View>
+
+          <View style={styles.info}>
+
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
+
+            <Text style={styles.infoText}>Informação falsa</Text>
+          </View>
+
+          <View style={styles.info}>
+
+            <TouchableOpacity
+              onPress={() => setSelect(!select)}
+              style={styles.checkBoxContainer}
+            >
+              <View style={[styles.checkBox, select ? { backgroundColor: "#A512BD" } : { backgroundColor: "#FFF" }]}></View>
+            </TouchableOpacity>
+
+            <Text style={styles.infoText}>Spam</Text>
+          </View>
+
 
         </View>
 
       </View>
-      
-    </View >
+
+      <View style={styles.buttonView}>
+        <TouchableOpacity style={styles.complaintButton}>
+          <Text style={styles.complaintText}>Denunciar</Text>
+        </TouchableOpacity>
+      </View>
+
+    </ScrollView >
   );
 }
 

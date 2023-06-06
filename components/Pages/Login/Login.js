@@ -6,6 +6,7 @@ import Toast from 'react-native-toast-message'
 
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
+import Google from './img/google-icon.png'
 
 import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
@@ -101,7 +102,7 @@ export default function Login({ navigation }) {
 
             </View>
 
-            <TouchableOpacity onPress={()=> navigation.navigate("Recuperar Senha 1")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Recuperar Senha 1")}>
               <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
             </TouchableOpacity>
 
@@ -120,6 +121,15 @@ export default function Login({ navigation }) {
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
 
+          <View style={styles.line} />
+
+          <TouchableOpacity 
+          onPress={()=> alert("Calma lá chefia 🤨✋ \nEsse B.O não é meu")}
+          style={styles.buttonGoogle}>
+            <Image style={styles.imgGoogle} source={Google} />
+            <Text style={styles.text3}>Login com Google</Text>
+          </TouchableOpacity>
+
           <View style={styles.forgotPasswordContainer}>
 
             <Text style={styles.text1}> Não possui cadastro?</Text>
@@ -132,7 +142,7 @@ export default function Login({ navigation }) {
 
         </View>
       </View>
-      
+
     </ScrollView >
   );
 }

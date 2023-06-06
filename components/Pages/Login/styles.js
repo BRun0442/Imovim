@@ -146,7 +146,7 @@ export const styles = StyleSheet.create({
   buttonContainer: {
     width: "100%",
 
-    marginVertical: 50
+    marginVertical: 25
   },
 
   button: {
@@ -158,7 +158,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
 
-    marginBottom: 25,
+    marginBottom: 15,
   },
 
   buttonText: {
@@ -169,12 +169,48 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
 
+  buttonGoogle: {
+    width: "75%",
+    height: 50,
+    
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+
+    marginBottom: 15,
+
+    borderRadius: 10,
+
+    backgroundColor: "#FFF",
+  },
+
+  imgGoogle:{
+    width: 30,
+    height: 30,
+
+    marginHorizontal: 5
+  },
+
+  text3:{
+    fontSize: 15,
+  },
+
+  line: {
+    width: "100%",
+    height: 1,
+
+    backgroundColor: "#FFF",
+
+    marginVertical: 15
+  },
+
   forgotPasswordContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "wrap",
+    flexDirection: "column",
 
     paddingHorizontal: 10
   },
@@ -193,33 +229,6 @@ export const styles = StyleSheet.create({
     marginLeft: 10
   },
 
-  radioContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
 
-    marginVertical: 50
-  },
 
-  radio: {
-    width: 15,
-    height: 15,
-
-    backgroundColor: "#D9D9D9",
-
-    borderRadius: 20,
-
-    marginHorizontal: 15
-  },
-
-  radioOrange: {
-    width: 15,
-    height: 15,
-
-    backgroundColor: "#F8670E",
-
-    borderRadius: 20,
-
-    marginHorizontal: 15
-  }
 });

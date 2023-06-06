@@ -2,9 +2,6 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
-
     backgroundColor: "#FFF"
   },
 
@@ -14,9 +11,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     width: "100%",
-    height: "10%",
 
     paddingHorizontal: 10,
+    paddingVertical: 25
   },
 
   title: {
@@ -26,17 +23,15 @@ export const styles = StyleSheet.create({
 
   content: {
     width: "100%",
-    height: "80%",
 
-    paddingHorizontal: 20,
+    paddingHorizontal: 7,
   },
 
   optionsComplaint: {
-    height: "100%",
     backgroundColor: "#F1F1F1",
 
     borderRadius: 20,
-    paddingVertical: 25,
+    paddingVertical: 20,
     paddingHorizontal: 10
   },
 
@@ -65,9 +60,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    height: "15%",
-
-    marginTop: 25
+    marginVertical: 25
   },
 
   complaintButton: {
@@ -77,15 +70,36 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#DB3232",
 
-    width: "80%",
-    height: "80%",
+    width: "50%",
+    height: 55,
 
-    borderRadius: 30,
+    borderRadius: 15,
   },
 
   complaintText: {
     color: "#FFF",
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold"
   },
+
+  checkBoxContainer: {
+    width: 20,
+    height: 20,
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    borderRadius: 15,
+
+    backgroundColor: "#FFF",
+
+    marginRight: 10,
+  },
+
+  checkBox: {
+    width: 12,
+    height: 12,
+    borderRadius: 15
+  }
 })
