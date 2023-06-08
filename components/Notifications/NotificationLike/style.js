@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
         borderColor: "#fff",
         borderWidth: 3,
 
-        marginRight: 6
+        marginRight: 10
     },
 
     textContainer:{

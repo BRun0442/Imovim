@@ -214,11 +214,12 @@ export const styles = StyleSheet.create({
   },
 
   closedButton: {
-    width: 45,
+    width: 50,
     height: 90,
 
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "row",
+    justifyContent: "flex-end",
     alignItems: "center"
   },
 
@@ -257,7 +258,7 @@ export const styles = StyleSheet.create({
   },
 
   openEditText: {
-    color: "white",
+    color: "#FFF",
     fontSize: 20,
     fontWeight: "bold",
   },

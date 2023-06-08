@@ -47,7 +47,7 @@ export default function ComplaintModal() {
 
         <View style={styles.optionsComplaint}>
 
-          <Text style={styles.titleComplaint}>Denuncie publicações que contenham:</Text>
+          <Text style={styles.titleComplaint}>Esta publicação contém:</Text>
 
           <View style={styles.info}>
 
@@ -166,7 +166,6 @@ export default function ComplaintModal() {
 
             <Text style={styles.infoText}>Spam</Text>
           </View>
-
 
         </View>
 

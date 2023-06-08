@@ -58,8 +58,8 @@ export default function Map( {navigation} ) {
         initialRegion={{
           latitude: -23.641265730271293,
           longitude: -46.83605662739835,
-          latitudeDelta: 0.0005,
-          longitudeDelta: 0.0005,
+          latitudeDelta: 0.00025,
+          longitudeDelta: 0.00025,
         }}
         showsUserLocation={true}
         loadingEnabled

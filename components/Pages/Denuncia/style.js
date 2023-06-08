@@ -24,15 +24,18 @@ export const styles = StyleSheet.create({
   content: {
     width: "100%",
 
-    paddingHorizontal: 7,
+    paddingHorizontal: 10,
   },
 
   optionsComplaint: {
     backgroundColor: "#F1F1F1",
 
-    borderRadius: 20,
+    borderRadius: 15,
+
     paddingVertical: 20,
-    paddingHorizontal: 10
+    paddingHorizontal: 12,
+
+    elevation: 4
   },
 
   titleComplaint: {
@@ -51,7 +54,7 @@ export const styles = StyleSheet.create({
   },
 
   infoText: {
-    fontSize: 18,
+    fontSize: 17,
     marginVertical: 8
   },
 
@@ -70,10 +73,10 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "#DB3232",
 
-    width: "50%",
-    height: 55,
+    width: "70%",
+    height: 60,
 
-    borderRadius: 15,
+    borderRadius: 20,
   },
 
   complaintText: {
@@ -83,8 +86,8 @@ export const styles = StyleSheet.create({
   },
 
   checkBoxContainer: {
-    width: 20,
-    height: 20,
+    width: 22,
+    height: 22,
 
     display: "flex",
     alignItems: "center",
@@ -98,8 +101,9 @@ export const styles = StyleSheet.create({
   },
 
   checkBox: {
-    width: 12,
-    height: 12,
+    width: 10,
+    height: 10,
+    
     borderRadius: 15
   }
 })

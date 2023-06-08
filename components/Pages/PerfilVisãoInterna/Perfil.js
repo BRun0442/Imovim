@@ -184,9 +184,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                     </Text>
                   </TouchableOpacity>
                 ) : (
-                  <ScrollView horizontal={true}
-                  // style={{ paddingHorizontal: 8 }}
-                  >
+                  <ScrollView horizontal={true}>
 
                     {sportsPracticed.map((sport, index) => {
                       return (
@@ -246,7 +244,7 @@ export default function PerfilVisãoInterna({ navigation }, props) {
                       onPress={() => setVisible(false)}
                       style={styles.closedButton}
                     >
-                      <Ionicons name="ios-close" size={30} color="#FFF" />
+                      <Ionicons name="ios-close" size={32} color="#FFF" />
                     </TouchableOpacity>
                   </View>
                 )}

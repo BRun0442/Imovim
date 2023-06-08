@@ -207,11 +207,13 @@ export const styles = StyleSheet.create({
 
     borderBottomWidth: 3,
     borderBottomColor: "#FFF",
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "400",
 
     padding: 5,
     marginVertical: 25,
+
+    textAlign: "center"
   },
 
   iconInput: {
