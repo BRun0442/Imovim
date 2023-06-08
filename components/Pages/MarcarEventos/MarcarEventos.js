@@ -34,6 +34,7 @@ export default function MarcarEventos({ navigation }, props) {
   const [day, setDay] = useState();
   const [month, setMonth] = useState();
   const [year, setYear] = useState();
+  const [date, setDate] = useState(null)
   const [hour, setHour] = useState();
   const [minute, setMinute] = useState();
   const [eventId, setEventId] = useState(null);
@@ -99,7 +100,7 @@ export default function MarcarEventos({ navigation }, props) {
       await createEvent(
         id,
         name,
-        eventDate,
+        date,
         eventHour,
         localization,
         description,
@@ -198,7 +199,7 @@ export default function MarcarEventos({ navigation }, props) {
 
           <View style={styles.borderLocationInput}>
             <View style={styles.locationInput}>
-              <TextInput style={styles.inputType4} />
+              <TextInput style={styles.inputType4} value={date} />
               <TouchableOpacity
                 style={styles.iconInput}
                 onPress={() => setVisible(true)}
@@ -215,7 +216,7 @@ export default function MarcarEventos({ navigation }, props) {
             onRequestClose={() => setVisible(false)
             }
           >
-            <Calendario handleClose={() => setVisible(false)} />
+            <Calendario setDate={setDate} handleClose={() => setVisible(false)} />
 
           </Modal>
 

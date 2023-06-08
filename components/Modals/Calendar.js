@@ -5,7 +5,7 @@ import { Calendar, LocaleConfig } from 'react-native-calendars';
 
 import { AntDesign } from '@expo/vector-icons';
 
-export default function Calendario({ handleClose }) {
+export default function Calendario({ handleClose, setDate }) {
     const [selected, setSelected] = useState('');
 
     console.log(selected);
@@ -28,6 +28,7 @@ export default function Calendario({ handleClose }) {
                     style={styles.calendar}
                     onDayPress={day => {
                         setSelected(day.dateString);
+                        setDate(day.dateString)
                     }}
                     markedDates={{
                         [selected]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' }
