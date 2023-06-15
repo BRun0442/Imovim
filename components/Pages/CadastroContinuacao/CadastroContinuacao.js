@@ -19,11 +19,7 @@ export default function Cadastro({ navigation }) {
   const [visiblePassword2, setVisiblePassword2] = useState(true)
 
   return (
-    <ScrollView style={styles.container}>
-
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
+    <ScrollView contentContainerStyle={styles.container}>
 
       <Image
         style={styles.basketBall}

@@ -10,10 +10,10 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#A512BD",
 
-    paddingHorizontal: 8,
-    paddingVertical: 20
+    paddingVertical: 20,
+
+    backgroundColor: "#A512BD",
   },
 
   basketBall: {
@@ -34,35 +34,16 @@ export const styles = StyleSheet.create({
     height: 150,
   },
 
-  titleContainer: {
-    width: "100%",
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    marginBottom: 20
-  },
-
-  title: {
-    fontSize: 50,
-
-    fontWeight: "bold",
-
-    color: "#FF6709",
-    fontWeight: "700",
-  },
-
   form: {
-    width: "100%",
-    
-    display: "flex",
-    // justifyContent: "center",
+    width: 96 * width,
+    height: 95 * height,
 
-    borderRadius: 25,
+    alignSelf: "center",
+
+    borderRadius: 15,
     backgroundColor: "rgba(0,0,0,0.3)",
 
-    paddingHorizontal: 15,
+    paddingHorizontal: 8,
   },
 
   formDateContainer: {
@@ -107,7 +88,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 15
   },
 
   subTitle: {
@@ -128,7 +110,7 @@ export const styles = StyleSheet.create({
     fontWeight: "400",
 
     padding: 5,
-    marginVertical: 20
+    marginVertical: 22
   },
 
   iconInput:{
@@ -152,7 +134,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
 
-    marginBottom: 25,
+    marginBottom: 35,
   },
 
   buttonText: {
@@ -168,8 +150,6 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-
-    marginBottom: 40
   },
 
   text1: {
@@ -182,8 +162,6 @@ export const styles = StyleSheet.create({
     color: "#FF6709",
     fontSize: 21,
     fontWeight: "bold",
-
-    marginLeft: 10
   },
 
   radioContainer:{

@@ -56,10 +56,6 @@ export default function RecuperarSenha3({ navigation }) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
 
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
-
       <View style={styles.form}>
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
 

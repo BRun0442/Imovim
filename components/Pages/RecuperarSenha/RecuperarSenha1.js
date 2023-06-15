@@ -8,11 +8,7 @@ export default function RecuperarSenha({ navigation }) {
   const { recoverEmail, setRecoverEmail } = useContext(AuthContext)
 
   return (
-    <ScrollView style={styles.container}>
-
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
+    <ScrollView contentContainerStyle={styles.container}>
 
       <View style={styles.form}>
 

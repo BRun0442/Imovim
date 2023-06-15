@@ -20,11 +20,7 @@ export default function Cadastro({ navigation }) {
   }
 
   return (
-    <ScrollView style={styles.container}>
-
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
+    <ScrollView contentContainerStyle={styles.container}>
 
       <Image
         style={styles.basketBall}
@@ -57,14 +53,18 @@ export default function Cadastro({ navigation }) {
 
             </View>
 
-            <View style={styles.inputContainer}>
+            <View style={styles.inputLongContainer}>
 
-              <TextInput
-                onChangeText={(value) => setCode(value)}
-                style={styles.inputLong}
-                maxLength={6}
-                keyboardType="numeric"
-              />
+              <View style={styles.inputContainer}>
+
+                <TextInput
+                  onChangeText={(value) => setCode(value)}
+                  style={styles.inputLong}
+                  maxLength={6}
+                  keyboardType="numeric"
+                />
+
+              </View>
 
             </View>
 
@@ -72,19 +72,19 @@ export default function Cadastro({ navigation }) {
 
         </KeyboardAvoidingView>
 
-        <TouchableOpacity
-          onPress={async () => {
-            const res = await sendMail(email, "Confirmação de email")
-            const array = securityCode
-            array.push(res)
-            setSecurityCode(array)
-          }
-          }>
-          <Text style={styles.buttonText}>Reenviar codigo</Text>
-        </TouchableOpacity>
-
         <View style={styles.buttonContainer}>
 
+          <TouchableOpacity
+            style={styles.transparentButton}
+            onPress={async () => {
+              const res = await sendMail(email, "Confirmação de email")
+              const array = securityCode
+              array.push(res)
+              setSecurityCode(array)
+            }
+            }>
+            <Text style={styles.buttonText}>Reenviar codigo</Text>
+          </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button}

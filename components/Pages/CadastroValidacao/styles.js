@@ -10,9 +10,10 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#A512BD",
 
-    paddingHorizontal: 8
+    paddingVertical: 20,
+
+    backgroundColor: "#A512BD",
   },
 
   basketBall: {
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
   soccerBall: {
     position: "absolute",
     resizeMode: "stretch",
-    bottom: 400,
+    bottom: 100,
     left: -80,
     width: 150,
     height: 150,
@@ -53,15 +54,15 @@ export const styles = StyleSheet.create({
   },
 
   form: {
-    width: "100%",
+    width: 96 * width,
+    height: 95 * height,
 
-    display: "flex",
-    // justifyContent: "center",
+    alignSelf: "center",
 
-    borderRadius: 25,
+    borderRadius: 15,
     backgroundColor: "rgba(0,0,0,0.3)",
 
-    paddingHorizontal: 15,
+    paddingHorizontal: 8,
   },
 
   formDateContainer: {
@@ -130,7 +131,11 @@ export const styles = StyleSheet.create({
     color: "#FFF",
   },
 
-  inputContainer:{
+  inputLongContainer: {
+    paddingHorizontal: 15
+  },
+
+  inputContainer: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -139,8 +144,9 @@ export const styles = StyleSheet.create({
     borderColor: "#F8670E",
 
     paddingHorizontal: 80,
-    marginVertical: 40
+    marginVertical: 40,
 
+    borderRadius: 25
   },
 
   inputLong: {
@@ -156,7 +162,7 @@ export const styles = StyleSheet.create({
 
     padding: 5,
     marginVertical: 20,
-    
+
     textAlign: "center"
   },
 
@@ -179,9 +185,24 @@ export const styles = StyleSheet.create({
     marginBottom: 25,
   },
 
+  transparentButton: {
+    width: "60%",
+    height: 60,
+
+    borderBottomWidth: 2,
+    borderColor: "#FF6709",
+    borderWidth: 3,
+
+    borderRadius: 15,
+    justifyContent: "center",
+    alignSelf: "center",
+
+    marginVertical: 15,
+  },
+
   buttonText: {
     color: "#FFF",
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "500",
 
     textAlign: "center",
@@ -205,7 +226,7 @@ export const styles = StyleSheet.create({
     fontSize: 21,
     fontWeight: "bold",
 
-    marginLeft: 10
+    marginLeft: 5
   },
 
   radioContainer: {

@@ -12,10 +12,6 @@ export default function RecuperarSenha({ navigation }) {
   return (
     <ScrollView style={styles.container}>
 
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
-
       <View style={styles.form}>
 
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
@@ -28,7 +24,7 @@ export default function RecuperarSenha({ navigation }) {
             <Text style={styles.text}>Informe o código recebido</Text>
           </View>
 
-          <View>
+          <View style={styles.inputLongContainer}> 
 
             <View style={styles.inputContainer}>
 

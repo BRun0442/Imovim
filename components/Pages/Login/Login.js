@@ -6,7 +6,7 @@ import Toast from 'react-native-toast-message'
 
 import basketBall from '../../../assets/bolaBasquete.png';
 import soccerBall from '../../../assets/bolaFutebol.png';
-import Google from './img/google-icon.png'
+import Google from './img/google-icon.png';
 
 import { AuthContext } from '../../../contexts/auth.js';
 import ValidateData from '../../../services/login.js';
@@ -38,10 +38,6 @@ export default function Login({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
 
       <Image
         style={styles.basketBall}
@@ -121,14 +117,14 @@ export default function Login({ navigation }) {
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
 
-          <View style={styles.line} />
+          {/* <View style={styles.line} />
 
           <TouchableOpacity 
           onPress={()=> alert("Calma lá chefia 🤨✋ \nEsse B.O não é meu")}
           style={styles.buttonGoogle}>
             <Image style={styles.imgGoogle} source={Google} />
             <Text style={styles.text3}>Login com Google</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <View style={styles.forgotPasswordContainer}>
 

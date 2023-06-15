@@ -18,11 +18,7 @@ export default function Cadastro({ navigation }) {
   const [ddd, setDDD] = useState('')
 
   return (
-    <ScrollView style={styles.container}>
-
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Imovim</Text>
-      </View>
+    <ScrollView contentContainerStyle={styles.container}>
 
       <Image
         style={styles.basketBall}
@@ -92,7 +88,7 @@ export default function Cadastro({ navigation }) {
             </View>
           </View>
 
-          <View>
+          <View style={styles.phoneContainer}>
             <TextInput
               style={styles.inputLong}
               placeholder='Telefone'

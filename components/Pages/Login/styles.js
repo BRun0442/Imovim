@@ -10,10 +10,10 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#A512BD",
 
-    paddingHorizontal: 10,
-    paddingVertical: 20
+    paddingVertical: 20,
+
+    backgroundColor: "#A512BD",
   },
 
   basketBall: {
@@ -34,35 +34,16 @@ export const styles = StyleSheet.create({
     height: 150,
   },
 
-  titleContainer: {
-    width: "100%",
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    marginBottom: 15
-  },
-
-  title: {
-    fontSize: 50,
-
-    fontWeight: "bold",
-
-    color: "#FF6709",
-    fontWeight: "700",
-  },
-
   form: {
-    width: 95 * width,
-    height: 85 * height,
+    width: 96 * width,
+    height: 95 * height,
 
     alignSelf: "center",
 
-    borderRadius: 25,
+    borderRadius: 15,
     backgroundColor: "rgba(0,0,0,0.3)",
 
-    paddingHorizontal: 15,
+    paddingHorizontal: 8,
   },
 
   formDateContainer: {
@@ -111,7 +92,7 @@ export const styles = StyleSheet.create({
   },
 
   subTitle: {
-    fontSize: 35,
+    fontSize: 36,
     fontWeight: "bold",
     color: "#FFF",
   },
@@ -140,7 +121,9 @@ export const styles = StyleSheet.create({
   forgotPassword: {
     color: "#FFF",
     fontSize: 16,
-    fontWeight: "600"
+    fontWeight: "600",
+
+    marginBottom: 50
   },
 
   buttonContainer: {
@@ -158,7 +141,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
 
-    marginBottom: 15,
+    marginBottom: 50,
   },
 
   buttonText: {
@@ -228,7 +211,5 @@ export const styles = StyleSheet.create({
 
     marginLeft: 10
   },
-
-
 
 });

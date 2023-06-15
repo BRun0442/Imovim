@@ -10,9 +10,10 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#A512BD",
 
-    paddingHorizontal: 8
+    paddingVertical: 20,
+
+    backgroundColor: "#A512BD",
   },
 
   basketBall: {
@@ -33,37 +34,17 @@ export const styles = StyleSheet.create({
     height: 150,
   },
 
-  titleContainer: {
-    width: "100%",
-
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    marginVertical: 20
-  },
-
-  title: {
-    fontSize: 50,
-
-    fontWeight: "bold",
-
-    color: "#FF6709",
-    fontWeight: "700",
-  },
-
   form: {
-    width: "100%",
+    width: 96 * width,
+    height: 95 * height,
 
-    display: "flex",
-    // justifyContent: "center",
+    alignSelf: "center",
 
-    borderRadius: 25,
+    borderRadius: 15,
     backgroundColor: "rgba(0,0,0,0.3)",
 
-    paddingHorizontal: 15,
+    paddingHorizontal: 8,
   },
-
   formDateContainer: {
     width: "100%",
   },
@@ -113,6 +94,10 @@ export const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     color: "#FFF",
+  },
+
+  inputLongContainer: {
+    paddingHorizontal: 15
   },
 
   inputLong: {
@@ -196,7 +181,6 @@ export const styles = StyleSheet.create({
     marginVertical: 40,
 
     borderRadius: 25
-
   },
 
   inputNumber: {
