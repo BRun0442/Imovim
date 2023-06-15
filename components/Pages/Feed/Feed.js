@@ -40,6 +40,8 @@ export default function Feed({ navigation }) {
     setCurrentPost,
     updatingEvent,
     setUpdatingEvent,
+    reportedPost, 
+    setReportedPost
   } = useContext(AuthContext);
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState();
@@ -240,7 +242,10 @@ export default function Feed({ navigation }) {
           <View>
             {item.post_type == "post" ? (
               <Post
-                goToReportScreen={() => navigation.navigate("Denuncia")}
+                goToReportScreen={() => {
+                  setReportedPost(item.id);
+                  navigation.navigate("Denuncia")
+                }}
                 goToProfile={() => {
                   if (item.user_id != id) {
                     setAnotherUser_id(item.user_id);

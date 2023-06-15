@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text, View, TouchableOpacity, Image, Dimensions, Modal } from "react-native";
 import { styles } from "./styles";
 import ProfileImage from "../ProfileImage/ProfileImage";
@@ -6,10 +6,12 @@ import RenderImage from "../RenderImage/RenderImage";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import { AuthContext } from "../../contexts/auth";
 
 let screenWidth = Dimensions.get("window").width / 100; // screen width
 
 export default function Post(props) {
+  const { id } = useContext(AuthContext)
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [aspectRatio, setAspectRatio] = useState(0);
@@ -65,9 +67,11 @@ export default function Post(props) {
 
           </View>
 
-          <TouchableOpacity onPress={() => props.goToReportScreen()}>
-            <Text style={styles.complaint}>!</Text>
-          </TouchableOpacity>
+          {props.user_id != id && (
+            <TouchableOpacity onPress={() => props.goToReportScreen()}>
+              <Text style={styles.complaint}>!</Text>
+            </TouchableOpacity>
+          )}  
 
         </View>
 

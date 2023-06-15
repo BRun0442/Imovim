@@ -1,37 +1,46 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { styles } from './style'
 
 import Header from '../../Header/Header';
 
-export default function ComplaintModal() {
-  const [select, setSelect] = useState(false)
-  const [reasons, setReasons] = useState([])
+import api from '../../../services/api';
+import { AuthContext } from '../../../contexts/auth';
+
+import { showToastError, showToastSuccess } from '../../Toast/Toast';
+
+export default function ComplaintModal({ navigation }) {
+  const { id, reportedPost } = useContext(AuthContext)
+  const [select, setSelect] = useState(null)
 
   const handleReason = (reasonNumber) => {
-    let array = []
-    reasons.forEach((reason) => {
-      array.push(reason)
-    })
-    console.log(array);
-    if (array.includes(reasonNumber)) {
-      const index = array.indexOf(reasonNumber);
-      array.splice(index, 1)
-      setReasons(array)
-      return false
-    } else {
-      array.push(reasonNumber)
-      setReasons(array)
-      return true
-    }
+    setSelect(reasonNumber)
   }
 
   const isSelected = (reasonNumber) => {
-    if (reasons.includes(reasonNumber)) {
+    if (reasonNumber == select) {
       return true
     } else {
       return false
     }
+  }
+
+  const handleSubmit = async () => {
+    const reasons = [
+      '', 'Nudez explicita', 'Ofensas e ameaças', 
+      'Discurso de ódio', 'Bullying ou assédio', 'Automutilação',
+      'Violação de propriedade intelectual', 'Venda de produtos ilicitos',
+      'Golpe ou fraude', 'Informação falsa', 'Spam'
+  ]
+  if(!select) {
+    showToastError('Selecione uma das opções!')
+  } else {
+    const data = { post_id: reportedPost, user_id: id, motive: reasons[select]  }
+    const request = await api.post(`/report/create-complaint`, data)
+    console.log(request.data);
+    showToastSuccess('Denuncia enviada!')
+    navigation.navigate('Página Inicial')
+  }
   }
 
   return (
@@ -172,7 +181,7 @@ export default function ComplaintModal() {
       </View>
 
       <View style={styles.buttonView}>
-        <TouchableOpacity style={styles.complaintButton}>
+        <TouchableOpacity onPress={() => handleSubmit()} style={styles.complaintButton}>
           <Text style={styles.complaintText}>Denunciar</Text>
         </TouchableOpacity>
       </View>

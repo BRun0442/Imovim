@@ -33,6 +33,7 @@ function AuthProvider({ children }) {
   const [groupDescription, setGroupDescription] = useState('')
   const [updatingEvent, setUpdatingEvent] = useState(false)
   const [event_id, setEvent_id] = useState()
+  const [reportedPost, setReportedPost] = useState(null);
 
   async function getUserIsLoggedIn() {
     let result = await SecureStore.getItemAsync('isUserLoggedIn');
@@ -57,6 +58,8 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        reportedPost, 
+        setReportedPost,
         recoverEmail, 
         setRecoverEmail,
         event_id, 
