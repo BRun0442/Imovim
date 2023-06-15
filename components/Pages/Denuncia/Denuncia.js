@@ -27,26 +27,26 @@ export default function ComplaintModal({ navigation }) {
 
   const handleSubmit = async () => {
     const reasons = [
-      '', 'Nudez explicita', 'Ofensas e ameaças', 
+      '', 'Nudez explicita', 'Ofensas e ameaças',
       'Discurso de ódio', 'Bullying ou assédio', 'Automutilação',
       'Violação de propriedade intelectual', 'Venda de produtos ilicitos',
       'Golpe ou fraude', 'Informação falsa', 'Spam'
-  ]
-  if(!select) {
-    showToastError('Selecione uma das opções!')
-  } else {
-    const data = { post_id: reportedPost, user_id: id, motive: reasons[select]  }
-    const request = await api.post(`/report/create-complaint`, data)
-    console.log(request.data);
-    showToastSuccess('Denuncia enviada!')
-    navigation.navigate('Página Inicial')
-  }
+    ]
+    if (!select) {
+      showToastError('Selecione uma das opções!')
+    } else {
+      const data = { post_id: reportedPost, user_id: id, motive: reasons[select] }
+      const request = await api.post(`/report/create-complaint`, data)
+      console.log(request.data);
+      showToastSuccess('Denuncia enviada!')
+      navigation.navigate('Página Inicial')
+    }
   }
 
   return (
     <ScrollView style={styles.container}>
 
-      <Header />
+      <Header navigation={navigation} />
 
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Denunciar</Text>

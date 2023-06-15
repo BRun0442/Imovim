@@ -72,6 +72,15 @@ export const styles = StyleSheet.create({
     fontSize: 15
   },
 
+  complaintButton: {
+    width: 25,
+    height: 25,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },  
+
   complaint: {
     fontWeight: "600",
     fontSize: 20

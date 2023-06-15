@@ -44,7 +44,7 @@ export default function Post(props) {
 
   return (
     <View style={styles.postContainer}>
-      
+
       <View style={styles.post}>
 
         <View style={styles.userInfoContainer}>
@@ -68,10 +68,13 @@ export default function Post(props) {
           </View>
 
           {props.user_id != id && (
-            <TouchableOpacity onPress={() => props.goToReportScreen()}>
+            <TouchableOpacity
+              style={styles.complaintButton}
+              onPress={() => props.goToReportScreen()}
+            >
               <Text style={styles.complaint}>!</Text>
             </TouchableOpacity>
-          )}  
+          )}
 
         </View>
 
