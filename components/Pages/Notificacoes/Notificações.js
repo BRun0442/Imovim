@@ -10,6 +10,7 @@ import Header from '../../Header/Header'
 import Notification from "../../Notifications/NotificationLike/NotificationLike";
 import SolicitationNewFriend from "../../Notifications/SolicitationNewFriend/SolicitationNewFriend";
 import Loading from "../../Loading/Loading";
+import NotificationPostReport from '../../Notifications/NotificationPostReport/NotificationPostReport'
 
 import { getSolicitations } from "../../../services/notifications";
 import axios from "axios";
@@ -86,6 +87,8 @@ export default function Notificacoes({ navigation }) {
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Notificações</Text>
             </View>
+
+            {/* <NotificationPostReport /> */}
 
             <View style={styles.notificationTypes}>
 
