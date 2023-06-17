@@ -21,18 +21,12 @@ export const styles = StyleSheet.create({
     },
 
     iconCam: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-
         width: 80,
         height: 80,
 
-        // backgroundColor: "#d9d9d9",
+        backgroundColor: "#FFF",
 
         borderRadius: 100,
-        borderColor: "#fff",
-        borderWidth: 3,
 
         marginRight: 8
     },
