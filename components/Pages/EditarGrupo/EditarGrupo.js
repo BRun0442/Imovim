@@ -8,7 +8,7 @@ import { Entypo } from "@expo/vector-icons";
 
 export default function CriarGrupo({ navigation }) {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <Header navigation={navigation} />
 
@@ -16,54 +16,50 @@ export default function CriarGrupo({ navigation }) {
                 <Text style={styles.title}>Editar grupo</Text>
             </View>
 
-            <ScrollView>
-                <View style={styles.form}>
+            <View style={styles.form}>
 
-                    <Text style={styles.formText}>Nome do Grupo</Text>
+                <Text style={styles.formText}>Nome do Grupo</Text>
 
-                    <View style={styles.nameInputs}>
-                        <TextInput
-                            style={styles.inputType1}
-                            keyboardType="default"
-                        />
-                    </View>
-
-                    <Text style={styles.formText}>Descrição do grupo</Text>
-                    <View style={styles.nameInputs}>
-                        <TextInput style={styles.inputType1}
-                            onChangeText={(text) => setDescription(text)}
-                            keyboardType="default"
-                        />
-                    </View>
-
-                    <View style={{ marginVertical: 30 }}>
-                        <Text style={styles.formText}>Foto do grupo</Text>
-
-                        <View style={styles.banner}>
-                            <TouchableOpacity
-                                style={styles.editProfileIconContainerBanner}
-                            >
-
-                                <View style={styles.editBanner}>
-                                    <Entypo name="camera" size={22} color="#FFF" />
-                                </View>
-
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    <TouchableOpacity 
-                    style={styles.button}
-                    onPress={()=> navigation.navigate("Adicionar Participantes")}
-                    >
-                        <Text style={styles.text}>Criar Grupo</Text>
-                    </TouchableOpacity>
-
+                <View style={styles.nameInputs}>
+                    <TextInput
+                        style={styles.inputType1}
+                        keyboardType="default"
+                    />
                 </View>
-            </ScrollView>
 
-            <StatusBar />
-            
-        </View>
+                <Text style={styles.formText}>Descrição do grupo</Text>
+                <View style={styles.nameInputs}>
+                    <TextInput style={styles.inputType1}
+                        onChangeText={(text) => setDescription(text)}
+                        keyboardType="default"
+                    />
+                </View>
+
+                <View style={{ marginVertical: 30 }}>
+                    <Text style={styles.formText}>Foto do grupo</Text>
+
+                    <View style={styles.banner}>
+                        <TouchableOpacity
+                            style={styles.editProfileIconContainerBanner}
+                        >
+
+                            <View style={styles.editBanner}>
+                                <Entypo name="camera" size={22} color="#FFF" />
+                            </View>
+
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate("Adicionar Participantes")}
+                >
+                    <Text style={styles.text}>Criar Grupo</Text>
+                </TouchableOpacity>
+
+            </View>
+
+        </ScrollView >
     );
 }
