@@ -13,8 +13,7 @@ export const styles = StyleSheet.create({
     },
 
     titleContainer: {
-        marginTop: 25,
-        marginBottom: 20,
+        marginVertical: 30,
 
         paddingHorizontal: 15
     },
@@ -25,18 +24,18 @@ export const styles = StyleSheet.create({
     },
 
     form: {
-        paddingHorizontal: 20,
-        marginVertical: 20
+        paddingHorizontal: 15,
     },
 
     formText: {
         fontWeight: "500",
-        fontSize: 18
+        fontSize: 18,
+
+        marginVertical: 10
     },
 
     nameInputs: {
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginVertical: 15
     },
 
     inputType1: {
@@ -76,8 +75,7 @@ export const styles = StyleSheet.create({
     },
 
     banner: {
-        marginBottom: "3%",
-        marginTop: "3%"
+        marginVertical: 15
     },
 
     button: {

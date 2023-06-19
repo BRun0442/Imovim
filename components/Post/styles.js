@@ -40,7 +40,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFF",
 
     marginBottom: 15,
-    paddingVertical: 15,
     paddingHorizontal: 15
   },
 
