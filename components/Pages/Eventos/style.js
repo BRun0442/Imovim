@@ -35,35 +35,6 @@ export const styles = StyleSheet.create({
         fontWeight: "500"
     },
 
-    eventTagContainer:{
-        width: "100%",
-
-        display: "flex",
-        alignItems: "center",
-
-        paddingHorizontal: 10
-    },
-
-    eventTag: {
-        width: "100%",
-        height: 50,
-
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-
-        backgroundColor: "#F1F1F1",
-
-        borderRadius: 15,
-
-        paddingHorizontal: 15,
-        marginHorizontal: 10,
-        marginTop: 20,
-
-        elevation: 5,
-    },
-
     eventText: {
         fontSize: 14,
         fontWeight: "500"
@@ -87,7 +58,7 @@ export const styles = StyleSheet.create({
 
     header: {
         width: "100%",
-        
+
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -95,20 +66,21 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#FFF",
 
-        borderTopEndRadius: 15,
-        borderTopStartRadius: 15,
+        paddingHorizontal: 5,
 
-        paddingHorizontal: 15,
-        padding: 10,
-
-        marginBottom: 15
+        marginVertical: 15
     },
 
-    button: {
+    editEventContainer: {
+        width: "20%",
+    },
+
+    titleEvent: {
+        width: "80%",
+
         display: "flex",
         flexDirection: "row",
-
-        marginVertical: 4
+        alignItems: "center"
     },
 
     headerText: {
@@ -116,11 +88,11 @@ export const styles = StyleSheet.create({
         fontSize: 21,
         fontWeight: "600",
 
-        marginLeft: 15
+        marginLeft: 8
     },
 
     contentContainer: {
-        paddingHorizontal: 4,
+        paddingHorizontal: 2,
 
         display: "flex",
         flexDirection: "column",
@@ -245,7 +217,7 @@ export const styles = StyleSheet.create({
     },
 
     containerButtons: {
-        width: "100%",
+        width: "25%",
 
         display: "flex",
         flexDirection: "row",
@@ -253,19 +225,6 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         marginVertical: 5
-    },
-
-    buttonMap: {
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-
-        marginHorizontal: 5,
-        padding: 15,
-
-        backgroundColor: "#F1F1F1",
-
-        borderRadius: 10
     },
 
     buttonCopy: {
@@ -282,7 +241,7 @@ export const styles = StyleSheet.create({
     },
 
     locationData: {
-        width: "100%",
+        width: "75%",
 
         marginVertical: 5
     },

@@ -9,6 +9,7 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: "#FFF",
     },
 
@@ -80,8 +81,6 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-
-        paddingHorizontal: 5
     },
 
     profileName: {
@@ -164,6 +163,21 @@ export const styles = StyleSheet.create({
 
         textAlign: "left",
 
+        fontSize: 18,
+        fontWeight: "400",
+    },
+
+    inputType5: {
+        width: "100%",
+        height: 45,
+
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        flexWrap: "wrap",
+
+        textAlign: "left",
+
         paddingHorizontal: 15,
 
         fontSize: 18,
@@ -212,7 +226,8 @@ export const styles = StyleSheet.create({
 
         borderRadius: 20,
 
-        marginVertical: 15
+        marginVertical: 15,
+        paddingHorizontal: 15
     },
 
     text: {

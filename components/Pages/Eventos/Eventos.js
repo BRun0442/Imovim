@@ -131,7 +131,7 @@ export default function Eventos({ navigation }) {
 
                 <View style={styles.eventTagContainer}>
                     <View style={styles.eventTag}>
-                        <Text style={styles.eventText}>Eventos populares</Text>
+                        <Text style={styles.eventText}>Todos os eventos</Text>
                         <AntDesign name="right" size={20} color="black" />
                     </View>
                 </View>
@@ -168,7 +168,7 @@ export default function Eventos({ navigation }) {
 
                 <View style={styles.eventTagContainer}>
                     <View style={styles.eventTag}>
-                        <Text style={styles.eventText}>Eventos perto de você</Text>
+                        <Text style={styles.eventText}>Eventos dos seus amigos</Text>
                         <AntDesign name="right" size={20} color="black" />
                     </View>
                 </View>
@@ -202,28 +202,33 @@ export default function Eventos({ navigation }) {
                     <ScrollView style={styles.content}>
 
                         <View style={styles.header}>
-                            <TouchableOpacity style={styles.button}>
+
+                            <View style={styles.titleEvent}>
                                 <FontAwesome5 name="calendar-plus" size={25} color="#F8670E" />
                                 <Text style={styles.headerText}>{name}</Text>
-                            </TouchableOpacity>
+                            </View>
 
-                            {authorId == id &&
-                                <View style={{ flexDirection: 'row' }}>
-                                    <TouchableOpacity onPress={() => {
-                                        setUpdatingEvent(true)
-                                        setEvent_id(currentEvent)
-                                        navigation.navigate('Criar Evento')
-                                    }} style={styles.editButton}>
-                                        <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
-                                    </TouchableOpacity>
+                            <View style={styles.editEventContainer}>
+                                {authorId == id &&
+                                    <View style={{ flexDirection: "row" }}>
+                                        <TouchableOpacity onPress={() => {
+                                            setUpdatingEvent(true)
+                                            setEvent_id(currentEvent)
+                                            navigation.navigate('Criar Evento')
+                                        }} style={styles.editButton}>
+                                            <Foundation style={{ marginHorizontal: 5 }} name="pencil" size={25} color="#000" />
+                                        </TouchableOpacity>
 
-                                    <TouchableOpacity
-                                        onPress={() => setVisibleDelete(true)}
-                                        style={styles.editButton}
-                                    >
-                                        <MaterialIcons name="delete" size={25} color="#000" />
-                                    </TouchableOpacity>
-                                </View>}
+                                        <TouchableOpacity
+                                            onPress={() => setVisibleDelete(true)}
+                                            style={styles.editButton}
+                                        >
+                                            <MaterialIcons name="delete" size={25} color="#000" />
+                                        </TouchableOpacity>
+                                    </View>
+                                }
+                            </View>
+
                         </View>
 
                         <Modal
@@ -270,28 +275,19 @@ export default function Eventos({ navigation }) {
                                         <View style={styles.locationData}>
                                             <Text style={styles.location}>{location}</Text>
                                         </View>
-                                    </View>
 
-                                    <View style={styles.containerButtons}>
+                                        <View style={styles.containerButtons}>
 
-                                        <TouchableOpacity
-                                            style={styles.buttonMap}
-                                            onPress={() => handleMap()}
-                                        >
-                                            <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
-                                            <Text>Ver a localização</Text>
-                                        </TouchableOpacity>
-
-                                        <TouchableOpacity
-                                            style={styles.buttonCopy}
-                                            onPress={() => {
-                                                copyToClipboard()
-                                                showToastBottom('Copiado com sucesso!', 'bottom')
-                                            }}
-                                        >
-                                            <FontAwesome5 name="copy" size={30} color="#F8670E" />
-                                            <Text>Copiar a localização</Text>
-                                        </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={styles.buttonCopy}
+                                                onPress={() => {
+                                                    copyToClipboard()
+                                                    showToastBottom('Copiado com sucesso!', 'bottom')
+                                                }}
+                                            >
+                                                <FontAwesome5 name="copy" size={30} color="#F8670E" />
+                                            </TouchableOpacity>
+                                        </View>
 
                                     </View>
 
@@ -359,7 +355,9 @@ export default function Eventos({ navigation }) {
                                     }
                                 </TouchableOpacity>
                             </View>
+                            
                         </View>
+
                     </ScrollView>
                 )}
             </Modalize>

@@ -162,11 +162,11 @@ export default function MarcarEventos({ navigation }, props) {
                 setNameEventLength(text.length)
               }}
               keyboardType="default"
-              maxLength={15}
+              maxLength={25}
             />
 
             <Text style={styles.eventNameLengthText}>
-              {nameEventLength} / 15
+              {nameEventLength} / 25
             </Text>
 
           </View>
@@ -241,14 +241,15 @@ export default function MarcarEventos({ navigation }, props) {
           </View>
 
           <Text style={styles.formText}>Local</Text>
+
           <View style={styles.borderLocationInput}>
             <View style={styles.locationInput}>
               <TextInput
-                style={styles.inputType4}
+                style={styles.inputType5}
                 onChangeText={(text) => setLocalization(text)}
                 keyboardType="default"
               />
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.iconInput}
                 onPress={() => {
                   setAlterMapPermission(true);
@@ -256,7 +257,7 @@ export default function MarcarEventos({ navigation }, props) {
                 }}
               >
                 <Entypo name="location" size={22} color="#F8670E" />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
 
