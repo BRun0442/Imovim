@@ -16,6 +16,8 @@ import * as MediaLibrary from "expo-media-library";
 import { AuthContext } from "../../../contexts/auth";
 import { createEvent, getEvent, updateEvent } from "../../../services/events";
 
+import axios from 'axios'
+
 export default function MarcarEventos({ navigation }, props) {
   const {
     id,
@@ -128,6 +130,22 @@ export default function MarcarEventos({ navigation }, props) {
       // setLongitude(event[0].longitude)
     });
   };
+
+  const handleCep = async (cep) => {
+    if (cep.length == 8) {
+      try {
+        const {data} = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+        setStreet(`${data.logradouro}, ${data.bairro}, ${data.localidade}, ${data.cep}`)
+        console.log(data);
+      } catch(err) {
+        alert('CEP Inválido!')
+        console.log(err);
+      }
+    }
+    else {
+      console.log('teste');
+    }
+  }
 
   useEffect(() => {
     if (updatingEvent) {
@@ -247,10 +265,13 @@ export default function MarcarEventos({ navigation }, props) {
             <View style={styles.locationInput}>
               <TextInput
                 style={styles.inputType5}
-                onChangeText={(text) => setLocalization(text)}
-                keyboardType="default"
+                onChangeText={(text) => {
+                  setLocalization(text)
+                  handleCep(text)
+                }}
+                keyboardType="numeric"
                 placeholder="CEP"
-                maxLength={7}
+                maxLength={8}
               />
               {/* <TouchableOpacity
                 style={styles.iconInput}
