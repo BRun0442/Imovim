@@ -9,7 +9,9 @@ const width = ScreenWidth / 100; // largura em porcentagem
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: "100%",
+        height: "100%",
+        
         backgroundColor: "#FFF",
     },
 
@@ -230,7 +232,14 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 15
     },
 
-    text: {
+    locationText: {
+        padding: 13,
+        color: "#000",
+        fontWeight: "400",
+        fontSize: 17
+    },
+
+    textButton: {
         color: "#fff",
         fontWeight: "bold",
         fontSize: 17

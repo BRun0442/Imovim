@@ -29,6 +29,7 @@ export default function MarcarEventos({ navigation }, props) {
 
   const [name, setName] = useState("");
   const [localization, setLocalization] = useState();
+  const [street, setStreet] = useState('')
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [day, setDay] = useState();
@@ -248,6 +249,8 @@ export default function MarcarEventos({ navigation }, props) {
                 style={styles.inputType5}
                 onChangeText={(text) => setLocalization(text)}
                 keyboardType="default"
+                placeholder="CEP"
+                maxLength={7}
               />
               {/* <TouchableOpacity
                 style={styles.iconInput}
@@ -259,6 +262,10 @@ export default function MarcarEventos({ navigation }, props) {
                 <Entypo name="location" size={22} color="#F8670E" />
               </TouchableOpacity> */}
             </View>
+          </View>
+
+          <View style={styles.borderLocationInput}>
+              <Text style={styles.locationText}>{street}</Text>
           </View>
 
           <Text style={styles.formText}>Descrição</Text>
@@ -297,7 +304,7 @@ export default function MarcarEventos({ navigation }, props) {
                 {image && (
                   <Image
                     style={{
-                      width: "95%",
+                      width: "100%",
                       height: 150,
                     }}
                     source={{ uri: image }}
@@ -311,7 +318,7 @@ export default function MarcarEventos({ navigation }, props) {
             onPress={() => handleSubmit()}
             style={styles.button}
           >
-            <Text style={styles.text}>Criar Evento</Text>
+            <Text style={styles.textButton}>Criar Evento</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </View>
