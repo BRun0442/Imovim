@@ -124,19 +124,23 @@ export default function Cadastro({ navigation }) {
           <TouchableOpacity
             style={styles.button}
             onPress={async () => {
-              try{
-                const res = await sendMail(email, "Confirmação de email")
-                const array = securityCode
-                array.push(res)
-                setSecurityCode(array)
-              } catch (err) {
-                console.log('api error!!!');
-                const res = await sendMail(email, "Confirmação de email")
-                const array = securityCode
-                array.push(res)
-                setSecurityCode(array)
-              } finally {
-                navigation.navigate('Cadastro Validacao')
+              if (visiblePassword1 == visiblePassword2 && visiblePassword1.length > 6) {
+                try{
+                  const res = await sendMail(email, "Confirmação de email")
+                  const array = securityCode
+                  array.push(res)
+                  setSecurityCode(array)
+                } catch (err) {
+                  console.log('api error!!!');
+                  const res = await sendMail(email, "Confirmação de email")
+                  const array = securityCode
+                  array.push(res)
+                  setSecurityCode(array)
+                } finally {
+                  navigation.navigate('Cadastro Validacao')
+                }
+              } else {
+                alert('Senhas não coincidem')
               }
             }
             }>
