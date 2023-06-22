@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 
   content: {
     width: "100%",
-    height: 200,
+    height: 250,
 
     display: "flex",
     justifyContent: "center",
@@ -78,8 +78,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
+    flexWrap: "wrap",
 
-    marginVertical: 15
+    marginVertical: 15,
+    paddingHorizontal: 10
   },
 
   deleteEventModalText: {

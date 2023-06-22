@@ -95,17 +95,17 @@ export const styles = StyleSheet.create({
 
         backgroundColor: "#FFF",
 
-        paddingHorizontal: 5,
+        paddingHorizontal: 15,
 
         marginVertical: 15
     },
 
     editEventContainer: {
-        width: "20%",
+        width: "15%",
     },
 
     titleEvent: {
-        width: "80%",
+        width: "70%",
 
         display: "flex",
         flexDirection: "row",
@@ -117,7 +117,7 @@ export const styles = StyleSheet.create({
         fontSize: 21,
         fontWeight: "600",
 
-        marginLeft: 8
+        marginLeft: 12
     },
 
     contentContainer: {

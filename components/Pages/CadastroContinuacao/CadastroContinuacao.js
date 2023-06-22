@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, ScrollView, Linking } from 'react-native';
 import { styles } from './styles'
 
 import basketBall from '../../../assets/bolaBasquete.png';
@@ -10,6 +10,7 @@ import { sendMail } from '../../../services/sendMail';
 import { AuthContext } from '../../../contexts/auth';
 
 import { Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 export default function Cadastro({ navigation }) {
   const { setEmail, setPassword, setPasswordConfirm, nickname, birthday, phoneNumber, email, password, passwordConfirm } = useContext(CreateUserContext)
@@ -17,6 +18,11 @@ export default function Cadastro({ navigation }) {
 
   const [visiblePassword1, setVisiblePassword1] = useState(true)
   const [visiblePassword2, setVisiblePassword2] = useState(true)
+  const [changeIcon, setChangeIcon] = useState(false)
+
+  const handleOpenWebsite = () => {
+    Linking.openURL('https://imovim-landing-page.vercel.app/termos-de-uso');
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -119,28 +125,59 @@ export default function Cadastro({ navigation }) {
 
         </KeyboardAvoidingView>
 
+        <View style={styles.termsOfUseContainer}>
+
+          {
+            changeIcon ? (
+              <TouchableOpacity
+                style={styles.termsOfUseButton}
+                onPress={() => setChangeIcon(false)}
+              >
+                <Feather name="check" size={25} color="#FFF" />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                style={styles.termsOfUseButton}
+                onPress={() => setChangeIcon(true)}
+              >
+              </TouchableOpacity>
+            )
+          }
+
+          <Text style={styles.termsOfUseText1}>Li e concordo com os </Text>
+
+          <TouchableOpacity onPress={() => handleOpenWebsite}>
+            <Text style={styles.termsOfUseText2}>termos de uso</Text>
+          </TouchableOpacity>
+
+        </View>
+
         <View style={styles.buttonContainer}>
 
           <TouchableOpacity
             style={styles.button}
             onPress={async () => {
-              if (visiblePassword1 == visiblePassword2 && visiblePassword1.length > 6) {
-                try{
-                  const res = await sendMail(email, "Confirmação de email")
-                  const array = securityCode
-                  array.push(res)
-                  setSecurityCode(array)
-                } catch (err) {
-                  console.log('api error!!!');
-                  const res = await sendMail(email, "Confirmação de email")
-                  const array = securityCode
-                  array.push(res)
-                  setSecurityCode(array)
-                } finally {
-                  navigation.navigate('Cadastro Validacao')
+              if (changeIcon) {
+                if (visiblePassword1 == visiblePassword2 && visiblePassword1.length > 6) {
+                  try {
+                    const res = await sendMail(email, "Confirmação de email")
+                    const array = securityCode
+                    array.push(res)
+                    setSecurityCode(array)
+                  } catch (err) {
+                    console.log('api error!!!');
+                    const res = await sendMail(email, "Confirmação de email")
+                    const array = securityCode
+                    array.push(res)
+                    setSecurityCode(array)
+                  } finally {
+                    navigation.navigate('Cadastro Validacao')
+                  }
+                } else {
+                  alert('Senhas não coincidem')
                 }
               } else {
-                alert('Senhas não coincidem')
+                alert('Por favor, aceite os termos de uso para continuar.')
               }
             }
             }>

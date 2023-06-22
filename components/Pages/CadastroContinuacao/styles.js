@@ -113,15 +113,51 @@ export const styles = StyleSheet.create({
     marginVertical: 22
   },
 
-  iconInput:{
+  iconInput: {
     position: "absolute",
     right: 8,
     top: 25
   },
 
+  termsOfUseContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+
+  termsOfUseButton: {
+    width: 30,
+    height: 30,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    borderColor: "#FFF",
+    borderWidth: 1.5,
+    borderRadius: 6,
+
+    marginRight: 10
+  },
+
+  termsOfUseText1: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "700"
+  },
+
+  termsOfUseText2: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "700",
+
+    textDecorationLine: 'underline',
+    textDecorationStyle: "#FFF",
+  },
+
   buttonContainer: {
     width: "100%",
-    
+
     marginVertical: 50
   },
 
@@ -164,7 +200,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
-  radioContainer:{
+  radioContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -172,18 +208,18 @@ export const styles = StyleSheet.create({
     marginVertical: 50
   },
 
-  radio:{
-      width: 15,
-      height: 15,
+  radio: {
+    width: 15,
+    height: 15,
 
-      backgroundColor: "#D9D9D9",
+    backgroundColor: "#D9D9D9",
 
-      borderRadius: 20,
+    borderRadius: 20,
 
-      marginHorizontal: 15
+    marginHorizontal: 15
   },
 
-  radioOrange:{
+  radioOrange: {
     width: 15,
     height: 15,
 
