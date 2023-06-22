@@ -1,8 +1,21 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { MaterialIcons } from '@expo/vector-icons';
+import api from "../../services/api";
 
-export default function DeleteMessage({ handleClose }) {
+export default function DeleteMessage({ handleClose, messageId, retrieveMessages }) {
+    const handleDelete = async () => {
+        try {
+            const {data} = await api.delete(`/chat/remove-message/${messageId}`)
+            console.log(data);
+            retrieveMessages()
+        } catch (err) {
+            console.log(err);
+        } finally {
+            handleClose();
+        }
+    }
+
     return (
         <View style={styles.container}>
 
@@ -12,7 +25,7 @@ export default function DeleteMessage({ handleClose }) {
 
                 <Text style={styles.modalTitle}>Deseja apagar a mensagem?</Text>
 
-                <TouchableOpacity style={styles.deleteButton}>
+                <TouchableOpacity onPress={() => handleDelete()} style={styles.deleteButton}>
                     <Text style={styles.deleteText}>Apagar mensagem</Text>
                     <MaterialIcons name="delete" size={24} color="#FFF" />
                 </TouchableOpacity>

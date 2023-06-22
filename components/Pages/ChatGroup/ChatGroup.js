@@ -221,7 +221,7 @@ export default function ChatGroup({ navigation }) {
                         transparent={true}
                         onRequestClose={() => setVisibleDeleteMessage(false)}
                       >
-                        <DeleteMessage handleClose={() => setVisibleDeleteMessage(false)} />
+                        <DeleteMessage retrieveMessages={retrieveMessages} messageId={item._id} handleClose={() => setVisibleDeleteMessage(false)} />
                       </Modal>
 
 
