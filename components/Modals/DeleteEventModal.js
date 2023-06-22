@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function DeleteEventModal({ handleClose, name }) {
+export default function DeleteEventModal({ handleClose, name, deleteEvent }) {
 
   return (
     <View style={styles.container}>
@@ -22,7 +22,7 @@ export default function DeleteEventModal({ handleClose, name }) {
 
           <View style={styles.buttonsContainer}>
 
-            <TouchableOpacity onPress={() => alert("Falta fazer")}>
+            <TouchableOpacity onPress={() => deleteEvent()}>
               <Text style={styles.button1}>
                 Sim
               </Text>

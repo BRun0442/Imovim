@@ -27,10 +27,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { toastConfig } from '../../Toast/toastConfig';
 import { showToastBottom } from '../../Toast/Toast';
 
+import { removeEvent } from "../../../services/events";
+
 // import * as Clipboard from 'expo-clipboard';
 
 export default function Eventos({ navigation }) {
-    const { setUpdatingEvent, setEvent_id, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
+    const { setUpdatingEvent, setEvent_id, event_id, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
     const getData = async () => {
         const data = await getAllEvents(id)
@@ -86,6 +88,10 @@ export default function Eventos({ navigation }) {
     const onOpenEvents = () => {
         modalizeEvents.current?.open();
     };
+
+    const onCloseEvents = () => {
+        modalizeEvents.current?.close();
+    }
 
     const handleMap = () => {
         setAlterMapPermission(false)
@@ -239,6 +245,15 @@ export default function Eventos({ navigation }) {
 
                             <DeleteEventModal
                                 name={name}
+                                deleteEvent={async () => {
+                                    removeEvent(currentEvent, id)
+                                    onCloseEvents()
+                                    getData()
+                                        .then((res) => {
+                                            setEvents(res)
+                                            console.log(res)
+                                        })
+                                }}
                                 handleClose={() => setVisibleDelete(false)}
                             />
                         </Modal>
