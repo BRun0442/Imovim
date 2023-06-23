@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
 
     backgroundColor: "#FF6709",
-    
+
     marginVertical: 10
   },
 
@@ -267,7 +267,7 @@ export const styles = StyleSheet.create({
   },
 
   containerButtons: {
-    width: "100%",
+    width: "25%",
 
     display: "flex",
     flexDirection: "row",
@@ -275,19 +275,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
 
     marginVertical: 5
-  },
-
-  buttonMap: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-
-    marginHorizontal: 5,
-    padding: 15,
-
-    backgroundColor: "#F1F1F1",
-
-    borderRadius: 10
   },
 
   buttonCopy: {
@@ -304,7 +291,7 @@ export const styles = StyleSheet.create({
   },
 
   locationData: {
-    width: "100%",
+    width: "75%",
 
     marginVertical: 5
   },

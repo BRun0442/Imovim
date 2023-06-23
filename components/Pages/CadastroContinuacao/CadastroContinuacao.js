@@ -146,7 +146,7 @@ export default function Cadastro({ navigation }) {
 
           <Text style={styles.termsOfUseText1}>Li e concordo com os </Text>
 
-          <TouchableOpacity onPress={() => handleOpenWebsite}>
+          <TouchableOpacity onPress={handleOpenWebsite}>
             <Text style={styles.termsOfUseText2}>termos de uso</Text>
           </TouchableOpacity>
 

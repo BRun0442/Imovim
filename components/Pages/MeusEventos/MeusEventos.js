@@ -247,28 +247,19 @@ export default function MeusEventos({ navigation }) {
                                         <View style={styles.locationData}>
                                             <Text style={styles.location}>{location}</Text>
                                         </View>
-                                    </View>
 
-                                    <View style={styles.containerButtons}>
+                                        <View style={styles.containerButtons}>
 
-                                        <TouchableOpacity
-                                            style={styles.buttonMap}
-                                            onPress={() => handleMap()}
-                                        >
-                                            <FontAwesome5 name="map-marked-alt" size={30} color="#F8670E" />
-                                            <Text>Ver a localização</Text>
-                                        </TouchableOpacity>
-
-                                        <TouchableOpacity
-                                            style={styles.buttonCopy}
-                                            onPress={() => {
-                                                copyToClipboard()
-                                                showToastBottom('Copiado com sucesso!', 'bottom')
-                                            }}
-                                        >
-                                            <FontAwesome5 name="copy" size={30} color="#F8670E" />
-                                            <Text>Copiar a localização</Text>
-                                        </TouchableOpacity>
+                                            <TouchableOpacity
+                                                style={styles.buttonCopy}
+                                                onPress={() => {
+                                                    copyToClipboard()
+                                                    showToastBottom('Copiado com sucesso!', 'bottom')
+                                                }}
+                                            >
+                                                <FontAwesome5 name="copy" size={30} color="#F8670E" />
+                                            </TouchableOpacity>
+                                        </View>
 
                                     </View>
 

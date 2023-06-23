@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
 
         marginBottom: 15,
 
-        paddingVertical: 15
+        paddingVertical: 20
     },
 
     photoUser: {
@@ -22,8 +22,6 @@ export const styles = StyleSheet.create({
         borderRadius: 50,
 
         backgroundColor: "#D9D9D9",
-
-        marginRight: 15
     },
 
     profileImage: {
@@ -31,12 +29,12 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
 
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
 
         borderRadius: 50,
 
-        marginRight: 15
+        marginRight: 8
     },
 
     resultText: {

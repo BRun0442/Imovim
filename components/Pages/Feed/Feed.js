@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext, useCallback, useRef } from "react";
-import { View, Text, ScrollView, FlatList, Image, TouchableOpacity, ActivityIndicator, RefreshControl, Alert, Modal
+import {
+  View, Text, ScrollView, FlatList, Image, TouchableOpacity, ActivityIndicator, RefreshControl, Alert, Modal
 } from "react-native";
 import { styles } from "./styles";
 
@@ -40,7 +41,7 @@ export default function Feed({ navigation }) {
     setCurrentPost,
     updatingEvent,
     setUpdatingEvent,
-    reportedPost, 
+    reportedPost,
     setReportedPost
   } = useContext(AuthContext);
   const [refreshing, setRefreshing] = useState(false);
@@ -157,7 +158,7 @@ export default function Feed({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
-      ListEmptyComponent={<View><Text>Nenhum Post</Text></View>}
+        ListEmptyComponent={<View><Text>Nenhum Post</Text></View>}
         ListHeaderComponent={
           <View>
             <Header navigation={navigation} />
@@ -328,35 +329,26 @@ export default function Feed({ navigation }) {
                   <Text style={styles.locationTitle}>Local: </Text>
 
                   <View style={styles.locationDataContainer}>
+
                     <View style={styles.locationData}>
                       <Text style={styles.location}>{location}</Text>
                     </View>
+
+                    <View style={styles.containerButtons}>
+
+                      <TouchableOpacity
+                        style={styles.buttonCopy}
+                        onPress={() => {
+                          copyToClipboard()
+                          showToastBottom('Copiado com sucesso!', 'bottom')
+                        }}
+                      >
+                        <FontAwesome5 name="copy" size={30} color="#F8670E" />
+                      </TouchableOpacity>
+                    </View>
+
                   </View>
 
-                  <View style={styles.containerButtons}>
-                    <TouchableOpacity
-                      style={styles.buttonMap}
-                      onPress={() => handleMap()}
-                    >
-                      <FontAwesome5
-                        name="map-marked-alt"
-                        size={30}
-                        color="#F8670E"
-                      />
-                      <Text>Ver a localização</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      style={styles.buttonCopy}
-                      onPress={() => {
-                        copyToClipboard();
-                        showToastBottom("Copiado com sucesso!", "bottom");
-                      }}
-                    >
-                      <FontAwesome5 name="copy" size={30} color="#F8670E" />
-                      <Text>Copiar a localização</Text>
-                    </TouchableOpacity>
-                  </View>
                 </View>
 
                 <View style={styles.descritpionEvent}>

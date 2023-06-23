@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "center",        
+        alignItems: "center",
 
         backgroundColor: "#FFF",
         width: "100%",
@@ -98,7 +98,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
     },
-    
+
     headerText: {
         color: "#000",
         fontSize: 21,
@@ -107,7 +107,7 @@ export const styles = StyleSheet.create({
         marginLeft: 15
     },
 
-    editButton:{
+    editButton: {
         display: "flex",
         flexDirection: "row",
     },
@@ -238,7 +238,7 @@ export const styles = StyleSheet.create({
     },
 
     containerButtons: {
-        width: "100%",
+        width: "25%",
 
         display: "flex",
         flexDirection: "row",
@@ -246,19 +246,6 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         marginVertical: 5
-    },
-
-    buttonMap: {
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-
-        marginHorizontal: 5,
-        padding: 15,
-
-        backgroundColor: "#F1F1F1",
-
-        borderRadius: 10
     },
 
     buttonCopy: {
@@ -275,7 +262,7 @@ export const styles = StyleSheet.create({
     },
 
     locationData: {
-        width: "100%",
+        width: "75%",
 
         marginVertical: 5
     },
@@ -284,7 +271,7 @@ export const styles = StyleSheet.create({
         color: "#000",
         fontSize: 20,
     },
-
+    
     interactiveButtonContainer: {
         display: "flex",
         flexDirection: "row",
@@ -306,7 +293,7 @@ export const styles = StyleSheet.create({
         borderRadius: 15
     },
 
-    iconContainer:{
+    iconContainer: {
         display: "flex",
         alignItems: "center"
     },
