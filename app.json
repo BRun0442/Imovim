@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Mobile",
-    "icon": "./assets/bolaBasquete.png",
+    "icon": "./assets/icon.jpg",
     "version": "1.0.0",
     "slug": "mobile",
     "ios": {
@@ -19,6 +19,10 @@
       "eas": {
         "projectId": "4fe77be1-ec8b-4466-ab8f-8e9827670049"
       }
+    },
+    "splash": {
+      "image": "./assets/splash.jpg",
+      "backgroundColor": "#FFF"
     }
   },
   "build": {
