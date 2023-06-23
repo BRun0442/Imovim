@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "Mobile",
+    "name": "Imovim",
     "icon": "./assets/icon.jpg",
     "version": "1.0.0",
-    "slug": "mobile",
+    "slug": "imovim",
     "ios": {
       "bundleIdentifier": "com.EtecEmbu.Imovim",
       "buildNumber": "1.0.0",
@@ -14,11 +14,6 @@
     "android": {
       "package": "com.EtecEmbu.Imovim",
       "versionCode": 1
-    },
-    "extra": {
-      "eas": {
-        "projectId": "4fe77be1-ec8b-4466-ab8f-8e9827670049"
-      }
     },
     "splash": {
       "image": "./assets/splash.jpg",
