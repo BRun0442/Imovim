@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 
+import { showToastSuccess } from '../../Toast/Toast'
+
 import Header from '../../Header/Header';
 import MembersGroup from "../../MembersGroup/MembersGroup";
 import ExitGroup from "../../Modals/IconExitGroup";
@@ -13,7 +15,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 
 export default function DadosGrupo({ navigation }, props) {
-  const { id, groupDescription, setGroupDescription, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
+  const { id, groupDescription, reloadChats, setReloadChats, setGroupDescription, chatFocusedId, chatNickname, chatProfileImage, messageList, setMessageList, friend_id } = useContext(AuthContext)
 
   const [visibleModal, setVisibleModal] = useState(false)
   const [groupMembers, setGroupMembers] = useState([])
@@ -24,6 +26,18 @@ export default function DadosGrupo({ navigation }, props) {
         setGroupMembers(res.data)
         console.log(res.data);
       })
+  }
+
+  const exitGroup = async () => {
+    try {
+      const { data } = await api.delete(`/chat/exit-room/${chatFocusedId}/${id}`)
+      console.log(data);
+      showToastSuccess(data.msg)
+      setReloadChats(reloadChats + 1)
+      navigation.navigate('Mensagens')
+    } catch(err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
@@ -77,6 +91,7 @@ export default function DadosGrupo({ navigation }, props) {
           >
             <ExitGroup
               handleClose={() => setVisibleModal(false)}
+              exitGroup={exitGroup}
               chatNickname={chatNickname}
             />
           </Modal>

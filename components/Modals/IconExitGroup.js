@@ -5,7 +5,7 @@ import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-na
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function IconExitGroup({ handleClose, chatNickname }) {
+export default function IconExitGroup({ handleClose, exitGroup, chatNickname }) {
   return (
     <SafeAreaView style={styles.container}>
 
@@ -24,7 +24,10 @@ export default function IconExitGroup({ handleClose, chatNickname }) {
           </View>
 
           <View style={styles.buttons}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+              exitGroup()
+              handleClose()
+            }}>
               <Text style={styles.textButton1}>
                 Sim
               </Text>
