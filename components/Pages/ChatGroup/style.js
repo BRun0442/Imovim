@@ -88,7 +88,7 @@ export const styles = StyleSheet.create({
 
     actionsContainer: {
         width: 200,
-        height: 100,
+        height: 70,
 
         backgroundColor: "#8B04A2",
 

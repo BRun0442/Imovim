@@ -92,7 +92,7 @@ export const styles = StyleSheet.create({
 
     actionsContainer: {
         width: 240,
-        height: 100,
+        height: 60,
 
         backgroundColor: "#8B04A2",
 
@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
 
         zIndex: 5,
 
-        paddingHorizontal: 15
+        paddingHorizontal: 10
     },
 
     actionsButton: {
@@ -130,8 +130,8 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 
-        width: 70,
-        height: 75,
+        width: 40,
+        height: 60,
     },
 
     lineButtons: {

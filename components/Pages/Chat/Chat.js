@@ -155,11 +155,11 @@ export default function Chat({ navigation }) {
                         <Text style={styles.textButton}>Ver Perfil</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.lineButtons} />
+                      {/* <View style={styles.lineButtons} />
 
                       <TouchableOpacity>
                         <Text style={styles.textButton}>Bloquear</Text>
-                      </TouchableOpacity>
+                      </TouchableOpacity> */}
 
                       {/* <View style={styles.lineButtons} />
 
@@ -169,8 +169,9 @@ export default function Chat({ navigation }) {
                     </View>
 
                     <TouchableOpacity style={styles.closeIcon} onPress={() => setVisible(false)}>
-                      <Ionicons name="ios-close" size={30} color="#FFF" />
+                      <Ionicons name="ios-close" size={35} color="#FFF" />
                     </TouchableOpacity>
+
                   </View>
                 )}
 
@@ -216,7 +217,7 @@ export default function Chat({ navigation }) {
                         transparent={true}
                         onRequestClose={() => setVisibleDeleteMessage(false)}
                       >
-                        <DeleteMessage retrieveMessages={retrieveMessages}  messageId={item._id} handleClose={() => setVisibleDeleteMessage(false)} />
+                        <DeleteMessage retrieveMessages={retrieveMessages} messageId={item._id} handleClose={() => setVisibleDeleteMessage(false)} />
                       </Modal>
 
                     </View>

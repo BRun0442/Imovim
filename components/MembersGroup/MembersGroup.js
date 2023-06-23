@@ -21,7 +21,7 @@ export default function MembersGroup(props) {
 
       <View style={styles.icons}>
         <TouchableOpacity onPress={() => setVisibleModal(true)}>
-          <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" />
+          {/* <MaterialIcons style={{ marginRight: 10 }} name="person-remove" size={35} color="#FF7926" /> */}
         </TouchableOpacity>
 
         <Modal

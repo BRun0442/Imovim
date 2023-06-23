@@ -136,11 +136,11 @@ export default function ChatGroup({ navigation }) {
                         <Text style={styles.textButton}>Dados do grupo</Text>
                       </TouchableOpacity>
 
-                      <View style={styles.lineButtons} />
+                      {/* <View style={styles.lineButtons} /> */}
 
-                      <TouchableOpacity onPress={() => setVisibleExitGroupModal(true)}>
+                      {/* <TouchableOpacity onPress={() => setVisibleExitGroupModal(true)}>
                         <Text style={styles.textButton}>Sair do grupo</Text>
-                      </TouchableOpacity>
+                      </TouchableOpacity> */}
 
                       <Modal
                         visible={visibleExitGroupModal}

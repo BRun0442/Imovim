@@ -3,8 +3,8 @@ import { View, Text, ScrollView, Image, FlatList, Modal, TouchableOpacity } from
 import { styles } from './style';
 
 import Header from '../../Header/Header';
-import MembersGroup from "../../MembersGroup/MembersGroup"
-import IconRemoveGroup from "../../Modals/IconExitGroup"
+import MembersGroup from "../../MembersGroup/MembersGroup";
+import ExitGroup from "../../Modals/IconExitGroup";
 
 import api from '../../../services/api';
 import { AuthContext } from '../../../contexts/auth';
@@ -40,11 +40,11 @@ export default function DadosGrupo({ navigation }, props) {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Dados do grupo</Text>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             // onPress={() => navigation.navigate('Adicionar Participante')}
             style={styles.addNewMember}>
             <MaterialIcons name="group-add" size={30} color="#FF7926" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
         </View>
 
@@ -63,20 +63,21 @@ export default function DadosGrupo({ navigation }, props) {
             <Text style={styles.groupName}>{chatNickname}</Text>
           </View>
 
-          <TouchableOpacity style={styles.icon}>
+          {/* <TouchableOpacity style={styles.icon}>
             <Foundation
               name="pencil" size={24} color="#000"
               onPress={() => navigation.navigate('Editar Grupo')}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           <Modal
             visible={visibleModal}
             transparent={true}
             onRequestClose={() => setVisibleModal(false)}
           >
-            <IconRemoveGroup
+            <ExitGroup
               handleClose={() => setVisibleModal(false)}
+              chatNickname={chatNickname}
             />
           </Modal>
         </View>
@@ -88,10 +89,10 @@ export default function DadosGrupo({ navigation }, props) {
             <Text style={styles.describe}>{groupDescription}</Text>
           </View>
 
-          <Foundation name="pencil" size={24} color="#000"
+          {/* <Foundation name="pencil" size={24} color="#000"
             style={styles.icon}
             onPress={() => navigation.navigate('Editar Grupo')}
-          />
+          /> */}
 
         </View>
 
@@ -107,7 +108,11 @@ export default function DadosGrupo({ navigation }, props) {
               data={groupMembers}
               renderItem={({ item }) =>
                 <View>
-                  <MembersGroup chatNickname={chatNickname} memberName={item.nickname} profileImage={item.profileImage} />
+                  <MembersGroup
+                    chatNickname={chatNickname}
+                    memberName={item.nickname}
+                    profileImage={item.profileImage}
+                  />
                 </View>
               }
             />
@@ -127,7 +132,7 @@ export default function DadosGrupo({ navigation }, props) {
         </View>
 
       </View>
-      
+
     </ScrollView >
   )
 }

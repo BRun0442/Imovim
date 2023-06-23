@@ -8,14 +8,19 @@ import { AntDesign } from '@expo/vector-icons';
 export default function IconExitGroup({ handleClose, chatNickname }) {
   return (
     <SafeAreaView style={styles.container}>
+
       <View style={styles.modal}>
 
         <View style={styles.content}>
+
           <View style={styles.exitGroup}>
-            <TouchableOpacity onPress={handleClose}>
-              <AntDesign name="closecircle" size={30} color="#FFF" />
-            </TouchableOpacity>
-            <Text style={styles.exitGroupText}>Deseja sair do {chatNickname}</Text>
+            <View style={{flexDirection: "row", marginBottom: 5}}>
+              <TouchableOpacity onPress={handleClose}>
+                <AntDesign name="closecircle" size={30} color="#FFF" />
+              </TouchableOpacity>
+              <Text style={styles.exitGroupText}>Deseja sair do</Text>
+            </View>
+            <Text style={styles.exitGroupText}>{chatNickname}</Text>
           </View>
 
           <View style={styles.buttons}>
@@ -43,14 +48,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
 
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center"
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
 
   modal: {
     width: "100%",
-    height: "15%",
+    height: "25%",
 
     display: "flex",
     flexDirection: "row",
@@ -75,7 +80,7 @@ const styles = StyleSheet.create({
 
   exitGroup: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: 'center',
     alignItems: "center",
 
