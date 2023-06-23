@@ -136,6 +136,15 @@ export async function getAllEvents(user_id) {
   }
 }
 
+export async function getFriendEvents(user_id) {
+  try {
+    const response = await api.get(`/event/get-friend-events/${user_id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error.data.msg);
+  }
+}
+
 export async function removeEvent(event_id, user_id) {
   try {
     const { data } = await api.delete(`/event/delete-event/${event_id}/${user_id}`);

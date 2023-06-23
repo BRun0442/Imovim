@@ -42,7 +42,7 @@ export default function Cadastro({ navigation }) {
             <TextInput
               style={styles.inputLong}
               onChangeText={(value) => { setNickname(value) }}
-              placeholder="Nome completo"
+              placeholder="Nickname"
               placeholderTextColor={"#FFF"}
             />
 

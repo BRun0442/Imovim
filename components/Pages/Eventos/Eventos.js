@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { View, Text, Modal, ScrollView, TouchableOpacity, Clipboard, Image } from "react-native";
+import { View, Text, Modal, FlatList, ScrollView, TouchableOpacity, Clipboard, Image } from "react-native";
 import { Modalize } from "react-native-modalize";
 import { styles } from "./style"
 
@@ -29,13 +29,18 @@ import { showToastBottom } from '../../Toast/Toast';
 
 import { removeEvent } from "../../../services/events";
 
+import { getFriendEvents } from "../../../services/events";
+
 // import * as Clipboard from 'expo-clipboard';
 
 export default function Eventos({ navigation }) {
     const { setUpdatingEvent, setEvent_id, event_id, id, setMarker, setAlterMapPermission } = useContext(AuthContext)
     const [events, setEvents] = useState(null)
+    const [friendEvents, setFriendEvents] = useState(null)
     const getData = async () => {
         const data = await getAllEvents(id)
+        const data2 = await getFriendEvents(id)
+        setFriendEvents(data2)
         return data
     }
     const [currentEvent, setCurrentEvent] = useState()
@@ -180,20 +185,31 @@ export default function Eventos({ navigation }) {
                 </View>
 
                 <View style={styles.containerEventsNearYou}>
-                    <ScrollView horizontal={true}>
-                        <CardEvents
-                            width={320}
-                            eventName="Evento de PowerLifting"
-                            eventImage="https://portalcorreio.com.br/portalcorreio/arquivos/2022/09/dc89df116679d18dc8739c7ce18d8f44.jpg"
-                            describeEvent="O evento acontecerá no box da rua 22"
-                        />
-
-                        <CardEvents
-                            width={320}
-                            eventName="Corrida no parque"
-                            eventImage="https://blog.bodytech.com.br/wp-content/uploads/2022/03/shutterstock_776440840-scaled.jpg"
-                            describeEvent="Corrida e Caminhada no parque"
-                        />
+                <ScrollView horizontal={true}>
+                        {friendEvents.map((item, id) => {
+                            return (
+                                <TouchableOpacity onPress={() => {
+                                    setEventId(item.id)
+                                    getEspecificData(item.id)
+                                    onOpenEvents()
+                                }}>
+                                    <CardEvents
+                                        key={id}
+                                        width={320}
+                                        event_id={item.id}
+                                        eventName={item.event_name}
+                                        eventImage={item.photo}
+                                        describeEvent={item.description}
+                                        event_hour={item.event_hour}
+                                        event_date={item.event_date}
+                                        location={item.localization}
+                                        participants={item.participants}
+                                        userGoes={item.userGoesToEvent}
+                                        userSaved={item.userSavedEvent}
+                                    />
+                                </TouchableOpacity>
+                            )
+                        })}
                     </ScrollView>
                 </View>
 
