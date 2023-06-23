@@ -30,6 +30,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import { MaterialIcons } from '@expo/vector-icons';
 
 import Loading from "../../Loading/Loading";
 
@@ -176,7 +177,7 @@ export default function Feed({ navigation }) {
                     <MaterialCommunityIcons
                       name="calendar"
                       color={"#FFF"}
-                      size={26}
+                      size={27}
                     />
                   </TouchableOpacity>
 
@@ -186,11 +187,7 @@ export default function Feed({ navigation }) {
                     }}
                     styles={styles.button}
                   >
-                    <MaterialCommunityIcons
-                      name="camera"
-                      color={"#FFF"}
-                      size={26}
-                    />
+                    <MaterialIcons name="camera-alt" size={26} color="#FFF" />
                   </TouchableOpacity>
 
                   <TouchableOpacity
@@ -199,7 +196,7 @@ export default function Feed({ navigation }) {
                     }}
                     styles={styles.button}
                   >
-                    <FontAwesome5 name="edit" size={24} color="#FFF" />
+                    <MaterialIcons name="edit" size={27} color="#FFF" />
                   </TouchableOpacity>
                 </View>
 

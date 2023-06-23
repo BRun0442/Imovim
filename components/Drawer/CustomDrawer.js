@@ -108,7 +108,7 @@ export default function CustomDrawer({ navigation }, props) {
                     <TouchableOpacity style={styles.items}
                         onPress={() => { navigation.navigate('Criar Post') }}
                     >
-                        <FontAwesome name="edit" size={26} color="#FFF" />
+                        <MaterialIcons name="edit" size={24} color="#FFF" />
                         <Text style={styles.itemText}>Criar Post</Text>
                     </TouchableOpacity>
 
