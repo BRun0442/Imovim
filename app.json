@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Imovim",
-    "icon": "./assets/icon.jpg",
+    "icon": "./assets/icon-logo.png",
     "version": "1.0.0",
     "slug": "imovim",
     "ios": {
@@ -16,7 +16,7 @@
       "versionCode": 1
     },
     "splash": {
-      "image": "./assets/splash.jpg",
+      "image": "./assets/splash.png",
       "backgroundColor": "#FFF"
     }
   },
