@@ -2,11 +2,15 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: "100%",
+        height: "100%",
+
         backgroundColor: "#FFF",
     },
 
     titleContainer: {
+        width: "100%",
+
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
@@ -24,14 +28,16 @@ export const styles = StyleSheet.create({
     },
 
     searchContainer: {
+        width: "100%",
+        height: "90%",
+
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
 
         paddingHorizontal: 10,
-        marginHorizontal: 20,
 
-        borderRadius: 20,
+        borderRadius: 15,
 
         elevation: 4,
 
@@ -39,10 +45,14 @@ export const styles = StyleSheet.create({
     },
 
     searchInputContainer: {
+        width: "100%",
+
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+
+        paddingHorizontal: 5
     },
 
     iconContainer: {
@@ -60,22 +70,22 @@ export const styles = StyleSheet.create({
     },
 
     searchInput: {
-        backgroundColor: "#FFF",
-        height: 50,
         width: "90%",
+        height: 50,
 
         borderTopRightRadius: 20,
         borderBottomRightRadius: 20,
-
+        
         paddingHorizontal: 15,
+        marginVertical: 15,
 
-        marginVertical: 15
+        backgroundColor: "#FFF",
     },
 
     results: {
-        backgroundColor: "#F1F1F1",
+        width: "100%",
 
-        marginVertical: 10
+        borderRadius: 25,
     },
 
 })

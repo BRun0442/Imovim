@@ -51,21 +51,33 @@ export default function VerAmigos({ navigation }) {
                 <Text style={styles.title}>Amigos</Text>
             </View>
 
-            <View style={styles.searchContainer}>
-                <View style={styles.searchInputContainer}>
-                    <View style={styles.iconContainer}>
-                        <MaterialIcons name="person-search" size={32} color="#FF7926" />
-                    </View>
-                    <TextInput style={styles.searchInput} placeholder='Pesquisar amigos' />
-                </View>
+            <View style={{ paddingHorizontal: 8 }}>
+                <View style={styles.searchContainer}>
 
-                <ScrollView style={styles.results}>
-                    {friends.map((friend, index) => {
-                        return (
-                            <ResultSearchFriends key={index} user_id={friend.user_id} goToProfile={goToProfile} profileImage={friend.profileImage} name={friend.nickname} />
-                        )
-                    })}
-                </ScrollView>
+                    <View style={styles.searchInputContainer}>
+                        <View style={styles.iconContainer}>
+                            <MaterialIcons name="person-search" size={32} color="#FF7926" />
+                        </View>
+                        <TextInput style={styles.searchInput} placeholder='Pesquisar amigos' />
+                    </View>
+
+                    <ScrollView style={{ marginBottom: 30, paddingHorizontal: 5 }}>
+                        <View style={styles.results}>
+                            {friends.map((friend, index) => {
+                                return (
+                                    <ResultSearchFriends
+                                        key={index}
+                                        user_id={friend.user_id}
+                                        goToProfile={goToProfile}
+                                        profileImage={friend.profileImage}
+                                        name={friend.nickname}
+                                    />
+                                )
+                            })}
+                        </View>
+                    </ScrollView>
+
+                </View>
             </View>
         </View>
     )
