@@ -158,7 +158,8 @@ export default function Cadastro({ navigation }) {
             style={styles.button}
             onPress={async () => {
               if (changeIcon) {
-                if (visiblePassword1 == visiblePassword2 && visiblePassword1.length > 6) {
+                if (password == passwordConfirm) {
+                  if ( password.length > 6) {
                   try {
                     const res = await sendMail(email, "Confirmação de email")
                     const array = securityCode
@@ -173,6 +174,9 @@ export default function Cadastro({ navigation }) {
                   } finally {
                     navigation.navigate('Cadastro Validacao')
                   }
+                } else {
+                  alert("As senhas tem que ter pelo menos 7 digitos");
+                }
                 } else {
                   alert('Senhas não coincidem')
                 }
